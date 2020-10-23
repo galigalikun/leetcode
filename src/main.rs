@@ -1,34 +1,34 @@
 fn main() {
     let a = Solution::add_two_numbers(Some(Box::new(ListNode {
         val: 9,
-        next: Some(Box::new(ListNode {
-            val: 9,
-            next: Some(Box::new(ListNode {
-                val: 9,
-                next: Some(Box::new(ListNode {
-                val: 9,
-                next: Some(Box::new(ListNode {
-                val: 9,
-                next: Some(Box::new(ListNode {
-                val: 9,
-                next: Some(Box::new(ListNode {
-                val: 9,
-                next: None
-            }))
-            }))
-            }))
-            }))
-            }))
-        }))
+        next: None
     })),Some(Box::new(ListNode {
-        val: 9,
+        val: 1,
         next: Some(Box::new(ListNode {
             val: 9,
             next: Some(Box::new(ListNode {
                 val: 9,
                 next: Some(Box::new(ListNode {
                 val: 9,
+                next: Some(Box::new(ListNode {
+                val: 9,
+                next: Some(Box::new(ListNode {
+                val: 9,
+                next: Some(Box::new(ListNode {
+                val: 9,
+                next: Some(Box::new(ListNode {
+                val: 9,
+                next: Some(Box::new(ListNode {
+                val: 9,
+                next: Some(Box::new(ListNode {
+                val: 9,
                 next: None
+            }))
+            }))
+            }))
+            }))
+            }))
+            }))
             }))
             }))
         }))
@@ -56,14 +56,15 @@ impl ListNode {
 }
 
 impl Solution {
-    fn number(l: Option<Box<ListNode>>) -> i32 {
-        let mut n = 0;
+    fn number(l: Option<Box<ListNode>>) -> i64 {
+        let mut n:i64 = 0;
         let mut list = l;
         let mut i = 0;
         loop {
             match list {
+
                 Some(data) => {
-                    n += i32::pow(10, i) * data.val;
+                    n += i64::pow(10, i) * (data.val as i64);
                     list = data.next;
                     i+=1;
                 }
@@ -75,7 +76,7 @@ impl Solution {
 
         return n;
     }
-    fn digit(n: i32) -> u32 {
+    fn digit(n: i64) -> u32 {
         return n.to_string().len() as u32;
     }
     pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
@@ -85,7 +86,7 @@ impl Solution {
         let d = Solution::digit(sum);
         for n in (0..d).rev() {
             a = Some(Box::new(ListNode {
-                val: sum/i32::pow(10, n)%10,
+                val: (sum/i64::pow(10, n)%10) as i32,
                 next: a
             }));
         }
