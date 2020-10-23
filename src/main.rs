@@ -1,40 +1,26 @@
 fn main() {
     let a = Solution::add_two_numbers(Some(Box::new(ListNode {
-        val: 9,
-        next: None
-    })),Some(Box::new(ListNode {
-        val: 1,
+        val: 2,
         next: Some(Box::new(ListNode {
-            val: 9,
+            val: 4,
             next: Some(Box::new(ListNode {
-                val: 9,
-                next: Some(Box::new(ListNode {
-                val: 9,
-                next: Some(Box::new(ListNode {
-                val: 9,
-                next: Some(Box::new(ListNode {
-                val: 9,
-                next: Some(Box::new(ListNode {
-                val: 9,
-                next: Some(Box::new(ListNode {
-                val: 9,
-                next: Some(Box::new(ListNode {
-                val: 9,
-                next: Some(Box::new(ListNode {
-                val: 9,
+                val: 3,
                 next: None
             }))
+        })),
+    })), Some(Box::new(ListNode {
+        val: 5,
+        next: Some(Box::new(ListNode {
+            val: 6,
+            next: Some(Box::new(ListNode {
+                val: 4,
+                next: None
             }))
-            }))
-            }))
-            }))
-            }))
-            }))
-            }))
-        }))
+        })),
     })));
     println!("Hello, world! {:?}", a);
 }
+
 
 // Definition for singly-linked list.
 pub struct Solution {}
@@ -92,6 +78,18 @@ impl Solution {
                 break;
             }
         }
-        return a;
+        let mut b: Option<Box<ListNode>> = None;
+        loop {
+            if let Some(data) = a {
+                b = Some(Box::new(ListNode {
+                    val: data.val,
+                    next: b
+                }));
+                a = data.next;
+            } else {
+                break;
+            }
+        }
+        return b;
     }
 }
