@@ -80,15 +80,40 @@ impl Solution {
         return n.to_string().len() as u32;
     }
     pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        let sum = Solution::number(l1) + Solution::number(l2);
-
         let mut a: Option<Box<ListNode>> = None;
-        let d = Solution::digit(sum);
-        for n in (0..d).rev() {
+        let mut list1 = l1;
+        let mut list2 = l2;
+        let mut over = 0;
+        loop {
+            let mut n1 = 0;
+            if let Some(data1) = list1 {
+                n1 = data1.val;
+                list1 = data1.next;
+            }
+            let mut n2 = 0;
+            if let Some(data2) = list2 {
+                n2 = data2.val;
+                list2 = data2.next;
+            }
+
+            let num = n1 + n2 + over;
+
+            over = num/10;
+
             a = Some(Box::new(ListNode {
-                val: (sum/i64::pow(10, n)%10) as i32,
+                val: num%10,
                 next: a
             }));
+
+            if list1 == None && list2 == None {
+                if over > 0 {
+                    a = Some(Box::new(ListNode {
+                        val: over%10,
+                        next: a
+                    }));
+                }
+                break;
+            }
         }
         return a;
     }
