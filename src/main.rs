@@ -76,15 +76,7 @@ impl Solution {
         return n;
     }
     fn digit(n: i32) -> u32 {
-        let mut d = 1;
-        loop {
-            if n/i32::pow(10, d) > 1 {
-                d+=1;
-            } else {
-                break;
-            }
-        }
-        return d;
+        return n.to_string().len() as u32;
     }
     pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let sum = Solution::number(l1) + Solution::number(l2);
@@ -92,18 +84,10 @@ impl Solution {
         let mut a: Option<Box<ListNode>> = None;
         let d = Solution::digit(sum);
         for n in (0..d).rev() {
-            if n == (d-1) {
-                a = Some(Box::new(ListNode {
-                    val: sum/i32::pow(10, n),
-                    next: None
-                }));
-            } else {
-                a = Some(Box::new(ListNode {
-                    val: sum/i32::pow(10, n)%i32::pow(10, d-n),
-                    next: a
-                }));
-            }
-
+            a = Some(Box::new(ListNode {
+                val: sum/i32::pow(10, n)%10,
+                next: a
+            }));
         }
         return a;
     }
