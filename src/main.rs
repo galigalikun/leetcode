@@ -1,20 +1,35 @@
 fn main() {
     let a = Solution::add_two_numbers(Some(Box::new(ListNode {
-        val: 2,
+        val: 9,
         next: Some(Box::new(ListNode {
-            val: 4,
+            val: 9,
             next: Some(Box::new(ListNode {
-                val: 3,
+                val: 9,
+                next: Some(Box::new(ListNode {
+                val: 9,
+                next: Some(Box::new(ListNode {
+                val: 9,
+                next: Some(Box::new(ListNode {
+                val: 9,
+                next: Some(Box::new(ListNode {
+                val: 9,
                 next: None
+            }))
+            }))
+            }))
+            }))
             }))
         }))
     })),Some(Box::new(ListNode {
-        val: 5,
+        val: 9,
         next: Some(Box::new(ListNode {
-            val: 6,
+            val: 9,
             next: Some(Box::new(ListNode {
-                val: 4,
+                val: 9,
+                next: Some(Box::new(ListNode {
+                val: 9,
                 next: None
+            }))
             }))
         }))
     })));
@@ -84,7 +99,7 @@ impl Solution {
                 }));
             } else {
                 a = Some(Box::new(ListNode {
-                    val: sum/i32::pow(10, n)%i32::pow(10, 2-n),
+                    val: sum/i32::pow(10, n)%i32::pow(10, d-n),
                     next: a
                 }));
             }
