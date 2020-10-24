@@ -1,5 +1,8 @@
 fn main() {
-    println!("aa {}", Solution::length_of_longest_substring("dvdf".to_string()))
+    println!(
+        "aa {}",
+        Solution::length_of_longest_substring("dvdf".to_string())
+    )
 }
 
 pub struct Solution {}
@@ -13,7 +16,7 @@ impl Solution {
                 if stack.len() > c {
                     c = stack.len();
                 }
-                stack.drain(0..p+1);
+                stack.drain(0..p + 1);
                 stack.push(i);
             } else {
                 stack.push(i);

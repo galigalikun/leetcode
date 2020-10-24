@@ -1,48 +1,44 @@
 fn main() {
-    let a = Solution::add_two_numbers(Some(Box::new(ListNode {
-        val: 2,
-        next: Some(Box::new(ListNode {
-            val: 4,
-            next: Some(Box::new(ListNode {
-                val: 3,
-                next: None
-            }))
-        })),
-    })), Some(Box::new(ListNode {
-        val: 5,
-        next: Some(Box::new(ListNode {
-            val: 6,
+    let a = Solution::add_two_numbers(
+        Some(Box::new(ListNode {
+            val: 2,
             next: Some(Box::new(ListNode {
                 val: 4,
-                next: None
-            }))
+                next: Some(Box::new(ListNode { val: 3, next: None })),
+            })),
         })),
-    })));
+        Some(Box::new(ListNode {
+            val: 5,
+            next: Some(Box::new(ListNode {
+                val: 6,
+                next: Some(Box::new(ListNode { val: 4, next: None })),
+            })),
+        })),
+    );
     println!("Hello, world! {:?}", a);
 }
-
 
 // Definition for singly-linked list.
 pub struct Solution {}
 
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
-  pub val: i32,
-  pub next: Option<Box<ListNode>>
+    pub val: i32,
+    pub next: Option<Box<ListNode>>,
 }
 
 impl ListNode {
-  #[inline]
-  fn new(val: i32) -> Self {
-    ListNode {
-      next: None,
-      val
+    #[inline]
+    fn new(val: i32) -> Self {
+        ListNode { next: None, val }
     }
-  }
 }
 
 impl Solution {
-    pub fn add_two_numbers(l1: Option<Box<ListNode>>, l2: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    pub fn add_two_numbers(
+        l1: Option<Box<ListNode>>,
+        l2: Option<Box<ListNode>>,
+    ) -> Option<Box<ListNode>> {
         let mut a: Option<Box<ListNode>> = None;
         let mut list1 = l1;
         let mut list2 = l2;
@@ -61,18 +57,18 @@ impl Solution {
 
             let num = n1 + n2 + over;
 
-            over = num/10;
+            over = num / 10;
 
             a = Some(Box::new(ListNode {
-                val: num%10,
-                next: a
+                val: num % 10,
+                next: a,
             }));
 
             if list1 == None && list2 == None {
                 if over > 0 {
                     a = Some(Box::new(ListNode {
-                        val: over%10,
-                        next: a
+                        val: over % 10,
+                        next: a,
                     }));
                 }
                 break;
@@ -83,7 +79,7 @@ impl Solution {
             if let Some(data) = a {
                 b = Some(Box::new(ListNode {
                     val: data.val,
-                    next: b
+                    next: b,
                 }));
                 a = data.next;
             } else {
