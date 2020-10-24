@@ -5,31 +5,25 @@ fn main() {
     assert_eq!(Solution::longest_palindrome("ac".to_string()), "a".to_string());
     assert_eq!(Solution::longest_palindrome("abcba".to_string()), "abcba".to_string());
     assert_eq!(Solution::longest_palindrome("jrjnbctoqgzimtoklkxcknwmhiztomaofwwzjnhrijwkgmwwuazcowskjhitejnvtblqyepxispasrgvgzqlvrmvhxusiqqzzibcyhpnruhrgbzsmlsuacwptmzxuewnjzmwxbdzqyvsjzxiecsnkdibudtvthzlizralpaowsbakzconeuwwpsqynaxqmgngzpovauxsqgypinywwtmekzhhlzaeatbzryreuttgwfqmmpeywtvpssznkwhzuqewuqtfuflttjcxrhwexvtxjihunpywerkktbvlsyomkxuwrqqmbmzjbfytdddnkasmdyukawrzrnhdmaefzltddipcrhuchvdcoegamlfifzistnplqabtazunlelslicrkuuhosoyduhootlwsbtxautewkvnvlbtixkmxhngidxecehslqjpcdrtlqswmyghmwlttjecvbueswsixoxmymcepbmuwtzanmvujmalyghzkvtoxynyusbpzpolaplsgrunpfgdbbtvtkahqmmlbxzcfznvhxsiytlsxmmtqiudyjlnbkzvtbqdsknsrknsykqzucevgmmcoanilsyyklpbxqosoquolvytefhvozwtwcrmbnyijbammlzrgalrymyfpysbqpjwzirsfknnyseiujadovngogvptphuyzkrwgjqwdhtvgxnmxuheofplizpxijfytfabx".to_string()), "qosoq".to_string());
+    assert_eq!(Solution::longest_palindrome("azwdzwmwcqzgcobeeiphemqbjtxzwkhiqpbrprocbppbxrnsxnwgikiaqutwpftbiinlnpyqstkiqzbggcsdzzjbrkfmhgtnbujzszxsycmvipjtktpebaafycngqasbbhxaeawwmkjcziybxowkaibqnndcjbsoehtamhspnidjylyisiaewmypfyiqtwlmejkpzlieolfdjnxntonnzfgcqlcfpoxcwqctalwrgwhvqvtrpwemxhirpgizjffqgntsmvzldpjfijdncexbwtxnmbnoykxshkqbounzrewkpqjxocvaufnhunsmsazgibxedtopnccriwcfzeomsrrangufkjfzipkmwfbmkarnyyrgdsooosgqlkzvorrrsaveuoxjeajvbdpgxlcrtqomliphnlehgrzgwujogxteyulphhuhwyoyvcxqatfkboahfqhjgujcaapoyqtsdqfwnijlkknuralezqmcryvkankszmzpgqutojoyzsnyfwsyeqqzrlhzbc".to_string()), "sooos".to_string());
 }
 
 pub struct Solution{}
 
 impl Solution {
     pub fn longest_palindrome(s: String) -> String {
-        let mut stack = Vec::new();
-        let mut result = "".to_string();
-        for i in s.as_str().chars() {
-            let v = Vec::new();
-            stack.push(v);
-            for k in 0..stack.len() {
-                stack[k].push(i);
-                let p = stack[k].iter().collect::<String>();
-                stack[k].reverse();
-                let r = stack[k].iter().collect::<String>();
-                stack[k].reverse();
-                if p == r {
-                    if p.len() > result.len() {
-                        result = p;
-                    }
+        if s.len() == 1 {
+            return s;
+        }
+        for n in (2..=s.len()).rev() {
+            for i in 0..=s.len()-n {
+                let p = s.as_str().chars().skip(i).take(n).collect::<String>();
+                if p == p.chars().rev().collect::<String>() {
+                    return p;
                 }
             }
         }
 
-        return result;
+        return s.as_str().chars().skip(0).take(1).collect::<String>();
     }
 }
