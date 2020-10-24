@@ -15,3 +15,7 @@ path = "src/length_of_longest_substring.rs"
 [[bin]]
 name = "median-of-two-sorted-arrays"
 path = "src/median-of-two-sorted-arrays.rs"
+
+[[bin]]
+name = "longest-palindromic-substring"
+path = "src/longest-palindromic-substring.rs"
