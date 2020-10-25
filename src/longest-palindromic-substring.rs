@@ -34,9 +34,9 @@ impl Solution {
 
         let mut cs2 = Vec::new();
 
-        for i in (0..cs.len() * 2).step_by(2) {
+        for i in 0..cs.len() {
             cs2.push('|');
-            cs2.push(cs[i / 2]);
+            cs2.push(cs[i]);
         }
         cs2.push('|');
         return cs2;
@@ -47,7 +47,7 @@ impl Solution {
         }
         let s2 = Solution::add_boundaries(s.as_str().chars().collect());
         let mut p: Vec<i32> = Vec::with_capacity(s2.len());
-        for i in 0..s2.len() {
+        for _i in 0..s2.len() {
             p.push(0);
         }
         let mut c = 0;
