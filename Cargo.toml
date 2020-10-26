@@ -27,3 +27,7 @@ path = "src/zigzag-conversion.rs"
 [[bin]]
 name = "reverse-integer"
 path = "src/reverse-integer.rs"
+
+[[bin]]
+name = "string-to-integer-atoi"
+path = "src/string-to-integer-atoi.rs"
