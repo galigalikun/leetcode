@@ -17,8 +17,8 @@ name = "add-two-numbers"
 path = "src/add-two-numbers.rs"
 
 [[bin]]
-name = "length_of_longest_substring"
-path = "src/length_of_longest_substring.rs"
+name = "longest-substring-without-repeating-characters"
+path = "src/longest-substring-without-repeating-characters.rs"
 
 [[bin]]
 name = "median-of-two-sorted-arrays"
