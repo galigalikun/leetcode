@@ -1,21 +1,29 @@
 fn main() {
-    let a = Solution::add_two_numbers(
-        Some(Box::new(ListNode {
-            val: 2,
-            next: Some(Box::new(ListNode {
-                val: 4,
-                next: Some(Box::new(ListNode { val: 3, next: None })),
+    assert_eq!(
+        Solution::add_two_numbers(
+            Some(Box::new(ListNode {
+                val: 2,
+                next: Some(Box::new(ListNode {
+                    val: 4,
+                    next: Some(Box::new(ListNode { val: 3, next: None })),
+                })),
             })),
-        })),
-        Some(Box::new(ListNode {
-            val: 5,
-            next: Some(Box::new(ListNode {
-                val: 6,
-                next: Some(Box::new(ListNode { val: 4, next: None })),
+            Some(Box::new(ListNode {
+                val: 5,
+                next: Some(Box::new(ListNode {
+                    val: 6,
+                    next: Some(Box::new(ListNode { val: 4, next: None })),
+                })),
             })),
-        })),
+        ),
+        Some(Box::new(ListNode {
+            val: 7,
+            next: Some(Box::new(ListNode {
+                val: 0,
+                next: Some(Box::new(ListNode { val: 8, next: None }))
+            }))
+        }))
     );
-    println!("Hello, world! {:?}", a);
 }
 
 // Definition for singly-linked list.
