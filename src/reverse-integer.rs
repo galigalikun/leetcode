@@ -17,10 +17,11 @@ impl Solution {
             .filter(|x| x != &'-')
             .rev()
             .collect::<String>()
-            .parse::<i32>() {
-                Ok(a) => a,
-                Err(_) => 0,
-            };
+            .parse::<i32>()
+        {
+            Ok(a) => a,
+            Err(_) => 0,
+        };
 
         if x > 0 {
             return _x;
