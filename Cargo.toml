@@ -39,3 +39,7 @@ path = "src/reverse-integer.rs"
 [[bin]]
 name = "string-to-integer-atoi"
 path = "src/string-to-integer-atoi.rs"
+
+[[bin]]
+name = "palindrome-number"
+path = "src/palindrome-number.rs"
