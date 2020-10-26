@@ -23,3 +23,7 @@ path = "src/longest-palindromic-substring.rs"
 [[bin]]
 name = "zigzag-conversion"
 path = "src/zigzag-conversion.rs"
+
+[[bin]]
+name = "reverse-integer"
+path = "src/reverse-integer.rs"
