@@ -19,3 +19,7 @@ path = "src/median-of-two-sorted-arrays.rs"
 [[bin]]
 name = "longest-palindromic-substring"
 path = "src/longest-palindromic-substring.rs"
+
+[[bin]]
+name = "zigzag-conversion"
+path = "src/zigzag-conversion.rs"
