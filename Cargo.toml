@@ -43,3 +43,7 @@ path = "src/string-to-integer-atoi.rs"
 [[bin]]
 name = "palindrome-number"
 path = "src/palindrome-number.rs"
+
+[[bin]]
+name = "regular-expression-matching"
+path = "src/regular-expression-matching.rs"
