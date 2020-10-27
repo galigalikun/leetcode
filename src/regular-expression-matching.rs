@@ -8,7 +8,10 @@ fn main() {
     // assert_eq!(Solution::is_match("aaa".to_string(), "a*a".to_string()), true);
     // assert_eq!(Solution::is_match("aaa".to_string(), "ab*a".to_string()), false);
     // assert_eq!(Solution::is_match("a".to_string(), "ab*".to_string()), true);
-    assert_eq!(Solution::is_match("bbbba".to_string(), ".*a*a".to_string()), true);
+    assert_eq!(
+        Solution::is_match("bbbba".to_string(), ".*a*a".to_string()),
+        true
+    );
     // assert_eq!(Solution::is_match("ab".to_string(), ".*..".to_string()), true);
     // assert_eq!(Solution::is_match("a".to_string(), ".*..a*".to_string()), false);
 }
@@ -18,7 +21,7 @@ pub struct Solution {}
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
     pub val: char,
-    pub all:bool,
+    pub all: bool,
     pub next: Option<Box<ListNode>>,
 }
 
@@ -50,10 +53,10 @@ impl Solution {
             }
         }
         /*
-         .*
-         a*
-         a
-         */
+        .*
+        a*
+        a
+        */
         let mut a: Option<Box<ListNode>> = None;
         for n in matches.iter().rev() {
             a = Some(Box::new(ListNode {
@@ -72,14 +75,11 @@ impl Solution {
                         if m.val == '.' && m.all {
                             idx += 1;
                             if let Some(n) = m.next {
-                                if n.all {
-
-                                }
+                                if n.all {}
                             }
                         }
-                    },
-                    None => {
                     }
+                    None => {}
                 }
                 a = m.next;
             } else {
@@ -95,7 +95,7 @@ impl Solution {
                 Some(c) => {
                     if m.val == '.' && m.all {
                         idx += 1;
-                            println!("debug {}", idx);
+                        println!("debug {}", idx);
                         if let Some(n) = m.next {
                             while let Some(b) = ss.chars().nth(idx) {
                                 if n == '.' || b == n {
@@ -124,7 +124,7 @@ impl Solution {
                             idx += 1;
                         }
                         if ss.chars().count() == idx && max_count > m_idx {
-                            idx -=1;
+                            idx -= 1;
                         }
                     } else if m.val != c && !m.all {
                         return false;
