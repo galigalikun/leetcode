@@ -47,3 +47,7 @@ path = "src/palindrome-number.rs"
 [[bin]]
 name = "regular-expression-matching"
 path = "src/regular-expression-matching.rs"
+
+[[bin]]
+name = "container-with-most-water"
+path = "src/container-with-most-water.rs"
