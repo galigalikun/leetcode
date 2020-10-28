@@ -1,4 +1,4 @@
-fn main () {
+fn main() {
     assert_eq!(Solution::int_to_roman(3), "III".to_string());
     assert_eq!(Solution::int_to_roman(4), "IV".to_string());
     assert_eq!(Solution::int_to_roman(9), "IX".to_string());
@@ -84,7 +84,6 @@ impl Solution {
                     a.push(s);
                 }
             }
-
 
             i += 1;
             n = ((num as i64) / (10 as i64).pow(i)) as i32;
