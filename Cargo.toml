@@ -55,3 +55,7 @@ path = "src/container-with-most-water.rs"
 [[bin]]
 name = "integer-to-roman"
 path = "src/integer-to-roman.rs"
+
+[[bin]]
+name = "roman-to-integer"
+path = "src/roman-to-integer.rs"
