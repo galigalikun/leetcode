@@ -51,3 +51,7 @@ path = "src/regular-expression-matching.rs"
 [[bin]]
 name = "container-with-most-water"
 path = "src/container-with-most-water.rs"
+
+[[bin]]
+name = "integer-to-roman"
+path = "src/integer-to-roman.rs"
