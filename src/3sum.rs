@@ -294,6 +294,23 @@ impl Solution {
             return vec![];
         }
         let mut result: Vec<Vec<i32>> = Vec::new();
+        let mut buf = Vec::new();
+        for _ in 0..nums.len() * 3 {
+            buf.push(0);
+        }
+        // -1, 0, 1, 2, -1, -4
+        /*
+        -1 0 1 2 -1 -4
+        a  b c d  e  f
+        a + b + c = 0 [0]
+        b + c + d = 3 [1]
+        c + d + e = 2 [2]
+        d + e + f = -3 [3]
+
+        c + e + f =
+
+        a + b + d = a + b + c + d + e + f
+        */
         for a in 0..nums.len() - 1 {
             for b in (a + 1)..nums.len() {
                 for c in 0..nums.len() {
