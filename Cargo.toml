@@ -79,3 +79,7 @@ path = "src/remove-nth-node-from-end-of-list.rs"
 [[bin]]
 name = "valid-parentheses"
 path = "src/valid-parentheses.rs"
+
+[[bin]]
+name = "merge-two-sorted-lists"
+path = "src/merge-two-sorted-lists.rs"
