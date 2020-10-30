@@ -67,3 +67,11 @@ path = "src/longest-common-prefix.rs"
 [[bin]]
 name = "3sum"
 path = "src/3sum.rs"
+
+[[bin]]
+name = "3sum-closest"
+path = "src/3sum-closest.rs"
+
+[[bin]]
+name = "remove-nth-node-from-end-of-list"
+path = "src/remove-nth-node-from-end-of-list.rs"
