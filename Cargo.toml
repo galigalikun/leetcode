@@ -63,3 +63,7 @@ path = "src/roman-to-integer.rs"
 [[bin]]
 name = "longest-common-prefix"
 path = "src/longest-common-prefix.rs"
+
+[[bin]]
+name = "3sum"
+path = "src/3sum.rs"
