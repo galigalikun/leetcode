@@ -83,3 +83,11 @@ path = "src/valid-parentheses.rs"
 [[bin]]
 name = "merge-two-sorted-lists"
 path = "src/merge-two-sorted-lists.rs"
+
+[[bin]]
+name = "generate-parentheses"
+path = "src/generate-parentheses.rs"
+
+[[bin]]
+name = "merge-k-sorted-lists"
+path = "src/merge-k-sorted-lists.rs"
