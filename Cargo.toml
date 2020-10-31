@@ -91,3 +91,7 @@ path = "src/generate-parentheses.rs"
 [[bin]]
 name = "merge-k-sorted-lists"
 path = "src/merge-k-sorted-lists.rs"
+
+[[bin]]
+name = "swap-nodes-in-pairs"
+path = "src/swap-nodes-in-pairs.rs"
