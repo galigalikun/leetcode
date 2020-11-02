@@ -103,3 +103,7 @@ path = "src/reverse-nodes-in-k-group.rs"
 [[bin]]
 name = "remove-duplicates-from-sorted-array"
 path = "src/remove-duplicates-from-sorted-array.rs"
+
+[[bin]]
+name = "remove-element"
+path = "src/remove-element.rs"
