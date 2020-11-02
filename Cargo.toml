@@ -107,3 +107,7 @@ path = "src/remove-duplicates-from-sorted-array.rs"
 [[bin]]
 name = "remove-element"
 path = "src/remove-element.rs"
+
+[[bin]]
+name = "implement-strstr"
+path = "src/implement-strstr.rs"
