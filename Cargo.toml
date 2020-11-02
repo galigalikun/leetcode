@@ -99,3 +99,7 @@ path = "src/swap-nodes-in-pairs.rs"
 [[bin]]
 name = "reverse-nodes-in-k-group"
 path = "src/reverse-nodes-in-k-group.rs"
+
+[[bin]]
+name = "remove-duplicates-from-sorted-array"
+path = "src/remove-duplicates-from-sorted-array.rs"
