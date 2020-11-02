@@ -111,3 +111,7 @@ path = "src/remove-element.rs"
 [[bin]]
 name = "implement-strstr"
 path = "src/implement-strstr.rs"
+
+[[bin]]
+name = "divide-two-integers"
+path = "src/divide-two-integers.rs"
