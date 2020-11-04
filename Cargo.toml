@@ -131,3 +131,7 @@ path = "src/search-in-rotated-sorted-array.rs"
 [[bin]]
 name = "find-first-and-last-position-of-element-in-sorted-array"
 path = "src/find-first-and-last-position-of-element-in-sorted-array.rs"
+
+[[bin]]
+name = "search-insert-position"
+path = "src/search-insert-position.rs"
