@@ -115,3 +115,15 @@ path = "src/implement-strstr.rs"
 [[bin]]
 name = "divide-two-integers"
 path = "src/divide-two-integers.rs"
+
+[[bin]]
+name = "substring-with-concatenation-of-all-words"
+path = "src/substring-with-concatenation-of-all-words.rs"
+
+[[bin]]
+name = "longest-valid-parentheses"
+path = "src/longest-valid-parentheses.rs"
+
+[[bin]]
+name = "search-in-rotated-sorted-array"
+path = "src/search-in-rotated-sorted-array.rs"
