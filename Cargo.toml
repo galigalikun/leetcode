@@ -127,3 +127,7 @@ path = "src/longest-valid-parentheses.rs"
 [[bin]]
 name = "search-in-rotated-sorted-array"
 path = "src/search-in-rotated-sorted-array.rs"
+
+[[bin]]
+name = "find-first-and-last-position-of-element-in-sorted-array"
+path = "src/find-first-and-last-position-of-element-in-sorted-array.rs"
