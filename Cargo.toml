@@ -135,3 +135,7 @@ path = "src/find-first-and-last-position-of-element-in-sorted-array.rs"
 [[bin]]
 name = "search-insert-position"
 path = "src/search-insert-position.rs"
+
+[[bin]]
+name = "combination-sum"
+path = "src/combination-sum.rs"
