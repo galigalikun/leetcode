@@ -137,5 +137,9 @@ name = "search-insert-position"
 path = "src/search-insert-position.rs"
 
 [[bin]]
+name = "count-and-say"
+path = "src/count-and-say.rs"
+
+[[bin]]
 name = "combination-sum"
 path = "src/combination-sum.rs"
