@@ -143,3 +143,15 @@ path = "src/count-and-say.rs"
 [[bin]]
 name = "combination-sum"
 path = "src/combination-sum.rs"
+
+[[bin]]
+name = "trapping-rain-water"
+path = "src/trapping-rain-water.rs"
+
+[[bin]]
+name = "multiply-strings"
+path = "src/multiply-strings.rs"
+
+[[bin]]
+name = "maximum-subarray"
+path = "src/maximum-subarray.rs"
