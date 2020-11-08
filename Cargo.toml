@@ -155,3 +155,7 @@ path = "src/multiply-strings.rs"
 [[bin]]
 name = "maximum-subarray"
 path = "src/maximum-subarray.rs"
+
+[[bin]]
+name = "spiral-matrix"
+path = "src/spiral-matrix.rs"
