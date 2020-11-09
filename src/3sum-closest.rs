@@ -11,8 +11,8 @@ impl Solution {
         if nums.len() == 3 {
             return num;
         }
-        for x in 0..nums.len()-2 {
-            for y in 1..nums.len()-1 {
+        for x in 0..nums.len() - 2 {
+            for y in 1..nums.len() - 1 {
                 for z in 1..nums.len() {
                     if x == y {
                         continue;
