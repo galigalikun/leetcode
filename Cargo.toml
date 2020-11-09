@@ -73,6 +73,10 @@ name = "3sum-closest"
 path = "src/3sum-closest.rs"
 
 [[bin]]
+name = "letter-combinations-of-a-phone-number"
+path = "src/letter-combinations-of-a-phone-number.rs"
+
+[[bin]]
 name = "remove-nth-node-from-end-of-list"
 path = "src/remove-nth-node-from-end-of-list.rs"
 
