@@ -7,11 +7,32 @@ pub struct Solution {}
 
 impl Solution {
     pub fn three_sum_closest(nums: Vec<i32>, target: i32) -> i32 {
-        let mut num = 0;
-        for n in nums {
-            num += n;
+        let mut num = nums[0] + nums[1] + nums[2];
+        if nums.len() == 3 {
+            return num;
         }
-        println!("{} {}", num, target);
-        return 2;
+        for x in 0..nums.len()-2 {
+            for y in 1..nums.len()-1 {
+                for z in 1..nums.len() {
+                    if x == y {
+                        continue;
+                    }
+                    if y == z {
+                        continue;
+                    }
+                    if z == x {
+                        continue;
+                    }
+                    let sum = nums[x] + nums[y] + nums[z];
+                    if target == sum {
+                        return target;
+                    }
+                    if (target - num).abs() > (target - sum).abs() {
+                        num = sum;
+                    }
+                }
+            }
+        }
+        return num;
     }
 }
