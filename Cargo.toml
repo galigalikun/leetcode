@@ -167,3 +167,11 @@ path = "src/maximum-subarray.rs"
 [[bin]]
 name = "spiral-matrix"
 path = "src/spiral-matrix.rs"
+
+[[bin]]
+name = "permutations"
+path = "src/permutations.rs"
+
+[[bin]]
+name = "length-of-last-word"
+path = "src/length-of-last-word.rs"
