@@ -175,3 +175,7 @@ path = "src/permutations.rs"
 [[bin]]
 name = "length-of-last-word"
 path = "src/length-of-last-word.rs"
+
+[[bin]]
+name = "spiral-matrix-ii"
+path = "src/spiral-matrix-ii.rs"

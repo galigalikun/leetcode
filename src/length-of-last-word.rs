@@ -1,6 +1,9 @@
 fn main() {
     assert_eq!(Solution::length_of_last_word("Hello World".to_string()), 5);
-    assert_eq!(Solution::length_of_last_word("Today is a nice day".to_string()), 3);
+    assert_eq!(
+        Solution::length_of_last_word("Today is a nice day".to_string()),
+        3
+    );
 }
 
 pub struct Solution {}
