@@ -179,3 +179,7 @@ path = "src/length-of-last-word.rs"
 [[bin]]
 name = "spiral-matrix-ii"
 path = "src/spiral-matrix-ii.rs"
+
+[[bin]]
+name = "plus-one"
+path = "src/plus-one.rs"
