@@ -191,3 +191,7 @@ path = "src/add-binary.rs"
 [[bin]]
 name = "text-justification"
 path = "src/text-justification.rs"
+
+[[bin]]
+name = "sqrtx"
+path = "src/sqrtx.rs"
