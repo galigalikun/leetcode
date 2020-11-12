@@ -124,7 +124,7 @@ impl Solution {
         for w in words {
             word_count += w.as_str().chars().count();
 
-            if (word_count + work.len()-1) as i32 >= max_width {
+            if (word_count + work.len() - 1) as i32 >= max_width {
                 result.push(Solution::full_justify_format(
                     work.clone(),
                     word_count - w.as_str().chars().count(),
