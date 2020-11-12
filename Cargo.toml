@@ -187,3 +187,7 @@ path = "src/plus-one.rs"
 [[bin]]
 name = "add-binary"
 path = "src/add-binary.rs"
+
+[[bin]]
+name = "text-justification"
+path = "src/text-justification.rs"
