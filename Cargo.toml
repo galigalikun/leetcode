@@ -183,3 +183,7 @@ path = "src/spiral-matrix-ii.rs"
 [[bin]]
 name = "plus-one"
 path = "src/plus-one.rs"
+
+[[bin]]
+name = "add-binary"
+path = "src/add-binary.rs"
