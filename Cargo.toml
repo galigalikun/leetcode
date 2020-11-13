@@ -195,3 +195,7 @@ path = "src/text-justification.rs"
 [[bin]]
 name = "sqrtx"
 path = "src/sqrtx.rs"
+
+[[bin]]
+name = "climbing-stairs"
+path = "src/climbing-stairs.rs"
