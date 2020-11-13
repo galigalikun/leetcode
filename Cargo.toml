@@ -199,3 +199,7 @@ path = "src/sqrtx.rs"
 [[bin]]
 name = "climbing-stairs"
 path = "src/climbing-stairs.rs"
+
+[[bin]]
+name = "simplify-path"
+path = "src/simplify-path.rs"
