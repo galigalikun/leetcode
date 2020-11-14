@@ -203,3 +203,7 @@ path = "src/climbing-stairs.rs"
 [[bin]]
 name = "simplify-path"
 path = "src/simplify-path.rs"
+
+[[bin]]
+name = "set-matrix-zeroes"
+path = "src/set-matrix-zeroes.rs"
