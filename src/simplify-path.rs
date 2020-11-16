@@ -3,10 +3,7 @@ fn main() {
         Solution::simplify_path("/home/".to_string()),
         "/home".to_string()
     );
-    assert_eq!(
-        Solution::simplify_path("/../".to_string()),
-        "/".to_string()
-    );
+    assert_eq!(Solution::simplify_path("/../".to_string()), "/".to_string());
     assert_eq!(
         Solution::simplify_path("/a/./b/../../c/".to_string()),
         "/c".to_string()
