@@ -211,3 +211,7 @@ path = "src/set-matrix-zeroes.rs"
 [[bin]]
 name = "search-a-2d-matrix"
 path = "src/search-a-2d-matrix.rs"
+
+[[bin]]
+name = "sort-colors"
+path = "src/sort-colors.rs"
