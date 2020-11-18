@@ -9,65 +9,62 @@ fn main() {
     assert_eq!(Solution::merge(vec![vec![1, 4], vec![0, 4]]), vec![[0, 4]]);
     assert_eq!(Solution::merge(vec![vec![1, 4], vec![0, 1]]), vec![[0, 4]]);
     assert_eq!(Solution::merge(vec![vec![1, 4], vec![2, 3]]), vec![[1, 4]]);
-    assert_eq!(Solution::merge(vec![vec![1, 4], vec![0, 0]]), vec![[0, 4]]);
+    assert_eq!(
+        Solution::merge(vec![vec![1, 4], vec![0, 0]]),
+        vec![[0, 0], [1, 4]]
+    );
+    assert_eq!(
+        Solution::merge(vec![vec![1, 4], vec![5, 6]]),
+        vec![[1, 4], [5, 6]]
+    );
+    assert_eq!(
+        Solution::merge(vec![vec![1, 4], vec![0, 2], vec![3, 5]]),
+        vec![[0, 5]]
+    );
+    assert_eq!(
+        Solution::merge(vec![
+            vec![2, 3],
+            vec![4, 5],
+            vec![6, 7],
+            vec![8, 9],
+            vec![1, 10]
+        ]),
+        vec![[1, 10]]
+    );
 }
 
 pub struct Solution {}
 impl Solution {
     pub fn merge(intervals: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
-        let mut result = Vec::new();
-        for i in 0..intervals.len() {
+        let mut data = intervals;
+        data.sort_by(|a, b| a[0].cmp(&b[0]));
+        let mut result: Vec<Vec<i32>> = Vec::new();
+        for i in 0..data.len() {
             if i > 0 {
-                if intervals[i - 1].last() < intervals[i].first() {
-                    result.push(intervals[i].clone());
-                } else if intervals[i].last() < intervals[i - 1].first() {
-                    result.push(intervals[i].clone());
+                let idx = result.len() - 1;
+                if result[idx][1] < data[i][0] {
+                    result.push(data[i].clone());
+                } else if data[i][1] < result[idx][0] {
+                    if let Some(p) = result.pop() {
+                        result.push(data[i].clone());
+                        result.push(p);
+                    }
                 } else {
-                    let start = if intervals[i].first() < intervals[i - 1].first() {
-                        intervals[i][0]
+                    let start = if data[i].first() < result[idx].first() {
+                        data[i][0]
                     } else {
-                        intervals[i - 1][0]
+                        result[idx][0]
                     };
-                    let end = if intervals[i].last() > intervals[i - 1].last() {
-                        intervals[i][1]
+                    let end = if data[i].last() > result[idx].last() {
+                        data[i][1]
                     } else {
-                        intervals[i - 1][1]
+                        result[idx][1]
                     };
                     result.pop();
                     result.push(vec![start, end]);
                 }
-            // if intervals[i - 1].first() <= intervals[i].first()
-            //     && intervals[i].first() < intervals[i - 1].last()
-            //     && intervals[i - 1].last() < intervals[i].last()
-            // {
-            //     result.pop();
-            //     result.push(vec![intervals[i - 1][0], intervals[i][1]]);
-            // } else if intervals[i - 1].first() <= intervals[i].first()
-            //     && intervals[i].first() < intervals[i - 1].last()
-            // {
-            //     continue;
-            // } else if intervals[i - 1].last() == intervals[i].first() {
-            //     result.pop();
-            //     result.push(vec![intervals[i - 1][0], intervals[i][1]]);
-            // } else if intervals[i - 1].first() == intervals[i].first()
-            //     && intervals[i - 1].last() == intervals[i].last()
-            // {
-            //     continue;
-            // } else if intervals[i - 1].first() > intervals[i].first()
-            //     && intervals[i - 1].last() > intervals[i].last()
-            // {
-            //     result.pop();
-            //     result.push(vec![intervals[i][0], intervals[i - 1][1]]);
-            // } else if intervals[i - 1].first() > intervals[i].first()
-            //     && intervals[i - 1].last() <= intervals[i].last()
-            // {
-            //     result.pop();
-            //     result.push(vec![intervals[i][0], intervals[i][1]]);
-            // } else {
-            //     result.push(intervals[i].clone());
-            // }
             } else {
-                result.push(intervals[i].clone());
+                result.push(data[i].clone());
             }
         }
         return result;
