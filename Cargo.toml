@@ -161,6 +161,10 @@ name = "multiply-strings"
 path = "src/multiply-strings.rs"
 
 [[bin]]
+name = "merge-intervals"
+path = "src/merge-intervals.rs"
+
+[[bin]]
 name = "maximum-subarray"
 path = "src/maximum-subarray.rs"
 
