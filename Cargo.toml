@@ -165,6 +165,10 @@ name = "merge-intervals"
 path = "src/merge-intervals.rs"
 
 [[bin]]
+name = "insert-interval"
+path = "src/insert-interval.rs"
+
+[[bin]]
 name = "maximum-subarray"
 path = "src/maximum-subarray.rs"
 
