@@ -189,6 +189,10 @@ name = "spiral-matrix-ii"
 path = "src/spiral-matrix-ii.rs"
 
 [[bin]]
+name = "permutation-sequence"
+path = "src/permutation-sequence.rs"
+
+[[bin]]
 name = "plus-one"
 path = "src/plus-one.rs"
 
