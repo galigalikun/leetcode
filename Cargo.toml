@@ -239,3 +239,7 @@ path = "src/remove-duplicates-from-sorted-array-ii.rs"
 [[bin]]
 name = "search-in-rotated-sorted-array-ii"
 path = "src/search-in-rotated-sorted-array-ii.rs"
+
+[[bin]]
+name = "remove-duplicates-from-sorted-list-ii"
+path = "src/remove-duplicates-from-sorted-list-ii.rs"
