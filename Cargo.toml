@@ -247,3 +247,7 @@ path = "src/remove-duplicates-from-sorted-list-ii.rs"
 [[bin]]
 name = "remove-duplicates-from-sorted-list"
 path = "src/remove-duplicates-from-sorted-list.rs"
+
+[[bin]]
+name = "largest-rectangle-in-histogram"
+path = "src/largest-rectangle-in-histogram.rs"
