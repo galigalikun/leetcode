@@ -255,3 +255,7 @@ path = "src/largest-rectangle-in-histogram.rs"
 [[bin]]
 name = "partition-list"
 path = "src/partition-list.rs"
+
+[[bin]]
+name = "merge-sorted-array"
+path = "src/merge-sorted-array.rs"
