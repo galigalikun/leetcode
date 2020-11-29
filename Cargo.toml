@@ -259,3 +259,7 @@ path = "src/partition-list.rs"
 [[bin]]
 name = "merge-sorted-array"
 path = "src/merge-sorted-array.rs"
+
+[[bin]]
+name = "reverse-linked-list-ii"
+path = "src/reverse-linked-list-ii.rs"
