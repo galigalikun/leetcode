@@ -263,3 +263,7 @@ path = "src/merge-sorted-array.rs"
 [[bin]]
 name = "reverse-linked-list-ii"
 path = "src/reverse-linked-list-ii.rs"
+
+[[bin]]
+name = "same-tree"
+path = "src/same-tree.rs"
