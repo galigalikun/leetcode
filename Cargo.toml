@@ -275,3 +275,7 @@ path = "src/same-tree.rs"
 [[bin]]
 name = "group-anagrams"
 path = "src/group-anagrams.rs"
+
+[[bin]]
+name = "sort-list"
+path = "src/sort-list.rs"
