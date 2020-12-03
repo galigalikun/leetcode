@@ -277,5 +277,9 @@ name = "group-anagrams"
 path = "src/group-anagrams.rs"
 
 [[bin]]
+name = "pascals-triangle"
+path = "src/pascals-triangle.rs"
+
+[[bin]]
 name = "sort-list"
 path = "src/sort-list.rs"
