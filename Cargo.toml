@@ -233,6 +233,10 @@ name = "sort-colors"
 path = "src/sort-colors.rs"
 
 [[bin]]
+name = "word-search"
+path = "src/word-search.rs"
+
+[[bin]]
 name = "remove-duplicates-from-sorted-array-ii"
 path = "src/remove-duplicates-from-sorted-array-ii.rs"
 
