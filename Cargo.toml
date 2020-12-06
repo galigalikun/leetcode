@@ -145,6 +145,10 @@ name = "search-insert-position"
 path = "src/search-insert-position.rs"
 
 [[bin]]
+name = "valid-sudoku"
+path = "src/valid-sudoku.rs"
+
+[[bin]]
 name = "count-and-say"
 path = "src/count-and-say.rs"
 
