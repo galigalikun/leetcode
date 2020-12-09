@@ -289,6 +289,14 @@ name = "pascals-triangle"
 path = "src/pascals-triangle.rs"
 
 [[bin]]
+name = "single-number"
+path = "src/single-number.rs"
+
+[[bin]]
+name = "single-number-ii"
+path = "src/single-number-ii.rs"
+
+[[bin]]
 name = "sort-list"
 path = "src/sort-list.rs"
 
