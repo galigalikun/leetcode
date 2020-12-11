@@ -297,6 +297,10 @@ name = "triangle"
 path = "src/triangle.rs"
 
 [[bin]]
+name = "best-time-to-buy-and-sell-stock"
+path = "src/best-time-to-buy-and-sell-stock.rs"
+
+[[bin]]
 name = "single-number"
 path = "src/single-number.rs"
 
