@@ -293,6 +293,10 @@ name = "pascals-triangle-ii"
 path = "src/pascals-triangle-ii.rs"
 
 [[bin]]
+name = "triangle"
+path = "src/triangle.rs"
+
+[[bin]]
 name = "single-number"
 path = "src/single-number.rs"
 
