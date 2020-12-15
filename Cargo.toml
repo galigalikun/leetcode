@@ -125,6 +125,10 @@ name = "divide-two-integers"
 path = "src/divide-two-integers.rs"
 
 [[bin]]
+name = "next-permutation"
+path = "src/next-permutation.rs"
+
+[[bin]]
 name = "substring-with-concatenation-of-all-words"
 path = "src/substring-with-concatenation-of-all-words.rs"
 
