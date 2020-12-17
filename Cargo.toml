@@ -161,6 +161,10 @@ name = "combination-sum"
 path = "src/combination-sum.rs"
 
 [[bin]]
+name = "first-missing-positive"
+path = "src/first-missing-positive.rs"
+
+[[bin]]
 name = "trapping-rain-water"
 path = "src/trapping-rain-water.rs"
 
