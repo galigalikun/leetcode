@@ -331,3 +331,7 @@ path = "src/sort-list.rs"
 [[bin]]
 name = "evaluate-reverse-polish-notation"
 path = "src/evaluate-reverse-polish-notation.rs"
+
+[[bin]]
+name = "reverse-words-in-a-string"
+path = "src/reverse-words-in-a-string.rs"
