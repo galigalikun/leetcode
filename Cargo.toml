@@ -325,6 +325,10 @@ name = "single-number-ii"
 path = "src/single-number-ii.rs"
 
 [[bin]]
+name = "insertion-sort-list"
+path = "src/insertion-sort-list.rs"
+
+[[bin]]
 name = "sort-list"
 path = "src/sort-list.rs"
 
