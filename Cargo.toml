@@ -333,6 +333,10 @@ name = "sort-list"
 path = "src/sort-list.rs"
 
 [[bin]]
+name = "reorder-list"
+path = "src/reorder-list.rs"
+
+[[bin]]
 name = "lru-cache"
 path = "src/lru-cache.rs"
 
