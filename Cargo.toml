@@ -289,6 +289,10 @@ name = "same-tree"
 path = "src/same-tree.rs"
 
 [[bin]]
+name = "rotate-image"
+path = "src/rotate-image.rs"
+
+[[bin]]
 name = "group-anagrams"
 path = "src/group-anagrams.rs"
 
