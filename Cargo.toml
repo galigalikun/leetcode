@@ -355,3 +355,7 @@ path = "src/reverse-words-in-a-string.rs"
 [[bin]]
 name = "maximum-product-subarray"
 path = "src/maximum-product-subarray.rs"
+
+[[bin]]
+name = "min-stack"
+path = "src/min-stack.rs"
