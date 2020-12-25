@@ -357,16 +357,16 @@ name = "maximum-product-subarray"
 path = "src/maximum-product-subarray.rs"
 
 [[bin]]
+name = "find-minimum-in-rotated-sorted-array"
+path = "src/find-minimum-in-rotated-sorted-array.rs"
+
+[[bin]]
 name = "min-stack"
 path = "src/min-stack.rs"
 
 [[bin]]
 name = "maximum-gap"
 path = "src/maximum-gap.rs"
-
-[[bin]]
-name = "find-minimum-in-rotated-sorted-array"
-path = "src/find-minimum-in-rotated-sorted-array.rs"
 
 [[bin]]
 name = "two-sum-ii-input-array-is-sorted"
