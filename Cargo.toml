@@ -371,3 +371,7 @@ path = "src/maximum-gap.rs"
 [[bin]]
 name = "two-sum-ii-input-array-is-sorted"
 path = "src/two-sum-ii-input-array-is-sorted.rs"
+
+[[bin]]
+name = "find-minimum-in-rotated-sorted-array-ii"
+path = "src/find-minimum-in-rotated-sorted-array-ii.rs"
