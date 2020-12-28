@@ -209,6 +209,10 @@ name = "rotate-list"
 path = "src/rotate-list.rs"
 
 [[bin]]
+name = "valid-number"
+path = "src/valid-number.rs"
+
+[[bin]]
 name = "plus-one"
 path = "src/plus-one.rs"
 
