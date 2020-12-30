@@ -253,6 +253,10 @@ name = "sort-colors"
 path = "src/sort-colors.rs"
 
 [[bin]]
+name = "minimum-window-substring"
+path = "src/minimum-window-substring.rs"
+
+[[bin]]
 name = "word-search"
 path = "src/word-search.rs"
 
