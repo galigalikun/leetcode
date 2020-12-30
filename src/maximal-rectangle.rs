@@ -15,6 +15,7 @@ fn main() {
 }
 
 pub struct Solution {}
+// https://www.geeksforgeeks.org/maximum-size-rectangle-binary-sub-matrix-1s/
 impl Solution {
     fn max_hit(r: usize, c: usize, row: &Vec<i32>) -> i32 {
         let mut result = Vec::new();
