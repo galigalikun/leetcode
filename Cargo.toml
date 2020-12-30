@@ -281,6 +281,10 @@ name = "largest-rectangle-in-histogram"
 path = "src/largest-rectangle-in-histogram.rs"
 
 [[bin]]
+name = "maximal-rectangle"
+path = "src/maximal-rectangle.rs"
+
+[[bin]]
 name = "partition-list"
 path = "src/partition-list.rs"
 
