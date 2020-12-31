@@ -293,6 +293,10 @@ name = "merge-sorted-array"
 path = "src/merge-sorted-array.rs"
 
 [[bin]]
+name = "gray-code"
+path = "src/gray-code.rs"
+
+[[bin]]
 name = "reverse-linked-list-ii"
 path = "src/reverse-linked-list-ii.rs"
 
