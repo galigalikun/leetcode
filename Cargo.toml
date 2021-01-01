@@ -297,6 +297,10 @@ name = "gray-code"
 path = "src/gray-code.rs"
 
 [[bin]]
+name = "subsets-ii"
+path = "src/subsets-ii.rs"
+
+[[bin]]
 name = "reverse-linked-list-ii"
 path = "src/reverse-linked-list-ii.rs"
 
