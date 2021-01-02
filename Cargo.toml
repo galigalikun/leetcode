@@ -189,6 +189,10 @@ name = "spiral-matrix"
 path = "src/spiral-matrix.rs"
 
 [[bin]]
+name = "jump-game"
+path = "src/jump-game.rs"
+
+[[bin]]
 name = "permutations"
 path = "src/permutations.rs"
 
