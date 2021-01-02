@@ -8,22 +8,22 @@ fn main() {
 
 pub struct Solution {}
 impl Solution {
-    fn jump(nums: Vec<i32>, start: usize, step: usize, max: usize) -> bool {
-        if (step + 1) >= max {
+    pub fn can_jump(nums: Vec<i32>) -> bool {
+        let n = nums.len();
+        if n <= 1 {
             return true;
         }
-        for i in start..=step {
-            let n = nums[i] as usize;
-            if (start + n + 1) >= max {
-                return true;
-            }
-            if Solution::jump(nums.clone(), i + 1, i + n, max) {
-                return true;
+
+        let mut last_point = n - 1;
+        for i in (0..n).rev() {
+            if i + nums[i] as usize >= last_point {
+                last_point = i;
             }
         }
+
+        if last_point == 0 {
+            return true;
+        }
         return false;
-    }
-    pub fn can_jump(nums: Vec<i32>) -> bool {
-        return Solution::jump(nums.clone(), 1, nums[0] as usize, nums.len());
     }
 }
