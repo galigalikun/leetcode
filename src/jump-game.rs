@@ -7,6 +7,7 @@ fn main() {
 }
 
 pub struct Solution {}
+// https://lenchen.medium.com/leetcode-55-jump-game-d95b482642
 impl Solution {
     pub fn can_jump(nums: Vec<i32>) -> bool {
         let n = nums.len();
