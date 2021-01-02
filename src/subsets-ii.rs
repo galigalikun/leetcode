@@ -13,6 +13,7 @@ fn main() {
 }
 
 pub struct Solution {}
+// https://ducmanhphan.github.io/2020-02-10-subsets-II/
 impl Solution {
     fn dfs(nums: Vec<i32>, result: &mut Vec<Vec<i32>>, prev: &mut Vec<i32>, idx: usize) {
         if !result.contains(prev) {
