@@ -213,6 +213,10 @@ name = "rotate-list"
 path = "src/rotate-list.rs"
 
 [[bin]]
+name = "unique-paths"
+path = "src/unique-paths.rs"
+
+[[bin]]
 name = "minimum-path-sum"
 path = "src/minimum-path-sum.rs"
 
