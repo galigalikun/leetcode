@@ -217,6 +217,10 @@ name = "unique-paths"
 path = "src/unique-paths.rs"
 
 [[bin]]
+name = "unique-paths-ii"
+path = "src/unique-paths-ii.rs"
+
+[[bin]]
 name = "minimum-path-sum"
 path = "src/minimum-path-sum.rs"
 
