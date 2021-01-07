@@ -269,6 +269,14 @@ name = "minimum-window-substring"
 path = "src/minimum-window-substring.rs"
 
 [[bin]]
+name = "combinations"
+path = "src/combinations.rs"
+
+[[bin]]
+name = "subsets"
+path = "src/subsets.rs"
+
+[[bin]]
 name = "word-search"
 path = "src/word-search.rs"
 
