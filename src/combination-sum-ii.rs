@@ -6,40 +6,45 @@ fn main() {
 }
 
 pub struct Solution {}
+// https://www.programcreek.com/2014/04/leetcode-combination-sum-ii-java/
 impl Solution {
     fn re_combination_sum(
         candidates: Vec<i32>,
-        start: usize,
+        start: i32,
         target: i32,
-        sum: i32,
         work: &mut Vec<i32>,
         result: &mut Vec<Vec<i32>>,
     ) {
-        if sum > target {
+        if target == 0 {
+            result.push(work.to_vec());
+            return;
+        }
+        if target < 0 {
             return;
         }
 
-        if sum == target {
-            result.push(work.to_vec());
-        }
-
-        for i in start..candidates.len() {
-            work.push(candidates[i]);
-            Solution::re_combination_sum(
-                candidates.clone(),
-                i,
-                target,
-                sum + candidates[i],
-                work,
-                result,
-            );
-            work.remove(work.len() - 1);
+        let mut prev = -1;
+        for j in start as usize..candidates.len() {
+            if prev != candidates[j] {
+                work.push(candidates[j]);
+                Solution::re_combination_sum(
+                    candidates.clone(),
+                    (j + 1) as i32,
+                    target - candidates[j],
+                    work,
+                    result,
+                );
+                work.remove(work.len() - 1);
+                prev = candidates[j];
+            }
         }
     }
     pub fn combination_sum2(candidates: Vec<i32>, target: i32) -> Vec<Vec<i32>> {
+        let mut s_candidates = candidates;
+        s_candidates.sort();
         let mut result = Vec::new();
         let mut work = Vec::new();
-        Solution::re_combination_sum(candidates, 0, target, 0, &mut work, &mut result);
+        Solution::re_combination_sum(s_candidates, 0, target, &mut work, &mut result);
 
         return result;
     }
