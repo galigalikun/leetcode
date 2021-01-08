@@ -161,6 +161,10 @@ name = "combination-sum"
 path = "src/combination-sum.rs"
 
 [[bin]]
+name = "combination-sum-ii"
+path = "src/combination-sum-ii.rs"
+
+[[bin]]
 name = "first-missing-positive"
 path = "src/first-missing-positive.rs"
 
