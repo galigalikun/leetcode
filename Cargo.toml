@@ -153,6 +153,10 @@ name = "valid-sudoku"
 path = "src/valid-sudoku.rs"
 
 [[bin]]
+name = "sudoku-solver"
+path = "src/sudoku-solver.rs"
+
+[[bin]]
 name = "count-and-say"
 path = "src/count-and-say.rs"
 
