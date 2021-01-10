@@ -29,7 +29,12 @@ fn main() {
 
 pub struct Solution {}
 impl Solution {
-    fn checker(board: &mut Vec<Vec<char>>, validate: &mut Vec<Vec<Vec<char>>>, xx: usize, yy: usize) {
+    fn checker(
+        board: &mut Vec<Vec<char>>,
+        validate: &mut Vec<Vec<Vec<char>>>,
+        xx: usize,
+        yy: usize,
+    ) {
         // 0 1 2 -> /3 -> 0 0 0
         // 3 4 5 -> /3 -> 1 1 1
         // 6 2 8 4 1 9 5 7 9
@@ -86,41 +91,66 @@ impl Solution {
             }
         }
     }
-    pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
-        let validate = &mut Vec::new();
-        let mut is_first = true;
-        loop {
-            for x in 0..board.len() {
-                if is_first {
-                    validate.push(vec![]);
-                }
+    fn dfs(
+        mut x: usize,
+        mut y: usize,
+        board: &mut Vec<Vec<char>>,
+        rows: &mut Vec<u64>,
+        cols: &mut Vec<u64>,
+        squares: &mut Vec<u64>,
+    ) -> bool {
+        if y == 9 {
+            x += 1;
+            y = 0;
+        }
+        if x == 9 {
+            return true;
+        }
 
-                for y in 0..board[x].len() {
-                    if board[x][y] == '.' {
-                        if is_first {
-                            validate[x].push(vec!['1', '2', '3', '4', '5', '6', '7', '8', '9']);
-                        }
-
-                        Solution::checker(board, validate, x, y);
-                    } else {
-                        if is_first {
-                            validate[x].push(vec![]);
-                        }
+        if board[x][y] == '.' {
+            for num in 0..9 {
+                if !((rows[x] & 1 << num) != 0
+                    || (cols[y] & 1 << num) != 0
+                    || (squares[3 * (x / 3) + y / 3] & 1 << num) != 0)
+                {
+                    rows[x] |= 1 << num;
+                    cols[y] |= 1 << num;
+                    squares[3 * (x / 3) + y / 3] |= 1 << num;
+                    if let Some(c) = std::char::from_digit(num+1, 10) {
+                        board[x][y] = c;
                     }
+
+                    if Solution::dfs(x, y + 1, board, rows, cols, squares) {
+                        return true;
+                    }
+                    rows[x] -= 1 << num;
+                    cols[y] -= 1 << num;
+                    squares[3 * (x / 3) + y / 3] -= 1 << num;
+                    board[x][y] = '.';
                 }
             }
-            is_first = false;
-            let mut is_result = true;
-            for x in 0..validate.len() {
-                for y in 0..validate[x].len() {
-                    if validate[x][y].len() > 0 {
-                        is_result = false;
-                    }
-                }
-            }
-            if is_result {
-                break;
+        } else {
+            if Solution::dfs(x, y + 1, board, rows, cols, squares) {
+                return true;
             }
         }
+        return false;
+    }
+    pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
+        let rows:&mut Vec<u64> = &mut vec![0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let cols:&mut Vec<u64> = &mut vec![0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let squares:&mut Vec<u64> = &mut vec![0, 0, 0, 0, 0, 0, 0, 0, 0];
+        for x in 0..board.len() {
+            for y in 0..board[x].len() {
+                if let Some(num) = board[x][y].to_digit(10) {
+                    let n = num - 1;
+                    rows[x] |= 1 << n;
+                    cols[y] |= 1 << n;
+                    squares[3 * (x / 3) + y / 3] |= 1 << n;
+                }
+
+            }
+        }
+        Solution::dfs(0, 0, board, rows, cols, squares);
     }
 }
