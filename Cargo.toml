@@ -329,6 +329,10 @@ name = "subsets-ii"
 path = "src/subsets-ii.rs"
 
 [[bin]]
+name = "decode-ways"
+path = "src/decode-ways.rs"
+
+[[bin]]
 name = "reverse-linked-list-ii"
 path = "src/reverse-linked-list-ii.rs"
 
