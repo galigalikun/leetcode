@@ -337,6 +337,10 @@ name = "reverse-linked-list-ii"
 path = "src/reverse-linked-list-ii.rs"
 
 [[bin]]
+name = "restore-ip-addresses"
+path = "src/restore-ip-addresses.rs"
+
+[[bin]]
 name = "validate-binary-search-tree"
 path = "src/validate-binary-search-tree.rs"
 
