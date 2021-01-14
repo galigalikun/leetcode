@@ -425,6 +425,10 @@ name = "min-stack"
 path = "src/min-stack.rs"
 
 [[bin]]
+name = "find-peak-element"
+path = "src/find-peak-element.rs"
+
+[[bin]]
 name = "maximum-gap"
 path = "src/maximum-gap.rs"
 
