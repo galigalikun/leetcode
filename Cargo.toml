@@ -439,3 +439,7 @@ path = "src/two-sum-ii-input-array-is-sorted.rs"
 [[bin]]
 name = "find-minimum-in-rotated-sorted-array-ii"
 path = "src/find-minimum-in-rotated-sorted-array-ii.rs"
+
+[[bin]]
+name = "compare-version-numbers"
+path = "src/compare-version-numbers.rs"
