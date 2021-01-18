@@ -441,6 +441,10 @@ name = "excel-sheet-column-title"
 path = "src/excel-sheet-column-title.rs"
 
 [[bin]]
+name = "majority-element"
+path = "src/majority-element.rs"
+
+[[bin]]
 name = "find-minimum-in-rotated-sorted-array-ii"
 path = "src/find-minimum-in-rotated-sorted-array-ii.rs"
 
