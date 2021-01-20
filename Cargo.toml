@@ -449,6 +449,10 @@ name = "excel-sheet-column-number"
 path = "src/excel-sheet-column-number.rs"
 
 [[bin]]
+name = "factorial-trailing-zeroes"
+path = "src/factorial-trailing-zeroes.rs"
+
+[[bin]]
 name = "find-minimum-in-rotated-sorted-array-ii"
 path = "src/find-minimum-in-rotated-sorted-array-ii.rs"
 
