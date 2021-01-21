@@ -349,6 +349,10 @@ name = "same-tree"
 path = "src/same-tree.rs"
 
 [[bin]]
+name = "symmetric-tree"
+path = "src/symmetric-tree.rs"
+
+[[bin]]
 name = "rotate-image"
 path = "src/rotate-image.rs"
 
