@@ -357,6 +357,10 @@ name = "binary-tree-level-order-traversal"
 path = "src/binary-tree-level-order-traversal.rs"
 
 [[bin]]
+name = "binary-tree-zigzag-level-order-traversal"
+path = "src/binary-tree-zigzag-level-order-traversal.rs"
+
+[[bin]]
 name = "rotate-image"
 path = "src/rotate-image.rs"
 
