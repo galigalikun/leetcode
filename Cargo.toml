@@ -365,6 +365,10 @@ name = "maximum-depth-of-binary-tree"
 path = "src/maximum-depth-of-binary-tree.rs"
 
 [[bin]]
+name = "binary-tree-level-order-traversal-ii"
+path = "src/binary-tree-level-order-traversal-ii.rs"
+
+[[bin]]
 name = "rotate-image"
 path = "src/rotate-image.rs"
 
