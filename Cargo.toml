@@ -369,6 +369,10 @@ name = "binary-tree-level-order-traversal-ii"
 path = "src/binary-tree-level-order-traversal-ii.rs"
 
 [[bin]]
+name = "minimum-depth-of-binary-tree"
+path = "src/minimum-depth-of-binary-tree.rs"
+
+[[bin]]
 name = "rotate-image"
 path = "src/rotate-image.rs"
 
