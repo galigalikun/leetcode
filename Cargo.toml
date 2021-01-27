@@ -373,6 +373,10 @@ name = "minimum-depth-of-binary-tree"
 path = "src/minimum-depth-of-binary-tree.rs"
 
 [[bin]]
+name = "path-sum"
+path = "src/path-sum.rs"
+
+[[bin]]
 name = "rotate-image"
 path = "src/rotate-image.rs"
 
