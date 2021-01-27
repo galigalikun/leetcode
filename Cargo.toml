@@ -377,6 +377,10 @@ name = "path-sum"
 path = "src/path-sum.rs"
 
 [[bin]]
+name = "path-sum-ii"
+path = "src/path-sum-ii.rs"
+
+[[bin]]
 name = "rotate-image"
 path = "src/rotate-image.rs"
 
