@@ -413,6 +413,10 @@ name = "valid-palindrome"
 path = "src/valid-palindrome.rs"
 
 [[bin]]
+name = "sum-root-to-leaf-numbers"
+path = "src/sum-root-to-leaf-numbers.rs"
+
+[[bin]]
 name = "single-number"
 path = "src/single-number.rs"
 
