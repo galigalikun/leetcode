@@ -441,6 +441,10 @@ name = "reorder-list"
 path = "src/reorder-list.rs"
 
 [[bin]]
+name = "binary-tree-preorder-traversal"
+path = "src/binary-tree-preorder-traversal.rs"
+
+[[bin]]
 name = "lru-cache"
 path = "src/lru-cache.rs"
 
