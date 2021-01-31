@@ -445,6 +445,10 @@ name = "binary-tree-preorder-traversal"
 path = "src/binary-tree-preorder-traversal.rs"
 
 [[bin]]
+name = "binary-tree-postorder-traversal"
+path = "src/binary-tree-postorder-traversal.rs"
+
+[[bin]]
 name = "lru-cache"
 path = "src/lru-cache.rs"
 
