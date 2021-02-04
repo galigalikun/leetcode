@@ -449,6 +449,10 @@ name = "binary-tree-postorder-traversal"
 path = "src/binary-tree-postorder-traversal.rs"
 
 [[bin]]
+name = "largest-number"
+path = "src/largest-number.rs"
+
+[[bin]]
 name = "lru-cache"
 path = "src/lru-cache.rs"
 
