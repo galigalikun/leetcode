@@ -505,9 +505,17 @@ name = "factorial-trailing-zeroes"
 path = "src/factorial-trailing-zeroes.rs"
 
 [[bin]]
+name = "binary-search-tree-iterator"
+path = "src/binary-search-tree-iterator.rs"
+
+[[bin]]
 name = "find-minimum-in-rotated-sorted-array-ii"
 path = "src/find-minimum-in-rotated-sorted-array-ii.rs"
 
 [[bin]]
 name = "compare-version-numbers"
 path = "src/compare-version-numbers.rs"
+
+[[bin]]
+name = "fraction-to-recurring-decimal"
+path = "src/fraction-to-recurring-decimal.rs"
