@@ -519,3 +519,7 @@ path = "src/compare-version-numbers.rs"
 [[bin]]
 name = "fraction-to-recurring-decimal"
 path = "src/fraction-to-recurring-decimal.rs"
+
+[[bin]]
+name = "rotate-array"
+path = "src/rotate-array.rs"
