@@ -523,3 +523,7 @@ path = "src/fraction-to-recurring-decimal.rs"
 [[bin]]
 name = "rotate-array"
 path = "src/rotate-array.rs"
+
+[[bin]]
+name = "reverse-bits"
+path = "src/reverse-bits.rs"
