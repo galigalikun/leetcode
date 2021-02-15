@@ -527,3 +527,7 @@ path = "src/rotate-array.rs"
 [[bin]]
 name = "reverse-bits"
 path = "src/reverse-bits.rs"
+
+[[bin]]
+name = "number-of-1-bits"
+path = "src/number-of-1-bits.rs"
