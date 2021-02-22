@@ -537,5 +537,9 @@ name = "binary-tree-right-side-view"
 path = "src/binary-tree-right-side-view.rs"
 
 [[bin]]
+name = "bitwise-and-of-numbers-range"
+path = "src/bitwise-and-of-numbers-range.rs"
+
+[[bin]]
 name = "happy-number"
 path = "src/happy-number.rs"
