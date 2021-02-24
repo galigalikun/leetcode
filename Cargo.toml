@@ -543,3 +543,7 @@ path = "src/bitwise-and-of-numbers-range.rs"
 [[bin]]
 name = "happy-number"
 path = "src/happy-number.rs"
+
+[[bin]]
+name = "remove-linked-list-elements"
+path = "src/remove-linked-list-elements.rs"
