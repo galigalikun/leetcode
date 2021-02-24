@@ -547,3 +547,7 @@ path = "src/happy-number.rs"
 [[bin]]
 name = "remove-linked-list-elements"
 path = "src/remove-linked-list-elements.rs"
+
+[[bin]]
+name = "count-primes"
+path = "src/count-primes.rs"
