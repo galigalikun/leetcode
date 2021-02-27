@@ -551,3 +551,7 @@ path = "src/remove-linked-list-elements.rs"
 [[bin]]
 name = "count-primes"
 path = "src/count-primes.rs"
+
+[[bin]]
+name = "isomorphic-strings"
+path = "src/isomorphic-strings.rs"
