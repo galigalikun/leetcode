@@ -555,3 +555,7 @@ path = "src/count-primes.rs"
 [[bin]]
 name = "isomorphic-strings"
 path = "src/isomorphic-strings.rs"
+
+[[bin]]
+name = "reverse-linked-list"
+path = "src/reverse-linked-list.rs"
