@@ -559,3 +559,7 @@ path = "src/isomorphic-strings.rs"
 [[bin]]
 name = "reverse-linked-list"
 path = "src/reverse-linked-list.rs"
+
+[[bin]]
+name = "implement-trie-prefix-tree"
+path = "src/implement-trie-prefix-tree.rs"
