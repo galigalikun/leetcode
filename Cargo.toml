@@ -381,6 +381,10 @@ name = "path-sum-ii"
 path = "src/path-sum-ii.rs"
 
 [[bin]]
+name = "flatten-binary-tree-to-linked-list"
+path = "src/flatten-binary-tree-to-linked-list.rs"
+
+[[bin]]
 name = "rotate-image"
 path = "src/rotate-image.rs"
 
