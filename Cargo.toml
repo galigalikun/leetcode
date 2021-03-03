@@ -567,3 +567,7 @@ path = "src/reverse-linked-list.rs"
 [[bin]]
 name = "implement-trie-prefix-tree"
 path = "src/implement-trie-prefix-tree.rs"
+
+[[bin]]
+name = "design-add-and-search-words-data-structure"
+path = "src/design-add-and-search-words-data-structure.rs"
