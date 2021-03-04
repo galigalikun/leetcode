@@ -571,3 +571,7 @@ path = "src/implement-trie-prefix-tree.rs"
 [[bin]]
 name = "design-add-and-search-words-data-structure"
 path = "src/design-add-and-search-words-data-structure.rs"
+
+[[bin]]
+name = "kth-largest-element-in-an-array"
+path = "src/kth-largest-element-in-an-array.rs"
