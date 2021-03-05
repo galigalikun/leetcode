@@ -575,3 +575,7 @@ path = "src/design-add-and-search-words-data-structure.rs"
 [[bin]]
 name = "kth-largest-element-in-an-array"
 path = "src/kth-largest-element-in-an-array.rs"
+
+[[bin]]
+name = "contains-duplicate"
+path = "src/contains-duplicate.rs"
