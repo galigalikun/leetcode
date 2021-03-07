@@ -581,5 +581,9 @@ name = "contains-duplicate"
 path = "src/contains-duplicate.rs"
 
 [[bin]]
+name = "contains-duplicate-ii"
+path = "src/contains-duplicate-ii.rs"
+
+[[bin]]
 name = "contains-duplicate-iii"
 path = "src/contains-duplicate-iii.rs"
