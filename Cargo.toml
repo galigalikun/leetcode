@@ -587,3 +587,7 @@ path = "src/contains-duplicate-ii.rs"
 [[bin]]
 name = "contains-duplicate-iii"
 path = "src/contains-duplicate-iii.rs"
+
+[[bin]]
+name = "count-complete-tree-nodes"
+path = "src/count-complete-tree-nodes.rs"
