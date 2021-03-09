@@ -591,3 +591,7 @@ path = "src/contains-duplicate-iii.rs"
 [[bin]]
 name = "count-complete-tree-nodes"
 path = "src/count-complete-tree-nodes.rs"
+
+[[bin]]
+name = "rectangle-area"
+path = "src/rectangle-area.rs"
