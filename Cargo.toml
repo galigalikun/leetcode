@@ -595,3 +595,7 @@ path = "src/count-complete-tree-nodes.rs"
 [[bin]]
 name = "rectangle-area"
 path = "src/rectangle-area.rs"
+
+[[bin]]
+name = "implement-stack-using-queues"
+path = "src/implement-stack-using-queues.rs"
