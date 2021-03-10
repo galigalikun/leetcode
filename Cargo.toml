@@ -599,3 +599,7 @@ path = "src/rectangle-area.rs"
 [[bin]]
 name = "implement-stack-using-queues"
 path = "src/implement-stack-using-queues.rs"
+
+[[bin]]
+name = "invert-binary-tree"
+path = "src/invert-binary-tree.rs"
