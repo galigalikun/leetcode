@@ -611,3 +611,7 @@ path = "src/summary-ranges.rs"
 [[bin]]
 name = "majority-element-ii"
 path = "src/majority-element-ii.rs"
+
+[[bin]]
+name = "power-of-two"
+path = "src/power-of-two.rs"
