@@ -615,3 +615,7 @@ path = "src/majority-element-ii.rs"
 [[bin]]
 name = "power-of-two"
 path = "src/power-of-two.rs"
+
+[[bin]]
+name = "implement-queue-using-stacks"
+path = "src/implement-queue-using-stacks.rs"
