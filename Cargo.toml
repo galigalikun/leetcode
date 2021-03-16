@@ -619,3 +619,7 @@ path = "src/power-of-two.rs"
 [[bin]]
 name = "implement-queue-using-stacks"
 path = "src/implement-queue-using-stacks.rs"
+
+[[bin]]
+name = "number-of-digit-one"
+path = "src/number-of-digit-one.rs"
