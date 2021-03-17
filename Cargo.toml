@@ -623,3 +623,7 @@ path = "src/implement-queue-using-stacks.rs"
 [[bin]]
 name = "number-of-digit-one"
 path = "src/number-of-digit-one.rs"
+
+[[bin]]
+name = "palindrome-linked-list"
+path = "src/palindrome-linked-list.rs"
