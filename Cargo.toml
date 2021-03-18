@@ -627,3 +627,7 @@ path = "src/number-of-digit-one.rs"
 [[bin]]
 name = "palindrome-linked-list"
 path = "src/palindrome-linked-list.rs"
+
+[[bin]]
+name = "product-of-array-except-self"
+path = "src/product-of-array-except-self.rs"
