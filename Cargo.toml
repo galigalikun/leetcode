@@ -631,3 +631,7 @@ path = "src/palindrome-linked-list.rs"
 [[bin]]
 name = "product-of-array-except-self"
 path = "src/product-of-array-except-self.rs"
+
+[[bin]]
+name = "sliding-window-maximum"
+path = "src/sliding-window-maximum.rs"
