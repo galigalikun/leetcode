@@ -635,3 +635,7 @@ path = "src/product-of-array-except-self.rs"
 [[bin]]
 name = "sliding-window-maximum"
 path = "src/sliding-window-maximum.rs"
+
+[[bin]]
+name = "search-a-2d-matrix-ii"
+path = "src/search-a-2d-matrix-ii.rs"
