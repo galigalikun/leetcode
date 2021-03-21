@@ -639,3 +639,7 @@ path = "src/sliding-window-maximum.rs"
 [[bin]]
 name = "search-a-2d-matrix-ii"
 path = "src/search-a-2d-matrix-ii.rs"
+
+[[bin]]
+name = "valid-anagram"
+path = "src/valid-anagram.rs"
