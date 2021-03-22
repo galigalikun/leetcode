@@ -643,3 +643,7 @@ path = "src/search-a-2d-matrix-ii.rs"
 [[bin]]
 name = "valid-anagram"
 path = "src/valid-anagram.rs"
+
+[[bin]]
+name = "add-digits"
+path = "src/add-digits.rs"
