@@ -647,3 +647,7 @@ path = "src/valid-anagram.rs"
 [[bin]]
 name = "add-digits"
 path = "src/add-digits.rs"
+
+[[bin]]
+name = "ugly-number"
+path = "src/ugly-number.rs"
