@@ -651,3 +651,7 @@ path = "src/add-digits.rs"
 [[bin]]
 name = "ugly-number"
 path = "src/ugly-number.rs"
+
+[[bin]]
+name = "missing-number"
+path = "src/missing-number.rs"
