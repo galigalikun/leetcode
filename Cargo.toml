@@ -653,5 +653,9 @@ name = "ugly-number"
 path = "src/ugly-number.rs"
 
 [[bin]]
+name = "ugly-number-ii"
+path = "src/ugly-number-ii.rs"
+
+[[bin]]
 name = "missing-number"
 path = "src/missing-number.rs"
