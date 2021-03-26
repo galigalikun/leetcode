@@ -645,6 +645,10 @@ name = "valid-anagram"
 path = "src/valid-anagram.rs"
 
 [[bin]]
+name = "binary-tree-paths"
+path = "src/binary-tree-paths.rs"
+
+[[bin]]
 name = "add-digits"
 path = "src/add-digits.rs"
 
