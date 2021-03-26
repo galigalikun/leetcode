@@ -659,3 +659,7 @@ path = "src/ugly-number-ii.rs"
 [[bin]]
 name = "missing-number"
 path = "src/missing-number.rs"
+
+[[bin]]
+name = "move-zeroes"
+path = "src/move-zeroes.rs"
