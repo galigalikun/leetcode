@@ -181,6 +181,10 @@ name = "multiply-strings"
 path = "src/multiply-strings.rs"
 
 [[bin]]
+name = "wildcard-matching"
+path = "src/wildcard-matching.rs"
+
+[[bin]]
 name = "merge-intervals"
 path = "src/merge-intervals.rs"
 
