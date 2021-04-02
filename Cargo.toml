@@ -185,6 +185,10 @@ name = "wildcard-matching"
 path = "src/wildcard-matching.rs"
 
 [[bin]]
+name = "jump-game-ii"
+path = "src/jump-game-ii.rs"
+
+[[bin]]
 name = "merge-intervals"
 path = "src/merge-intervals.rs"
 
