@@ -13,6 +13,7 @@ fn main() {
 }
 
 pub struct Solution {}
+// https://programmerstart.com/article/2869306051/
 impl Solution {
     pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {
         // 3 -> 3*2*1
@@ -28,27 +29,24 @@ impl Solution {
 
         // 3 1 2 (3 2 1).swap(1, 2)
         //
-        let mut result = Vec::new();
-        let mut cnt = nums.len();
-        while cnt > 0 {
-            println!("debugcnt {}", cnt);
-            let mut c = nums.clone();
-            c.swap(0, nums.len() - cnt);
-            for i in 0..cnt {
-                let mut c2 = c.clone();
-                println!("debug {:?} {} {}", c2, i, cnt - i - 1);
-                c2.swap(i, cnt - i - 1);
-                result.push(c2);
+        let mut result: Vec<Vec<i32>> = vec![vec![]];
+        let cnt = nums.len();
+        let mut n = 0;
+        while n < cnt {
+            let mut tmp = result.clone();
+            result.clear();
+            for i in 0..tmp.len() {
+                for j in 0..cnt {
+                    if None == tmp[i].iter().find(|&x| x == &nums[j]) {
+                        tmp[i].push(nums[j]);
+                        result.push(tmp[i].clone());
+                        let idx = tmp[i].len()-1;
+                        tmp[i].remove(idx);
+                    }
+                }
             }
-            cnt -= 1;
+            n += 1;
         }
-
-        // 1 2 3 4
-        // 1 2 3 4
-        // 1 3 2 4
-        // 1 3 4 2
-        // 1 4 2 3
-        // 1 4 3 2
 
         return result;
     }
