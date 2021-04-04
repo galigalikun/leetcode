@@ -213,6 +213,10 @@ name = "permutations"
 path = "src/permutations.rs"
 
 [[bin]]
+name = "permutations-ii"
+path = "src/permutations-ii.rs"
+
+[[bin]]
 name = "length-of-last-word"
 path = "src/length-of-last-word.rs"
 
