@@ -405,6 +405,10 @@ name = "group-anagrams"
 path = "src/group-anagrams.rs"
 
 [[bin]]
+name = "powx-n"
+path = "src/powx-n.rs"
+
+[[bin]]
 name = "pascals-triangle"
 path = "src/pascals-triangle.rs"
 
