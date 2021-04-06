@@ -409,6 +409,10 @@ name = "powx-n"
 path = "src/powx-n.rs"
 
 [[bin]]
+name = "n-queens"
+path = "src/n-queens.rs"
+
+[[bin]]
 name = "pascals-triangle"
 path = "src/pascals-triangle.rs"
 
