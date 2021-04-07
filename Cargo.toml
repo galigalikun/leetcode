@@ -413,6 +413,10 @@ name = "n-queens"
 path = "src/n-queens.rs"
 
 [[bin]]
+name = "n-queens-ii"
+path = "src/n-queens-ii.rs"
+
+[[bin]]
 name = "pascals-triangle"
 path = "src/pascals-triangle.rs"
 
