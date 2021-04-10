@@ -361,6 +361,10 @@ name = "restore-ip-addresses"
 path = "src/restore-ip-addresses.rs"
 
 [[bin]]
+name = "binary-tree-inorder-traversal"
+path = "src/binary-tree-inorder-traversal.rs"
+
+[[bin]]
 name = "validate-binary-search-tree"
 path = "src/validate-binary-search-tree.rs"
 
