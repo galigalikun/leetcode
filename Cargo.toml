@@ -365,6 +365,10 @@ name = "binary-tree-inorder-traversal"
 path = "src/binary-tree-inorder-traversal.rs"
 
 [[bin]]
+name = "unique-binary-search-trees-ii"
+path = "src/unique-binary-search-trees-ii.rs"
+
+[[bin]]
 name = "validate-binary-search-tree"
 path = "src/validate-binary-search-tree.rs"
 
