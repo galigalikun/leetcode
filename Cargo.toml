@@ -369,6 +369,10 @@ name = "unique-binary-search-trees-ii"
 path = "src/unique-binary-search-trees-ii.rs"
 
 [[bin]]
+name = "unique-binary-search-trees"
+path = "src/unique-binary-search-trees.rs"
+
+[[bin]]
 name = "validate-binary-search-tree"
 path = "src/validate-binary-search-tree.rs"
 
