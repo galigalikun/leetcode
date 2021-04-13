@@ -373,6 +373,10 @@ name = "unique-binary-search-trees"
 path = "src/unique-binary-search-trees.rs"
 
 [[bin]]
+name = "interleaving-string"
+path = "src/interleaving-string.rs"
+
+[[bin]]
 name = "validate-binary-search-tree"
 path = "src/validate-binary-search-tree.rs"
 
