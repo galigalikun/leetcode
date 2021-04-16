@@ -405,6 +405,10 @@ name = "construct-binary-tree-from-preorder-and-inorder-traversal"
 path = "src/construct-binary-tree-from-preorder-and-inorder-traversal.rs"
 
 [[bin]]
+name = "construct-binary-tree-from-inorder-and-postorder-traversal"
+path = "src/construct-binary-tree-from-inorder-and-postorder-traversal.rs"
+
+[[bin]]
 name = "binary-tree-level-order-traversal-ii"
 path = "src/binary-tree-level-order-traversal-ii.rs"
 
