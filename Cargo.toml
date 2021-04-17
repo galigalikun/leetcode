@@ -413,6 +413,10 @@ name = "binary-tree-level-order-traversal-ii"
 path = "src/binary-tree-level-order-traversal-ii.rs"
 
 [[bin]]
+name = "convert-sorted-array-to-binary-search-tree"
+path = "src/convert-sorted-array-to-binary-search-tree.rs"
+
+[[bin]]
 name = "minimum-depth-of-binary-tree"
 path = "src/minimum-depth-of-binary-tree.rs"
 
