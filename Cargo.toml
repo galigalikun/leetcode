@@ -417,6 +417,10 @@ name = "convert-sorted-array-to-binary-search-tree"
 path = "src/convert-sorted-array-to-binary-search-tree.rs"
 
 [[bin]]
+name = "convert-sorted-list-to-binary-search-tree"
+path = "src/convert-sorted-list-to-binary-search-tree.rs"
+
+[[bin]]
 name = "minimum-depth-of-binary-tree"
 path = "src/minimum-depth-of-binary-tree.rs"
 
