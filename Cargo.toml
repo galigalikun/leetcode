@@ -381,6 +381,10 @@ name = "validate-binary-search-tree"
 path = "src/validate-binary-search-tree.rs"
 
 [[bin]]
+name = "recover-binary-search-tree"
+path = "src/recover-binary-search-tree.rs"
+
+[[bin]]
 name = "same-tree"
 path = "src/same-tree.rs"
 
@@ -439,6 +443,10 @@ path = "src/path-sum-ii.rs"
 [[bin]]
 name = "flatten-binary-tree-to-linked-list"
 path = "src/flatten-binary-tree-to-linked-list.rs"
+
+[[bin]]
+name = "distinct-subsequences"
+path = "src/distinct-subsequences.rs"
 
 [[bin]]
 name = "rotate-image"
