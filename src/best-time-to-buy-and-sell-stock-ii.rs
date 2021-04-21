@@ -1,31 +1,19 @@
 fn main() {
     assert_eq!(Solution::max_profit(vec![7, 1, 5, 3, 6, 4]), 7);
+    assert_eq!(Solution::max_profit(vec![1, 2, 3, 4, 5]), 4);
+    assert_eq!(Solution::max_profit(vec![7, 6, 4, 3, 1]), 0);
 }
 
 pub struct Solution {}
-use std::collections::HashMap;
 impl Solution {
     pub fn max_profit(prices: Vec<i32>) -> i32 {
-        // let mut result = Vec::new();
-        let mut map: HashMap<(usize, usize), i32> = HashMap::new();
-        let mut day = 1;
-        loop {
-            if day + 1 > prices.len() {
-                break;
+        let mut price = 0;
+        for i in 1..prices.len() {
+            let p = prices[i] - prices[i - 1];
+            if p > 0 {
+                price += p;
             }
-            for i in day..prices.len() - 1 {
-                let diff = prices[i] - prices[day - 1];
-                if diff > 0 {
-                    map.insert((day - 1, i), diff);
-                }
-            }
-
-            day += 1;
         }
-
-        for ((i, j), value) in map {
-            println!("{} - {} value {:?}", i, j, value);
-        }
-        return max;
+        return price;
     }
 }
