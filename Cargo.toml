@@ -489,6 +489,10 @@ name = "best-time-to-buy-and-sell-stock-ii"
 path = "src/best-time-to-buy-and-sell-stock-ii.rs"
 
 [[bin]]
+name = "best-time-to-buy-and-sell-stock-iii"
+path = "src/best-time-to-buy-and-sell-stock-iii.rs"
+
+[[bin]]
 name = "valid-palindrome"
 path = "src/valid-palindrome.rs"
 
