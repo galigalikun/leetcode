@@ -493,6 +493,10 @@ name = "best-time-to-buy-and-sell-stock-iii"
 path = "src/best-time-to-buy-and-sell-stock-iii.rs"
 
 [[bin]]
+name = "binary-tree-maximum-path-sum"
+path = "src/binary-tree-maximum-path-sum.rs"
+
+[[bin]]
 name = "valid-palindrome"
 path = "src/valid-palindrome.rs"
 
