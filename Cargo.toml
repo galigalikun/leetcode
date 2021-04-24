@@ -501,6 +501,10 @@ name = "valid-palindrome"
 path = "src/valid-palindrome.rs"
 
 [[bin]]
+name = "longest-consecutive-sequence"
+path = "src/longest-consecutive-sequence.rs"
+
+[[bin]]
 name = "sum-root-to-leaf-numbers"
 path = "src/sum-root-to-leaf-numbers.rs"
 
