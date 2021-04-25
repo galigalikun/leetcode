@@ -501,6 +501,10 @@ name = "valid-palindrome"
 path = "src/valid-palindrome.rs"
 
 [[bin]]
+name = "surrounded-regions"
+path = "src/surrounded-regions.rs"
+
+[[bin]]
 name = "longest-consecutive-sequence"
 path = "src/longest-consecutive-sequence.rs"
 
