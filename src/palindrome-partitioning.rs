@@ -37,28 +37,38 @@ fn main() {
 
 pub struct Solution {}
 impl Solution {
-    pub fn partition(s: String) -> Vec<Vec<String>> {
-        let mut result: Vec<Vec<String>> = vec![];
-        for c in s.as_str().chars() {
-            if let Some(f) = result.first() {
-                if let Some(p) = f.iter().rposition(|x| x == &c.to_string()) {
-                    let mut v = f[0..p].to_vec();
-                    let mut s = f[p..].connect("");
-                    s.push(c);
-                    v.push(s);
-                    result.push(v);
-                    for i in 0..result.len() - 1 {
-                        result[i].push(c.to_string());
-                    }
-                } else {
-                    for i in 0..result.len() {
-                        result[i].push(c.to_string());
-                    }
+    fn helper(result: &mut Vec<Vec<String>>, s: String, lst: &mut Vec<String>, pos: usize) {
+        let n = s.len();
+        if n == pos {
+            result.push(lst.to_vec());
+            return;
+        }
+        for i in pos + 1..=n {
+            let substr = &s[pos..i];
+            let mut x = 0;
+            let mut y = substr.len() - 1;
+            let mut b = true;
+            loop {
+                if x >= y {
+                    break;
                 }
-            } else {
-                result.push(vec![c.to_string()]);
+                if substr.chars().nth(x) != substr.chars().nth(y) {
+                    b = false;
+                    break;
+                }
+                x += 1;
+                y -= 1;
+            }
+            if b {
+                lst.push(substr.to_string());
+                Solution::helper(result, s.clone(), lst, i);
+                lst.remove(lst.len() - 1);
             }
         }
+    }
+    pub fn partition(s: String) -> Vec<Vec<String>> {
+        let mut result: Vec<Vec<String>> = vec![];
+        Solution::helper(&mut result, s, &mut vec![], 0);
         return result;
     }
 }
