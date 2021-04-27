@@ -517,6 +517,10 @@ name = "palindrome-partitioning"
 path = "src/palindrome-partitioning.rs"
 
 [[bin]]
+name = "gas-station"
+path = "src/gas-station.rs"
+
+[[bin]]
 name = "single-number"
 path = "src/single-number.rs"
 
