@@ -521,6 +521,10 @@ name = "gas-station"
 path = "src/gas-station.rs"
 
 [[bin]]
+name = "candy"
+path = "src/candy.rs"
+
+[[bin]]
 name = "single-number"
 path = "src/single-number.rs"
 
