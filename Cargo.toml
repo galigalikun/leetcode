@@ -533,6 +533,10 @@ name = "single-number-ii"
 path = "src/single-number-ii.rs"
 
 [[bin]]
+name = "word-break"
+path = "src/word-break.rs"
+
+[[bin]]
 name = "insertion-sort-list"
 path = "src/insertion-sort-list.rs"
 
