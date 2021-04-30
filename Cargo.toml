@@ -549,6 +549,10 @@ name = "sort-list"
 path = "src/sort-list.rs"
 
 [[bin]]
+name = "max-points-on-a-line"
+path = "src/max-points-on-a-line.rs"
+
+[[bin]]
 name = "reorder-list"
 path = "src/reorder-list.rs"
 
