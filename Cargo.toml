@@ -537,6 +537,10 @@ name = "word-break"
 path = "src/word-break.rs"
 
 [[bin]]
+name = "word-break-ii"
+path = "src/word-break-ii.rs"
+
+[[bin]]
 name = "insertion-sort-list"
 path = "src/insertion-sort-list.rs"
 
