@@ -625,6 +625,10 @@ name = "binary-search-tree-iterator"
 path = "src/binary-search-tree-iterator.rs"
 
 [[bin]]
+name = "dungeon-game"
+path = "src/dungeon-game.rs"
+
+[[bin]]
 name = "find-minimum-in-rotated-sorted-array-ii"
 path = "src/find-minimum-in-rotated-sorted-array-ii.rs"
 
