@@ -641,6 +641,10 @@ name = "fraction-to-recurring-decimal"
 path = "src/fraction-to-recurring-decimal.rs"
 
 [[bin]]
+name = "repeated-dna-sequences"
+path = "src/repeated-dna-sequences.rs"
+
+[[bin]]
 name = "rotate-array"
 path = "src/rotate-array.rs"
 
