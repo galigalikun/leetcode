@@ -645,6 +645,10 @@ name = "repeated-dna-sequences"
 path = "src/repeated-dna-sequences.rs"
 
 [[bin]]
+name = "best-time-to-buy-and-sell-stock-iv"
+path = "src/best-time-to-buy-and-sell-stock-iv.rs"
+
+[[bin]]
 name = "rotate-array"
 path = "src/rotate-array.rs"
 
