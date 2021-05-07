@@ -661,6 +661,10 @@ name = "number-of-1-bits"
 path = "src/number-of-1-bits.rs"
 
 [[bin]]
+name = "house-robber"
+path = "src/house-robber.rs"
+
+[[bin]]
 name = "binary-tree-right-side-view"
 path = "src/binary-tree-right-side-view.rs"
 
