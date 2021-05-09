@@ -669,6 +669,10 @@ name = "binary-tree-right-side-view"
 path = "src/binary-tree-right-side-view.rs"
 
 [[bin]]
+name = "number-of-islands"
+path = "src/number-of-islands.rs"
+
+[[bin]]
 name = "bitwise-and-of-numbers-range"
 path = "src/bitwise-and-of-numbers-range.rs"
 
