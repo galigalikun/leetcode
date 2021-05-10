@@ -697,6 +697,10 @@ name = "reverse-linked-list"
 path = "src/reverse-linked-list.rs"
 
 [[bin]]
+name = "course-schedule"
+path = "src/course-schedule.rs"
+
+[[bin]]
 name = "implement-trie-prefix-tree"
 path = "src/implement-trie-prefix-tree.rs"
 
