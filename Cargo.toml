@@ -709,6 +709,10 @@ name = "minimum-size-subarray-sum"
 path = "src/minimum-size-subarray-sum.rs"
 
 [[bin]]
+name = "course-schedule-ii"
+path = "src/course-schedule-ii.rs"
+
+[[bin]]
 name = "design-add-and-search-words-data-structure"
 path = "src/design-add-and-search-words-data-structure.rs"
 
