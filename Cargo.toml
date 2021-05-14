@@ -721,6 +721,10 @@ name = "house-robber-ii"
 path = "src/house-robber-ii.rs"
 
 [[bin]]
+name = "shortest-palindrome"
+path = "src/shortest-palindrome.rs"
+
+[[bin]]
 name = "kth-largest-element-in-an-array"
 path = "src/kth-largest-element-in-an-array.rs"
 
