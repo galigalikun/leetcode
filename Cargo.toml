@@ -729,6 +729,10 @@ name = "kth-largest-element-in-an-array"
 path = "src/kth-largest-element-in-an-array.rs"
 
 [[bin]]
+name = "combination-sum-iii"
+path = "src/combination-sum-iii.rs"
+
+[[bin]]
 name = "contains-duplicate"
 path = "src/contains-duplicate.rs"
 
