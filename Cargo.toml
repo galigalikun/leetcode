@@ -737,6 +737,10 @@ name = "contains-duplicate"
 path = "src/contains-duplicate.rs"
 
 [[bin]]
+name = "the-skyline-problem"
+path = "src/the-skyline-problem.rs"
+
+[[bin]]
 name = "contains-duplicate-ii"
 path = "src/contains-duplicate-ii.rs"
 
