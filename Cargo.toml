@@ -769,6 +769,10 @@ name = "invert-binary-tree"
 path = "src/invert-binary-tree.rs"
 
 [[bin]]
+name = "kth-smallest-element-in-a-bst"
+path = "src/kth-smallest-element-in-a-bst.rs"
+
+[[bin]]
 name = "summary-ranges"
 path = "src/summary-ranges.rs"
 
