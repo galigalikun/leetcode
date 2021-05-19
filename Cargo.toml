@@ -797,6 +797,10 @@ name = "palindrome-linked-list"
 path = "src/palindrome-linked-list.rs"
 
 [[bin]]
+name = "lowest-common-ancestor-of-a-binary-search-tree"
+path = "src/lowest-common-ancestor-of-a-binary-search-tree.rs"
+
+[[bin]]
 name = "product-of-array-except-self"
 path = "src/product-of-array-except-self.rs"
 
