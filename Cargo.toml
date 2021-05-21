@@ -817,6 +817,10 @@ name = "search-a-2d-matrix-ii"
 path = "src/search-a-2d-matrix-ii.rs"
 
 [[bin]]
+name = "different-ways-to-add-parentheses"
+path = "src/different-ways-to-add-parentheses.rs"
+
+[[bin]]
 name = "valid-anagram"
 path = "src/valid-anagram.rs"
 
