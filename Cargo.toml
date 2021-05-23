@@ -845,5 +845,9 @@ name = "missing-number"
 path = "src/missing-number.rs"
 
 [[bin]]
+name = "integer-to-english-words"
+path = "src/integer-to-english-words.rs"
+
+[[bin]]
 name = "move-zeroes"
 path = "src/move-zeroes.rs"
