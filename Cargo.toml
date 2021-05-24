@@ -833,6 +833,10 @@ name = "add-digits"
 path = "src/add-digits.rs"
 
 [[bin]]
+name = "single-number-iii"
+path = "src/single-number-iii.rs"
+
+[[bin]]
 name = "ugly-number"
 path = "src/ugly-number.rs"
 
@@ -851,3 +855,4 @@ path = "src/integer-to-english-words.rs"
 [[bin]]
 name = "move-zeroes"
 path = "src/move-zeroes.rs"
+
