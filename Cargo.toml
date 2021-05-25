@@ -853,6 +853,10 @@ name = "integer-to-english-words"
 path = "src/integer-to-english-words.rs"
 
 [[bin]]
+name = "h-index"
+path = "src/h-index.rs"
+
+[[bin]]
 name = "move-zeroes"
 path = "src/move-zeroes.rs"
 
