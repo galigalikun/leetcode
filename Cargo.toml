@@ -857,6 +857,10 @@ name = "h-index"
 path = "src/h-index.rs"
 
 [[bin]]
+name = "h-index-ii"
+path = "src/h-index-ii.rs"
+
+[[bin]]
 name = "move-zeroes"
 path = "src/move-zeroes.rs"
 
