@@ -861,6 +861,10 @@ name = "h-index-ii"
 path = "src/h-index-ii.rs"
 
 [[bin]]
+name = "perfect-squares"
+path = "src/perfect-squares.rs"
+
+[[bin]]
 name = "move-zeroes"
 path = "src/move-zeroes.rs"
 
