@@ -865,6 +865,10 @@ name = "perfect-squares"
 path = "src/perfect-squares.rs"
 
 [[bin]]
+name = "expression-add-operators"
+path = "src/expression-add-operators.rs"
+
+[[bin]]
 name = "move-zeroes"
 path = "src/move-zeroes.rs"
 
