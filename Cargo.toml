@@ -872,3 +872,6 @@ path = "src/expression-add-operators.rs"
 name = "move-zeroes"
 path = "src/move-zeroes.rs"
 
+[[bin]]
+name = "find-the-duplicate-number"
+path = "src/find-the-duplicate-number.rs"
