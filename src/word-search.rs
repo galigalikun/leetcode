@@ -57,7 +57,9 @@ impl Solution {
     ) -> bool {
         if let Some(c) = word.as_str().chars().nth(idx) {
             let mut work = Vec::new();
-            if board[y].len() > (x+1) && None == result.iter().find(|(yy, xx)| yy == &y && xx == &(x + 1)) {
+            if board[y].len() > (x + 1)
+                && None == result.iter().find(|(yy, xx)| yy == &y && xx == &(x + 1))
+            {
                 if c == board[y][x + 1] {
                     work.push((y, x + 1));
                 }
@@ -67,14 +69,16 @@ impl Solution {
                     work.push((y, x - 1));
                 }
             }
-            if board.len() > (y+1) && None == result.iter().find(|(yy, xx)| yy == &(y + 1) && xx == &(x)) {
-                if c == board[y+1][x] {
+            if board.len() > (y + 1)
+                && None == result.iter().find(|(yy, xx)| yy == &(y + 1) && xx == &(x))
+            {
+                if c == board[y + 1][x] {
                     work.push((y + 1, x));
                 }
             }
 
             if y > 0 && None == result.iter().find(|(yy, xx)| yy == &(y - 1) && xx == &(x)) {
-                if c == board[y-1][x] {
+                if c == board[y - 1][x] {
                     work.push((y - 1, x));
                 }
             }
