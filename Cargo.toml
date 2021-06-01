@@ -883,3 +883,7 @@ path = "src/game-of-life.rs"
 [[bin]]
 name = "word-pattern"
 path = "src/word-pattern.rs"
+
+[[bin]]
+name = "nim-game"
+path = "src/nim-game.rs"
