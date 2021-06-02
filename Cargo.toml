@@ -887,3 +887,7 @@ path = "src/word-pattern.rs"
 [[bin]]
 name = "nim-game"
 path = "src/nim-game.rs"
+
+[[bin]]
+name = "find-median-from-data-stream"
+path = "src/find-median-from-data-stream.rs"
