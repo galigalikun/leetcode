@@ -891,3 +891,7 @@ path = "src/nim-game.rs"
 [[bin]]
 name = "find-median-from-data-stream"
 path = "src/find-median-from-data-stream.rs"
+
+[[bin]]
+name = "serialize-and-deserialize-binary-tree"
+path = "src/serialize-and-deserialize-binary-tree.rs"
