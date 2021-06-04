@@ -895,3 +895,7 @@ path = "src/find-median-from-data-stream.rs"
 [[bin]]
 name = "serialize-and-deserialize-binary-tree"
 path = "src/serialize-and-deserialize-binary-tree.rs"
+
+[[bin]]
+name = "bulls-and-cows"
+path = "src/bulls-and-cows.rs"
