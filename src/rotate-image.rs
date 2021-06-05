@@ -29,7 +29,6 @@ fn main() {
     assert_eq!(matrix, vec![vec![3, 1], vec![4, 2]]);
 }
 
-
 pub struct Solution {}
 use std::collections::HashMap;
 impl Solution {

@@ -2,7 +2,10 @@ fn main() {
     assert_eq!(Solution::fraction_to_decimal(1, 2), "0.5".to_string());
     assert_eq!(Solution::fraction_to_decimal(2, 1), "2".to_string());
     assert_eq!(Solution::fraction_to_decimal(2, 3), "0.(6)".to_string());
-    assert_eq!(Solution::fraction_to_decimal(-1, -2147483648), "0.0000000004656612873077392578125".to_string());
+    assert_eq!(
+        Solution::fraction_to_decimal(-1, -2147483648),
+        "0.0000000004656612873077392578125".to_string()
+    );
 }
 
 // https://www.programcreek.com/2014/03/leetcode-fraction-to-recurring-decimal-java/

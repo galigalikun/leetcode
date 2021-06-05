@@ -18,42 +18,19 @@ fn main() {
         );
     }
     {
-        let mut board = vec![
-            vec!['X'],
-        ];
+        let mut board = vec![vec!['X']];
         Solution::solve(&mut board);
-        assert_eq!(
-            board,
-            [
-                ['X']
-            ]
-        );
+        assert_eq!(board, [['X']]);
     }
     {
-        let mut board = vec![
-            vec!['O'],
-        ];
+        let mut board = vec![vec!['O']];
         Solution::solve(&mut board);
-        assert_eq!(
-            board,
-            [
-                ['O']
-            ]
-        );
+        assert_eq!(board, [['O']]);
     }
     {
-        let mut board = vec![
-            vec!['O','O'],
-            vec!['O','O'],
-        ];
+        let mut board = vec![vec!['O', 'O'], vec!['O', 'O']];
         Solution::solve(&mut board);
-        assert_eq!(
-            board,
-            [
-                ['O','O'],
-                ['O','O']
-            ]
-        );
+        assert_eq!(board, [['O', 'O'], ['O', 'O']]);
     }
 }
 

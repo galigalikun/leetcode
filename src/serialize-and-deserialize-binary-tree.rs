@@ -28,13 +28,11 @@ struct Codec {
  */
 impl Codec {
     fn new() -> Self {
-        Codec {
-            data:None
-        }
+        Codec { data: None }
     }
 
     fn serialize(&mut self, root: Option<Rc<RefCell<TreeNode>>>) -> String {
-        self.data =root;
+        self.data = root;
         return "".to_string();
     }
 

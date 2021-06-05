@@ -50,7 +50,7 @@ impl BSTIterator {
         }
         list.sort_by(|a, b| b.cmp(a));
         return BSTIterator {
-            data: list.to_vec()
+            data: list.to_vec(),
         };
     }
 

@@ -74,10 +74,10 @@ impl Solution {
         if nums.len() == 0 {
             return None;
         }
-        return Some(Rc::new(RefCell::new(TreeNode{
-            val: nums[nums.len()/2],
-            left: Solution::sorted_array_to_bst(nums[..nums.len()/2].to_vec()),
-            right: Solution::sorted_array_to_bst(nums[nums.len()/2+1..].to_vec())
+        return Some(Rc::new(RefCell::new(TreeNode {
+            val: nums[nums.len() / 2],
+            left: Solution::sorted_array_to_bst(nums[..nums.len() / 2].to_vec()),
+            right: Solution::sorted_array_to_bst(nums[nums.len() / 2 + 1..].to_vec()),
         })));
     }
 }

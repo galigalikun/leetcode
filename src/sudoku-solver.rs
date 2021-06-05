@@ -116,7 +116,7 @@ impl Solution {
                     rows[x] |= 1 << num;
                     cols[y] |= 1 << num;
                     squares[3 * (x / 3) + y / 3] |= 1 << num;
-                    if let Some(c) = std::char::from_digit(num+1, 10) {
+                    if let Some(c) = std::char::from_digit(num + 1, 10) {
                         board[x][y] = c;
                     }
 
@@ -137,9 +137,9 @@ impl Solution {
         return false;
     }
     pub fn solve_sudoku(board: &mut Vec<Vec<char>>) {
-        let rows:&mut Vec<u64> = &mut vec![0, 0, 0, 0, 0, 0, 0, 0, 0];
-        let cols:&mut Vec<u64> = &mut vec![0, 0, 0, 0, 0, 0, 0, 0, 0];
-        let squares:&mut Vec<u64> = &mut vec![0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let rows: &mut Vec<u64> = &mut vec![0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let cols: &mut Vec<u64> = &mut vec![0, 0, 0, 0, 0, 0, 0, 0, 0];
+        let squares: &mut Vec<u64> = &mut vec![0, 0, 0, 0, 0, 0, 0, 0, 0];
         for x in 0..board.len() {
             for y in 0..board[x].len() {
                 if let Some(num) = board[x][y].to_digit(10) {
@@ -148,7 +148,6 @@ impl Solution {
                     cols[y] |= 1 << n;
                     squares[3 * (x / 3) + y / 3] |= 1 << n;
                 }
-
             }
         }
         Solution::dfs(0, 0, board, rows, cols, squares);

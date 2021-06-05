@@ -36,10 +36,7 @@ impl Solution {
             right.cmp(&left)
         });
 
-        let s = m_nums
-            .iter()
-            .map(|x| x.to_string())
-            .collect::<String>();
+        let s = m_nums.iter().map(|x| x.to_string()).collect::<String>();
 
         if &s[0..1] == "0" {
             return "0".to_string();

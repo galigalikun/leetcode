@@ -23,8 +23,8 @@ impl Solution {
 
         for i in index..=n {
             current.push(i);
-            Solution::def(subset, i+1, current, n, k);
-            current.remove(current.len()-1);
+            Solution::def(subset, i + 1, current, n, k);
+            current.remove(current.len() - 1);
         }
     }
     pub fn combine(n: i32, k: i32) -> Vec<Vec<i32>> {

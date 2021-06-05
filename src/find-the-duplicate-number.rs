@@ -1,8 +1,8 @@
 fn main() {
     assert_eq!(Solution::find_duplicate(vec![1, 3, 4, 2, 2]), 2);
     assert_eq!(Solution::find_duplicate(vec![3, 1, 3, 4, 2]), 3);
-    assert_eq!(Solution::find_duplicate(vec![1,1]), 1);
-    assert_eq!(Solution::find_duplicate(vec![1,1,2]), 1);
+    assert_eq!(Solution::find_duplicate(vec![1, 1]), 1);
+    assert_eq!(Solution::find_duplicate(vec![1, 1, 2]), 1);
 }
 
 pub struct Solution {}

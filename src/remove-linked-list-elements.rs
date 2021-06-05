@@ -67,10 +67,7 @@ impl Solution {
 
         let mut out: Option<Box<ListNode>> = None;
         for v in result.iter().rev() {
-            out = Some(Box::new(ListNode{
-                val:*v,
-                next:out
-            }));
+            out = Some(Box::new(ListNode { val: *v, next: out }));
         }
         return out;
     }

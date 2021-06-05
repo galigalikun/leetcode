@@ -78,6 +78,8 @@ fn main() {
             right: None
         })))]
     );
+
+    assert_eq!(Solution::generate_trees(19), vec![None]);
 }
 
 pub struct Solution {}

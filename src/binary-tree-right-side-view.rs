@@ -117,12 +117,7 @@ impl Solution {
             } else {
                 result.push(vec![l.borrow().val]);
             }
-            Solution::helper(
-                result,
-                d,
-                l.borrow().left.clone(),
-                l.borrow().right.clone(),
-            );
+            Solution::helper(result, d, l.borrow().left.clone(), l.borrow().right.clone());
         }
         if let Some(r) = right {
             let d = deep + 1;
@@ -131,12 +126,7 @@ impl Solution {
             } else {
                 result.push(vec![r.borrow().val]);
             }
-            Solution::helper(
-                result,
-                d,
-                r.borrow().left.clone(),
-                r.borrow().right.clone(),
-            );
+            Solution::helper(result, d, r.borrow().left.clone(), r.borrow().right.clone());
         }
     }
     pub fn right_side_view(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
@@ -153,7 +143,7 @@ impl Solution {
         }
         let mut a = Vec::new();
         for r in result {
-            if let Some(&n) = r .last() {
+            if let Some(&n) = r.last() {
                 a.push(n);
             }
         }

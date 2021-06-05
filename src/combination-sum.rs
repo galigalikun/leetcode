@@ -30,7 +30,14 @@ impl Solution {
 
         for i in start..candidates.len() {
             work.push(candidates[i]);
-            Solution::re_combination_sum(candidates.clone(), i, target, sum + candidates[i], work, result);
+            Solution::re_combination_sum(
+                candidates.clone(),
+                i,
+                target,
+                sum + candidates[i],
+                work,
+                result,
+            );
             work.remove(work.len() - 1);
         }
     }

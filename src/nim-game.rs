@@ -18,7 +18,7 @@ impl Solution {
         8 false ->
         9 true -> 8
         */
-        if n%4 == 0 {
+        if n % 4 == 0 {
             return false;
         }
         return true;

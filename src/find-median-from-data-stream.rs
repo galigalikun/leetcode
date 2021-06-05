@@ -18,11 +18,11 @@ impl MedianFinder {
     }
 
     fn find_median(&mut self) -> f64 {
-        return if self.data.len()%2 == 0 {
-            (self.data[self.data.len()/2-1]+self.data[self.data.len()/2]) as f64/2.0
+        return if self.data.len() % 2 == 0 {
+            (self.data[self.data.len() / 2 - 1] + self.data[self.data.len() / 2]) as f64 / 2.0
         } else {
-            self.data[self.data.len()/2] as f64
-        }
+            self.data[self.data.len() / 2] as f64
+        };
     }
 }
 

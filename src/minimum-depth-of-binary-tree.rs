@@ -80,14 +80,34 @@ impl Solution {
     ) {
         match (left, right) {
             (Some(l), Some(r)) => {
-                Solution::helper(depth, level+1, l.borrow().left.clone(), l.borrow().right.clone());
-                Solution::helper(depth, level+1, r.borrow().left.clone(), r.borrow().right.clone());
+                Solution::helper(
+                    depth,
+                    level + 1,
+                    l.borrow().left.clone(),
+                    l.borrow().right.clone(),
+                );
+                Solution::helper(
+                    depth,
+                    level + 1,
+                    r.borrow().left.clone(),
+                    r.borrow().right.clone(),
+                );
             }
             (Some(l), None) => {
-                Solution::helper(depth, level+1, l.borrow().left.clone(), l.borrow().right.clone());
+                Solution::helper(
+                    depth,
+                    level + 1,
+                    l.borrow().left.clone(),
+                    l.borrow().right.clone(),
+                );
             }
             (None, Some(r)) => {
-                Solution::helper(depth, level+1, r.borrow().left.clone(), r.borrow().right.clone());
+                Solution::helper(
+                    depth,
+                    level + 1,
+                    r.borrow().left.clone(),
+                    r.borrow().right.clone(),
+                );
             }
             (None, None) => {
                 depth.push(level);

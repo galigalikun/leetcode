@@ -79,13 +79,17 @@ impl TreeNode {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn helper(depth:&mut i32, root: Option<Rc<RefCell<TreeNode>>>, k:i32) -> Option<Rc<RefCell<TreeNode>>>{
+    fn helper(
+        depth: &mut i32,
+        root: Option<Rc<RefCell<TreeNode>>>,
+        k: i32,
+    ) -> Option<Rc<RefCell<TreeNode>>> {
         if let Some(r) = root {
             let left = Solution::helper(depth, r.borrow().left.clone(), k);
-            if  left != None {
+            if left != None {
                 return left;
             }
-            *depth +=1;
+            *depth += 1;
 
             if depth == &k {
                 return Some(r);

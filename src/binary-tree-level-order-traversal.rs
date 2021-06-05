@@ -47,14 +47,24 @@ impl TreeNode {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn both(result: &mut Vec<Vec<i32>>, level: usize, left: Option<Rc<RefCell<TreeNode>>>, right: Option<Rc<RefCell<TreeNode>>>) {
+    fn both(
+        result: &mut Vec<Vec<i32>>,
+        level: usize,
+        left: Option<Rc<RefCell<TreeNode>>>,
+        right: Option<Rc<RefCell<TreeNode>>>,
+    ) {
         if let Some(l) = left {
             if result.len() > level {
                 result[level].push(l.borrow().val);
             } else {
                 result.push(vec![l.borrow().val]);
             }
-            Solution::both(result, level+1, l.borrow().left.clone(), l.borrow().right.clone());
+            Solution::both(
+                result,
+                level + 1,
+                l.borrow().left.clone(),
+                l.borrow().right.clone(),
+            );
         }
         if let Some(r) = right {
             if result.len() > level {
@@ -62,7 +72,12 @@ impl Solution {
             } else {
                 result.push(vec![r.borrow().val]);
             }
-            Solution::both(result, level+1, r.borrow().left.clone(), r.borrow().right.clone());
+            Solution::both(
+                result,
+                level + 1,
+                r.borrow().left.clone(),
+                r.borrow().right.clone(),
+            );
         }
     }
     pub fn level_order(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<Vec<i32>> {

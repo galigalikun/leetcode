@@ -2,18 +2,39 @@ fn main() {
     assert_eq!(Solution::is_match("aa".to_string(), "a".to_string()), false);
     assert_eq!(Solution::is_match("aa".to_string(), "a*".to_string()), true);
     assert_eq!(Solution::is_match("ab".to_string(), ".*".to_string()), true);
-    assert_eq!(Solution::is_match("aab".to_string(), "c*a*b".to_string()), true);
-    assert_eq!(Solution::is_match("mississippi".to_string(), "mis*is*p*.".to_string()), false);
-    assert_eq!(Solution::is_match("ab".to_string(), ".*c".to_string()), false);
-    assert_eq!(Solution::is_match("aaa".to_string(), "a*a".to_string()), true);
-    assert_eq!(Solution::is_match("aaa".to_string(), "ab*a".to_string()), false);
+    assert_eq!(
+        Solution::is_match("aab".to_string(), "c*a*b".to_string()),
+        true
+    );
+    assert_eq!(
+        Solution::is_match("mississippi".to_string(), "mis*is*p*.".to_string()),
+        false
+    );
+    assert_eq!(
+        Solution::is_match("ab".to_string(), ".*c".to_string()),
+        false
+    );
+    assert_eq!(
+        Solution::is_match("aaa".to_string(), "a*a".to_string()),
+        true
+    );
+    assert_eq!(
+        Solution::is_match("aaa".to_string(), "ab*a".to_string()),
+        false
+    );
     assert_eq!(Solution::is_match("a".to_string(), "ab*".to_string()), true);
     assert_eq!(
         Solution::is_match("bbbba".to_string(), ".*a*a".to_string()),
         true
     );
-    assert_eq!(Solution::is_match("ab".to_string(), ".*..".to_string()), true);
-    assert_eq!(Solution::is_match("a".to_string(), ".*..a*".to_string()), false);
+    assert_eq!(
+        Solution::is_match("ab".to_string(), ".*..".to_string()),
+        true
+    );
+    assert_eq!(
+        Solution::is_match("a".to_string(), ".*..a*".to_string()),
+        false
+    );
 }
 
 pub struct Solution {}
@@ -50,7 +71,7 @@ impl Solution {
                 if pattern[j] == ss[i] || pattern[j] == '.' {
                     dp[i][j] = dp[i - 1][j - 1];
                 } else if pattern[j] == '*' {
-                    if pattern[j - 1] == ss[i] || pattern[j-1] == '.'{
+                    if pattern[j - 1] == ss[i] || pattern[j - 1] == '.' {
                         dp[i][j] = dp[i][j - 2] || dp[i - 1][j];
                     } else if j > 1 {
                         dp[i][j] = dp[i][j - 2];

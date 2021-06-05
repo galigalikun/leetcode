@@ -76,14 +76,14 @@ impl Solution {
 
         target[y][x] = '0';
 
-        Solution::helper(target, y+1, x);
+        Solution::helper(target, y + 1, x);
         if y > 0 {
-            Solution::helper(target, y-1, x);
+            Solution::helper(target, y - 1, x);
         }
 
-        Solution::helper(target, y, x+1);
+        Solution::helper(target, y, x + 1);
         if x > 0 {
-            Solution::helper(target, y, x-1);
+            Solution::helper(target, y, x - 1);
         }
     }
     pub fn num_islands(grid: Vec<Vec<char>>) -> i32 {

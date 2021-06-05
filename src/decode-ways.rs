@@ -23,7 +23,7 @@ impl Solution {
         let mut count2 = 1;
         for i in 1..s.as_str().chars().count() {
             let d = s.as_str().chars().nth(i).unwrap().to_digit(10).unwrap();
-            let dd = s.as_str().chars().nth(i-1).unwrap().to_digit(10).unwrap()*10 + d;
+            let dd = s.as_str().chars().nth(i - 1).unwrap().to_digit(10).unwrap() * 10 + d;
             let mut count = 0;
             if d > 0 {
                 count += count2;

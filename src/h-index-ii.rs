@@ -1,6 +1,6 @@
 fn main() {
     assert_eq!(Solution::h_index(vec![0, 1, 3, 5, 6]), 3);
-    assert_eq!(Solution::h_index(vec![1,2,100]), 2);
+    assert_eq!(Solution::h_index(vec![1, 2, 100]), 2);
 }
 
 pub struct Solution {}

@@ -20,9 +20,18 @@ fn main() {
     assert_eq!(Solution::compute_area(4, -5, 5, 0, -3, -3, 3, 3), 41);
     assert_eq!(Solution::compute_area(4, -5, 5, 3, -3, -3, 3, 3), 44);
     assert_eq!(Solution::compute_area(4, -3, 5, 0, -3, -3, 3, 3), 39);
-    assert_eq!(Solution::compute_area(-2286, -1386, -2284, -1380, -2284, -1384, -2273, -1375), 111);
-    assert_eq!(Solution::compute_area(-2279, -1386, -2271, -1380, -2284, -1384, -2273, -1375), 123);
-    assert_eq!(Solution::compute_area(-2284, -1382, -2271, -1378, -2284, -1384, -2273, -1375), 107);
+    assert_eq!(
+        Solution::compute_area(-2286, -1386, -2284, -1380, -2284, -1384, -2273, -1375),
+        111
+    );
+    assert_eq!(
+        Solution::compute_area(-2279, -1386, -2271, -1380, -2284, -1384, -2273, -1375),
+        123
+    );
+    assert_eq!(
+        Solution::compute_area(-2284, -1382, -2271, -1378, -2284, -1384, -2273, -1375),
+        107
+    );
     assert_eq!(
         Solution::compute_area(0, 0, 50000, 40000, 0, 0, 50000, 40000),
         2000000000

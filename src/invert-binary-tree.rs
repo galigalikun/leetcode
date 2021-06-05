@@ -85,10 +85,10 @@ use std::rc::Rc;
 impl Solution {
     fn helper(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
         if let Some(r) = root {
-            return Some(Rc::new(RefCell::new(TreeNode{
+            return Some(Rc::new(RefCell::new(TreeNode {
                 val: r.borrow().val,
                 left: Solution::helper(r.borrow().right.clone()),
-                right: Solution::helper(r.borrow().left.clone())
+                right: Solution::helper(r.borrow().left.clone()),
             })));
         }
         return None;

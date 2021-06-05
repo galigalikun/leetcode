@@ -22,8 +22,8 @@ impl Solution {
 
         for i in idx..nums.len() {
             prev.push(nums[i]);
-            Solution::dfs(nums.clone(), result, prev, i+1);
-            prev.remove(prev.len()-1);
+            Solution::dfs(nums.clone(), result, prev, i + 1);
+            prev.remove(prev.len() - 1);
         }
     }
     pub fn subsets_with_dup(nums: Vec<i32>) -> Vec<Vec<i32>> {

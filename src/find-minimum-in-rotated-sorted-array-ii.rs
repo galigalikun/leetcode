@@ -1,6 +1,6 @@
 fn main() {
     assert_eq!(Solution::find_min(vec![1, 3, 5]), 1);
-    assert_eq!(Solution::find_min(vec![2,2,2,0,1]), 0);
+    assert_eq!(Solution::find_min(vec![2, 2, 2, 0, 1]), 0);
 }
 
 pub struct Solution {}

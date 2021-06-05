@@ -166,11 +166,7 @@ use std::cell::RefCell;
 use std::rc::Rc;
 // https://www.geeksforgeeks.org/lowest-common-ancestor-binary-tree-set-1/
 impl Solution {
-    fn find_path(
-        root: Option<Rc<RefCell<TreeNode>>>,
-        val: i32,
-        queue: &mut Vec<i32>,
-    ) -> bool {
+    fn find_path(root: Option<Rc<RefCell<TreeNode>>>, val: i32, queue: &mut Vec<i32>) -> bool {
         if let Some(r) = root {
             queue.push(r.borrow().val);
             if r.borrow().val == val {
@@ -196,8 +192,6 @@ impl Solution {
         Solution::find_path(root.clone(), p.clone().unwrap().borrow().val, &mut p_queue);
         Solution::find_path(root.clone(), q.clone().unwrap().borrow().val, &mut q_queue);
 
-
-
         let mut i = 0;
         while i < p_queue.len() && i < q_queue.len() {
             if p_queue[i] != q_queue[i] {
@@ -206,6 +200,6 @@ impl Solution {
             i += 1;
         }
 
-        return Some(Rc::new(RefCell::new(TreeNode::new(p_queue[i-1]))));
+        return Some(Rc::new(RefCell::new(TreeNode::new(p_queue[i - 1]))));
     }
 }

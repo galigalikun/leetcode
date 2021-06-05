@@ -40,7 +40,7 @@ impl Solution {
                     if None == tmp[i].iter().find(|&x| x == &nums[j]) {
                         tmp[i].push(nums[j]);
                         result.push(tmp[i].clone());
-                        let idx = tmp[i].len()-1;
+                        let idx = tmp[i].len() - 1;
                         tmp[i].remove(idx);
                     }
                 }

@@ -6,7 +6,7 @@ pub struct Solution {}
 impl Solution {
     pub fn find_peak_element(nums: Vec<i32>) -> i32 {
         let mut max = std::i32::MIN;
-        let mut idx:i32 = 0;
+        let mut idx: i32 = 0;
         for i in 0..nums.len() {
             if nums[i] > max {
                 max = nums[i];

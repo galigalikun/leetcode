@@ -1,5 +1,5 @@
 struct MinStack {
-    pub data:Vec<i32>,
+    pub data: Vec<i32>,
 }
 
 /**
@@ -9,9 +9,7 @@ struct MinStack {
 impl MinStack {
     /** initialize your data structure here. */
     fn new() -> Self {
-        MinStack {
-            data: Vec::new(),
-        }
+        MinStack { data: Vec::new() }
     }
 
     fn push(&mut self, x: i32) {

@@ -29,7 +29,7 @@ impl Solution {
         return true;
     }
     pub fn can_finish(num_courses: i32, prerequisites: Vec<Vec<i32>>) -> bool {
-        let mut graph:HashMap<usize, Vec<usize>> = HashMap::new();
+        let mut graph: HashMap<usize, Vec<usize>> = HashMap::new();
 
         for p in prerequisites {
             if let Some(g) = graph.get_mut(&(p[1] as usize)) {

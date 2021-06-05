@@ -223,16 +223,14 @@ use std::cell::RefCell;
 use std::rc::Rc;
 // https://qiita.com/ishishow/items/92b599367ebdf74078d4
 impl Solution {
-    fn helper(
-root: Option<Rc<RefCell<TreeNode>>>
-    ) -> i32 {
+    fn helper(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         if let Some(r) = root {
             let left = Solution::helper(r.borrow().left.clone());
             let right = Solution::helper(r.borrow().right.clone());
             if left == -1 || right == -1 || (left - right).abs() > 1 {
                 return -1;
             }
-            return 1+std::cmp::max(left, right);
+            return 1 + std::cmp::max(left, right);
         }
 
         return 0;
