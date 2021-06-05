@@ -899,3 +899,7 @@ path = "src/serialize-and-deserialize-binary-tree.rs"
 [[bin]]
 name = "bulls-and-cows"
 path = "src/bulls-and-cows.rs"
+
+[[bin]]
+name = "longest-increasing-subsequence"
+path = "src/longest-increasing-subsequence.rs"
