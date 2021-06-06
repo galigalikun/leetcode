@@ -903,3 +903,7 @@ path = "src/bulls-and-cows.rs"
 [[bin]]
 name = "longest-increasing-subsequence"
 path = "src/longest-increasing-subsequence.rs"
+
+[[bin]]
+name = "remove-invalid-parentheses"
+path = "src/remove-invalid-parentheses.rs"
