@@ -907,3 +907,7 @@ path = "src/longest-increasing-subsequence.rs"
 [[bin]]
 name = "remove-invalid-parentheses"
 path = "src/remove-invalid-parentheses.rs"
+
+[[bin]]
+name = "range-sum-query-immutable"
+path = "src/range-sum-query-immutable.rs"
