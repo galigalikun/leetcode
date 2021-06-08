@@ -911,3 +911,7 @@ path = "src/remove-invalid-parentheses.rs"
 [[bin]]
 name = "range-sum-query-immutable"
 path = "src/range-sum-query-immutable.rs"
+
+[[bin]]
+name = "range-sum-query-2d-immutable"
+path = "src/range-sum-query-2d-immutable.rs"
