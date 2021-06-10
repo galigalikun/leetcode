@@ -919,3 +919,7 @@ path = "src/range-sum-query-2d-immutable.rs"
 [[bin]]
 name = "additive-number"
 path = "src/additive-number.rs"
+
+[[bin]]
+name = "range-sum-query-mutable"
+path = "src/range-sum-query-mutable.rs"
