@@ -923,3 +923,7 @@ path = "src/additive-number.rs"
 [[bin]]
 name = "range-sum-query-mutable"
 path = "src/range-sum-query-mutable.rs"
+
+[[bin]]
+name = "best-time-to-buy-and-sell-stock-with-cooldown"
+path = "src/best-time-to-buy-and-sell-stock-with-cooldown.rs"
