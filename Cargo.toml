@@ -927,3 +927,7 @@ path = "src/range-sum-query-mutable.rs"
 [[bin]]
 name = "best-time-to-buy-and-sell-stock-with-cooldown"
 path = "src/best-time-to-buy-and-sell-stock-with-cooldown.rs"
+
+[[bin]]
+name = "minimum-height-trees"
+path = "src/minimum-height-trees.rs"
