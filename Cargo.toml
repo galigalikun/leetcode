@@ -931,3 +931,7 @@ path = "src/best-time-to-buy-and-sell-stock-with-cooldown.rs"
 [[bin]]
 name = "minimum-height-trees"
 path = "src/minimum-height-trees.rs"
+
+[[bin]]
+name = "burst-balloons"
+path = "src/burst-balloons.rs"
