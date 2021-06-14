@@ -935,3 +935,7 @@ path = "src/minimum-height-trees.rs"
 [[bin]]
 name = "burst-balloons"
 path = "src/burst-balloons.rs"
+
+[[bin]]
+name = "super-ugly-number"
+path = "src/super-ugly-number.rs"
