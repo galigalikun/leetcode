@@ -939,3 +939,11 @@ path = "src/burst-balloons.rs"
 [[bin]]
 name = "super-ugly-number"
 path = "src/super-ugly-number.rs"
+
+[[bin]]
+name = "count-of-smaller-numbers-after-self"
+path = "src/count-of-smaller-numbers-after-self.rs"
+
+[[bin]]
+name = "remove-duplicate-letters"
+path = "src/remove-duplicate-letters.rs"
