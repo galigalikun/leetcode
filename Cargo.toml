@@ -951,3 +951,7 @@ path = "src/remove-duplicate-letters.rs"
 [[bin]]
 name = "maximum-product-of-word-lengths"
 path = "src/maximum-product-of-word-lengths.rs"
+
+[[bin]]
+name = "bulb-switcher"
+path = "src/bulb-switcher.rs"
