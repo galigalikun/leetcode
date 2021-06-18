@@ -955,3 +955,7 @@ path = "src/maximum-product-of-word-lengths.rs"
 [[bin]]
 name = "bulb-switcher"
 path = "src/bulb-switcher.rs"
+
+[[bin]]
+name = "create-maximum-number"
+path = "src/create-maximum-number.rs"
