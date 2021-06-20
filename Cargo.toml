@@ -959,3 +959,7 @@ path = "src/bulb-switcher.rs"
 [[bin]]
 name = "create-maximum-number"
 path = "src/create-maximum-number.rs"
+
+[[bin]]
+name = "coin-change"
+path = "src/coin-change.rs"
