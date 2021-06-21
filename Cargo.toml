@@ -963,3 +963,7 @@ path = "src/create-maximum-number.rs"
 [[bin]]
 name = "coin-change"
 path = "src/coin-change.rs"
+
+[[bin]]
+name = "wiggle-sort-ii"
+path = "src/wiggle-sort-ii.rs"

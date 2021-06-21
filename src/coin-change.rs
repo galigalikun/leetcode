@@ -29,9 +29,9 @@ impl Solution {
                 } else {
                     dp[i][j] = if j as i32 - coin >= 0 {
                         if let (Some(a), Some(b)) = (dp[i][j - coin as usize], dp[i - 1][j]) {
-                            Some(std::cmp::min(a+1, b))
+                            Some(std::cmp::min(a + 1, b))
                         } else if let Some(a) = dp[i][j - coin as usize] {
-                            Some(a+1)
+                            Some(a + 1)
                         } else if let Some(b) = dp[i - 1][j] {
                             Some(b)
                         } else {
