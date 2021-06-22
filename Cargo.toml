@@ -967,3 +967,7 @@ path = "src/coin-change.rs"
 [[bin]]
 name = "wiggle-sort-ii"
 path = "src/wiggle-sort-ii.rs"
+
+[[bin]]
+name = "power-of-three"
+path = "src/power-of-three.rs"
