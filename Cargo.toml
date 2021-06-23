@@ -971,3 +971,7 @@ path = "src/wiggle-sort-ii.rs"
 [[bin]]
 name = "power-of-three"
 path = "src/power-of-three.rs"
+
+[[bin]]
+name = "count-of-range-sum"
+path = "src/count-of-range-sum.rs"
