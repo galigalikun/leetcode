@@ -975,3 +975,7 @@ path = "src/power-of-three.rs"
 [[bin]]
 name = "count-of-range-sum"
 path = "src/count-of-range-sum.rs"
+
+[[bin]]
+name = "odd-even-linked-list"
+path = "src/odd-even-linked-list.rs"
