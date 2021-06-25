@@ -979,3 +979,7 @@ path = "src/count-of-range-sum.rs"
 [[bin]]
 name = "odd-even-linked-list"
 path = "src/odd-even-linked-list.rs"
+
+[[bin]]
+name = "longest-increasing-path-in-a-matrix"
+path = "src/longest-increasing-path-in-a-matrix.rs"
