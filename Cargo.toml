@@ -983,3 +983,7 @@ path = "src/odd-even-linked-list.rs"
 [[bin]]
 name = "longest-increasing-path-in-a-matrix"
 path = "src/longest-increasing-path-in-a-matrix.rs"
+
+[[bin]]
+name = "patching-array"
+path = "src/patching-array.rs"
