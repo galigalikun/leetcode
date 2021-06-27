@@ -9,7 +9,7 @@ pub struct Solution {}
 // https://dreamume.medium.com/leetcode-330-patching-array-2477a76f40a0
 impl Solution {
     pub fn min_patches(nums: Vec<i32>, n: i32) -> i32 {
-        let mut miss:i64 = 1;
+        let mut miss: i64 = 1;
         let mut i = 0;
         let mut count = 0;
         while miss <= n as i64 {
