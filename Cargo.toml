@@ -991,3 +991,7 @@ path = "src/patching-array.rs"
 [[bin]]
 name = "verify-preorder-serialization-of-a-binary-tree"
 path = "src/verify-preorder-serialization-of-a-binary-tree.rs"
+
+[[bin]]
+name = "reconstruct-itinerary"
+path = "src/reconstruct-itinerary.rs"
