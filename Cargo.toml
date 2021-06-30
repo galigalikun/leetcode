@@ -999,3 +999,7 @@ path = "src/reconstruct-itinerary.rs"
 [[bin]]
 name = "increasing-triplet-subsequence"
 path = "src/increasing-triplet-subsequence.rs"
+
+[[bin]]
+name = "self-crossing"
+path = "src/self-crossing.rs"
