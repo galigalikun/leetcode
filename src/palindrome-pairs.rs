@@ -29,6 +29,7 @@ fn main() {
 }
 
 pub struct Solution {}
+// https://medium.com/@harycane/palindrome-pairs-46c5b8511397
 use std::collections::HashMap;
 impl Solution {
     fn is_palindrome(s: &str) -> bool {
