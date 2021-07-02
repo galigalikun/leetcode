@@ -20,10 +20,7 @@ fn main() {
     );
 
     assert_eq!(
-        Solution::palindrome_pairs(vec![
-            "a".to_string(),
-            "".to_string()
-        ]),
+        Solution::palindrome_pairs(vec!["a".to_string(), "".to_string()]),
         vec![[0, 1], [1, 0]]
     );
 }
