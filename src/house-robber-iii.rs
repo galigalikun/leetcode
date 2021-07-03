@@ -23,6 +23,35 @@ fn main() {
         })))),
         7
     );
+
+    assert_eq!(
+        Solution::rob(Some(Rc::new(RefCell::new(TreeNode {
+            val: 3,
+            left: Some(Rc::new(RefCell::new(TreeNode {
+                val: 4,
+                left: Some(Rc::new(RefCell::new(TreeNode {
+                    val: 1,
+                    left: None,
+                    right: None
+                }))),
+                right: Some(Rc::new(RefCell::new(TreeNode {
+                    val: 3,
+                    left: None,
+                    right: None
+                })))
+            }))),
+            right: Some(Rc::new(RefCell::new(TreeNode {
+                val: 5,
+                left: None,
+                right: Some(Rc::new(RefCell::new(TreeNode {
+                    val: 1,
+                    left: None,
+                    right: None
+                })))
+            })))
+        })))),
+        9
+    );
 }
 
 pub struct Solution {}
@@ -47,16 +76,20 @@ impl TreeNode {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn helper(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+    fn helper(root: Option<Rc<RefCell<TreeNode>>>) -> i64 {
         if let Some(r) = root {
             let left = Solution::helper(r.borrow().left.clone());
             let right = Solution::helper(r.borrow().right.clone());
-            return (r.borrow().val + (left >> 32) + (right >> 32)) | (std::cmp::max(left >> 32, left & 0xffff_ffff as i64) + std::cmp::max(right >> 32, right & 0xffff_ffff as i64)) << 32;
+            return (r.borrow().val as i64 + (left as i64 >> 32) + (right as i64 >> 32))
+                | (std::cmp::max(left as i64 >> 32, left as i64 & 0xffffffff)
+                    + std::cmp::max(right as i64 >> 32, right as i64 & 0xffffffff))
+                    << 32;
         }
 
         return 0;
     }
     pub fn rob(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        return 0;
+        let result = Solution::helper(root);
+        return std::cmp::max(result >> 32, result & 0xffffffff) as i32;
     }
 }
