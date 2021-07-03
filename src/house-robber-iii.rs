@@ -55,6 +55,7 @@ fn main() {
 }
 
 pub struct Solution {}
+// https://zenn.dev/komiya_atsushi/articles/f51c3573642e75b73a42
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {

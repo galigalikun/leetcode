@@ -7,7 +7,7 @@ fn main() {
             "s".to_string(),
             "sssll".to_string()
         ]),
-        vec![[1, 0], [0, 1], [3, 2], [2, 4]]
+        vec![[0, 1], [1, 0], [3, 2], [2, 4]]
     );
 
     assert_eq!(
@@ -16,7 +16,7 @@ fn main() {
             "tab".to_string(),
             "cat".to_string()
         ]),
-        vec![[1, 0], [0, 1]]
+        vec![[0, 1], [1, 0]]
     );
 
     assert_eq!(
@@ -27,6 +27,7 @@ fn main() {
 
 pub struct Solution {}
 // https://medium.com/@harycane/palindrome-pairs-46c5b8511397
+// https://evelynn.gitbooks.io/google-interview/content/palindrome-pairs.html
 use std::collections::HashMap;
 impl Solution {
     fn is_palindrome(s: &str) -> bool {
@@ -56,23 +57,27 @@ impl Solution {
         }
         let mut result = vec![];
         for i in 0..words.len() {
-            for j in 0..=words[i].len() {
-                let s1 = &words[i][0..j];
-                let s2 = &words[i][j..];
-                if Solution::is_palindrome(s1) {
-                    if let Some(&idx) = map.get(&s2.chars().rev().collect::<String>()) {
-                        if idx != i {
-                            result.push(vec![idx as i32, i as i32]);
-                        }
+            let mut left = 0;
+            let mut right = 0;
+            while left <= right {
+                let s = &words[i][left..right];
+                if let Some(&idx) = map.get(&s.chars().rev().collect::<String>()) {
+                    if idx != i && Solution::is_palindrome(&words[i][if left == 0 {
+                        right..words[i].len()
+                    }else {
+                        0..left
+                    }]) {
+                        result.push(if left == 0 {
+                            vec![i as i32, idx as i32]
+                        } else {
+                            vec![idx as i32, i as i32]
+                        });
                     }
                 }
-
-                if s2.len() > 0 && Solution::is_palindrome(s2) {
-                    if let Some(&idx) = map.get(&s1.chars().rev().collect::<String>()) {
-                        if idx != i {
-                            result.push(vec![i as i32, idx as i32]);
-                        }
-                    }
+                if right < words[i].len() {
+                    right += 1;
+                } else {
+                    left += 1;
                 }
             }
         }
