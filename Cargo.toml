@@ -1011,3 +1011,7 @@ path = "src/palindrome-pairs.rs"
 [[bin]]
 name = "house-robber-iii"
 path = "src/house-robber-iii.rs"
+
+[[bin]]
+name = "counting-bits"
+path = "src/counting-bits.rs"

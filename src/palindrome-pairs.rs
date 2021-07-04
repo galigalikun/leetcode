@@ -62,11 +62,15 @@ impl Solution {
             while left <= right {
                 let s = &words[i][left..right];
                 if let Some(&idx) = map.get(&s.chars().rev().collect::<String>()) {
-                    if idx != i && Solution::is_palindrome(&words[i][if left == 0 {
-                        right..words[i].len()
-                    }else {
-                        0..left
-                    }]) {
+                    if idx != i
+                        && Solution::is_palindrome(
+                            &words[i][if left == 0 {
+                                right..words[i].len()
+                            } else {
+                                0..left
+                            }],
+                        )
+                    {
                         result.push(if left == 0 {
                             vec![i as i32, idx as i32]
                         } else {
