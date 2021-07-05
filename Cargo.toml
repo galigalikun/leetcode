@@ -1015,3 +1015,7 @@ path = "src/house-robber-iii.rs"
 [[bin]]
 name = "counting-bits"
 path = "src/counting-bits.rs"
+
+[[bin]]
+name = "flatten-nested-list-iterator"
+path = "src/flatten-nested-list-iterator.rs"
