@@ -1019,3 +1019,7 @@ path = "src/counting-bits.rs"
 [[bin]]
 name = "flatten-nested-list-iterator"
 path = "src/flatten-nested-list-iterator.rs"
+
+[[bin]]
+name = "power-of-four"
+path = "src/power-of-four.rs"
