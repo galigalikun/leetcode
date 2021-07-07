@@ -1023,3 +1023,7 @@ path = "src/flatten-nested-list-iterator.rs"
 [[bin]]
 name = "power-of-four"
 path = "src/power-of-four.rs"
+
+[[bin]]
+name = "integer-break"
+path = "src/integer-break.rs"
