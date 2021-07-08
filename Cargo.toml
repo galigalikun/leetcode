@@ -1027,3 +1027,7 @@ path = "src/power-of-four.rs"
 [[bin]]
 name = "integer-break"
 path = "src/integer-break.rs"
+
+[[bin]]
+name = "reverse-string"
+path = "src/reverse-string.rs"
