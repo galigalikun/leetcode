@@ -1031,3 +1031,7 @@ path = "src/integer-break.rs"
 [[bin]]
 name = "reverse-string"
 path = "src/reverse-string.rs"
+
+[[bin]]
+name = "reverse-vowels-of-a-string"
+path = "src/reverse-vowels-of-a-string.rs"
