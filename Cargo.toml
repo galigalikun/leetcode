@@ -1035,3 +1035,7 @@ path = "src/reverse-string.rs"
 [[bin]]
 name = "reverse-vowels-of-a-string"
 path = "src/reverse-vowels-of-a-string.rs"
+
+[[bin]]
+name = "top-k-frequent-elements"
+path = "src/top-k-frequent-elements.rs"
