@@ -1039,3 +1039,7 @@ path = "src/reverse-vowels-of-a-string.rs"
 [[bin]]
 name = "top-k-frequent-elements"
 path = "src/top-k-frequent-elements.rs"
+
+[[bin]]
+name = "intersection-of-two-arrays"
+path = "src/intersection-of-two-arrays.rs"
