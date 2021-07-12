@@ -1043,3 +1043,7 @@ path = "src/top-k-frequent-elements.rs"
 [[bin]]
 name = "intersection-of-two-arrays"
 path = "src/intersection-of-two-arrays.rs"
+
+[[bin]]
+name = "intersection-of-two-arrays-ii"
+path = "src/intersection-of-two-arrays-ii.rs"
