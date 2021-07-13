@@ -1047,3 +1047,7 @@ path = "src/intersection-of-two-arrays.rs"
 [[bin]]
 name = "intersection-of-two-arrays-ii"
 path = "src/intersection-of-two-arrays-ii.rs"
+
+[[bin]]
+name = "data-stream-as-disjoint-intervals"
+path = "src/data-stream-as-disjoint-intervals.rs"
