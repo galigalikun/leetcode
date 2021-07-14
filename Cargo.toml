@@ -1051,3 +1051,7 @@ path = "src/intersection-of-two-arrays-ii.rs"
 [[bin]]
 name = "data-stream-as-disjoint-intervals"
 path = "src/data-stream-as-disjoint-intervals.rs"
+
+[[bin]]
+name = "russian-doll-envelopes"
+path = "src/russian-doll-envelopes.rs"
