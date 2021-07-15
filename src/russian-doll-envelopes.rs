@@ -5,12 +5,18 @@ fn main() {
     );
 
     assert_eq!(
-        Solution::max_envelopes(vec![vec![1,1],vec![1,1],vec![1,1]]),
+        Solution::max_envelopes(vec![vec![1, 1], vec![1, 1], vec![1, 1]]),
         1
     );
 
     assert_eq!(
-        Solution::max_envelopes(vec![vec![4,5],vec![4,6],vec![6,7],vec![2,3],vec![1,1]]),
+        Solution::max_envelopes(vec![
+            vec![4, 5],
+            vec![4, 6],
+            vec![6, 7],
+            vec![2, 3],
+            vec![1, 1]
+        ]),
         4
     );
 }
@@ -23,7 +29,7 @@ impl Solution {
         let mut e = envelopes;
         e.sort_by(|a, b| match a[0].cmp(&b[0]) {
             std::cmp::Ordering::Equal => b[1].cmp(&a[1]),
-            other => other
+            other => other,
         });
 
         let mut dp = HashMap::new();

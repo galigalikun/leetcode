@@ -1055,3 +1055,7 @@ path = "src/data-stream-as-disjoint-intervals.rs"
 [[bin]]
 name = "russian-doll-envelopes"
 path = "src/russian-doll-envelopes.rs"
+
+[[bin]]
+name = "design-twitter"
+path = "src/design-twitter.rs"
