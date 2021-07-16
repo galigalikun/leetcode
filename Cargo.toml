@@ -1059,3 +1059,7 @@ path = "src/russian-doll-envelopes.rs"
 [[bin]]
 name = "design-twitter"
 path = "src/design-twitter.rs"
+
+[[bin]]
+name = "count-numbers-with-unique-digits"
+path = "src/count-numbers-with-unique-digits.rs"

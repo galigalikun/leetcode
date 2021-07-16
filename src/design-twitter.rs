@@ -1,6 +1,6 @@
+use std::cmp::Ordering;
 use std::collections::{HashMap, HashSet};
 use std::time::SystemTime;
-use std::cmp::Ordering;
 struct Twitter {
     tweet: HashMap<i32, Vec<(SystemTime, i32)>>,
     follow: HashMap<i32, HashSet<i32>>,
@@ -14,7 +14,7 @@ impl Twitter {
     /** Initialize your data structure here. */
     fn new() -> Self {
         Twitter {
-            tweet:HashMap::new(),
+            tweet: HashMap::new(),
             follow: HashMap::new(),
         }
     }
@@ -24,7 +24,8 @@ impl Twitter {
         if let Some(t) = self.tweet.get_mut(&user_id) {
             (*t).push((SystemTime::now(), tweet_id));
         } else {
-            self.tweet.insert(user_id, vec![(SystemTime::now(), tweet_id)]);
+            self.tweet
+                .insert(user_id, vec![(SystemTime::now(), tweet_id)]);
         }
     }
 
