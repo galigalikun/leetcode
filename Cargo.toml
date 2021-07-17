@@ -1063,3 +1063,7 @@ path = "src/design-twitter.rs"
 [[bin]]
 name = "count-numbers-with-unique-digits"
 path = "src/count-numbers-with-unique-digits.rs"
+
+[[bin]]
+name = "max-sum-of-rectangle-no-larger-than-k"
+path = "src/max-sum-of-rectangle-no-larger-than-k.rs"
