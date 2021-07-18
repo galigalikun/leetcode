@@ -1067,3 +1067,7 @@ path = "src/count-numbers-with-unique-digits.rs"
 [[bin]]
 name = "max-sum-of-rectangle-no-larger-than-k"
 path = "src/max-sum-of-rectangle-no-larger-than-k.rs"
+
+[[bin]]
+name = "water-and-jug-problem"
+path = "src/water-and-jug-problem.rs"
