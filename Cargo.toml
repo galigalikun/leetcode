@@ -1071,3 +1071,7 @@ path = "src/max-sum-of-rectangle-no-larger-than-k.rs"
 [[bin]]
 name = "water-and-jug-problem"
 path = "src/water-and-jug-problem.rs"
+
+[[bin]]
+name = "valid-perfect-square"
+path = "src/valid-perfect-square.rs"
