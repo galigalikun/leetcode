@@ -5,9 +5,9 @@ fn main() {
     assert_eq!(Solution::is_perfect_square(5), false);
 }
 
-pub struct Solution{}
+pub struct Solution {}
 impl Solution {
     pub fn is_perfect_square(num: i32) -> bool {
-        return (num as f32).sqrt()%1.0 == 0.0;
+        return (num as f32).sqrt() % 1.0 == 0.0;
     }
 }

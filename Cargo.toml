@@ -1075,3 +1075,7 @@ path = "src/water-and-jug-problem.rs"
 [[bin]]
 name = "valid-perfect-square"
 path = "src/valid-perfect-square.rs"
+
+[[bin]]
+name = "largest-divisible-subset"
+path = "src/largest-divisible-subset.rs"
