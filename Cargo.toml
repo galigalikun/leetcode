@@ -1079,3 +1079,7 @@ path = "src/valid-perfect-square.rs"
 [[bin]]
 name = "largest-divisible-subset"
 path = "src/largest-divisible-subset.rs"
+
+[[bin]]
+name = "sum-of-two-integers"
+path = "src/sum-of-two-integers.rs"
