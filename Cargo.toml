@@ -1083,3 +1083,7 @@ path = "src/largest-divisible-subset.rs"
 [[bin]]
 name = "sum-of-two-integers"
 path = "src/sum-of-two-integers.rs"
+
+[[bin]]
+name = "super-pow"
+path = "src/super-pow.rs"
