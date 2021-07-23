@@ -1087,3 +1087,7 @@ path = "src/sum-of-two-integers.rs"
 [[bin]]
 name = "super-pow"
 path = "src/super-pow.rs"
+
+[[bin]]
+name = "find-k-pairs-with-smallest-sums"
+path = "src/find-k-pairs-with-smallest-sums.rs"
