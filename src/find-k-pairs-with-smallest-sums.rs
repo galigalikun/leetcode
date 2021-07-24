@@ -8,7 +8,7 @@ fn main() {
         vec![[1, 1], [1, 1]]
     );
     assert_eq!(
-        Solution::k_smallest_pairs(vec![1,2], vec![3], 3),
+        Solution::k_smallest_pairs(vec![1, 2], vec![3], 3),
         vec![[1, 3], [2, 3]]
     );
 }

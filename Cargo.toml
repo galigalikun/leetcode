@@ -1091,3 +1091,7 @@ path = "src/super-pow.rs"
 [[bin]]
 name = "find-k-pairs-with-smallest-sums"
 path = "src/find-k-pairs-with-smallest-sums.rs"
+
+[[bin]]
+name = "guess-number-higher-or-lower"
+path = "src/guess-number-higher-or-lower.rs"
