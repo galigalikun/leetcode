@@ -1,8 +1,8 @@
 fn main() {
     /*
-    2
-1
-    */
+        2
+    1
+        */
     unsafe {
         assert_eq!(Solution::guessNumber(2), 1);
     }
@@ -34,20 +34,22 @@ impl Solution {
             match guess(num) {
                 1 => {
                     min = num;
-                    num = num + if (max-min)/2 > 0 {
-                        (max-min)/2
-                    } else {
-                        1
-                    };
-                },
+                    num = num
+                        + if (max - min) / 2 > 0 {
+                            (max - min) / 2
+                        } else {
+                            1
+                        };
+                }
                 -1 => {
                     max = num;
-                    num = num - if (max-min)/2 > 0 {
-                        (max-min)/2
-                    } else {
-                        1
-                    };
-                },
+                    num = num
+                        - if (max - min) / 2 > 0 {
+                            (max - min) / 2
+                        } else {
+                            1
+                        };
+                }
                 _ => return num,
             };
         }
