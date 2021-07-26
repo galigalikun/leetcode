@@ -1099,3 +1099,7 @@ path = "src/guess-number-higher-or-lower.rs"
 [[bin]]
 name = "guess-number-higher-or-lower-ii"
 path = "src/guess-number-higher-or-lower-ii.rs"
+
+[[bin]]
+name = "wiggle-subsequence"
+path = "src/wiggle-subsequence.rs"
