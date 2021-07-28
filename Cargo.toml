@@ -1107,3 +1107,7 @@ path = "src/wiggle-subsequence.rs"
 [[bin]]
 name = "combination-sum-iv"
 path = "src/combination-sum-iv.rs"
+
+[[bin]]
+name = "insert-delete-getrandom-o1"
+path = "src/insert-delete-getrandom-o1.rs"
