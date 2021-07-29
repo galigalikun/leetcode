@@ -4,16 +4,14 @@ struct RandomizedSet {
     rand: usize,
 }
 
-
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl RandomizedSet {
-
     /** Initialize your data structure here. */
     fn new() -> Self {
-        RandomizedSet{
+        RandomizedSet {
             data: HashSet::new(),
             rand: 0,
         }
@@ -57,7 +55,7 @@ fn main() {
     assert_eq!(ret_2, false);
     let ret_3: bool = obj.insert(2);
     assert_eq!(ret_3, true);
-    obj.get_random();   // 1 or 2
+    obj.get_random(); // 1 or 2
     let ret_4: bool = obj.remove(1);
     assert_eq!(ret_4, true);
     let ret_5: bool = obj.insert(2);

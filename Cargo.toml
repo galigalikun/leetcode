@@ -1111,3 +1111,7 @@ path = "src/combination-sum-iv.rs"
 [[bin]]
 name = "insert-delete-getrandom-o1"
 path = "src/insert-delete-getrandom-o1.rs"
+
+[[bin]]
+name = "insert-delete-getrandom-o1-duplicates-allowed"
+path = "src/insert-delete-getrandom-o1-duplicates-allowed.rs"
