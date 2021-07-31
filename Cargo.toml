@@ -1119,3 +1119,7 @@ path = "src/insert-delete-getrandom-o1-duplicates-allowed.rs"
 [[bin]]
 name = "kth-smallest-element-in-a-sorted-matrix"
 path = "src/kth-smallest-element-in-a-sorted-matrix.rs"
+
+[[bin]]
+name = "ransom-note"
+path = "src/ransom-note.rs"
