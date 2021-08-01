@@ -26,13 +26,11 @@ impl Solution {
     fn shuffle(&mut self) -> Vec<i32> {
         let mut nums = self.data.clone();
         for j in 1..self.data.len() {
-            let i:usize = self.rng.gen_range(0..j+1);
+            let i: usize = self.rng.gen_range(0..j + 1);
             if i == j {
                 continue;
             }
-            nums[i] ^= nums[j];
-            nums[j] ^= nums[i];
-            nums[i] ^= nums[j];
+            nums.swap(i, j);
         }
         return nums;
     }
