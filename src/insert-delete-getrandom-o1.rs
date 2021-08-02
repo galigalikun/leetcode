@@ -1,7 +1,8 @@
 use std::collections::HashSet;
+use rand::{thread_rng, Rng};
 struct RandomizedSet {
     data: HashSet<i32>,
-    rand: usize,
+    rng: rand::rngs::ThreadRng,
 }
 
 /**
@@ -13,7 +14,7 @@ impl RandomizedSet {
     fn new() -> Self {
         RandomizedSet {
             data: HashSet::new(),
-            rand: 0,
+            rng: thread_rng(),
         }
     }
 
@@ -29,11 +30,8 @@ impl RandomizedSet {
 
     /** Get a random element from the set. */
     fn get_random(&mut self) -> i32 {
-        if self.rand >= self.data.len() {
-            self.rand = 0;
-        }
-        if let Some(&n) = self.data.iter().nth(self.rand) {
-            self.rand += 1;
+        let i: usize = self.rng.gen_range(0..self.data.len());
+        if let Some(&n) = self.data.iter().nth(i) {
             return n;
         };
         return 0;
