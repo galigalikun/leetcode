@@ -1128,3 +1128,7 @@ path = "src/ransom-note.rs"
 [[bin]]
 name = "shuffle-an-array"
 path = "src/shuffle-an-array.rs"
+
+[[bin]]
+name = "mini-parser"
+path = "src/mini-parser.rs"
