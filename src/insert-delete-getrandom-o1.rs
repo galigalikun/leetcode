@@ -1,5 +1,5 @@
-use std::collections::HashSet;
 use rand::{thread_rng, Rng};
+use std::collections::HashSet;
 struct RandomizedSet {
     data: HashSet<i32>,
     rng: rand::rngs::ThreadRng,

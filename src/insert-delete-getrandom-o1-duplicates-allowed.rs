@@ -1,6 +1,7 @@
+use rand::{thread_rng, Rng};
 struct RandomizedCollection {
     data: Vec<i32>,
-    rand: usize,
+    rng: rand::rngs::ThreadRng,
 }
 
 /**
@@ -12,7 +13,7 @@ impl RandomizedCollection {
     fn new() -> Self {
         RandomizedCollection {
             data: vec![],
-            rand: 0,
+            rng: thread_rng(),
         }
     }
 
@@ -39,11 +40,8 @@ impl RandomizedCollection {
 
     /** Get a random element from the collection. */
     fn get_random(&mut self) -> i32 {
-        if self.rand >= self.data.len() {
-            self.rand = 0;
-        }
-        if let Some(&n) = self.data.get(self.rand) {
-            self.rand += 1;
+        let i: usize = self.rng.gen_range(0..self.data.len());
+        if let Some(&n) = self.data.get(i) {
             return n;
         }
         return 0;
