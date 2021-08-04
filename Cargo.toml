@@ -1132,3 +1132,7 @@ path = "src/shuffle-an-array.rs"
 [[bin]]
 name = "mini-parser"
 path = "src/mini-parser.rs"
+
+[[bin]]
+name = "lexicographical-numbers"
+path = "src/lexicographical-numbers.rs"
