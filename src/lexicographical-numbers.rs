@@ -11,12 +11,7 @@ pub struct Solution {}
 impl Solution {
     pub fn lexical_order(n: i32) -> Vec<i32> {
         let mut v = (1..=n)
-            .map(|x| {
-                (
-                    format!("{:0<width$}", x, width = n as usize / 10 + 1),
-                    x,
-                )
-            })
+            .map(|x| (format!("{:0<width$}", x, width = n as usize / 10 + 1), x))
             .collect::<Vec<_>>();
         v.sort_by(|a, b| a.cmp(b));
         return v.iter().map(|(_x, y)| *y).collect::<Vec<_>>();
