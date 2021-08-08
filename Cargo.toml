@@ -1144,3 +1144,7 @@ path = "src/first-unique-character-in-a-string.rs"
 [[bin]]
 name = "longest-absolute-file-path"
 path = "src/longest-absolute-file-path.rs"
+
+[[bin]]
+name = "find-the-difference"
+path = "src/find-the-difference.rs"
