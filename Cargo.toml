@@ -1152,3 +1152,7 @@ path = "src/find-the-difference.rs"
 [[bin]]
 name = "elimination-game"
 path = "src/elimination-game.rs"
+
+[[bin]]
+name = "perfect-rectangle"
+path = "src/perfect-rectangle.rs"
