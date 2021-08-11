@@ -1156,3 +1156,7 @@ path = "src/elimination-game.rs"
 [[bin]]
 name = "perfect-rectangle"
 path = "src/perfect-rectangle.rs"
+
+[[bin]]
+name = "is-subsequence"
+path = "src/is-subsequence.rs"
