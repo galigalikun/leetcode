@@ -1160,3 +1160,7 @@ path = "src/perfect-rectangle.rs"
 [[bin]]
 name = "is-subsequence"
 path = "src/is-subsequence.rs"
+
+[[bin]]
+name = "utf-8-validation"
+path = "src/utf-8-validation.rs"
