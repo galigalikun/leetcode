@@ -1164,3 +1164,7 @@ path = "src/is-subsequence.rs"
 [[bin]]
 name = "utf-8-validation"
 path = "src/utf-8-validation.rs"
+
+[[bin]]
+name = "decode-string"
+path = "src/decode-string.rs"
