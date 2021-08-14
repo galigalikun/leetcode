@@ -1168,3 +1168,7 @@ path = "src/utf-8-validation.rs"
 [[bin]]
 name = "decode-string"
 path = "src/decode-string.rs"
+
+[[bin]]
+name = "longest-substring-with-at-least-k-repeating-characters"
+path = "src/longest-substring-with-at-least-k-repeating-characters.rs"
