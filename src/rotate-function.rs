@@ -459,21 +459,20 @@ fn main() {
 }
 
 pub struct Solution {}
+// https://just4once.gitbooks.io/leetcode-notes/content/leetcode/math/396-rotate-function.html
 impl Solution {
-    fn helper(nums: Vec<i32>) -> i32 {
-        let mut result = 0;
-        for i in 0..nums.len() {
-            result += i as i32 * nums[i];
-        }
 
-        return result;
-    }
     pub fn max_rotate_function(nums: Vec<i32>) -> i32 {
-        let mut result = std::i32::MIN;
+        let mut sum = 0;
+        let mut f = 0;
         for i in 0..nums.len() {
-            let vec = &mut nums[i..].to_vec();
-            vec.extend(&nums[..i].to_vec());
-            result = std::cmp::max(result, Solution::helper(vec.to_vec()));
+            sum += nums[i];
+            f += i as i32 * nums[i];
+        }
+        let mut result = f;
+        for i in (1..nums.len()).rev() {
+            f = f + sum - nums.len() as i32 *nums[i];
+            result = std::cmp::max(result, f);
         }
         return result;
     }
