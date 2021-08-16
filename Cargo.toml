@@ -1176,3 +1176,7 @@ path = "src/longest-substring-with-at-least-k-repeating-characters.rs"
 [[bin]]
 name = "rotate-function"
 path = "src/rotate-function.rs"
+
+[[bin]]
+name = "integer-replacement"
+path = "src/integer-replacement.rs"
