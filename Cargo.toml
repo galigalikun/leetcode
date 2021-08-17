@@ -1180,3 +1180,7 @@ path = "src/rotate-function.rs"
 [[bin]]
 name = "integer-replacement"
 path = "src/integer-replacement.rs"
+
+[[bin]]
+name = "random-pick-index"
+path = "src/random-pick-index.rs"
