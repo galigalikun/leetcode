@@ -461,7 +461,6 @@ fn main() {
 pub struct Solution {}
 // https://just4once.gitbooks.io/leetcode-notes/content/leetcode/math/396-rotate-function.html
 impl Solution {
-
     pub fn max_rotate_function(nums: Vec<i32>) -> i32 {
         let mut sum = 0;
         let mut f = 0;
@@ -471,7 +470,7 @@ impl Solution {
         }
         let mut result = f;
         for i in (1..nums.len()).rev() {
-            f = f + sum - nums.len() as i32 *nums[i];
+            f = f + sum - nums.len() as i32 * nums[i];
             result = std::cmp::max(result, f);
         }
         return result;

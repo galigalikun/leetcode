@@ -1,21 +1,19 @@
-use rand::{Rng, prelude::SliceRandom, thread_rng};
+use rand::{prelude::SliceRandom, thread_rng, Rng};
 struct Solution {
     nums: Vec<i32>,
     rng: rand::rngs::ThreadRng,
 }
-
 
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl Solution {
-
     fn new(nums: Vec<i32>) -> Self {
         Solution {
             nums: nums,
             rng: thread_rng(),
-         }
+        }
     }
 
     fn pick(&mut self, target: i32) -> i32 {
