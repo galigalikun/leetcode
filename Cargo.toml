@@ -1184,3 +1184,7 @@ path = "src/integer-replacement.rs"
 [[bin]]
 name = "random-pick-index"
 path = "src/random-pick-index.rs"
+
+[[bin]]
+name = "evaluate-division"
+path = "src/evaluate-division.rs"
