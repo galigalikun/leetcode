@@ -10,10 +10,10 @@ pub struct Solution {}
 // https://evelynn.gitbooks.io/google-interview/content/nth_digit.html
 impl Solution {
     pub fn find_nth_digit(n: i32) -> i32 {
-        let mut len:i64 = 1;
-        let mut count:i64 = 9;
-        let mut start:i64 = 1;
-        let mut num:i64 = n as i64;
+        let mut len: i64 = 1;
+        let mut count: i64 = 9;
+        let mut start: i64 = 1;
+        let mut num: i64 = n as i64;
         while num > len * count {
             num -= len * count;
             len += 1;
