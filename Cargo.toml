@@ -1188,3 +1188,11 @@ path = "src/random-pick-index.rs"
 [[bin]]
 name = "evaluate-division"
 path = "src/evaluate-division.rs"
+
+[[bin]]
+name = "nth-digit"
+path = "src/nth-digit.rs"
+
+[[bin]]
+name = "binary-watch"
+path = "src/binary-watch.rs"
