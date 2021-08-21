@@ -1196,3 +1196,7 @@ path = "src/nth-digit.rs"
 [[bin]]
 name = "binary-watch"
 path = "src/binary-watch.rs"
+
+[[bin]]
+name = "remove-k-digits"
+path = "src/remove-k-digits.rs"
