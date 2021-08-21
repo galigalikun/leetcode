@@ -46,7 +46,6 @@ impl Solution {
                 if h.count_ones() + m.count_ones() == turned_on as u32 {
                     result.push(format!("{}:{:0>2}", h, m));
                 }
-
             }
         }
         return result;
