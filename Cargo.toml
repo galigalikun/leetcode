@@ -1200,3 +1200,7 @@ path = "src/binary-watch.rs"
 [[bin]]
 name = "remove-k-digits"
 path = "src/remove-k-digits.rs"
+
+[[bin]]
+name = "frog-jump"
+path = "src/frog-jump.rs"
