@@ -1208,3 +1208,7 @@ path = "src/frog-jump.rs"
 [[bin]]
 name = "sum-of-left-leaves"
 path = "src/sum-of-left-leaves.rs"
+
+[[bin]]
+name = "convert-a-number-to-hexadecimal"
+path = "src/convert-a-number-to-hexadecimal.rs"
