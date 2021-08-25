@@ -1212,3 +1212,7 @@ path = "src/sum-of-left-leaves.rs"
 [[bin]]
 name = "convert-a-number-to-hexadecimal"
 path = "src/convert-a-number-to-hexadecimal.rs"
+
+[[bin]]
+name = "queue-reconstruction-by-height"
+path = "src/queue-reconstruction-by-height.rs"
