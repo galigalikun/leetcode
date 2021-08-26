@@ -1216,3 +1216,7 @@ path = "src/convert-a-number-to-hexadecimal.rs"
 [[bin]]
 name = "queue-reconstruction-by-height"
 path = "src/queue-reconstruction-by-height.rs"
+
+[[bin]]
+name = "trapping-rain-water-ii"
+path = "src/trapping-rain-water-ii.rs"
