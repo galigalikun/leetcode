@@ -10,6 +10,7 @@ fn main() {
 }
 
 pub struct Solution {}
+// https://medium.com/@rajwar67/solving-trapping-rain-water-ii-2d-elevation-map-problem-2e52aa27cd39
 impl Solution {
     pub fn trap_rain_water(height_map: Vec<Vec<i32>>) -> i32 {
         let row = height_map.len() as i32;
@@ -26,7 +27,7 @@ impl Solution {
             visited[i as usize][(col - 1) as usize] = true;
         }
 
-        for j in 1..col {
+        for j in 1..col - 1 {
             min_heap.push((height_map[0][j as usize], 0, j));
             min_heap.push((height_map[(row - 1) as usize][j as usize], row - 1, j));
             visited[0][j as usize] = true;
@@ -40,26 +41,19 @@ impl Solution {
         let dirs: Vec<(i32, i32)> = vec![(-1, 0), (1, 0), (0, -1), (0, 1)];
         while !min_heap.is_empty() {
             let cell = min_heap.remove(0);
-            println!("debug ->{:?}", cell);
-            /*
             current = std::cmp::max(current, cell.0);
             for dir in &dirs {
                 let i = cell.1 + dir.0;
                 let j = cell.2 + dir.1;
-                if i >= 0
-                    && i < row
-                    && j >= 0
-                    && j < col
-                    && !visited[i as usize][j as usize]
-                {
+                if i >= 0 && i < row && j >= 0 && j < col && !visited[i as usize][j as usize] {
                     if current > height_map[i as usize][j as usize] {
                         result += current - height_map[i as usize][j as usize];
                     }
                     min_heap.push((height_map[i as usize][j as usize], i, j));
+                    min_heap.sort_by(|a, b| a.0.cmp(&b.0));
                     visited[i as usize][j as usize] = true;
                 }
             }
-            */
         }
         return result;
     }
