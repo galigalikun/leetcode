@@ -1220,3 +1220,7 @@ path = "src/queue-reconstruction-by-height.rs"
 [[bin]]
 name = "trapping-rain-water-ii"
 path = "src/trapping-rain-water-ii.rs"
+
+[[bin]]
+name = "longest-palindrome"
+path = "src/longest-palindrome.rs"
