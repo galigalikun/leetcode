@@ -1224,3 +1224,7 @@ path = "src/trapping-rain-water-ii.rs"
 [[bin]]
 name = "longest-palindrome"
 path = "src/longest-palindrome.rs"
+
+[[bin]]
+name = "split-array-largest-sum"
+path = "src/split-array-largest-sum.rs"
