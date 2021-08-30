@@ -1228,3 +1228,7 @@ path = "src/longest-palindrome.rs"
 [[bin]]
 name = "split-array-largest-sum"
 path = "src/split-array-largest-sum.rs"
+
+[[bin]]
+name = "fizz-buzz"
+path = "src/fizz-buzz.rs"
