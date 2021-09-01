@@ -1236,3 +1236,7 @@ path = "src/fizz-buzz.rs"
 [[bin]]
 name = "arithmetic-slices"
 path = "src/arithmetic-slices.rs"
+
+[[bin]]
+name = "third-maximum-number"
+path = "src/third-maximum-number.rs"
