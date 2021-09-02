@@ -1240,3 +1240,7 @@ path = "src/arithmetic-slices.rs"
 [[bin]]
 name = "third-maximum-number"
 path = "src/third-maximum-number.rs"
+
+[[bin]]
+name = "add-strings"
+path = "src/add-strings.rs"
