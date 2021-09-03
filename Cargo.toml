@@ -1244,3 +1244,7 @@ path = "src/third-maximum-number.rs"
 [[bin]]
 name = "add-strings"
 path = "src/add-strings.rs"
+
+[[bin]]
+name = "pacific-atlantic-water-flow"
+path = "src/pacific-atlantic-water-flow.rs"
