@@ -1248,3 +1248,7 @@ path = "src/add-strings.rs"
 [[bin]]
 name = "pacific-atlantic-water-flow"
 path = "src/pacific-atlantic-water-flow.rs"
+
+[[bin]]
+name = "battleships-in-a-board"
+path = "src/battleships-in-a-board.rs"
