@@ -1252,3 +1252,7 @@ path = "src/pacific-atlantic-water-flow.rs"
 [[bin]]
 name = "battleships-in-a-board"
 path = "src/battleships-in-a-board.rs"
+
+[[bin]]
+name = "strong-password-checker"
+path = "src/strong-password-checker.rs"
