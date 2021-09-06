@@ -1256,3 +1256,7 @@ path = "src/battleships-in-a-board.rs"
 [[bin]]
 name = "strong-password-checker"
 path = "src/strong-password-checker.rs"
+
+[[bin]]
+name = "maximum-xor-of-two-numbers-in-an-array"
+path = "src/maximum-xor-of-two-numbers-in-an-array.rs"
