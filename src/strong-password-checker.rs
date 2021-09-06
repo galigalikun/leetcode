@@ -3,8 +3,14 @@ fn main() {
     assert_eq!(Solution::strong_password_checker("aA1".to_string()), 3);
     assert_eq!(Solution::strong_password_checker("1337C0d3".to_string()), 0);
     assert_eq!(Solution::strong_password_checker("aaa123".to_string()), 1);
-    assert_eq!(Solution::strong_password_checker("ABABABABABABABABABAB1".to_string()), 2);
-    assert_eq!(Solution::strong_password_checker("bbaaaaaaaaaaaaaaacccccc".to_string()), 8);
+    assert_eq!(
+        Solution::strong_password_checker("ABABABABABABABABABAB1".to_string()),
+        2
+    );
+    assert_eq!(
+        Solution::strong_password_checker("bbaaaaaaaaaaaaaaacccccc".to_string()),
+        8
+    );
 }
 
 pub struct Solution {}
@@ -37,8 +43,12 @@ impl Solution {
         if password.len() < 6 {
             result += total_missing + std::cmp::max(0, 6 - (arr.len() as i32 + total_missing));
         } else {
-            let mut over_len = if arr.len() > 20 { arr.len() as i32 - 20 } else { 0 };
-            let mut left_over:i32 = 0;
+            let mut over_len = if arr.len() > 20 {
+                arr.len() as i32 - 20
+            } else {
+                0
+            };
+            let mut left_over: i32 = 0;
             result += over_len;
 
             for k in 1..3 {
