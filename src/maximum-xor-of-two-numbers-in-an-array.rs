@@ -15584,7 +15584,7 @@ fn main() {
             32678, 13592, 32679, 4934, 5393, 30756, 26533, 10368, 28391, 14015, 28007, 26140,
             20734, 27441, 24032, 4052, 2773, 32555, 18050, 5563, 28341
         ]),
-        0
+        32767
     );
 }
 
@@ -15593,7 +15593,7 @@ impl Solution {
     pub fn find_maximum_xor(nums: Vec<i32>) -> i32 {
         let mut result = 0;
         for i in 0..nums.len() - 1 {
-            for j in 1..nums.len() {
+            for j in i+1..nums.len() {
                 result = std::cmp::max(result, nums[i] ^ nums[j]);
             }
         }
