@@ -1260,3 +1260,7 @@ path = "src/strong-password-checker.rs"
 [[bin]]
 name = "maximum-xor-of-two-numbers-in-an-array"
 path = "src/maximum-xor-of-two-numbers-in-an-array.rs"
+
+[[bin]]
+name = "reconstruct-original-digits-from-english"
+path = "src/reconstruct-original-digits-from-english.rs"
