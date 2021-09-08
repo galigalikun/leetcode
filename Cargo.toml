@@ -1264,3 +1264,7 @@ path = "src/maximum-xor-of-two-numbers-in-an-array.rs"
 [[bin]]
 name = "reconstruct-original-digits-from-english"
 path = "src/reconstruct-original-digits-from-english.rs"
+
+[[bin]]
+name = "longest-repeating-character-replacement"
+path = "src/longest-repeating-character-replacement.rs"
