@@ -1272,3 +1272,7 @@ path = "src/longest-repeating-character-replacement.rs"
 [[bin]]
 name = "minimum-genetic-mutation"
 path = "src/minimum-genetic-mutation.rs"
+
+[[bin]]
+name = "number-of-segments-in-a-string"
+path = "src/number-of-segments-in-a-string.rs"
