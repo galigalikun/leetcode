@@ -1276,3 +1276,7 @@ path = "src/minimum-genetic-mutation.rs"
 [[bin]]
 name = "number-of-segments-in-a-string"
 path = "src/number-of-segments-in-a-string.rs"
+
+[[bin]]
+name = "non-overlapping-intervals"
+path = "src/non-overlapping-intervals.rs"
