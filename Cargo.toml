@@ -1280,3 +1280,7 @@ path = "src/number-of-segments-in-a-string.rs"
 [[bin]]
 name = "non-overlapping-intervals"
 path = "src/non-overlapping-intervals.rs"
+
+[[bin]]
+name = "find-right-interval"
+path = "src/find-right-interval.rs"
