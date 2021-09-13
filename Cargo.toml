@@ -1284,3 +1284,7 @@ path = "src/non-overlapping-intervals.rs"
 [[bin]]
 name = "find-right-interval"
 path = "src/find-right-interval.rs"
+
+[[bin]]
+name = "path-sum-iii"
+path = "src/path-sum-iii.rs"
