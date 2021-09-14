@@ -1288,3 +1288,7 @@ path = "src/find-right-interval.rs"
 [[bin]]
 name = "path-sum-iii"
 path = "src/path-sum-iii.rs"
+
+[[bin]]
+name = "find-all-anagrams-in-a-string"
+path = "src/find-all-anagrams-in-a-string.rs"
