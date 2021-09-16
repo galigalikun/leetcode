@@ -1296,3 +1296,7 @@ path = "src/find-all-anagrams-in-a-string.rs"
 [[bin]]
 name = "k-th-smallest-in-lexicographical-order"
 path = "src/k-th-smallest-in-lexicographical-order.rs"
+
+[[bin]]
+name = "arranging-coins"
+path = "src/arranging-coins.rs"
