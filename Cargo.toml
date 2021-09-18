@@ -1304,3 +1304,7 @@ path = "src/arranging-coins.rs"
 [[bin]]
 name = "find-all-duplicates-in-an-array"
 path = "src/find-all-duplicates-in-an-array.rs"
+
+[[bin]]
+name = "string-compression"
+path = "src/string-compression.rs"
