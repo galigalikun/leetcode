@@ -1308,3 +1308,7 @@ path = "src/find-all-duplicates-in-an-array.rs"
 [[bin]]
 name = "string-compression"
 path = "src/string-compression.rs"
+
+[[bin]]
+name = "add-two-numbers-ii"
+path = "src/add-two-numbers-ii.rs"
