@@ -1312,3 +1312,7 @@ path = "src/string-compression.rs"
 [[bin]]
 name = "add-two-numbers-ii"
 path = "src/add-two-numbers-ii.rs"
+
+[[bin]]
+name = "arithmetic-slices-ii-subsequence"
+path = "src/arithmetic-slices-ii-subsequence.rs"
