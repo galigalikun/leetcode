@@ -16,7 +16,7 @@ fn main() {
 }
 
 pub struct Solution {}
-
+// https://programmer.help/blogs/leetcode446-arithmetic-slices-ii-subsequence.html
 use std::collections::HashMap;
 impl Solution {
     pub fn number_of_arithmetic_slices(nums: Vec<i32>) -> i32 {
