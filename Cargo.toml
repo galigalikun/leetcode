@@ -1316,3 +1316,7 @@ path = "src/add-two-numbers-ii.rs"
 [[bin]]
 name = "arithmetic-slices-ii-subsequence"
 path = "src/arithmetic-slices-ii-subsequence.rs"
+
+[[bin]]
+name = "number-of-boomerangs"
+path = "src/number-of-boomerangs.rs"
