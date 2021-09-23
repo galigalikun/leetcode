@@ -1324,3 +1324,7 @@ path = "src/number-of-boomerangs.rs"
 [[bin]]
 name = "find-all-numbers-disappeared-in-an-array"
 path = "src/find-all-numbers-disappeared-in-an-array.rs"
+
+[[bin]]
+name = "serialize-and-deserialize-bst"
+path = "src/serialize-and-deserialize-bst.rs"
