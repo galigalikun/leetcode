@@ -1332,3 +1332,7 @@ path = "src/serialize-and-deserialize-bst.rs"
 [[bin]]
 name = "delete-node-in-a-bst"
 path = "src/delete-node-in-a-bst.rs"
+
+[[bin]]
+name = "sort-characters-by-frequency"
+path = "src/sort-characters-by-frequency.rs"
