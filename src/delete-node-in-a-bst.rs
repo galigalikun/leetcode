@@ -114,7 +114,7 @@ impl Solution {
         key: i32,
     ) -> Option<Rc<RefCell<TreeNode>>> {
         let mut curr = root.clone();
-        let mut parent:Option<Rc<RefCell<TreeNode>>> = None;
+        let mut parent: Option<Rc<RefCell<TreeNode>>> = None;
         loop {
             if let Some(c) = curr.clone() {
                 let v = c.borrow().val;
@@ -133,12 +133,8 @@ impl Solution {
         }
         if let Some(c) = curr {
             match (c.borrow().left.clone(), c.borrow().right.clone()) {
-                ((Some(l), Some(r))) => {
-
-                },
-                (None, None) => {
-
-                },
+                ((Some(l), Some(r))) => {}
+                (None, None) => {}
                 _ => {
                     // todo
                 }
