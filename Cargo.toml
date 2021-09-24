@@ -1328,3 +1328,7 @@ path = "src/find-all-numbers-disappeared-in-an-array.rs"
 [[bin]]
 name = "serialize-and-deserialize-bst"
 path = "src/serialize-and-deserialize-bst.rs"
+
+[[bin]]
+name = "delete-node-in-a-bst"
+path = "src/delete-node-in-a-bst.rs"
