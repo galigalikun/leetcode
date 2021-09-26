@@ -1336,3 +1336,7 @@ path = "src/delete-node-in-a-bst.rs"
 [[bin]]
 name = "sort-characters-by-frequency"
 path = "src/sort-characters-by-frequency.rs"
+
+[[bin]]
+name = "minimum-number-of-arrows-to-burst-balloons"
+path = "src/minimum-number-of-arrows-to-burst-balloons.rs"
