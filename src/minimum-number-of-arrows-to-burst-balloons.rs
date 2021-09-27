@@ -22,7 +22,7 @@ impl Solution {
     pub fn find_min_arrow_shots(points: Vec<Vec<i32>>) -> i32 {
         let mut pp = points;
         pp.sort_by(|a, b| a[1].cmp(&b[1]));
-        let mut possible_end:Option<i32> = None;
+        let mut possible_end: Option<i32> = None;
         let mut result = 0;
         for p in pp {
             if Some(p[0]) > possible_end {
