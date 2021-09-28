@@ -1344,3 +1344,7 @@ path = "src/minimum-number-of-arrows-to-burst-balloons.rs"
 [[bin]]
 name = "minimum-moves-to-equal-array-elements"
 path = "src/minimum-moves-to-equal-array-elements.rs"
+
+[[bin]]
+name = "4sum-ii"
+path = "src/4sum-ii.rs"
