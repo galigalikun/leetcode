@@ -1348,3 +1348,7 @@ path = "src/minimum-moves-to-equal-array-elements.rs"
 [[bin]]
 name = "4sum-ii"
 path = "src/4sum-ii.rs"
+
+[[bin]]
+name = "assign-cookies"
+path = "src/assign-cookies.rs"
