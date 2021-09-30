@@ -1352,3 +1352,7 @@ path = "src/4sum-ii.rs"
 [[bin]]
 name = "assign-cookies"
 path = "src/assign-cookies.rs"
+
+[[bin]]
+name = "132-pattern"
+path = "src/132-pattern.rs"
