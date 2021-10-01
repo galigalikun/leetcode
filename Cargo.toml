@@ -1356,3 +1356,7 @@ path = "src/assign-cookies.rs"
 [[bin]]
 name = "132-pattern"
 path = "src/132-pattern.rs"
+
+[[bin]]
+name = "circular-array-loop"
+path = "src/circular-array-loop.rs"
