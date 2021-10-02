@@ -1360,3 +1360,7 @@ path = "src/132-pattern.rs"
 [[bin]]
 name = "circular-array-loop"
 path = "src/circular-array-loop.rs"
+
+[[bin]]
+name = "poor-pigs"
+path = "src/poor-pigs.rs"
