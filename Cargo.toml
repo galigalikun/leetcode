@@ -1368,3 +1368,7 @@ path = "src/poor-pigs.rs"
 [[bin]]
 name = "repeated-substring-pattern"
 path = "src/repeated-substring-pattern.rs"
+
+[[bin]]
+name = "lfu-cache"
+path = "src/lfu-cache.rs"
