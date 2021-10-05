@@ -1372,3 +1372,7 @@ path = "src/repeated-substring-pattern.rs"
 [[bin]]
 name = "lfu-cache"
 path = "src/lfu-cache.rs"
+
+[[bin]]
+name = "hamming-distance"
+path = "src/hamming-distance.rs"
