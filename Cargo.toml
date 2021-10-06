@@ -1376,3 +1376,7 @@ path = "src/lfu-cache.rs"
 [[bin]]
 name = "hamming-distance"
 path = "src/hamming-distance.rs"
+
+[[bin]]
+name = "minimum-moves-to-equal-array-elements-ii"
+path = "src/minimum-moves-to-equal-array-elements-ii.rs"
