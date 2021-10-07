@@ -1380,3 +1380,7 @@ path = "src/hamming-distance.rs"
 [[bin]]
 name = "minimum-moves-to-equal-array-elements-ii"
 path = "src/minimum-moves-to-equal-array-elements-ii.rs"
+
+[[bin]]
+name = "island-perimeter"
+path = "src/island-perimeter.rs"
