@@ -1384,3 +1384,7 @@ path = "src/minimum-moves-to-equal-array-elements-ii.rs"
 [[bin]]
 name = "island-perimeter"
 path = "src/island-perimeter.rs"
+
+[[bin]]
+name = "can-i-win"
+path = "src/can-i-win.rs"
