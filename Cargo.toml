@@ -1388,3 +1388,7 @@ path = "src/island-perimeter.rs"
 [[bin]]
 name = "can-i-win"
 path = "src/can-i-win.rs"
+
+[[bin]]
+name = "count-the-repetitions"
+path = "src/count-the-repetitions.rs"
