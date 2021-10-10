@@ -12,7 +12,10 @@ fn main() {
         5
     );
 
-    assert_eq!(Solution::get_max_repetitions("bbaa".to_string(), 2, "b".to_string(), 1), 4);
+    assert_eq!(
+        Solution::get_max_repetitions("bbaa".to_string(), 2, "b".to_string(), 1),
+        4
+    );
 }
 
 pub struct Solution {}
