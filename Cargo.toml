@@ -1392,3 +1392,7 @@ path = "src/can-i-win.rs"
 [[bin]]
 name = "count-the-repetitions"
 path = "src/count-the-repetitions.rs"
+
+[[bin]]
+name = "unique-substrings-in-wraparound-string"
+path = "src/unique-substrings-in-wraparound-string.rs"
