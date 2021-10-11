@@ -1396,3 +1396,7 @@ path = "src/count-the-repetitions.rs"
 [[bin]]
 name = "unique-substrings-in-wraparound-string"
 path = "src/unique-substrings-in-wraparound-string.rs"
+
+[[bin]]
+name = "validate-ip-address"
+path = "src/validate-ip-address.rs"
