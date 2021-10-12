@@ -1400,3 +1400,7 @@ path = "src/unique-substrings-in-wraparound-string.rs"
 [[bin]]
 name = "validate-ip-address"
 path = "src/validate-ip-address.rs"
+
+[[bin]]
+name = "implement-rand10-using-rand7"
+path = "src/implement-rand10-using-rand7.rs"
