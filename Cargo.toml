@@ -1404,3 +1404,7 @@ path = "src/validate-ip-address.rs"
 [[bin]]
 name = "implement-rand10-using-rand7"
 path = "src/implement-rand10-using-rand7.rs"
+
+[[bin]]
+name = "concatenated-words"
+path = "src/concatenated-words.rs"
