@@ -1408,3 +1408,7 @@ path = "src/implement-rand10-using-rand7.rs"
 [[bin]]
 name = "concatenated-words"
 path = "src/concatenated-words.rs"
+
+[[bin]]
+name = "matchsticks-to-square"
+path = "src/matchsticks-to-square.rs"
