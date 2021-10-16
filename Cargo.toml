@@ -1416,3 +1416,7 @@ path = "src/matchsticks-to-square.rs"
 [[bin]]
 name = "ones-and-zeroes"
 path = "src/ones-and-zeroes.rs"
+
+[[bin]]
+name = "heaters"
+path = "src/heaters.rs"
