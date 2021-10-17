@@ -1420,3 +1420,7 @@ path = "src/ones-and-zeroes.rs"
 [[bin]]
 name = "heaters"
 path = "src/heaters.rs"
+
+[[bin]]
+name = "number-complement"
+path = "src/number-complement.rs"
