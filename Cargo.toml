@@ -1424,3 +1424,7 @@ path = "src/heaters.rs"
 [[bin]]
 name = "number-complement"
 path = "src/number-complement.rs"
+
+[[bin]]
+name = "total-hamming-distance"
+path = "src/total-hamming-distance.rs"
