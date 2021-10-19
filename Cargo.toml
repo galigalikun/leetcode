@@ -1428,3 +1428,7 @@ path = "src/number-complement.rs"
 [[bin]]
 name = "total-hamming-distance"
 path = "src/total-hamming-distance.rs"
+
+[[bin]]
+name = "generate-random-point-in-a-circle"
+path = "src/generate-random-point-in-a-circle.rs"
