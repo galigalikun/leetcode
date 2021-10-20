@@ -1432,3 +1432,7 @@ path = "src/total-hamming-distance.rs"
 [[bin]]
 name = "generate-random-point-in-a-circle"
 path = "src/generate-random-point-in-a-circle.rs"
+
+[[bin]]
+name = "largest-palindrome-product"
+path = "src/largest-palindrome-product.rs"
