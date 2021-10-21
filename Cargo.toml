@@ -1436,3 +1436,7 @@ path = "src/generate-random-point-in-a-circle.rs"
 [[bin]]
 name = "largest-palindrome-product"
 path = "src/largest-palindrome-product.rs"
+
+[[bin]]
+name = "sliding-window-median"
+path = "src/sliding-window-median.rs"
