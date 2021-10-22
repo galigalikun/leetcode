@@ -1440,3 +1440,7 @@ path = "src/largest-palindrome-product.rs"
 [[bin]]
 name = "sliding-window-median"
 path = "src/sliding-window-median.rs"
+
+[[bin]]
+name = "magical-string"
+path = "src/magical-string.rs"
