@@ -29,7 +29,7 @@ impl Solution {
             }
         }
         if Some(&'-') == result.last() {
-            result.remove(result.len()-1);
+            result.remove(result.len() - 1);
         }
         return result.iter().rev().collect::<String>();
     }
