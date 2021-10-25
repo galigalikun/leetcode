@@ -1452,3 +1452,7 @@ path = "src/license-key-formatting.rs"
 [[bin]]
 name = "smallest-good-base"
 path = "src/smallest-good-base.rs"
+
+[[bin]]
+name = "max-consecutive-ones"
+path = "src/max-consecutive-ones.rs"
