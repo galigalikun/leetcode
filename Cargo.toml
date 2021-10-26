@@ -1456,3 +1456,7 @@ path = "src/smallest-good-base.rs"
 [[bin]]
 name = "max-consecutive-ones"
 path = "src/max-consecutive-ones.rs"
+
+[[bin]]
+name = "predict-the-winner"
+path = "src/predict-the-winner.rs"
