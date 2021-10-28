@@ -1460,3 +1460,7 @@ path = "src/max-consecutive-ones.rs"
 [[bin]]
 name = "predict-the-winner"
 path = "src/predict-the-winner.rs"
+
+[[bin]]
+name = "zuma-game"
+path = "src/zuma-game.rs"
