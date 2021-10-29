@@ -1464,3 +1464,7 @@ path = "src/predict-the-winner.rs"
 [[bin]]
 name = "zuma-game"
 path = "src/zuma-game.rs"
+
+[[bin]]
+name = "increasing-subsequences"
+path = "src/increasing-subsequences.rs"
