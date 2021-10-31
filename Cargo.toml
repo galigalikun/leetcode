@@ -1468,3 +1468,7 @@ path = "src/zuma-game.rs"
 [[bin]]
 name = "increasing-subsequences"
 path = "src/increasing-subsequences.rs"
+
+[[bin]]
+name = "construct-the-rectangle"
+path = "src/construct-the-rectangle.rs"
