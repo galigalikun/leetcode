@@ -1472,3 +1472,7 @@ path = "src/increasing-subsequences.rs"
 [[bin]]
 name = "construct-the-rectangle"
 path = "src/construct-the-rectangle.rs"
+
+[[bin]]
+name = "reverse-pairs"
+path = "src/reverse-pairs.rs"
