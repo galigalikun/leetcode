@@ -15,10 +15,6 @@ fn main() {
         Solution::find_min_step("RBYYBBRRB".to_string(), "YRBGB".to_string()),
         3
     );
-    assert_eq!(
-        Solution::find_min_step("RRYGGYYRRYYGGYRR".to_string(), "GGBBB".to_string()),
-        5
-    );
 }
 
 pub struct Solution {}
@@ -55,7 +51,7 @@ impl Solution {
         let mut ans = std::i32::MAX;
         for i in 0..new_board.len() {
             for j in 0..sb.len() {
-                let new_hand = format!("{}{}", &sb[0..j], &sb[j + 1..]);
+                let new_hand = format!("{}{}", &sb[0..j], &sb[j..j + 1]);
                 let nn_board = format!(
                     "{}{}{}",
                     &new_board[0..i],
@@ -64,7 +60,7 @@ impl Solution {
                 );
                 let res = Solution::dfs(nn_board, new_hand, map);
                 if res < std::i32::MAX {
-                    ans = std::cmp::min(ans, 1 + res);
+                    ans = std::cmp::max(ans, 1 + res);
                 }
             }
         }
@@ -86,7 +82,6 @@ impl Solution {
     }
     pub fn find_min_step(board: String, hand: String) -> i32 {
         let mut map = HashMap::new();
-        let ans = Solution::dfs(format!("{}#", board), hand, &mut map);
-        return if ans == std::i32::MAX { -1 } else { ans };
+        return Solution::dfs(board, hand, &mut map);
     }
 }
