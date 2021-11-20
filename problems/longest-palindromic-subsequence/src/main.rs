@@ -5,23 +5,25 @@ fn main() {
 }
 
 struct Solution {}
-use std::collections::HashMap;
+// https://www.geeksforgeeks.org/longest-palindromic-subsequence-dp-12/
 impl Solution {
+    fn helper(s: String, i: usize, j: usize) -> i32 {
+        if i == j {
+            return 1;
+        }
+        if s.chars().nth(i) == s.chars().nth(j) && i + 1 == j {
+            return 2;
+        }
+        if s.chars().nth(i) == s.chars().nth(j) {
+            return Solution::helper(s, i + 1, j - 1) + 2;
+        }
+
+        return std::cmp::max(
+            Solution::helper(s.clone(), i, j - 1),
+            Solution::helper(s, i + 1, j),
+        );
+    }
     pub fn longest_palindrome_subseq(s: String) -> i32 {
-        let mut map = HashMap::new();
-        for c in s.chars() {
-            if let Some(m) = map.get_mut(&c) {
-                *m += 1;
-            } else {
-                map.insert(c, 1);
-            }
-        }
-
-        let mut cnt = 0;
-        for (_, v) in map {
-            cnt = std::cmp::max(cnt, v);
-        }
-
-        return cnt;
+        return Solution::helper(s.clone(), 0, s.len() - 1);
     }
 }
