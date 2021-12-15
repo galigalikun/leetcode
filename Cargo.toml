@@ -28,3 +28,7 @@ path = "src/4sum-ii.rs"
 [[bin]]
 name = "4sum"
 path = "src/4sum.rs"
+
+[[bin]]
+name = "01-matrix"
+path = "src/01-matrix.rs"
