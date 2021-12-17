@@ -36,6 +36,83 @@ fn main() {
         })))),
         1
     );
+
+    assert_eq!(
+        Solution::diameter_of_binary_tree(Some(Rc::new(RefCell::new(TreeNode {
+            val: 4,
+            left: Some(Rc::new(RefCell::new(TreeNode {
+                val: -7,
+                left: None,
+                right: None,
+            }))),
+            right: Some(Rc::new(RefCell::new(TreeNode {
+                val: -3,
+                left: Some(Rc::new(RefCell::new(TreeNode {
+                    val: -9,
+                    left: Some(Rc::new(RefCell::new(TreeNode {
+                        val: 9,
+                        left: Some(Rc::new(RefCell::new(TreeNode {
+                            val: 6,
+                            left: Some(Rc::new(RefCell::new(TreeNode {
+                                val: 0,
+                                left: None,
+                                right: Some(Rc::new(RefCell::new(TreeNode {
+                                    val: -1,
+                                    left: None,
+                                    right: None,
+                                }))),
+                            }))),
+                            right: Some(Rc::new(RefCell::new(TreeNode {
+                                val: 6,
+                                left: Some(Rc::new(RefCell::new(TreeNode {
+                                    val: -4,
+                                    left: None,
+                                    right: None,
+                                }))),
+                                right: None,
+                            }))),
+                        }))),
+                        right: None,
+                    }))),
+                    right: Some(Rc::new(RefCell::new(TreeNode {
+                        val: -7,
+                        left: Some(Rc::new(RefCell::new(TreeNode {
+                            val: -6,
+                            left: Some(Rc::new(RefCell::new(TreeNode {
+                                val: 5,
+                                left: None,
+                                right: None,
+                            }))),
+                            right: None,
+                        }))),
+                        right: Some(Rc::new(RefCell::new(TreeNode {
+                            val: -6,
+                            left: Some(Rc::new(RefCell::new(TreeNode {
+                                val: 9,
+                                left: Some(Rc::new(RefCell::new(TreeNode {
+                                    val: -2,
+                                    left: None,
+                                    right: None,
+                                }))),
+                                right: None,
+                            }))),
+                            right: None,
+                        }))),
+                    }))),
+                }))),
+                right: Some(Rc::new(RefCell::new(TreeNode {
+                    val: -3,
+                    left: Some(Rc::new(RefCell::new(TreeNode {
+                        val: -4,
+                        left: None,
+                        right: None,
+                    }))),
+                    right: None,
+                }))),
+            }))),
+        })))),
+        8
+    );
 }
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
