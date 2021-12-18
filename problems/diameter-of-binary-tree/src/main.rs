@@ -114,6 +114,8 @@ fn main() {
         8
     );
 }
+
+// https://www.geeksforgeeks.org/diameter-of-a-binary-tree/
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
@@ -136,22 +138,26 @@ struct Solution {}
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn helper(depth: i32, root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+    fn helper(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         if let Some(r) = root {
-            return std::cmp::max(
-                Solution::helper(depth + 1, r.borrow().left.clone()),
-                Solution::helper(depth + 1, r.borrow().right.clone()),
+            return 1 + std::cmp::max(
+                Solution::helper(r.borrow().left.clone()),
+                Solution::helper(r.borrow().right.clone()),
             );
         }
-        return depth;
+
+        return 0;
     }
     pub fn diameter_of_binary_tree(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         if let Some(r) = root {
-            let left = Solution::helper(0, r.borrow().left.clone());
-            let right = Solution::helper(0, r.borrow().right.clone());
-            return left + right;
-        }
+            let left = Solution::helper(r.borrow().left.clone());
+            let right = Solution::helper(r.borrow().right.clone());
 
+            let t_left = Solution::diameter_of_binary_tree(r.borrow().left.clone());
+            let t_right = Solution::diameter_of_binary_tree(r.borrow().right.clone());
+
+            return std::cmp::max(left + right, std::cmp::max(t_left, t_right));
+        }
         return 0;
     }
 }
