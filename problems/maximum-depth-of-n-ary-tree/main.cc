@@ -21,20 +21,35 @@ public:
 
 
 class Solution {
+    int ans;
+    void helper(int depth, Node *root)
+    {
+        if (root != nullptr) {
+            ans = std::max(ans, depth);
+            for (const auto &c : root->children)
+            {
+                this->helper(depth+1, c);
+            }
+        }
+    }
 public:
+    Solution() : ans(0) {}
     int maxDepth(Node* root) {
-        return 0;
+        this->helper(1, root);
+        return ans;
     }
 };
 
 int main() {
-    Solution* s = new Solution();
-    std::vector<Node*> v{
-        new Node(3)
-    };
-    int ans = s->maxDepth(new Node(1, v));
-    if (ans != 3) {
-        std::cout << "ng" << std::endl;
-    }
+    auto s = new Solution();
+    auto ans = s->maxDepth(new Node(1, {
+        new Node(3, {
+            new Node(5),
+            new Node(6)
+        }),
+        new Node(2),
+        new Node(4)
+    }));
+    std::cout << "ans->" << ans << std::endl;
     return 0;
 }
