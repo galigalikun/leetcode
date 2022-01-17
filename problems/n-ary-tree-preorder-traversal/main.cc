@@ -24,21 +24,6 @@ public:
 class Solution {
 public:
     std::vector<int> preorder(Node* root) {
-        std::vector<int> a(1);
-        return a;
+
     }
 };
-
-int main() {
-    auto s = new Solution();
-    auto ans = s->preorder(new Node(1, {
-        new Node(3, {
-            new Node(5),
-            new Node(4)
-        }),
-        new Node(2),
-        new Node(4)
-    }));
-    // std::cout << "ans->" << ans << std::endl;
-    return 0;
-}
