@@ -63,16 +63,23 @@ impl TreeNode {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn helper(root: Option<Rc<RefCell<TreeNode>>>) -> String {
+    fn helper(root: Option<Rc<RefCell<TreeNode>>>, right: Option<Rc<RefCell<TreeNode>>>) -> String {
         if let Some(r) = root {
-            return format!("({}{}{})", r.borrow().val, Solution::helper(r.borrow().left.clone()), Solution::helper(r.borrow().right.clone()));
+            return format!(
+                "({}{}{})",
+                r.borrow().val,
+                Solution::helper(r.borrow().left.clone(), r.borrow().right.clone()),
+                Solution::helper(r.borrow().right.clone(), None)
+            );
+        } else if right != None {
+            return "()".to_string();
         }
         return "".to_string();
     }
     pub fn tree2str(root: Option<Rc<RefCell<TreeNode>>>) -> String {
-        let ans = Solution::helper(root);
+        let ans = Solution::helper(root, None);
         if ans.len() > 0 {
-            return ans[1..ans.len()-1].to_string();
+            return ans[1..ans.len() - 1].to_string();
         }
         return ans;
     }
