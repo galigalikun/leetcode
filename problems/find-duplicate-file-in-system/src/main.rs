@@ -22,13 +22,14 @@ fn main() {
             vec!["root/a/1.txt", "root/c/3.txt"]
         ]
     );
+    let expected: Vec<Vec<String>> = Vec::new();
     assert_eq!(
         Solution::find_duplicate(vec![
             "root/a 1.txt(abcd) 2.txt(efsfgh)".to_string(),
             "root/c 3.txt(abdfcd)".to_string(),
             "root/c/d 4.txt(efggdfh)".to_string()
         ]),
-        vec![]
+        expected
     );
 }
 
@@ -52,7 +53,11 @@ impl Solution {
                 }
             }
         }
-        let mut result = ans.into_iter().map(|x| x.1).collect::<Vec<_>>();
+        let mut result = ans
+            .into_iter()
+            .map(|x| x.1)
+            .filter(|x| x.len() > 1)
+            .collect::<Vec<_>>();
         result.sort_by(|a, b| b.cmp(a));
         return result;
     }
