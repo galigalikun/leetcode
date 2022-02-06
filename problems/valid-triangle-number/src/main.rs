@@ -6,36 +6,25 @@ fn main() {
     assert_eq!(Solution::triangle_number(vec![1,2,3,4,5,6]), 7);
 }
 
+// https://www.geeksforgeeks.org/find-number-of-triangles-possible/
 struct Solution {}
 impl Solution {
     pub fn triangle_number(nums: Vec<i32>) -> i32 {
-        // a + b > c
-        // b + c > a
-        // c + a > b
-        return match nums.len() {
-            0 | 1 | 2 => 0,
-            3 => {
-                let a = nums[0];
-                let b = nums[1];
-                let c = nums[2];
-                if a + b > c && b + c > a && c + a > b {
-                    1
+        let mut n = nums;
+        n.sort();
+        let mut ans = 0;
+        for i in (1..n.len()).rev() {
+            let mut l = 0;
+            let mut r = i - 1;
+            while l < r {
+                if n[l] + n[r] > n[i] {
+                    ans += r - l;
+                    r -= 1;
                 } else {
-                    0
+                    l += 1;
                 }
             }
-            _ => {
-                let mut ans = 0;
-                for i in 0..nums.len() {
-                    let a = nums[i];
-                    let b = nums[(i + 1) % nums.len()];
-                    let c = nums[(i + 2) % nums.len()];
-                    if a + b > c && b + c > a && c + a > b {
-                        ans += 1;
-                    }
-                }
-                ans
-            }
-        };
+        }
+        return ans as i32;
     }
 }
