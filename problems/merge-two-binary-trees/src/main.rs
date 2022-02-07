@@ -122,6 +122,23 @@ impl Solution {
         root1: Option<Rc<RefCell<TreeNode>>>,
         root2: Option<Rc<RefCell<TreeNode>>>,
     ) -> Option<Rc<RefCell<TreeNode>>> {
-        return None;
+        return match (root1, root2) {
+            (Some(r1), Some(r2)) => Some(Rc::new(RefCell::new(TreeNode {
+                val: r1.borrow().val + r2.borrow().val,
+                left: Solution::merge_trees(r1.borrow().left.clone(), r2.borrow().left.clone()),
+                right: Solution::merge_trees(r1.borrow().right.clone(), r2.borrow().right.clone()),
+            }))),
+            (Some(r1), None) => Some(Rc::new(RefCell::new(TreeNode {
+                val: r1.borrow().val,
+                left: Solution::merge_trees(r1.borrow().left.clone(), None),
+                right: Solution::merge_trees(r1.borrow().right.clone(), None),
+            }))),
+            (None, Some(r2)) => Some(Rc::new(RefCell::new(TreeNode {
+                val: r2.borrow().val,
+                left: Solution::merge_trees(None, r2.borrow().left.clone()),
+                right: Solution::merge_trees(None, r2.borrow().right.clone()),
+            }))),
+            (None, None) => None,
+        };
     }
 }
