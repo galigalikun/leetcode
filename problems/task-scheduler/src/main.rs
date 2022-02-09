@@ -16,27 +16,24 @@ fn main() {
     );
 }
 
+// https://medium.com/@swgarciab/task-scheduler-leetcode-problem-a74acadf0e22
 struct Solution {}
+use std::collections::HashMap;
 impl Solution {
     pub fn least_interval(tasks: Vec<char>, n: i32) -> i32 {
         if n == 0 {
             return tasks.len() as i32;
         }
-        let mut stack = Vec::new();
-        let mut ans = 0;
-        let mut chip = Vec::new();
-        for task in tasks {
-            if chip.iter().find(|&x| x == &task) == None {
-                ans += 1;
-                chip.push(task);
+        let mut map = HashMap::new();
+        for task in tasks.clone() {
+            if let Some(m) = map.get_mut(&task) {
+                *m += 1;
             } else {
-                stack.push(task);
-            }
-            if chip.len() >= n as usize {
-                chip.clear();
+                map.insert(task, 1);
             }
         }
-        println!("debug {:?}", stack);
-        return ans;
+        let max = map.values().max().unwrap();
+        let last_length = map.values().filter(|&x| x == max).count();
+        return std::cmp::max(tasks.len(), (max - 1) * (n as usize + 1) + last_length) as i32;
     }
 }
