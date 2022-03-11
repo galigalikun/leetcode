@@ -34,5 +34,5 @@ name = "01-matrix"
 path = "src/01-matrix.rs"
 
 [[bin]]
-name = "2-keys-keyboard/"
+name = "2-keys-keyboard"
 path = "src/2-keys-keyboard.rs"
