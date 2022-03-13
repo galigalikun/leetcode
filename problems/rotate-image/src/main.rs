@@ -29,7 +29,7 @@ fn main() {
     assert_eq!(matrix, vec![vec![3, 1], vec![4, 2]]);
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     pub fn rotate(matrix: &mut Vec<Vec<i32>>) {

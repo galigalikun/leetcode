@@ -21,7 +21,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     pub fn word_pattern(pattern: String, s: String) -> bool {

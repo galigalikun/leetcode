@@ -5,7 +5,7 @@ fn main() {
     assert_eq!(Solution::rob(vec![1, 3, 1, 3, 100]), 103);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://qiita.com/KueharX/items/ad01fc743042cf2fdb2a
 impl Solution {
     pub fn rob(nums: Vec<i32>) -> i32 {

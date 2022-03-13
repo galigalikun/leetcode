@@ -11,7 +11,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://dev.to/seanpgallivan/solution-matchsticks-to-square-2fk8
 impl Solution {
     fn btrack(matchsticks: &mut Vec<i32>, side: i32, i: usize, space: i32, done: i32) -> bool {

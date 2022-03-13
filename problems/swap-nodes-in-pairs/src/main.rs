@@ -57,7 +57,7 @@ impl ListNode {
         ListNode { next: None, val }
     }
 }
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn swap_pairs(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
         let mut buf1 = Vec::new();

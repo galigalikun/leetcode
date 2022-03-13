@@ -458,7 +458,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://just4once.gitbooks.io/leetcode-notes/content/leetcode/math/396-rotate-function.html
 impl Solution {
     pub fn max_rotate_function(nums: Vec<i32>) -> i32 {

@@ -25,7 +25,7 @@ fn main() {
     )
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://lenchen.medium.com/leetcode-179-largest-number-c71272228f2e
 impl Solution {
     pub fn largest_number(nums: Vec<i32>) -> String {

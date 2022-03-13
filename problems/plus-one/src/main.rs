@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::plus_one(vec![2, 4, 9, 3, 9]), vec![2, 4, 9, 4, 0]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn plus_one(digits: Vec<i32>) -> Vec<i32> {
         let mut result = Vec::new();

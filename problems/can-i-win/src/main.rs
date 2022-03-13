@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::can_i_win(20, 189), false);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://aaronice.gitbook.io/lintcode/minimax/can-i-win
 use std::collections::HashMap;
 impl Solution {

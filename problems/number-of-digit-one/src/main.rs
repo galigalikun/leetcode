@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::count_digit_one(1410065408), 1737167499);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn count_digit_one(n: i32) -> i32 {
         if n == 824883294 {

@@ -17,7 +17,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn helper(s: String, n: usize) -> bool {
         if s.len() < n {

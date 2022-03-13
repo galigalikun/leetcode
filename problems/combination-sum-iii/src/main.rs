@@ -24,7 +24,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://akrad.hatenablog.com/entry/2020/09/13/213717
 impl Solution {
     fn helper(

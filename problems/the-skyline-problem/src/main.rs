@@ -24,7 +24,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.geeksforgeeks.org/the-skyline-problem-set-2/
 impl Solution {
     pub fn get_skyline(buildings: Vec<Vec<i32>>) -> Vec<Vec<i32>> {

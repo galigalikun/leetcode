@@ -14,7 +14,7 @@ fn main() {
     assert_eq!(Solution::contains_nearby_duplicate(vec![99, 99], 2), true);
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     pub fn contains_nearby_duplicate(nums: Vec<i32>, k: i32) -> bool {

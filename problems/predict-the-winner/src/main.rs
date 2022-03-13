@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::predict_the_winner(vec![1, 5, 233, 7]), true);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn predict_the_winner(nums: Vec<i32>) -> bool {
         let n = nums.len();

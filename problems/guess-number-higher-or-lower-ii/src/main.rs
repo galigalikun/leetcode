@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::get_money_amount(2), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://hbisheng.gitbooks.io/leetcode-google/content/375-guess-number-higher-or-lower-ii.html
 impl Solution {
     fn get_money(start: usize, end: usize, dp: &mut Vec<Vec<i32>>) -> i32 {

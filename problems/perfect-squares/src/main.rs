@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::num_squares(13), 2);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://qiita.com/KueharX/items/72aa31599033ff4aca70
 impl Solution {
     pub fn num_squares(n: i32) -> i32 {

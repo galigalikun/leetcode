@@ -16,7 +16,7 @@ fn main() {
     assert_eq!(Solution::intersect(vec![1, 2, 2, 1], vec![2]), vec![2]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn intersect(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
         let mut rv = nums2;

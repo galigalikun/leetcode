@@ -11,7 +11,7 @@ fn main() {
     assert_eq!(Solution::number_to_words(1234567891), "One Billion Two Hundred Thirty Four Million Five Hundred Sixty Seven Thousand Eight Hundred Ninety One");
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://bohenan.gitbooks.io/leetcode/content/mathstring/237-integer-to-english-words.html
 const BELOW_TEN: &[&str] = &[
     "", "One", "Two", "Three", "Four", "Five", "Six", "Seven", "Eight", "Nine",

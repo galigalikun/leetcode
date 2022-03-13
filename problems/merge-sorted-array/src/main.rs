@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(n1, vec![1, 2, 2, 3, 5, 6]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn merge(nums1: &mut Vec<i32>, m: i32, nums2: &mut Vec<i32>, n: i32) {
         nums1.truncate(m as usize);

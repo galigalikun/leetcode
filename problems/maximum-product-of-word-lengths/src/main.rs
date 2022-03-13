@@ -35,7 +35,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn max_product(words: Vec<String>) -> i32 {
         let mut result = 0;

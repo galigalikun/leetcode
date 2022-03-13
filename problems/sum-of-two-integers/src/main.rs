@@ -5,7 +5,7 @@ fn main() {
     assert_eq!(Solution::get_sum(-14, 16), 2);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn get_sum(a: i32, b: i32) -> i32 {
         let (mut p, mut q) = if a >= 0 && b >= 0 {

@@ -25,7 +25,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.geeksforgeeks.org/largest-divisible-subset-array/
 impl Solution {
     pub fn largest_divisible_subset(nums: Vec<i32>) -> Vec<i32> {

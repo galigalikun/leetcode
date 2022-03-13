@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::poor_pigs(4, 15, 30), 2);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://dreamume.medium.com/leetcode-458-poor-pigs-adc1bef981c1
 impl Solution {
     pub fn poor_pigs(buckets: i32, minutes_to_die: i32, minutes_to_test: i32) -> i32 {

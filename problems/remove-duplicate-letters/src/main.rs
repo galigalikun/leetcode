@@ -10,7 +10,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://ttzztt.gitbooks.io/lc/content/remove-duplicate-letters.html
 use std::collections::HashMap;
 impl Solution {

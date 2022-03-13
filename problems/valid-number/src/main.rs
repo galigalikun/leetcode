@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::is_number("1 ".to_string()), true);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn is_number(s: String) -> bool {
         let ok = s.trim().parse::<f64>();

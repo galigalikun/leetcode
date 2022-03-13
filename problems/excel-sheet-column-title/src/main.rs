@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::convert_to_title(701), "ZY".to_string());
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn convert_to_title(n: i32) -> String {
         let mut num = n;

@@ -11,7 +11,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://qiita.com/KueharX/items/4228d2a815922b1631be
 impl Solution {
     pub fn decode_string(s: String) -> String {

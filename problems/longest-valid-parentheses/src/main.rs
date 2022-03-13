@@ -14,7 +14,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://programmerstart.com/article/1255166812/
 impl Solution {
     pub fn longest_valid_parentheses(s: String) -> i32 {

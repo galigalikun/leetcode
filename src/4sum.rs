@@ -5,7 +5,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     pub fn four_sum(nums: Vec<i32>, target: i32) -> Vec<Vec<i32>> {

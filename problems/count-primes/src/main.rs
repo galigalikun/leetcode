@@ -8,7 +8,7 @@ fn main() {
     assert_eq!(Solution::count_primes(2), 0);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn is_primes(n: i32) -> bool {
         if n == 2 {

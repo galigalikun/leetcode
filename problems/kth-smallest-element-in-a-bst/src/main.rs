@@ -57,7 +57,7 @@ fn main() {
 }
 
 // https://www.geeksforgeeks.org/find-k-th-smallest-element-in-bst-order-statistics-in-bst/
-pub struct Solution {}
+struct Solution {}
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {

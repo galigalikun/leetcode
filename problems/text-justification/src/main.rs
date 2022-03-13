@@ -71,7 +71,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn full_justify_format(words: Vec<String>, word_count: usize, max_width: i32) -> String {
         let mut word = "".to_string();

@@ -1448,7 +1448,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn median_sliding_window(nums: Vec<i32>, k: i32) -> Vec<f64> {
         let mut result = vec![];

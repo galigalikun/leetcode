@@ -19,7 +19,7 @@ fn main() {
 
 // https://www.programcreek.com/2014/04/leetcode-max-points-on-a-line-java/
 // https://medium.com/@harycane/max-points-on-a-line-1e38f51d591f
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     fn generate_gcd(a: i32, b: i32) -> i32 {

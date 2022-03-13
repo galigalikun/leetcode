@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::max_profit(vec![7, 6, 4, 3, 1]), 0);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn max_profit(prices: Vec<i32>) -> i32 {
         let mut price = 0;

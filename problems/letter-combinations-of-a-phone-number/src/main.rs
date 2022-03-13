@@ -10,7 +10,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn letter_combinations(digits: String) -> Vec<String> {
         let mut result = Vec::new();

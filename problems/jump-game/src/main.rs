@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::can_jump(vec![2, 0, 0]), true);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://lenchen.medium.com/leetcode-55-jump-game-d95b482642
 impl Solution {
     pub fn can_jump(nums: Vec<i32>) -> bool {

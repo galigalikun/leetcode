@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::max_coins(vec![1, 5]), 10);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.geeksforgeeks.org/burst-balloon-to-maximize-coins/
 impl Solution {
     pub fn max_coins(nums: Vec<i32>) -> i32 {

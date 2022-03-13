@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::is_palindrome(1410110141), true);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn is_palindrome(x: i32) -> bool {
         if x >= 0 {

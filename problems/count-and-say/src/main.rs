@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::count_and_say(4), "1211");
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn count_and_say(n: i32) -> String {
         let mut s = String::from("1");

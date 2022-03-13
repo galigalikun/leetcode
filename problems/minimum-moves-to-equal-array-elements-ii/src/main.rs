@@ -5,7 +5,7 @@ fn main() {
     assert_eq!(Solution::min_moves2(vec![1, 0, 0, 8, 6]), 14);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn min_moves2(nums: Vec<i32>) -> i32 {
         let mut nn = nums.clone();

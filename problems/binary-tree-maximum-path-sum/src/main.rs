@@ -42,7 +42,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.geeksforgeeks.org/find-maximum-path-sum-in-a-binary-tree/
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]

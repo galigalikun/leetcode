@@ -17,7 +17,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://walkccc.me/LeetCode/problems/0488/
 use std::{collections::HashMap, collections::HashSet};
 impl Solution {

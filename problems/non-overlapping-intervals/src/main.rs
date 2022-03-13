@@ -22,7 +22,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // http://web.stanford.edu/class/archive/cs/cs161/cs161.1176/Sections/final_review-1.pdf
 impl Solution {
     pub fn erase_overlap_intervals(intervals: Vec<Vec<i32>>) -> i32 {

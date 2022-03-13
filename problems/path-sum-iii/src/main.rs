@@ -92,7 +92,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://qiita.com/KueharX/items/de5f70a64667cfb04442
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]

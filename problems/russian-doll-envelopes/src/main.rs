@@ -21,7 +21,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://dev.to/seanpgallivan/solution-russian-doll-envelopes-459i
 use std::collections::HashMap;
 impl Solution {

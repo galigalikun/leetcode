@@ -2,7 +2,7 @@ fn main() {
     assert_eq!(Solution::calculate("10 + 12".to_string()), 2);
 }
 
-pub struct Solution {}
+struct Solution {}
 #[derive(Debug, PartialEq, Eq)]
 pub enum NodeKind {
     NdAdd, // +

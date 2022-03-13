@@ -8794,7 +8794,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashSet;
 impl Solution {
     fn can_form(s: String, pre_words: HashSet<String>) -> bool {

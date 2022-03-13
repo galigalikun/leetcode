@@ -13,7 +13,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
     pub val: i32,

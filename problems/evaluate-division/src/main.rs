@@ -50,7 +50,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.tutorialcup.com/interview/algorithm/evaluate-division.htm
 use std::collections::HashMap;
 use std::collections::HashSet;

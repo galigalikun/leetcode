@@ -36,7 +36,7 @@ fn main() {
 }
 
 // https://programmerstart.com/article/9406351389/
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn helper(result: &mut Vec<Vec<String>>, s: String, lst: &mut Vec<String>, pos: usize) {
         let n = s.len();

@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::gray_code(0), vec![0]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn to_gray_code(s: String) -> i32 {
         let mut result = Vec::new();

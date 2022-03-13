@@ -14,7 +14,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn count_battleships(board: Vec<Vec<char>>) -> i32 {
         let mut result = 0;

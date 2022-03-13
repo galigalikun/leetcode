@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::single_number(vec![0, 1]), vec![0, 1]);
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     pub fn single_number(nums: Vec<i32>) -> Vec<i32> {

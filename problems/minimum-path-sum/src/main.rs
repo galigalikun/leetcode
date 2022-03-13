@@ -14,7 +14,7 @@ pub fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.programcreek.com/2014/05/leetcode-minimum-path-sum-java/
 impl Solution {
     pub fn min_path_sum(grid: Vec<Vec<i32>>) -> i32 {

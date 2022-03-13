@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::count_bits(5), vec![0, 1, 1, 2, 1, 2]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn count_bits(n: i32) -> Vec<i32> {
         let mut result = vec![];

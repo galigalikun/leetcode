@@ -24,7 +24,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://evelynn.gitbooks.io/google-interview/content/queue-reconstruction-by-height.html
 impl Solution {
     pub fn reconstruct_queue(people: Vec<Vec<i32>>) -> Vec<Vec<i32>> {

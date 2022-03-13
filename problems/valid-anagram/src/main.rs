@@ -10,7 +10,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn is_anagram(s: String, t: String) -> bool {
         let mut tmp = t.as_str().chars().collect::<Vec<_>>();

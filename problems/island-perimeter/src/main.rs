@@ -12,7 +12,7 @@ fn main() {
     assert_eq!(Solution::island_perimeter(vec![vec![1, 0]]), 4);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn island_perimeter(grid: Vec<Vec<i32>>) -> i32 {
         let mut result = 0;

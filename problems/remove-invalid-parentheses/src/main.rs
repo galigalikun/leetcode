@@ -15,7 +15,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://kennyzhuang.gitbooks.io/algorithms-collection/content/remove_invalid_parentheses1.html
 impl Solution {
     fn helper(

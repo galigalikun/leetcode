@@ -12,7 +12,7 @@ fn main() {
     assert_eq!(nums, vec![-1]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn rotate(nums: &mut Vec<i32>, k: i32) {
         let rotate = k as usize % nums.len();

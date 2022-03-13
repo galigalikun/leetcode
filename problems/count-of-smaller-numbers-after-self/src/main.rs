@@ -5,7 +5,7 @@ fn main() {
     assert_eq!(Solution::count_smaller(vec![-1, -2]), vec![1, 0]);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.geeksforgeeks.org/count-smaller-elements-on-right-side/
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]

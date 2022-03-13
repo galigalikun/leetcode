@@ -2335,7 +2335,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://tracylan.medium.com/leetcode-123-best-time-to-buy-and-sell-stock-iii-c8e55a962466
 impl Solution {
     pub fn max_profit(prices: Vec<i32>) -> i32 {

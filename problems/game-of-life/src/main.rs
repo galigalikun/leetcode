@@ -8,7 +8,7 @@ fn main() {
     assert_eq!(board, vec![[1, 1], [1, 1]]);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://cheonhyangzhang.gitbooks.io/leetcode-solutions/content/289-game-of-life.html
 impl Solution {
     pub fn game_of_life(board: &mut Vec<Vec<i32>>) {

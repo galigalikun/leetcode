@@ -10,7 +10,7 @@ fn main() {
 }
 
 // https://programmerstart.com/article/46181979628/
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn can_complete_circuit(gas: Vec<i32>, cost: Vec<i32>) -> i32 {
         let n = gas.len();

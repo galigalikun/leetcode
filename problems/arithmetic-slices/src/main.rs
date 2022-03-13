@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::number_of_arithmetic_slices(vec![1]), 0);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://dev.to/seanpgallivan/arithmetic-slices-4pla
 impl Solution {
     pub fn number_of_arithmetic_slices(nums: Vec<i32>) -> i32 {

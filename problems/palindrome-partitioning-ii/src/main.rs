@@ -7,7 +7,7 @@ fn main() {
 }
 
 // https://programmerstart.com/article/29911804969/
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn min_cut(s: String) -> i32 {
         let n = s.len();

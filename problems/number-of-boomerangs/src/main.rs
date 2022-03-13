@@ -10,7 +10,7 @@ fn main() {
     assert_eq!(Solution::number_of_boomerangs(vec![vec![1, 1]]), 0);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://github.com/cherryljr/LeetCode/blob/master/Number%20of%20Boomerangs.java
 use std::collections::HashMap;
 impl Solution {

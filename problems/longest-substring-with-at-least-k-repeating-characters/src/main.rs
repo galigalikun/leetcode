@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::longest_substring("ababbc".to_string(), 2), 5);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://baihuqian.github.io/2018-09-03-longest-substring-with-at-least-k-repeating-characters/
 impl Solution {
     pub fn longest_substring(s: String, k: i32) -> i32 {

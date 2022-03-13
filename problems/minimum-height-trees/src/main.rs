@@ -20,7 +20,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.geeksforgeeks.org/roots-tree-gives-minimum-height/
 use std::collections::HashMap;
 impl Solution {

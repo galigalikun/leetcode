@@ -7,7 +7,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://medium.com/@yzhua3/leetcode-course-schedule-642d91dbd425
 use std::collections::HashMap;
 impl Solution {

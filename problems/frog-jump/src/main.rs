@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::can_cross(vec![0, 2]), false);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://medium.com/@gobindsingh_55492/leetcode-403-frog-jump-hard-not-much-e138b31bc209
 use std::collections::HashMap;
 impl Solution {

@@ -2,7 +2,7 @@ fn main() {
     println!("debug {}", Solution::rand10());
 }
 
-pub struct Solution {}
+struct Solution {}
 use rand::{thread_rng, Rng};
 fn rand7() -> i32 {
     return thread_rng().gen_range(1..=7);

@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::trailing_zeroes(25), 6);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn trailing_zeroes(n: i32) -> i32 {
         // 0 -> 1

@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::reverse(1534236469), 0);
 }
 
-pub struct Solution {}
+struct Solution {}
 
 impl Solution {
     pub fn reverse(x: i32) -> i32 {

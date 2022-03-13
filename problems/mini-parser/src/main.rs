@@ -6,7 +6,7 @@ fn main() {
     // assert_eq!(Solution::deserialize("[123,[456,[789]]]".to_string()), NestedInteger::List(vec![NestedInteger::Int(123), NestedInteger::List(vec![NestedInteger::Int(456), NestedInteger::List(vec![NestedInteger::Int(789)])])]));
 }
 
-pub struct Solution {}
+struct Solution {}
 #[derive(Debug, PartialEq, Eq)]
 pub enum NestedInteger {
     Int(i32),

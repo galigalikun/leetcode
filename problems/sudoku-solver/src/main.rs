@@ -27,7 +27,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn checker(
         board: &mut Vec<Vec<char>>,

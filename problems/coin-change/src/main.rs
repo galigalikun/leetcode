@@ -9,7 +9,7 @@ fn main() {
     assert_eq!(Solution::coin_change(vec![384, 324, 196, 481], 285), -1);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://engineer.yeele.net/algorithm/leetcode-medium-322-coin-change/
 impl Solution {
     pub fn coin_change(coins: Vec<i32>, amount: i32) -> i32 {

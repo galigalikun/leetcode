@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::min_moves(vec![1, 1, 1]), 0);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.geeksforgeeks.org/minimum-number-increment-operations-make-array-elements-equal/
 impl Solution {
     pub fn min_moves(nums: Vec<i32>) -> i32 {

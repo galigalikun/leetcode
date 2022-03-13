@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::find_min(vec![2, 2, 2, 0, 1]), 0);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn find_min(nums: Vec<i32>) -> i32 {
         if let Some(m) = nums.into_iter().min() {

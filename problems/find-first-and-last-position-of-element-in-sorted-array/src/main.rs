@@ -10,7 +10,7 @@ fn main() {
     assert_eq!(Solution::search_range(vec![], 0), vec![-1, -1]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn search_range(nums: Vec<i32>, target: i32) -> Vec<i32> {
         let mut result = vec![-1, -1];

@@ -43,7 +43,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://qiita.com/KueharX/items/ac025ce072d98751e688
 impl Solution {
     pub fn word_break(s: String, word_dict: Vec<String>) -> bool {

@@ -8,7 +8,7 @@ fn main() {
     assert_eq!(Solution::circular_array_loop(vec![3, 1, 2]), true);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://medium.com/@mithlesh.kumar.4257/leetcode-457-circular-array-loop-fdcec9ea5746
 impl Solution {
     fn next(nums: Vec<i32>, i: usize) -> usize {

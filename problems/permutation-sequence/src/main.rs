@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::get_permutation(3, 1), "123".to_string());
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     // http://www.cs.toronto.edu/~mhsadi/code-repository/15-PermutationSequence.html
     pub fn get_permutation(n: i32, k: i32) -> String {

@@ -14,7 +14,7 @@ fn main() {
     assert_eq!(Solution::maximal_rectangle(vec![vec!['0', '0']]), 0);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.geeksforgeeks.org/maximum-size-rectangle-binary-sub-matrix-1s/
 impl Solution {
     fn max_hit(r: usize, c: usize, row: &Vec<i32>) -> i32 {

@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(v2, &mut vec![0, 1, 2, 3, 4]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {
         nums.sort();

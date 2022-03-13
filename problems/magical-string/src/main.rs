@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::magical_string(1), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.tutorialspoint.com/magical-string-in-cplusplus
 impl Solution {
     pub fn magical_string(n: i32) -> i32 {

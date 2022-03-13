@@ -14,7 +14,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.tutorialspoint.com/shortest-palindrome-in-cplusplus
 impl Solution {
     pub fn shortest_palindrome(s: String) -> String {

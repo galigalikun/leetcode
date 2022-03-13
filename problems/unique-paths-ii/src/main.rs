@@ -13,7 +13,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.youtube.com/watch?v=favJnfIiPSQ
 impl Solution {
     pub fn unique_paths_with_obstacles(obstacle_grid: Vec<Vec<i32>>) -> i32 {

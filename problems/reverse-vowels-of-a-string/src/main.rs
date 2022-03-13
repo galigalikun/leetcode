@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::reverse_vowels("aA".to_string()), "Aa");
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn reverse_vowels(s: String) -> String {
         let mut rev = s

@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::calculate_minimum_hp(vec![vec![0]]), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://gist.github.com/JyotinderSingh/c38b0b0d48dd56b75ea0d6204db988d4
 impl Solution {
     pub fn calculate_minimum_hp(dungeon: Vec<Vec<i32>>) -> i32 {

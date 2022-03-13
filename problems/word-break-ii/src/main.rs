@@ -47,7 +47,7 @@ fn main() {
 }
 
 // https://programmerstart.com/article/4047826537/
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     fn helper(

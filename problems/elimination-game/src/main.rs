@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::last_remaining(10000000), 6150102);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn last_remaining(n: i32) -> i32 {
         let mut result = (1..=n).collect::<Vec<_>>();

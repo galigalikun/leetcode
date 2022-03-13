@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::kth_smallest(vec![vec![-5]], 1), -5);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn kth_smallest(matrix: Vec<Vec<i32>>, k: i32) -> i32 {
         let mut v = vec![];

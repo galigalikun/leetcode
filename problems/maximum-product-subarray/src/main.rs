@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::max_product(vec![2, -5, -2, -4, 3]), 24);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn max_product(nums: Vec<i32>) -> i32 {
         let mut max: Option<i32> = None;

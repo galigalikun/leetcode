@@ -10,7 +10,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn simplify_path(path: String) -> String {
         let mut pieces = path.split("/");

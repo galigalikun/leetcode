@@ -10,7 +10,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn update_zeroes(matrix: &mut Vec<Vec<i32>>, x: usize, y: usize, m: usize, n: usize) {
         for a in 0..n {

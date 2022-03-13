@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::character_replacement("AABABBA".to_string(), 1), 4);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://aaronice.gitbook.io/lintcode/two_pointers/longest-repeating-character-replacement
 impl Solution {
     pub fn character_replacement(s: String, k: i32) -> i32 {

@@ -12,7 +12,7 @@ fn main() {
     assert_eq!(Solution::my_atoi("1a".to_string()), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn my_atoi(s: String) -> i32 {
         let ss = s.trim();

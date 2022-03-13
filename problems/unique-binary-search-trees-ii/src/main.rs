@@ -82,7 +82,7 @@ fn main() {
     assert_eq!(Solution::generate_trees(19), vec![None]);
 }
 
-pub struct Solution {}
+struct Solution {}
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {

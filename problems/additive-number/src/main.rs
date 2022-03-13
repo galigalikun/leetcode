@@ -8,7 +8,7 @@ fn main() {
     assert_eq!(Solution::is_additive_number("120122436".to_string()), false);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn check_eq(prev1: &str, prev2: &str, num: String) -> bool {
         let (a, b) = if prev1.len() < prev2.len() {

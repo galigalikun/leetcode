@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::longest_consecutive(vec![1, 2, 0, 1]), 3);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn longest_consecutive(nums: Vec<i32>) -> i32 {
         if nums.len() == 0 {

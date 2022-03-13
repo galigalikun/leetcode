@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::reverse_pairs(vec![-5, -5]), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn reverse_pairs(nums: Vec<i32>) -> i32 {
         let mut result = 0;

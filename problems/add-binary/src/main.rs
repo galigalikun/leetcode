@@ -17,7 +17,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn add_binary(a: String, b: String) -> String {
         let (cs1, cs2) = if a.as_str().chars().count() == b.as_str().chars().count() {

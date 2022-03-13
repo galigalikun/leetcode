@@ -23,7 +23,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.geeksforgeeks.org/find-if-a-string-is-interleaved-of-two-other-strings-dp-33/
 impl Solution {
     pub fn is_interleave(s1: String, s2: String, s3: String) -> bool {

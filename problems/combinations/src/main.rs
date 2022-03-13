@@ -12,7 +12,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.youtube.com/watch?v=iLuYoPwAhmM
 impl Solution {
     fn def(subset: &mut Vec<Vec<i32>>, index: i32, current: &mut Vec<i32>, n: i32, k: i32) {

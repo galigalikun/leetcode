@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::top_k_frequent(vec![1], 1), vec![1]);
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     pub fn top_k_frequent(nums: Vec<i32>, k: i32) -> Vec<i32> {

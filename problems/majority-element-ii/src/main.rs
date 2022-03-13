@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::majority_element(vec![1, 2]), vec![1, 2]);
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     pub fn majority_element(nums: Vec<i32>) -> Vec<i32> {

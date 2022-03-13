@@ -1258,7 +1258,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://medium.com/geekculture/total-hamming-distance-problem-1b74decd71c9
 impl Solution {
     pub fn total_hamming_distance(nums: Vec<i32>) -> i32 {

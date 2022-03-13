@@ -25,7 +25,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://medium.com/@harycane/palindrome-pairs-46c5b8511397
 // https://evelynn.gitbooks.io/google-interview/content/palindrome-pairs.html
 use std::collections::HashMap;

@@ -6,7 +6,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn length_of_last_word(s: String) -> i32 {
         if let Some(&c) = s.split_whitespace().collect::<Vec<&str>>().last() {

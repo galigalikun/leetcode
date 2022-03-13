@@ -1556,7 +1556,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     // https://www.youtube.com/watch?reload=9&v=ZmnqCZp9bBs
     pub fn largest_rectangle_area(heights: Vec<i32>) -> i32 {

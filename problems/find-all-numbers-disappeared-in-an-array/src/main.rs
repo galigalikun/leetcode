@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::find_disappeared_numbers(vec![1, 1]), vec![2]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn find_disappeared_numbers(nums: Vec<i32>) -> Vec<i32> {
         let mut result = (1..=nums.len() as i32)

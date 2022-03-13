@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::nth_super_ugly_number(1, vec![2, 3, 5]), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.tutorialcup.com/interview/dynamic-programming/super-ugly-number.htm
 impl Solution {
     pub fn nth_super_ugly_number(n: i32, primes: Vec<i32>) -> i32 {

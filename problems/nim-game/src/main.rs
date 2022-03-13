@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::can_win_nim(2), true);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn can_win_nim(n: i32) -> bool {
         /*

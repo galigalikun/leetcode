@@ -16,7 +16,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://stlisacity.hatenablog.com/entry/2018/06/20/232830
 impl Solution {
     fn helper(

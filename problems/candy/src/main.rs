@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::candy(vec![0]), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://programmerstart.com/article/7768654943/
 impl Solution {
     pub fn candy(ratings: Vec<i32>) -> i32 {

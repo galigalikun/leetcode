@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::range_bitwise_and(4, 8), 0);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn range_bitwise_and(m: i32, n: i32) -> i32 {
         let mut result: Option<i32> = None;

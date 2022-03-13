@@ -12,7 +12,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://programmerstart.com/article/2869306051/
 impl Solution {
     pub fn permute(nums: Vec<i32>) -> Vec<Vec<i32>> {

@@ -5,7 +5,7 @@ fn main() {
     // assert_eq!(Solution::my_pow(1.00012, 1024), 1.130740387);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn my_pow(x: f64, n: i32) -> f64 {
         if n == 0 {

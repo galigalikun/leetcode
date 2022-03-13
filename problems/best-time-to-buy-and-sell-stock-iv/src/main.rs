@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::max_profit(1, vec![1, 2]), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://medium.com/@yzhua3/leetcode-best-time-to-buy-and-sell-stock-iv-bf226251d37
 impl Solution {
     pub fn max_profit(k: i32, prices: Vec<i32>) -> i32 {

@@ -52,7 +52,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn spiral_order(matrix: Vec<Vec<i32>>) -> Vec<i32> {
         if matrix.len() == 0 {

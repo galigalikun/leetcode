@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::can_measure_water(6, 9, 1), false);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://baihuqian.github.io/2018-08-13-water-and-jug-problem/
 impl Solution {
     fn helper(jug1_capacity: i32, jug2_capacity: i32) -> i32 {

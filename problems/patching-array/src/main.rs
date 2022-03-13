@@ -5,7 +5,7 @@ fn main() {
     assert_eq!(Solution::min_patches(vec![1, 2, 31, 33], 2147483647), 28);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://dreamume.medium.com/leetcode-330-patching-array-2477a76f40a0
 impl Solution {
     pub fn min_patches(nums: Vec<i32>, n: i32) -> i32 {

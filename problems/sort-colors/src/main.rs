@@ -10,7 +10,7 @@ fn main() {
     assert_eq!(n3, &mut [0]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn sort_colors(nums: &mut Vec<i32>) {
         nums.sort();

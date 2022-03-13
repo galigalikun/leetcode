@@ -39,7 +39,7 @@ fn main() {
 }
 
 // https://massivealgorithms.blogspot.com/2016/08/leetcode-391-perfect-rectangle.html
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     fn overlap(map: &mut HashMap<(i32, i32), i32>, vec2: (i32, i32), t: i32) -> bool {

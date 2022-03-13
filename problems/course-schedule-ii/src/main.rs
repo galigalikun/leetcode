@@ -6,7 +6,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://akrad.hatenablog.com/entry/2020/07/04/130024
 use std::collections::HashMap;
 use std::collections::VecDeque;

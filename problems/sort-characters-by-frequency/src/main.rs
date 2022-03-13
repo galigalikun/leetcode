@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::frequency_sort("Aabb".to_string()), "bbAa");
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn frequency_sort(s: String) -> String {
         let mut map = vec![('\0', 0); 127];

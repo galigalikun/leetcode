@@ -5,7 +5,7 @@ fn main() {
     assert_eq!(Solution::to_hex(-2), "fffffffe");
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn to_hex(num: i32) -> String {
         let mut nn = if num >= 0 {

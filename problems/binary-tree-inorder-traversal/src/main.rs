@@ -100,7 +100,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {

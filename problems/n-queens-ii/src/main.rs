@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::total_n_queens(1), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn helper(result: &mut i32, n: i32, y: i32, left: i32, down: i32, right: i32) {
         if y == n {

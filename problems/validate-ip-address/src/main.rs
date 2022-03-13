@@ -29,7 +29,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn valid_ip_address(ip: String) -> String {
         let ipv4 = ip.split(".").collect::<Vec<_>>();

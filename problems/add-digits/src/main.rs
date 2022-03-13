@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::add_digits(0), 0);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn add_digits(num: i32) -> i32 {
         if 10 > num && num >= 0 {

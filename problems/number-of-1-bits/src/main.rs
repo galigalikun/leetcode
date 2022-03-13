@@ -15,7 +15,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn hammingWeight(n: u32) -> i32 {
         return format!("{:#034b}", n)[2..]

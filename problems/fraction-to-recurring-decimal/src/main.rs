@@ -9,7 +9,7 @@ fn main() {
 }
 
 // https://www.programcreek.com/2014/03/leetcode-fraction-to-recurring-decimal-java/
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     pub fn fraction_to_decimal(numerator: i32, denominator: i32) -> String {

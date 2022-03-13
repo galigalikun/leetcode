@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::h_index(vec![1, 3, 1]), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.programcreek.com/2014/05/leetcode-h-index-java/
 impl Solution {
     pub fn h_index(citations: Vec<i32>) -> i32 {

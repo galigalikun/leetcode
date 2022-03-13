@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::num_trees(19), 1767263190);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.geeksforgeeks.org/number-of-unique-bst-with-a-given-key-dynamic-programming/
 impl Solution {
     pub fn num_trees(n: i32) -> i32 {

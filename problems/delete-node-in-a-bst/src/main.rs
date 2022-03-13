@@ -86,7 +86,7 @@ fn main() {
     assert_eq!(Solution::delete_node(None, 0), None);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.techiedelight.com/deletion-from-bst/
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]

@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::two_sum(vec![3, 3], 6), vec![0, 1]);
 }
 
-pub struct Solution {}
+struct Solution {}
 
 impl Solution {
     pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {

@@ -34,7 +34,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     fn visit(result: &mut Vec<String>, graph: &mut HashMap<String, Vec<String>>, airport: String) {

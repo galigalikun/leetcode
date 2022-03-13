@@ -27,7 +27,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.youtube.com/watch?v=nxBMEvLqDzY
 impl Solution {
     fn restore(result: &mut Vec<String>, s: String, current: &str, field: usize) {

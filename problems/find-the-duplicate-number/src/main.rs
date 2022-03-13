@@ -5,7 +5,7 @@ fn main() {
     assert_eq!(Solution::find_duplicate(vec![1, 1, 2]), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn find_duplicate(nums: Vec<i32>) -> i32 {
         let mut work = nums;

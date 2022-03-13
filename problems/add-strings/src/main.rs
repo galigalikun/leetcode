@@ -18,7 +18,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://cheonhyangzhang.gitbooks.io/leetcode-solutions/content/415-add-strings.html
 impl Solution {
     pub fn add_strings(num1: String, num2: String) -> String {

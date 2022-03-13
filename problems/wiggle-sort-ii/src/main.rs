@@ -12,7 +12,7 @@ fn main() {
     assert_eq!(nums, vec![4, 5, 1, 5, 2]);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://evelynn.gitbooks.io/google-interview/content/wiggle_sort_ii.html
 impl Solution {
     fn partition(nums: &mut Vec<i32>, left: i32, right: i32) -> i32 {

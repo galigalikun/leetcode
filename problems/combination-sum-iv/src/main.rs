@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::combination_sum4(vec![9], 3), 0);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://dev.to/seanpgallivan/solution-combination-sum-iv-3620
 impl Solution {
     pub fn combination_sum4(nums: Vec<i32>, target: i32) -> i32 {

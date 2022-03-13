@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::is_happy(2), false);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn helper(i: usize, n: i32) -> bool {
         let result = n

@@ -15,7 +15,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://programmer.help/blogs/leetcode446-arithmetic-slices-ii-subsequence.html
 use std::collections::HashMap;
 impl Solution {

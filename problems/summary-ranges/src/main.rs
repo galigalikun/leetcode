@@ -10,7 +10,7 @@ fn main() {
     // assert_eq!(Solution::summary_ranges(vec![]), vec![]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn summary_ranges(nums: Vec<i32>) -> Vec<String> {
         let mut result: Vec<String> = vec![];

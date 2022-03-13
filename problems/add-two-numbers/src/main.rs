@@ -27,7 +27,7 @@ fn main() {
 }
 
 // Definition for singly-linked list.
-pub struct Solution {}
+struct Solution {}
 
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {

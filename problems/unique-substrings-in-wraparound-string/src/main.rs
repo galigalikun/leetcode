@@ -13,7 +13,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.geeksforgeeks.org/count-unique-substrings-of-a-string-s-present-in-a-wraparound-string/
 impl Solution {
     pub fn find_substring_in_wrapround_string(p: String) -> i32 {

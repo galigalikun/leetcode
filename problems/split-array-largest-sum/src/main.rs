@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::split_array(vec![1, 4, 4], 3), 4);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn helper(mid: i32, nums: Vec<i32>, m: i32) -> bool {
         let mut sum = 0;

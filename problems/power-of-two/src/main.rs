@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::is_power_of_two(0), false);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn is_power_of_two(n: i32) -> bool {
         if n == 0 {

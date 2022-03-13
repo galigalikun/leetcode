@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::is_power_of_three(1), true);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn is_power_of_three(n: i32) -> bool {
         if n == 0 {

@@ -10,7 +10,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn reverse_bits(x: u32) -> u32 {
         let num = &format!("{:#034b}", x)[2..]

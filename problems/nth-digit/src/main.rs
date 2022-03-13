@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::find_nth_digit(1000000000), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://evelynn.gitbooks.io/google-interview/content/nth_digit.html
 impl Solution {
     pub fn find_nth_digit(n: i32) -> i32 {

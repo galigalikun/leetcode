@@ -10,7 +10,7 @@ fn main() {
     assert_eq!(Solution::convert("A".to_string(), 1), "A".to_string());
 }
 
-pub struct Solution {}
+struct Solution {}
 
 impl Solution {
     pub fn convert(s: String, num_rows: i32) -> String {

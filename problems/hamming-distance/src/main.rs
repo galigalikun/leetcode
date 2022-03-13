@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::hamming_distance(3, 1), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn hamming_distance(x: i32, y: i32) -> i32 {
         return format!("{0:b}", x ^ y)

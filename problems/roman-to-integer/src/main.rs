@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::roman_to_int("DCXXI".to_string()), 621);
 }
 
-pub struct Solution {}
+struct Solution {}
 
 impl Solution {
     pub fn roman_to_int(s: String) -> i32 {

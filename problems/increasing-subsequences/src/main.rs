@@ -18,7 +18,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://ttzztt.gitbooks.io/lc/content/increasing-subsequences.html
 use std::collections::HashSet;
 impl Solution {

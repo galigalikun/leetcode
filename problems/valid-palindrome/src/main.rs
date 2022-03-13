@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::is_palindrome("0P".to_string()), false);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn is_palindrome(s: String) -> bool {
         let ss = s

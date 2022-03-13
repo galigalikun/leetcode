@@ -37,7 +37,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.youtube.com/watch?v=Mu_TvHcg5eI
 impl Solution {
     pub fn is_match(s: String, p: String) -> bool {

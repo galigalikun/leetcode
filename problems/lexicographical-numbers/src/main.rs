@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::lexical_order(2), vec![1, 2]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn lexical_order(n: i32) -> Vec<i32> {
         let mut v = (1..=n)

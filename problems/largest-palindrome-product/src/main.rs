@@ -5,7 +5,7 @@ fn main() {
     assert_eq!(Solution::largest_palindrome(7), 877);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://jinglescode.github.io/2020/01/07/project-euler-problem-4/
 impl Solution {
     fn is_palindrome(initial_number: i64) -> bool {

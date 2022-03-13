@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::jump(vec![2, 3, 0, 1, 4]), 2);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://programmerstart.com/article/8618517245/
 impl Solution {
     pub fn jump(nums: Vec<i32>) -> i32 {

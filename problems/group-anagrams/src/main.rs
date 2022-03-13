@@ -31,7 +31,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     fn is_word(s1: String, s2: String) -> Option<String> {

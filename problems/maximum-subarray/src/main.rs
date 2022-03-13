@@ -9,7 +9,7 @@ fn main() {
     assert_eq!(Solution::max_sub_array(vec![-2147483647]), -2147483647);
 }
 
-pub struct Solution {}
+struct Solution {}
 
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct MaxSub {

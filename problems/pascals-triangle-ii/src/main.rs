@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::get_row(1), vec![1, 1]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn get_row(row_index: i32) -> Vec<i32> {
         let mut result: Vec<Vec<i32>> = Vec::new();

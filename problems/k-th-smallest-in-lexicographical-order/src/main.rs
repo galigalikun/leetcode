@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::find_kth_number(681692778, 351251360), 416126219);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://dreamume.medium.com/leetcode-440-k-th-smallest-in-lexicographical-order-6e5331d67e76
 impl Solution {
     pub fn find_kth_number(n: i32, k: i32) -> i32 {

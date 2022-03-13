@@ -17,7 +17,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://techlarry.github.io/Leetcode/331.%20Verify%20Preorder%20Serialization%20of%20a%20Binary%20Tree/
 impl Solution {
     pub fn is_valid_serialization(preorder: String) -> bool {

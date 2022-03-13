@@ -17,7 +17,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn can_construct(ransom_note: String, magazine: String) -> bool {
         let mut ransom_vec = ransom_note.chars().collect::<Vec<_>>();

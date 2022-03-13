@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::trap(vec![4, 2, 0, 3, 2, 5]), 9);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.geeksforgeeks.org/trapping-rain-water/
 impl Solution {
     pub fn trap(height: Vec<i32>) -> i32 {

@@ -17,7 +17,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn find_the_difference(s: String, t: String) -> char {
         let mut ss = s;

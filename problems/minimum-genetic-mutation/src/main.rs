@@ -54,7 +54,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 
 // https://nataliekung.gitbook.io/ladder_code/lian-xi/minimum-genetic-mutation
 use std::collections::HashMap;

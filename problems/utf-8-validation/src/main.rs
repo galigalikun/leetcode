@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::valid_utf8(vec![230, 136, 145]), true);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn valid_utf8(data: Vec<i32>) -> bool {
         let mut a: Option<i32> = None;

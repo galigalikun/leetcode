@@ -24,7 +24,7 @@ unsafe fn guess(num: i32) -> i32 {
  *               otherwise return 0
  * unsafe fn guess(num: i32) -> i32 {}
  */
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     unsafe fn guessNumber(n: i32) -> i32 {
         let mut num = n;

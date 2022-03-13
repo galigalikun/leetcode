@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::num_decodings("27".to_string()), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.youtube.com/watch?v=o1i7JYWbwOE
 impl Solution {
     pub fn num_decodings(s: String) -> i32 {

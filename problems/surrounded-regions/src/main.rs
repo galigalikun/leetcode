@@ -35,7 +35,7 @@ fn main() {
 }
 
 // https://programmerstart.com/article/99921031248/
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn helper(board: &mut Vec<Vec<char>>, y: usize, x: usize) {
         board[y][x] = '#';

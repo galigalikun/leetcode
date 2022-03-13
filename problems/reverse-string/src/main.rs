@@ -8,7 +8,7 @@ fn main() {
     assert_eq!(s, vec!['h', 'a', 'n', 'n', 'a', 'H']);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn reverse_string(s: &mut Vec<char>) {
         s.reverse();

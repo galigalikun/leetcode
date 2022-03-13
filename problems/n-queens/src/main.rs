@@ -26,7 +26,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // http://www.ic-net.or.jp/home/takaken/nt/queen/
 use std::collections::HashMap;
 impl Solution {

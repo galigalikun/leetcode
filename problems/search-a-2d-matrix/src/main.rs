@@ -16,7 +16,7 @@ fn main() {
     assert_eq!(Solution::search_matrix(vec![], 0), false);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn search_matrix(matrix: Vec<Vec<i32>>, target: i32) -> bool {
         for m in matrix {

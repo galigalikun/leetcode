@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::find_min(vec![11, 13, 15, 17]), 11);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn find_min(nums: Vec<i32>) -> i32 {
         /*

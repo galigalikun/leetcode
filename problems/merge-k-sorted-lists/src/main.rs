@@ -59,7 +59,7 @@ impl ListNode {
         ListNode { next: None, val }
     }
 }
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn merge_k_lists(lists: Vec<Option<Box<ListNode>>>) -> Option<Box<ListNode>> {
         let mut buf = Vec::new();

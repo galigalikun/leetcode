@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::maximum_gap(vec![100, 3, 2, 1]), 97);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn maximum_gap(nums: Vec<i32>) -> i32 {
         let mut list = nums;

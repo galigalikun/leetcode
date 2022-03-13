@@ -12,7 +12,7 @@ fn main() {
     assert_eq!(Solution::longest_increasing_path(vec![vec![1]]), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://dev.to/seanpgallivan/solution-longest-increasing-path-in-a-matrix-4o5f
 impl Solution {
     fn helper(

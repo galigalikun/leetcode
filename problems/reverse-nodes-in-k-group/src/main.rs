@@ -91,7 +91,7 @@ impl ListNode {
         ListNode { next: None, val }
     }
 }
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn reverse_k_group(head: Option<Box<ListNode>>, k: i32) -> Option<Box<ListNode>> {
         let mut buf: Option<Box<ListNode>> = head;

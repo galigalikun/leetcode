@@ -5,7 +5,7 @@ fn main() {
     assert_eq!(Solution::construct_rectangle(2), vec![2, 1]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn construct_rectangle(area: i32) -> Vec<i32> {
         let s = (area as f64).sqrt() as i32;

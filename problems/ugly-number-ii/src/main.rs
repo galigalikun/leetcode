@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::nth_ugly_number(1352), 402653184);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://programmerstart.com/article/30301428916/
 impl Solution {
     pub fn nth_ugly_number(n: i32) -> i32 {

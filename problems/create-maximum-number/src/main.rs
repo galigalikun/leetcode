@@ -15,7 +15,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.programmersought.com/article/27022206431/
 impl Solution {
     fn max(nums: Vec<i32>, k: i32) -> Vec<i32> {

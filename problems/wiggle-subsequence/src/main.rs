@@ -10,7 +10,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://levelup.gitconnected.com/march-leetcoding-challenge-2021-day-18-wiggle-subsequence-3c408287325b
 impl Solution {
     pub fn wiggle_max_length(nums: Vec<i32>) -> i32 {

@@ -7,7 +7,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.tutorialcup.com/interview/string/smallest-good-base.htm
 impl Solution {
     fn helper(d: i64, n: i64) -> i64 {

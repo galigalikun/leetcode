@@ -9,7 +9,7 @@ fn main() {
     assert_eq!(Solution::is_valid("))".to_string()), false);
 }
 
-pub struct Solution {}
+struct Solution {}
 
 impl Solution {
     pub fn is_valid(s: String) -> bool {

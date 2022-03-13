@@ -12,7 +12,7 @@ fn main() {
     assert_eq!(Solution::unique_paths(3, 7), 28);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.youtube.com/watch?v=GO5QHC_BmvM
 impl Solution {
     pub fn unique_paths(m: i32, n: i32) -> i32 {

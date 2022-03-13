@@ -58,7 +58,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://massivealgorithms.blogspot.com/2016/11/leetcode-454-4sum-ii.html
 use std::collections::HashMap;
 impl Solution {

@@ -2,7 +2,7 @@ fn main() {
     assert_eq!(Solution::find_peak_element(vec![1, 2, 3, 1]), 2);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn find_peak_element(nums: Vec<i32>) -> i32 {
         let mut max = std::i32::MIN;

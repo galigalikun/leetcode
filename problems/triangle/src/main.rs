@@ -9,7 +9,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.programcreek.com/2013/01/leetcode-triangle-java/
 impl Solution {
     pub fn minimum_total(triangle: Vec<Vec<i32>>) -> i32 {

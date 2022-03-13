@@ -34,7 +34,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://propyon.hateblo.jp/entry/2020/04/16/135222
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]

@@ -42,7 +42,7 @@ fn main() {
     assert_eq!(Solution::reverse_list(None), None);
 }
 
-pub struct Solution {}
+struct Solution {}
 // Definition for singly-linked list.
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {

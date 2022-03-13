@@ -9,7 +9,7 @@ fn main() {
     assert_eq!(Solution::increasing_triplet(vec![1, 2, 1, 3]), true);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://medium.com/@xiaogegexiao/increasing-triplet-subsequence-problem-995471b338f1
 impl Solution {
     pub fn increasing_triplet(nums: Vec<i32>) -> bool {

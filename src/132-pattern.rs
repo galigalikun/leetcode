@@ -446,7 +446,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashSet;
 impl Solution {
     pub fn find132pattern(nums: Vec<i32>) -> bool {

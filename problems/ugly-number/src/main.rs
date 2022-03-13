@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::is_ugly(0), false);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn is_ugly(n: i32) -> bool {
         if n == 1 {

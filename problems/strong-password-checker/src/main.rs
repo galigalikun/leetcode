@@ -13,7 +13,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn strong_password_checker(password: String) -> i32 {
         let mut result = 0;

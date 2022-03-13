@@ -31,7 +31,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://medium.com/competitive-programming/leetcode-401-binary-watch-e65f005a52e3
 impl Solution {
     pub fn read_binary_watch(turned_on: i32) -> Vec<String> {

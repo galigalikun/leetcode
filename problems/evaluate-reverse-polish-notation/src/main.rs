@@ -39,7 +39,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn eval_rpn(tokens: Vec<String>) -> i32 {
         let mut work: Vec<i32> = Vec::new();

@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::first_missing_positive(vec![1, 1]), 2);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn first_missing_positive(nums: Vec<i32>) -> i32 {
         let mut n = nums;

@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::is_self_crossing(vec![1, 1, 1, 1]), true);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn is_self_crossing(distance: Vec<i32>) -> bool {
         for i in 3..distance.len() {

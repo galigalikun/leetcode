@@ -86,7 +86,7 @@ impl ListNode {
     }
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn merge_two_lists(
         l1: Option<Box<ListNode>>,

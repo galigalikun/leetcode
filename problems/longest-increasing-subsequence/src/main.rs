@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::length_of_lis(vec![7, 7, 7, 7, 7, 7, 7]), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.geeksforgeeks.org/longest-increasing-subsequence-dp-3/
 impl Solution {
     pub fn length_of_lis(nums: Vec<i32>) -> i32 {

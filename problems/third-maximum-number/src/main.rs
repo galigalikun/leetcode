@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::third_max(vec![2, 2, 3, 1]), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn third_max(nums: Vec<i32>) -> i32 {
         let mut nn = nums;

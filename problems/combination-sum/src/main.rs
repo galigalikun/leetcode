@@ -9,7 +9,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.programcreek.com/2014/02/leetcode-combination-sum-java/
 impl Solution {
     fn re_combination_sum(

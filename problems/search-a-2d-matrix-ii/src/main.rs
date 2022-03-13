@@ -53,7 +53,7 @@ fn main() {
     assert_eq!(Solution::search_matrix(vec![[-5].to_vec()], -10), false);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://dev.to/seanpgallivan/solution-search-a-2d-matrix-ii-4lc
 impl Solution {
     pub fn search_matrix(matrix: Vec<Vec<i32>>, target: i32) -> bool {

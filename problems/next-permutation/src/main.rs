@@ -21,7 +21,7 @@ fn main() {
     assert_eq!(nums, vec![4, 1, 5, 2, 3, 6, 7]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn next_permutation(nums: &mut Vec<i32>) {
         let mut k: Option<usize> = None;

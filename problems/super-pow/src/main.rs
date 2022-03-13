@@ -5,7 +5,7 @@ fn main() {
     assert_eq!(Solution::super_pow(2147483647, vec![2, 0, 0]), 1198);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://baihuqian.github.io/2018-08-20-super-pow/
 impl Solution {
     fn pow_mod(a: i32, b: i32) -> i32 {

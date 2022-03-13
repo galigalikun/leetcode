@@ -63,7 +63,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://ts0818.hatenablog.com/entry/2020/10/21/230443
 impl Solution {
     fn helper(target: &mut Vec<Vec<char>>, y: usize, x: usize) {

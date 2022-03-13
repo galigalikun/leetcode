@@ -8,7 +8,7 @@ fn main() {
     assert_eq!(n2, &mut vec![0, 0, 1, 1, 2, 3, 3]);
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     pub fn remove_duplicates(nums: &mut Vec<i32>) -> i32 {

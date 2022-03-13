@@ -31,7 +31,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 
 use std::collections::LinkedList;
 #[derive(Debug)]

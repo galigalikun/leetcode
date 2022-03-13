@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(v2, &mut vec![0, 1, 3, 0, 4]);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn remove_element(nums: &mut Vec<i32>, val: i32) -> i32 {
         while let Some(p) = nums.iter().position(|&x| x == val) {

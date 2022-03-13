@@ -17,7 +17,7 @@ fn main() {
     assert_eq!(Solution::maximal_square(vec![vec!['0']]), 0);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://afteracademy.com/blog/maximal-square
 impl Solution {
     pub fn maximal_square(matrix: Vec<Vec<char>>) -> i32 {

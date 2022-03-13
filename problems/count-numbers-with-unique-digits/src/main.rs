@@ -5,7 +5,7 @@ fn main() {
     assert_eq!(Solution::count_numbers_with_unique_digits(8), 2345851);
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     fn is_unique_digits(n: i32) -> bool {

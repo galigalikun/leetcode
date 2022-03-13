@@ -20,7 +20,7 @@ fn main() {
     // 1, 2, 3, 7 => 2 3
 }
 
-pub struct Solution {}
+struct Solution {}
 
 impl Solution {
     pub fn find_median_sorted_arrays(nums1: Vec<i32>, nums2: Vec<i32>) -> f64 {

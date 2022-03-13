@@ -29,7 +29,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn is_valid_sudoku(board: Vec<Vec<char>>) -> bool {
         let mut cell: Vec<Vec<char>> = vec![

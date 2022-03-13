@@ -10,7 +10,7 @@ fn main() {
     assert_eq!(Solution::count_range_sum(vec![0, -3, -3, 1, 1, 2], 3, 5), 2);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://liumingzhang.gitbooks.io/google-questions/content/count_of_range_sum.html
 impl Solution {
     fn merge(sum: &mut Vec<i64>, start: i32, end: i32, lower: i64, upper: i64) -> i32 {

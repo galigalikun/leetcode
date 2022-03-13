@@ -22,7 +22,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 // https://www.youtube.com/watch?v=nMaKzLWceFg
 impl Solution {

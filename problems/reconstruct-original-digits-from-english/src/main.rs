@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::original_digits("fviefuro".to_string()), "45");
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://dev.to/seanpgallivan/solution-reconstruct-original-digits-from-english-4o2p
 impl Solution {
     pub fn original_digits(s: String) -> String {

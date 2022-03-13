@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::divide(-2147483648, -1), 2147483647);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn divide(dividend: i32, divisor: i32) -> i32 {
         if let Some(d) = dividend.checked_div(divisor) {

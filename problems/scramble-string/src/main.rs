@@ -22,7 +22,7 @@ fn main() {
 
 // https://www.geeksforgeeks.org/check-if-a-string-is-a-scrambled-form-of-another-string/
 // https://programmerstart.com/article/16641196292/
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn is_scramble(s1: String, s2: String) -> bool {
         let n1 = s1.len();

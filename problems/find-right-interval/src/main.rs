@@ -10,7 +10,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://just4once.gitbooks.io/leetcode-notes/content/leetcode/binary-search/436-find-right-interval.html
 impl Solution {
     pub fn find_right_interval(intervals: Vec<Vec<i32>>) -> Vec<i32> {

@@ -5,7 +5,7 @@ fn main() {
     assert_eq!(Solution::integer_break(5), 6);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://medium.com/@gepphkat/dynamic-programming-343-integer-break-4aa8dde3ee0f
 impl Solution {
     pub fn integer_break(n: i32) -> i32 {

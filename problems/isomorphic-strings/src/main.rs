@@ -20,7 +20,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 use std::collections::HashMap;
 impl Solution {
     pub fn is_isomorphic(s: String, t: String) -> bool {

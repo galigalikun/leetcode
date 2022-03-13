@@ -15,7 +15,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn helper(
         result: &mut Vec<Vec<i32>>,

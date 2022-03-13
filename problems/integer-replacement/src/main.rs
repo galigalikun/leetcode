@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::integer_replacement(2147483647), 32);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://www.tutorialspoint.com/integer-replacement-in-cplusplus
 impl Solution {
     pub fn integer_replacement(n: i32) -> i32 {

@@ -9,7 +9,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://medium.com/@rajwar67/solving-trapping-rain-water-ii-2d-elevation-map-problem-2e52aa27cd39
 impl Solution {
     pub fn trap_rain_water(height_map: Vec<Vec<i32>>) -> i32 {

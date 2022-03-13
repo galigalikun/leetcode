@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::find_radius(vec![1, 5], vec![2]), 3);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://just4once.gitbooks.io/leetcode-notes/content/leetcode/binary-search/475-heaters.html
 impl Solution {
     pub fn find_radius(houses: Vec<i32>, heaters: Vec<i32>) -> i32 {

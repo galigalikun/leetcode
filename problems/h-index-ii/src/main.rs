@@ -3,7 +3,7 @@ fn main() {
     assert_eq!(Solution::h_index(vec![1, 2, 100]), 2);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn h_index(citations: Vec<i32>) -> i32 {
         let mut work = citations;

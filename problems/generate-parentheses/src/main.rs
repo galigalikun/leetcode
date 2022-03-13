@@ -61,7 +61,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://medium.com/@chyanpin/solving-leetcodes-challenge-22-generate-parentheses-2ba613397c06
 impl Solution {
     fn breath_first_search(result: &mut Vec<String>, s: String, n: i32, left: i32, right: i32) {

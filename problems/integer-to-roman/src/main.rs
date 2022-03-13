@@ -7,7 +7,7 @@ fn main() {
     assert_eq!(Solution::int_to_roman(1994), "MCMXCIV".to_string());
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn int_to_roman(num: i32) -> String {
         let mut i = 0;

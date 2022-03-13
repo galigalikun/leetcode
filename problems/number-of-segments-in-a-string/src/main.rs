@@ -16,7 +16,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn count_segments(s: String) -> i32 {
         return std::cmp::min(

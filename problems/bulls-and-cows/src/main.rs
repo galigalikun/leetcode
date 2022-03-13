@@ -19,7 +19,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn get_hint(secret: String, guess: String) -> String {
         let mut i = 0;

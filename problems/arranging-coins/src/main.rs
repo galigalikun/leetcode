@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::arrange_coins(10), 4);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://scrapbox.io/rustacean/Arranging_Coins
 impl Solution {
     pub fn arrange_coins(n: i32) -> i32 {

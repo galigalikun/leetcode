@@ -57,7 +57,7 @@ impl ListNode {
         ListNode { next: None, val }
     }
 }
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn remove_nth_from_end(head: Option<Box<ListNode>>, n: i32) -> Option<Box<ListNode>> {
         let mut result: Option<Box<ListNode>> = None;

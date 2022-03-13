@@ -4,7 +4,7 @@ fn main() {
     assert_eq!(Solution::longest_palindrome("bb".to_string()), 2);
 }
 
-pub struct Solution {}
+struct Solution {}
 // https://cheonhyangzhang.gitbooks.io/leetcode-solutions/content/409-longest-palindrome.html
 use std::collections::HashMap;
 impl Solution {

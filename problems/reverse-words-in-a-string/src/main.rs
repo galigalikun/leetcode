@@ -21,7 +21,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn reverse_words(s: String) -> String {
         let mut ss = s.trim().split_whitespace().collect::<Vec<_>>();

@@ -6,7 +6,7 @@ fn main() {
     assert_eq!(Solution::climb_stairs(44), 1134903170);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn climb_stairs(n: i32) -> i32 {
         // climb_stairs(n) = climb_stairs(n-1) + climb_stairs(n-2)

@@ -5,7 +5,7 @@ fn main() {
     assert_eq!(Solution::rob(vec![1]), 1);
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn rob(nums: Vec<i32>) -> i32 {
         if nums.len() == 1 {

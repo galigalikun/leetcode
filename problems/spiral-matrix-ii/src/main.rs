@@ -25,7 +25,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     pub fn generate_matrix(n: i32) -> Vec<Vec<i32>> {
         let mut result = vec![vec![0; n as usize]; n as usize];

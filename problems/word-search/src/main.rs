@@ -45,7 +45,7 @@ fn main() {
     );
 }
 
-pub struct Solution {}
+struct Solution {}
 impl Solution {
     fn check(
         board: Vec<Vec<char>>,
