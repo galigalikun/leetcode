@@ -131,9 +131,16 @@ impl TreeNode {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
+    fn helper(root:Option<Rc<RefCell<TreeNode>>>) {
+        if let Some(r) = root {
+            Solution::helper(r.borrow().left.clone());
+            Solution::helper(r.borrow().right.clone());
+        }
+    }
     pub fn find_duplicate_subtrees(
         root: Option<Rc<RefCell<TreeNode>>>,
     ) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
+        Solution::helper(root);
         return vec![];
     }
 }
