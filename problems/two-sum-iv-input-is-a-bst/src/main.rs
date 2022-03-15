@@ -62,19 +62,25 @@ fn main() {
         ),
         false
     );
-    assert_eq!(Solution::find_target(Some(Rc::new(RefCell::new(TreeNode {
-                        val: 2,
-                        left: Some(Rc::new(RefCell::new(TreeNode {
-                        val: 1,
-                        left: None,
-                        right: None
-                    }))),
-                        right: Some(Rc::new(RefCell::new(TreeNode {
-                        val: 3,
-                        left: None,
-                        right: None
-                    })))
-                    }))), 3), true);
+    assert_eq!(
+        Solution::find_target(
+            Some(Rc::new(RefCell::new(TreeNode {
+                val: 2,
+                left: Some(Rc::new(RefCell::new(TreeNode {
+                    val: 1,
+                    left: None,
+                    right: None
+                }))),
+                right: Some(Rc::new(RefCell::new(TreeNode {
+                    val: 3,
+                    left: None,
+                    right: None
+                })))
+            }))),
+            3
+        ),
+        true
+    );
 }
 
 struct Solution {}
@@ -100,25 +106,29 @@ use std::cell::RefCell;
 use std::collections::HashMap;
 use std::rc::Rc;
 impl Solution {
-    fn helper(ans: &mut HashMap<usize, i32>, depth:usize, root:Option<Rc<RefCell<TreeNode>>>) {
+    fn helper(ans: &mut HashMap<i32, i32>, k: i32, root: Option<Rc<RefCell<TreeNode>>>) -> bool {
         if let Some(r) = root {
-            if let Some(a) = ans.get_mut(&depth) {
-                *a += r.borrow().val;
-            } else {
-                ans.insert(depth, r.borrow().val);
+            let v = r.borrow().val;
+            let d = k - v;
+            if let Some(_a) = ans.get(&d) {
+                return true;
             }
-            Solution::helper(ans, depth+1, r.borrow().left.clone());
-            Solution::helper(ans, depth+1, r.borrow().right.clone());
-        }
-    }
-    pub fn find_target(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> bool {
-        let mut ans = HashMap::new();
-        Solution::helper(&mut ans, 1, root);
-        for a in ans {
-            if a.1 == k {
+            if let Some(a) = ans.get_mut(&v) {
+                *a += 1;
+            } else {
+                ans.insert(v, 1);
+            }
+            if Solution::helper(ans, k, r.borrow().left.clone()) {
+                return true;
+            }
+            if Solution::helper(ans, k, r.borrow().right.clone()) {
                 return true;
             }
         }
         return false;
+    }
+    pub fn find_target(root: Option<Rc<RefCell<TreeNode>>>, k: i32) -> bool {
+        let mut ans = HashMap::new();
+        return Solution::helper(&mut ans, k, root);
     }
 }
