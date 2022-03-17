@@ -69,6 +69,22 @@ use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
     pub fn construct_maximum_binary_tree(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNode>>> {
-        return None;
+        let mut idx: Option<usize> = None;
+        let mut max_num: Option<i32> = None;
+        for i in 0..nums.len() {
+            if max_num < Some(nums[i]) {
+                idx = Some(i);
+                max_num = Some(nums[i]);
+            }
+        }
+        return if let Some(i) = idx {
+            Some(Rc::new(RefCell::new(TreeNode {
+                val: nums[i],
+                left: Solution::construct_maximum_binary_tree(nums[0..i].to_vec()),
+                right: Solution::construct_maximum_binary_tree(nums[i + 1..].to_vec()),
+            })))
+        } else {
+            None
+        };
     }
 }
