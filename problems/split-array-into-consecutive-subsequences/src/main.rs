@@ -4,23 +4,36 @@ fn main() {
     assert_eq!(Solution::is_possible(vec![1, 2, 3, 4, 4, 5]), false);
 }
 
+
+// https://www.tutorialspoint.com/split-array-into-consecutive-subsequences-in-cplusplus
 struct Solution {}
+use std::collections::HashMap;
 impl Solution {
     pub fn is_possible(nums: Vec<i32>) -> bool {
-        let mut ans: Vec<(i32, i32)> = vec![];
+        let mut map = HashMap::new();
+        for n in nums.clone() {
+            *map.entry(n).or_insert(0) += 1;
+        }
+        let mut cnt = nums.len() as i32;
         for n in nums {
-            if let Some(mut v) = ans.pop() {
-                if v.1 == n - 1 {
-                    v.1 = n;
-                } else {
-                    ans.push(v);
-                    ans.push((n, n));
+            let mut key = n;
+
+            if map.get(&key) > Some(&0)
+                && map.get(&(key + 1)) > Some(&0)
+                && map.get(&(key + 2)) > Some(&0)
+            {
+                *map.entry(key).or_insert(0) -= 1;
+                *map.entry(key + 1).or_insert(0) -= 1;
+                *map.entry(key + 2).or_insert(0) -= 1;
+                key += 3;
+                cnt -= 3;
+                while map.get(&key) > Some(&0) && map.get(&key) > map.get(&(key - 1)) {
+                    *map.entry(key).or_insert(0) -= 1;
+                    key += 1;
+                    cnt -= 1;
                 }
-            } else {
-                ans.push((n, n));
             }
         }
-        println!("debug {:?}", ans);
-        return false;
+        return if cnt == 0 { true } else { false };
     }
 }
