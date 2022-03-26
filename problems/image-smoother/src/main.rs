@@ -16,6 +16,27 @@ fn main() {
 struct Solution {}
 impl Solution {
     pub fn image_smoother(img: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
-        return vec![];
+        let mut res = vec![vec![0; img[0].len()]; img.len()];
+        for x in 0..img.len() as i32 {
+            for y in 0..img[x as usize].len() as i32 {
+                let mut sum = 0;
+                let mut count = 0;
+                for i in -1..2 as i32 {
+                    for j in -1..2 as i32 {
+                        if x + i < 0
+                            || x + i >= img.len() as i32
+                            || y + j < 0
+                            || y + j >= img[x as usize].len() as i32
+                        {
+                            continue;
+                        }
+                        sum += img[(x + i) as usize][(y + j) as usize];
+                        count += 1;
+                    }
+                }
+                res[x as usize][y as usize] = sum / count;
+            }
+        }
+        return res;
     }
 }
