@@ -125,8 +125,16 @@ impl Solution {
         Solution::helper(&mut result, 0, 0, root);
         let mut ans = 0;
         for a in result {
-            ans = std::cmp::max(ans, a.len() as i32);
+            let mut start = std::usize::MAX;
+            let mut end = 0;
+            for i in 0..a.len() {
+                if !a[i].is_empty() {
+                    start = std::cmp::min(i, start);
+                    end = std::cmp::max(i, end);
+                }
+            }
+            ans = std::cmp::max(ans, 1 + end - start);
         }
-        return ans;
+        return ans as i32;
     }
 }
