@@ -1,7 +1,7 @@
 fn main() {
     assert_eq!(Solution::construct_array(3, 1), vec![1, 2, 3]);
     assert_eq!(Solution::construct_array(3, 2), vec![1, 3, 2]);
-    assert_eq!(Solution::construct_array(5, 2), vec![1, 3, 2, 4, 5]);
+    assert_eq!(Solution::construct_array(5, 2), vec![1, 5, 4, 3, 2]);
 }
 
 // https://twchen.gitbook.io/leetcode/array/beautiful-arrangement-ii
@@ -18,7 +18,7 @@ impl Solution {
             a.0 = 1;
             a.1 = k / 2 + 1;
         } else {
-            a.0 = n;
+            a.0 -= 1;
             a.1 = n - k / 2;
         }
         for i in k / 2 * 2..n {
