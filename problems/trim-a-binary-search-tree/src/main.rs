@@ -89,6 +89,7 @@ impl TreeNode {
         }
     }
 }
+
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
@@ -97,6 +98,22 @@ impl Solution {
         low: i32,
         high: i32,
     ) -> Option<Rc<RefCell<TreeNode>>> {
+        if let Some(r) = root {
+            let mut r = r.borrow_mut();
+            if r.val < low {
+                return Solution::trim_bst(r.right.take(), low, high);
+            } else if r.val > high {
+                return Solution::trim_bst(r.left.take(), low, high);
+            } else {
+                r.left = Solution::trim_bst(r.left.take(), low, high);
+                r.right = Solution::trim_bst(r.right.take(), low, high);
+                return Some(Rc::new(RefCell::new(TreeNode {
+                    val: r.val,
+                    left: r.left.take(),
+                    right: r.right.take(),
+                })));
+            }
+        }
         return None;
     }
 }
