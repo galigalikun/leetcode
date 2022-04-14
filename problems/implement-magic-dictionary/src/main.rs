@@ -30,9 +30,6 @@ impl MagicDictionary {
     fn search(&self, search_word: String) -> bool {
         if let Some(m) = self.map.get(&search_word.len()) {
             for word in m {
-                if word.len() != search_word.len() {
-                    continue;
-                }
                 let mut diff = 0;
                 for (i,c) in word.chars().enumerate() {
                     if c != search_word.chars().nth(i).unwrap() {
