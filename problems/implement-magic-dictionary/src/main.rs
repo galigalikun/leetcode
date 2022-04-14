@@ -1,5 +1,7 @@
-struct MagicDictionary {
+use std::collections::HashMap;
 
+struct MagicDictionary {
+    map:HashMap<usize,Vec<String>>,
 }
 
 
@@ -10,14 +12,38 @@ struct MagicDictionary {
 impl MagicDictionary {
 
     fn new() -> Self {
-        MagicDictionary {  }
+        MagicDictionary {
+            map:HashMap::new(),
+        }
     }
 
-    fn build_dict(&self, dictionary: Vec<String>) {
-
+    fn build_dict(&mut self, dictionary: Vec<String>) {
+        for word in dictionary {
+            if let Some(m) = self.map.get_mut(&word.len()) {
+                m.push(word);
+            } else {
+                self.map.insert(word.len(),vec![word]);
+            }
+        }
     }
 
     fn search(&self, search_word: String) -> bool {
+        if let Some(m) = self.map.get(&search_word.len()) {
+            for word in m {
+                if word.len() != search_word.len() {
+                    continue;
+                }
+                let mut diff = 0;
+                for (i,c) in word.chars().enumerate() {
+                    if c != search_word.chars().nth(i).unwrap() {
+                        diff += 1;
+                    }
+                }
+                if diff == 1 {
+                    return true;
+                }
+            }
+        }
         return false;
     }
 }
@@ -29,7 +55,7 @@ impl MagicDictionary {
  * let ret_2: bool = obj.search(searchWord);
  */
 fn main() {
-    let obj = MagicDictionary::new();
+    let mut obj = MagicDictionary::new();
     obj.build_dict(vec!["hello".to_string(), "leetcode".to_string()]);
     assert_eq!(obj.search("hello".to_string()), false);
     assert_eq!(obj.search("hhllo".to_string()), true);
