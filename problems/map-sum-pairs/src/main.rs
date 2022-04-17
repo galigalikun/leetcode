@@ -1,4 +1,8 @@
-struct MapSum {}
+use std::collections::HashMap;
+
+struct MapSum {
+    map: HashMap<String, i32>,
+}
 
 /**
  * `&self` means the method takes an immutable reference.
@@ -6,13 +10,23 @@ struct MapSum {}
  */
 impl MapSum {
     fn new() -> Self {
-        MapSum {}
+        MapSum {
+            map: HashMap::new(),
+        }
     }
 
-    fn insert(&self, key: String, val: i32) {}
+    fn insert(&mut self, key: String, val: i32) {
+        self.map.insert(key, val);
+    }
 
     fn sum(&self, prefix: String) -> i32 {
-        return 0;
+        let mut sum = 0;
+        for (key, val) in self.map.iter() {
+            if key.starts_with(&prefix) {
+                sum +=*val;
+            }
+        }
+        return sum;
     }
 }
 
@@ -24,7 +38,7 @@ impl MapSum {
  */
 
 fn main() {
-    let obj = MapSum::new();
+    let mut obj = MapSum::new();
     obj.insert("apple".to_string(), 3);
     assert_eq!(obj.sum("ap".to_string()), 3);
     obj.insert("app".to_string(), 2);
