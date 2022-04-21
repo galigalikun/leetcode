@@ -5,7 +5,25 @@ fn main() {
 
 struct Solution{}
 impl Solution {
+    fn judge_point24_helper(nums: &Vec<i32>) -> bool {
+        for i in 0..nums.len() {
+            for j in 0..nums.len() {
+                if i == j {
+                    continue;
+                }
+                let mut nums = nums.clone();
+                nums.remove(i);
+                nums.remove(j);
+                if Self::judge_point24_helper(&nums) {
+                    return true;
+                }
+            }
+        }
+        false
+    }
     pub fn judge_point24(cards: Vec<i32>) -> bool {
-        return false;
+        let mut cards = cards;
+        cards.sort();
+        return Self::judge_point24_helper(&cards);
     }
 }
