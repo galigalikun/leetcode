@@ -5,42 +5,50 @@ fn main() {
 
 struct Solution{}
 impl Solution {
-    fn indexof(s1: &str, s2: &str) -> i32 {
-        let mut i = 0;
-        let mut j = 0;
-        while i < s1.len() && j < s2.len() {
-            if s1.as_bytes()[i] == s2.as_bytes()[j] {
-                i += 1;
-                j += 1;
-            } else {
-                i = i - j + 1;
-                j = 0;
-            }
-        }
-        if j == s2.len() {
-            (i - j) as i32
-        } else {
-            -1
-        }
-    }
     pub fn repeated_string_match(a: String, b: String) -> i32 {
-        if a.len() == 0 || b.len() == 0 {
-            return -1;
-        }
-
-
-        let a_index_of_b = Solution::indexof(&a, &b);
-        if a_index_of_b == -1 {
-            let b_index_of_a = Solution::indexof(&b, &a);
-            if b_index_of_a == -1 {
-                return -1;
+        if a.len() >= b.len() {
+            if a.chars().collect::<Vec<_>>().contains(&b) {
+                return 1;
+            } else {
+                let tmp1 = format!("{}{}", a, a);
+                if tmp1.chars().collect::<Vec<_>>().contains(&b) {
+                    return 2;
+                } else {
+                    return -1
             }
         } else {
-            let b_index_of_a = Solution::indexof(&b, &a);
-            if b_index_of_a == -1 {
-                return -1;
+            let num1 = b.len()/a.len();
+            let num2 = b.len()%a.len();
+            let mut tmp2 = a;
+            if num2 != 0 {
+                for i in 1..=num1 {
+                    tmp2 = format!("{}{}", tmp2, a);
+                }
+                if tmp2.chars().collect::<vec<_>>().contains(&b) {
+                    return num1 + 1;
+                } else {
+                    tmp2 = format!("{}{}", tmp2, a);
+                    if tmp2.chars().collect::<vec<_>>().contains(&b) {
+                        return num1 + 2;
+                    } else {
+                        return -1;
+                    }
+                }
+            } else {
+                for i in 1..num1 {
+                    tmp2 = format!("{}{}", tmp2, a);
+                    if tmp2.chars().collect::<vec<_>>().contains(&b) {
+                        return num1;
+                    } else {
+                        tmp2 = format!("{}{}", tmp2, a);
+                        if tmp2.chars().collect::<vec<_>>().contains(&b) {
+                            return num1 + 1;
+                        } else {
+                            return -1;
+                        }
+                    }
+                }
             }
         }
-        return -1;
     }
 }
