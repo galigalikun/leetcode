@@ -7,7 +7,8 @@ struct Solution{}
 impl Solution {
     pub fn repeated_string_match(a: String, b: String) -> i32 {
         if a.len() >= b.len() {
-            if a.chars().collect::<Vec<_>>().contains(&b) {
+            let bb:&str = &b;
+            if (&a).chars().collect::<Vec<_>>().contains(b) {
                 return 1;
             } else {
                 let tmp1 = format!("{}{}", a, a);
@@ -17,6 +18,7 @@ impl Solution {
                     return -1
             }
         } else {
+            /*
             let num1 = b.len()/a.len();
             let num2 = b.len()%a.len();
             let mut tmp2 = a;
@@ -49,6 +51,8 @@ impl Solution {
                     }
                 }
             }
+            */
         }
+        return -1;
     }
 }
