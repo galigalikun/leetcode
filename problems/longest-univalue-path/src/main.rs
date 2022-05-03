@@ -91,7 +91,6 @@ impl Solution {
     fn dfs(root:Option<Rc<RefCell<TreeNode>>>, res:&mut i32) -> i32 {
         if let Some(node) = root {
             let node = node.borrow();
-            let mut right = 0;
             let left = if let Some(left_node) = node.left.as_ref() {
                 if left_node.borrow().val == node.val {
                     Self::dfs(node.left.clone(), res) + 1
