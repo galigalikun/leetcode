@@ -1,25 +1,56 @@
 fn main() {
-    assert_eq!(Solution::min_stickers(vec!["with".to_string(),"example".to_string(),"science".to_string()], "thehat".to_string()), 3);
-    assert_eq!(Solution::min_stickers(vec!["notice".to_string(),"possible".to_string()], "basicbasic".to_string()), -1);
+    assert_eq!(
+        Solution::min_stickers(
+            vec![
+                "with".to_string(),
+                "example".to_string(),
+                "science".to_string()
+            ],
+            "thehat".to_string()
+        ),
+        3
+    );
+    assert_eq!(
+        Solution::min_stickers(
+            vec!["notice".to_string(), "possible".to_string()],
+            "basicbasic".to_string()
+        ),
+        -1
+    );
 }
 
-struct Solution{}
+// https://chowdera.com/2022/03/202203200132400249.html
+struct Solution {}
 impl Solution {
-    pub fn min_stickers(stickers: Vec<String>, target: String) -> i32 {
-        let mut dp = vec![vec![0; target.len() + 1]; stickers.len() + 1];
-        for i in 1..=stickers.len() {
-            for j in 1..=target.len() {
-                if stickers[i - 1].chars().nth(j - 1) == target.chars().nth(j - 1) {
-                    dp[i][j] = dp[i - 1][j - 1] + 1;
-                } else {
-                    dp[i][j] = std::cmp::max(dp[i - 1][j], dp[i][j - 1]);
+    fn helper(mut status: usize, s: String, target: String) -> usize {
+        for c in s.chars() {
+            for k in 0..target.len() {
+                if ((status >> k) & 1) == 0 && target.chars().nth(k) == Some(c) {
+                    let n = 1 << k;
+                    status += n;
+                    break;
                 }
             }
         }
-        println!("debug: {:?}", dp);
-        if dp[stickers.len()][target.len()] == target.len() {
-            return stickers.len() as i32;
+        return status;
+    }
+    pub fn min_stickers(stickers: Vec<String>, target: String) -> i32 {
+        let mut dp = vec![std::i32::MAX; 1 << target.len()];
+        dp[0] = 0;
+        for i in 0..1 << target.len() {
+            if dp[i] == std::i32::MAX {
+                continue;
+            }
+            for sticker in stickers.clone() {
+                let j = Solution::helper(i, sticker, target.clone());
+                dp[j] = std::cmp::min(dp[j], dp[i] + 1);
+            }
         }
-        return -1;
+
+        return if dp.last() == Some(&std::i32::MAX) {
+            -1
+        } else {
+            *dp.last().unwrap()
+        };
     }
 }
