@@ -1,6 +1,12 @@
 fn main() {
-    assert_eq!(Solution::falling_squares(vec![vec![1, 2], vec![2, 3], vec![6, 1]]), vec![2,5,5]);
-    assert_eq!(Solution::falling_squares(vec![vec![100, 100], vec![200, 100]]), vec![100, 100]);
+    assert_eq!(
+        Solution::falling_squares(vec![vec![1, 2], vec![2, 3], vec![6, 1]]),
+        vec![2, 5, 5]
+    );
+    assert_eq!(
+        Solution::falling_squares(vec![vec![100, 100], vec![200, 100]]),
+        vec![100, 100]
+    );
 }
 
 struct Solution {}
@@ -30,6 +36,7 @@ impl Solution {
             max_area = std::cmp::max(max_area, areas[i]);
             result[i] = max_area;
         }
+        println!("debug {:?}", result);
         return result;
     }
 }
