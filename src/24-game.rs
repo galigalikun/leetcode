@@ -1,9 +1,9 @@
 fn main() {
-    assert_eq!(Solution::judge_point24(vec![4,1,8,7]), true);
-    assert_eq!(Solution::judge_point24(vec![1,2,1,2]), false);
+    assert_eq!(Solution::judge_point24(vec![4, 1, 8, 7]), true);
+    assert_eq!(Solution::judge_point24(vec![1, 2, 1, 2]), false);
 }
 
-struct Solution{}
+struct Solution {}
 impl Solution {
     fn judge_point24_helper(nums: &Vec<i32>) -> bool {
         for i in 0..nums.len() {

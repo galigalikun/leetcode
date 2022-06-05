@@ -40,3 +40,7 @@ path = "src/2-keys-keyboard.rs"
 [[bin]]
 name = "24-game"
 path = "src/24-game.rs"
+
+[[bin]]
+name = "1-bit-and-2-bit-characters"
+path = "src/1-bit-and-2-bit-characters.rs"
