@@ -23,6 +23,7 @@ impl Solution {
                 }
             }
         }
-        return dp[0][s.len() - 1] as i32;
+        println!("{:?}", dp[0][s.len() - 1]%1000000007);
+        return (dp[0][s.len() - 1] % 1000000007) as i32;
     }
 }
