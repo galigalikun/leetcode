@@ -24,9 +24,7 @@ impl MyCalendarThree {
         for k in start..end {
             let v = self.calendar.entry(k).or_insert(0);
             *v += 1;
-            if *v > max {
-                max = *v;
-            }
+            max = std::cmp::max(max, *v);
         }
         self.max = max;
         return max;
@@ -46,4 +44,5 @@ fn main() {
     assert_eq!(obj.book(5, 15), 3);
     assert_eq!(obj.book(5, 10), 3);
     assert_eq!(obj.book(25, 55), 3);
+    assert_eq!(obj.book(0, 1000000000), 4);
 }
