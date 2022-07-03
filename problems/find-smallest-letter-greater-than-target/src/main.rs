@@ -11,7 +11,10 @@ fn main() {
         Solution::next_greatest_letter(vec!['c', 'f', 'j'], 'd'),
         'f'
     );
-    assert_eq!(Solution::next_greatest_letter(vec!['c','f','j'], 'j'), 'c');
+    assert_eq!(
+        Solution::next_greatest_letter(vec!['c', 'f', 'j'], 'j'),
+        'c'
+    );
 }
 
 struct Solution {}
