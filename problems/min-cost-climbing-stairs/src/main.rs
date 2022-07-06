@@ -17,8 +17,17 @@ impl Solution {
     });
     }
     pub fn min_cost_climbing_stairs(cost: Vec<i32>) -> i32 {
-        let ans1 = std::cmp::min(cost[0] + cost[1], cost[0]+ cost[2]);
-        let ans2 = std::cmp::min(cost[1] + cost[2], cost[1]+ cost[3]);
+        let mut i = 0;
+        let mut ans1 = std::i32::MAX;
+        let mut ans2 = std::i32::MAX;
+        while i < cost.len() {
+            ans1 = std::cmp::min(Solution::helper(i, cost.clone()), ans1);
+            i+=1;
+            if i < cost.len() {
+                ans2 = std::cmp::min(Solution::helper(i, cost.clone()), ans2);
+            }
+        }
+
         return std::cmp::min(ans1, ans2);
     }
 }
