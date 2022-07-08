@@ -1,5 +1,3 @@
-use std::collections::HashMap;
-
 fn main() {
     assert_eq!(
         Solution::shortest_completing_word(
@@ -28,37 +26,44 @@ fn main() {
 }
 
 struct Solution {}
+
+use std::collections::HashMap;
 impl Solution {
     pub fn shortest_completing_word(license_plate: String, words: Vec<String>) -> String {
         let mut dic = HashMap::new();
-        for p in license_plate.chars() {
+        for p in license_plate.to_lowercase().chars() {
             match p {
-               '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' => {
-               }
+                '0' | '1' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9' | ' ' => {}
                 _ => {
                     *dic.entry(p).or_insert(0) += 1;
-                },
+                }
             }
         }
 
         let mut n = 0;
         let mut ans = String::new();
+        let mut len = 0;
         for w in words {
-        let mut m = 0;
+            let mut m = 0;
             let mut map = dic.clone();
             for c in w.chars() {
                 if let Some(v) = map.get_mut(&c) {
                     if *v > 0 {
                         *v -= 1;
-                        m+=1;
+                        m += 1;
                     }
                 }
             }
             if m > n {
                 n = m;
-                ans = w;
+                ans = w.clone();
+                len = w.len();
+            } else if m == n {
+                if w.len() < len {
+                    ans = w.clone();
+                    len = w.len();
+                }
             }
-
         }
         return ans;
     }
