@@ -2,6 +2,7 @@ fn main() {
     assert_eq!(Solution::rotated_digits(10), 4);
     assert_eq!(Solution::rotated_digits(1), 0);
     assert_eq!(Solution::rotated_digits(2), 1);
+    assert_eq!(Solution::rotated_digits(857), 247);
 }
 
 struct Solution{}
