@@ -13,14 +13,24 @@ fn main() {
     );
     assert_eq!(
         Solution::is_rectangle_overlap(vec![7, 8, 13, 15], vec![10, 8, 12, 20]),
-        false
+        true
+    );
+    assert_eq!(
+        Solution::is_rectangle_overlap(vec![2, 17, 6, 20], vec![2, 17, 6, 20]),
+        true
+    );
+    assert_eq!(
+        Solution::is_rectangle_overlap(vec![2, 17, 6, 20], vec![3, 8, 6, 20]),
+        true
     );
 }
 
 struct Solution {}
 impl Solution {
     pub fn is_rectangle_overlap(rec1: Vec<i32>, rec2: Vec<i32>) -> bool {
-        if rec1[0] < rec2[0] && rec1[1] < rec2[1] && rec1[2] > rec2[0] && rec1[3] > rec2[1] {
+        if rec1[0] < rec2[0] && rec1[1] <= rec2[1] && rec1[2] > rec2[0] && rec1[3] > rec2[1] {
+            return true;
+        } else if rec1 == rec2 {
             return true;
         }
         return false;
