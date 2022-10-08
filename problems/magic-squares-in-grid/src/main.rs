@@ -13,6 +13,14 @@ fn main() {
 struct Solution {}
 impl Solution {
     pub fn num_magic_squares_inside(grid: Vec<Vec<i32>>) -> i32 {
-        return 0;
+        let mut ans = 0;
+        if grid.len() >= 3 {
+            if grid[0].len() >= 3 {
+                for g in grid {
+                    
+                }
+            }
+        }
+        return ans;
     }
 }
