@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 fn main() {
     assert_eq!(Solution::lemonade_change(vec![5, 5, 5, 10, 20]), true);
     assert_eq!(Solution::lemonade_change(vec![5, 5, 10, 10, 20]), false);
@@ -27,17 +29,14 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn lemonade_change(bills: Vec<i32>) -> bool {
-        let mut amount = 0;
+        let mut amount = HashMap::new();
+        amount.insert(5, 0);
+        amount.insert(10, 0);
+        amount.insert(20, 0);
         for bill in bills {
-            let sub = bill - 5;
-            if sub > 0 {
-                if amount < sub {
-                    return false;
-                }
-                amount -= sub;
-            }
-            amount += 5;
+            *amount.entry(bill).or_insert(0) += 1;
         }
+        println!("debug {:?}", amount);
         return true;
     }
 }
