@@ -2,17 +2,13 @@ struct FreqStack {
     stack: Vec<i32>,
 }
 
-
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl FreqStack {
-
     fn new() -> Self {
-        FreqStack {
-            stack: vec![],
-        }
+        FreqStack { stack: vec![] }
     }
 
     fn push(&mut self, val: i32) {
