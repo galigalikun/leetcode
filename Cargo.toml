@@ -44,3 +44,7 @@ path = "src/24-game.rs"
 [[bin]]
 name = "1-bit-and-2-bit-characters"
 path = "src/1-bit-and-2-bit-characters.rs"
+
+[[bin]]
+name = "3sum-with-multiplicity"
+path = "src/3sum-with-multiplicity.rs"
