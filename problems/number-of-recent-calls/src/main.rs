@@ -1,23 +1,24 @@
 struct RecentCounter {
-    requests:Vec<i32>,
+    requests: Vec<i32>,
 }
-
 
 /**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl RecentCounter {
-
     fn new() -> Self {
-        RecentCounter {
-            requests:vec![],
-         }
+        RecentCounter { requests: vec![] }
     }
 
     fn ping(&mut self, t: i32) -> i32 {
         self.requests.push(t);
-        return 0;
+        let (min, max) = (t - 3000, t);
+        return self
+            .requests
+            .iter()
+            .filter(|&x| x >= &min && x <= &max)
+            .count() as i32;
     }
 }
 
