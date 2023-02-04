@@ -40,7 +40,7 @@ fn main() {
                     left: Some(Rc::new(RefCell::new(TreeNode {
                         val: 3,
                         left: Some(Rc::new(RefCell::new(TreeNode {
-                            va1,
+                            val: 1,
                             left: None,
                             right: None,
                         }))),
@@ -100,6 +100,14 @@ use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
     pub fn range_sum_bst(root: Option<Rc<RefCell<TreeNode>>>, low: i32, high: i32) -> i32 {
+        if let Some(r) = root {
+            return if high >= r.borrow().val && r.borrow().val >= low {
+                r.borrow().val
+            } else {
+                0
+            } + Self::range_sum_bst(r.borrow().left.clone(), low, high)
+                + Self::range_sum_bst(r.borrow().right.clone(), low, high);
+        }
         return 0;
     }
 }
