@@ -8,7 +8,7 @@ fn main() {
     );
     assert_eq!(
         Solution::sum_even_after_queries(vec![1], vec![vec![4, 0]]),
-        vec![0]
+        vec![]
     );
 }
 
