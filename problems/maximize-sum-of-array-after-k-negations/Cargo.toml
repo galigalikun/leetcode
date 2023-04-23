@@ -1,0 +1,8 @@
+[package]
+name = "maximize-sum-of-array-after-k-negations"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
