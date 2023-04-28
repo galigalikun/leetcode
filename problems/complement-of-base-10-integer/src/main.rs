@@ -7,17 +7,15 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn bitwise_complement(n: i32) -> i32 {
-        let mut n = n;
-        let mut i = 0;
-        while n > 0 {
-            n >>= 1;
-            i += 1;
+        let a = format!("{:b}", n);
+        let mut b = String::new();
+        for c in a.chars() {
+            if c == '0' {
+                b.push('1');
+            } else {
+                b.push('0');
+            }
         }
-        let mut n = 0;
-        for _ in 0..i {
-            n <<= 1;
-            n += 1;
-        }
-        return n - n;
+        return i32::from_str_radix(&b, 2).unwrap();
     }
 }
