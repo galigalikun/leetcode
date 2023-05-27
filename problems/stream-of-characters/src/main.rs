@@ -1,4 +1,7 @@
-struct StreamChecker {}
+struct StreamChecker {
+    words: Vec<String>,
+    query: Vec<char>,
+}
 
 /**
  * `&self` means the method takes an immutable reference.
@@ -6,10 +9,31 @@ struct StreamChecker {}
  */
 impl StreamChecker {
     fn new(words: Vec<String>) -> Self {
-        StreamChecker {}
+        StreamChecker {
+            words: words,
+            query: Vec::new(),
+        }
     }
 
-    fn query(&self, letter: char) -> bool {
+    fn query(&mut self, letter: char) -> bool {
+        self.query.push(letter);
+        for word in self.words.iter() {
+            if word.len() > self.query.len() {
+                continue;
+            }
+            let mut matched = true;
+            for i in 0..word.len() {
+                if word.chars().nth(word.len() - i - 1).unwrap()
+                    != self.query[self.query.len() - i - 1]
+                {
+                    matched = false;
+                    break;
+                }
+            }
+            if matched {
+                return true;
+            }
+        }
         return false;
     }
 }
@@ -20,7 +44,7 @@ impl StreamChecker {
  * let ret_1: bool = obj.query(letter);
  */
 fn main() {
-    let obj = StreamChecker::new(vec!["cd".to_string(), "f".to_string(), "kl".to_string()]);
+    let mut obj = StreamChecker::new(vec!["cd".to_string(), "f".to_string(), "kl".to_string()]);
     assert_eq!(obj.query('a'), false);
     assert_eq!(obj.query('b'), false);
     assert_eq!(obj.query('c'), false);
