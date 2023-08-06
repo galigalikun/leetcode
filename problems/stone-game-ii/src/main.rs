@@ -1,7 +1,7 @@
 fn main() {
     assert_eq!(Solution::stone_game_ii(vec![2, 7, 9, 4, 4]), 10);
     assert_eq!(Solution::stone_game_ii(vec![1, 2, 3, 4, 5, 100]), 104);
-    assert_eq!(Solution::stone_game_ii(vec![1]), 0);
+    assert_eq!(Solution::stone_game_ii(vec![1]), 1);
 }
 
 struct Solution;
@@ -9,6 +9,9 @@ impl Solution {
     fn dfs(dp: &mut Vec<Vec<i32>>, sum: &Vec<i32>, piles: &Vec<i32>, i: usize, m: usize) -> i32 {
         if i == piles.len() {
             return 0;
+        }
+        if dp[i].len() <= m {
+            dp[i].resize(m + 1, 0);
         }
         if dp[i][m] != 0 {
             return dp[i][m];
