@@ -1,0 +1,6 @@
+[package]
+name = "last-moment-before-all-ants-fall-out-of-a-plank"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
