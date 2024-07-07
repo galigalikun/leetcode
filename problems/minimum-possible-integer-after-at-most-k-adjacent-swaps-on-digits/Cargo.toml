@@ -1,0 +1,6 @@
+[package]
+name = "minimum-possible-integer-after-at-most-k-adjacent-swaps-on-digits"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
