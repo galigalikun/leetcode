@@ -1,0 +1,6 @@
+[package]
+name = "best-position-for-a-service-centre"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
