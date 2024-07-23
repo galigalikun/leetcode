@@ -1,0 +1,6 @@
+[package]
+name = "find-a-value-of-a-mysterious-function-closest-to-target"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
