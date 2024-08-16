@@ -1,0 +1,6 @@
+[package]
+name = "minimum-cost-to-cut-a-stick"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
