@@ -1,0 +1,6 @@
+[package]
+name = "minimum-operations-to-make-array-equal"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
