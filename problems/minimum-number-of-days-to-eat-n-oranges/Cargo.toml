@@ -1,0 +1,6 @@
+[package]
+name = "minimum-number-of-days-to-eat-n-oranges"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
