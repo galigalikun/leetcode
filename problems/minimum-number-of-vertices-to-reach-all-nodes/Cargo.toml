@@ -1,0 +1,6 @@
+[package]
+name = "minimum-number-of-vertices-to-reach-all-nodes"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
