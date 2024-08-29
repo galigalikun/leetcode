@@ -1,0 +1,6 @@
+[package]
+name = "find-latest-group-of-size-m"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
