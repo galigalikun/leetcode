@@ -1,0 +1,6 @@
+[package]
+name = "detect-pattern-of-length-m-repeated-k-or-more-times"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
