@@ -1,0 +1,6 @@
+[package]
+name = "count-all-possible-routes"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
