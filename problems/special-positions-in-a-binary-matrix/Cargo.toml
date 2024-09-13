@@ -1,0 +1,6 @@
+[package]
+name = "special-positions-in-a-binary-matrix"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
