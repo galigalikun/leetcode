@@ -1,5 +1,3 @@
-use core::str;
-
 fn main() {
     assert_eq!(Solution::min_cost_connect_points(vec![vec![0,0],vec![2,2],vec![3,10],vec![5,2],vec![7,0]]), 20);
     assert_eq!(Solution::min_cost_connect_points(vec![vec![3,12],vec![-2,5],vec![-4,1]]), 18);
