@@ -1,0 +1,6 @@
+[package]
+name = "maximum-profit-of-operating-a-centennial-wheel"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
