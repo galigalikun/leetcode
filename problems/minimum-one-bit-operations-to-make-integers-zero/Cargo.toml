@@ -1,0 +1,6 @@
+[package]
+name = "minimum-one-bit-operations-to-make-integers-zero"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
