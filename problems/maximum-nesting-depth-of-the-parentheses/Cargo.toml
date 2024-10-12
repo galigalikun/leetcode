@@ -1,0 +1,6 @@
+[package]
+name = "maximum-nesting-depth-of-the-parentheses"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
