@@ -1,0 +1,6 @@
+[package]
+name = "minimum-deletions-to-make-character-frequencies-unique"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
