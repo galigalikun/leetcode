@@ -1,0 +1,6 @@
+[package]
+name = "sell-diminishing-valued-colored-balls"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
