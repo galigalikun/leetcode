@@ -1,0 +1,6 @@
+[package]
+name = "create-sorted-array-through-instructions"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
