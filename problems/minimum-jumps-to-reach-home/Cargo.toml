@@ -1,0 +1,6 @@
+[package]
+name = "minimum-jumps-to-reach-home"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
