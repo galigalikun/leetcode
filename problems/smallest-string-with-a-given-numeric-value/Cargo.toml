@@ -1,0 +1,6 @@
+[package]
+name = "smallest-string-with-a-given-numeric-value"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
