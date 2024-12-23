@@ -1,0 +1,6 @@
+[package]
+name = "delivering-boxes-from-storage-to-ports"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
