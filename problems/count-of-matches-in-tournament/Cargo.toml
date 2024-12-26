@@ -1,0 +1,6 @@
+[package]
+name = "count-of-matches-in-tournament"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
