@@ -1,0 +1,6 @@
+[package]
+name = "number-of-rectangles-that-can-form-the-largest-square"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
