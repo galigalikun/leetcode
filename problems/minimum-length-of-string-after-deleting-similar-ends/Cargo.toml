@@ -1,0 +1,6 @@
+[package]
+name = "minimum-length-of-string-after-deleting-similar-ends"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
