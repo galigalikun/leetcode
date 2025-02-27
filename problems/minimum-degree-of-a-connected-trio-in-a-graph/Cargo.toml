@@ -1,0 +1,6 @@
+[package]
+name = "minimum-degree-of-a-connected-trio-in-a-graph"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
