@@ -1,0 +1,6 @@
+[package]
+name = "form-array-by-concatenating-subarrays-of-another-array"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
