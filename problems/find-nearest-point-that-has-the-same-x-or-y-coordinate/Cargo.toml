@@ -1,0 +1,6 @@
+[package]
+name = "find-nearest-point-that-has-the-same-x-or-y-coordinate"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
