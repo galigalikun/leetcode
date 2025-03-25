@@ -1,0 +1,6 @@
+[package]
+name = "number-of-restricted-paths-from-first-to-last-node"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
