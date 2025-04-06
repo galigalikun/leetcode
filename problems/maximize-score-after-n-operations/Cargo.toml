@@ -1,0 +1,6 @@
+[package]
+name = "maximize-score-after-n-operations"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
