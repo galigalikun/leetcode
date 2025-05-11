@@ -1,0 +1,6 @@
+[package]
+name = "find-xor-sum-of-all-pairs-bitwise-and"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
