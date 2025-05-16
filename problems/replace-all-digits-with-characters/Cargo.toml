@@ -1,0 +1,6 @@
+[package]
+name = "replace-all-digits-with-characters"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
