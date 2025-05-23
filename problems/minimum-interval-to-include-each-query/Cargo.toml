@@ -1,0 +1,6 @@
+[package]
+name = "minimum-interval-to-include-each-query"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
