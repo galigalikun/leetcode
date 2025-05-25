@@ -8,6 +8,7 @@ fn main() {
         Solution::max_distance(vec![30, 29, 19, 5], vec![25, 25, 25, 25, 25]),
         2
     );
+    assert_eq!(Solution::max_distance(vec![5, 4], vec![3, 2]), 0);
 }
 
 struct Solution;
@@ -23,9 +24,9 @@ impl Solution {
                     .filter(|&(_, &y)| y >= x)
                     .map(|(j, _)| j as i32 - i as i32)
                     .max()
-                    .unwrap_or(-1)
+                    .unwrap_or(0)
             })
             .max()
-            .unwrap_or(-1);
+            .unwrap_or(0);
     }
 }
