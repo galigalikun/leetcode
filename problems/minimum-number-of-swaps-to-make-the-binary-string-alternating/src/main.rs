@@ -2,6 +2,7 @@ fn main() {
     assert_eq!(Solution::min_swaps("111000".to_string()), 1);
     assert_eq!(Solution::min_swaps("010".to_string()), 0);
     assert_eq!(Solution::min_swaps("1110".to_string()), -1);
+    assert_eq!(Solution::min_swaps("01".to_string()), 0);
 }
 
 struct Solution;
