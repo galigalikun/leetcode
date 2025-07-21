@@ -1,0 +1,6 @@
+[package]
+name = "count-ways-to-build-rooms-in-an-ant-colony"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
