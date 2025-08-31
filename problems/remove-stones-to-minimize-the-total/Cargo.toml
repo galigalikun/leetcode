@@ -1,0 +1,6 @@
+[package]
+name = "remove-stones-to-minimize-the-total"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
