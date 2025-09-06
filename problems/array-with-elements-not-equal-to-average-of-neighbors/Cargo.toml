@@ -1,0 +1,6 @@
+[package]
+name = "array-with-elements-not-equal-to-average-of-neighbors"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
