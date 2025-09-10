@@ -8,7 +8,7 @@ struct Solution;
 impl Solution {
     pub fn min_time_to_type(word: String) -> i32 {
         return (word.len() - 1) as i32
-            + word
+        + word
                 .as_bytes()
                 .windows(2)
                 .map(|w| {
