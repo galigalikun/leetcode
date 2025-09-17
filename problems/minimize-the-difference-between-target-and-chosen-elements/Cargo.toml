@@ -1,0 +1,6 @@
+[package]
+name = "minimize-the-difference-between-target-and-chosen-elements"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
