@@ -1,0 +1,6 @@
+[package]
+name = "minimum-number-of-work-sessions-to-finish-the-tasks"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
