@@ -1,0 +1,6 @@
+[package]
+name = "maximum-product-of-the-length-of-two-palindromic-subsequences"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
