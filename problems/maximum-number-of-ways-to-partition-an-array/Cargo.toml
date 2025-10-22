@@ -1,0 +1,6 @@
+[package]
+name = "maximum-number-of-ways-to-partition-an-array"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
