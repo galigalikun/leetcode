@@ -1,0 +1,6 @@
+[package]
+name = "lexicographically-smallest-string-after-operations-with-constraint"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
