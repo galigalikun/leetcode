@@ -1,0 +1,6 @@
+[package]
+name = "latest-time-you-can-obtain-after-replacing-characters"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
