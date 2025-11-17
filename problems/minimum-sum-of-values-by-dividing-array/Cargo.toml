@@ -1,0 +1,6 @@
+[package]
+name = "minimum-sum-of-values-by-dividing-array"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
