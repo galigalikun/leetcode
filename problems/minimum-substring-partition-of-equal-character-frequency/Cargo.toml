@@ -1,0 +1,6 @@
+[package]
+name = "minimum-substring-partition-of-equal-character-frequency"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
