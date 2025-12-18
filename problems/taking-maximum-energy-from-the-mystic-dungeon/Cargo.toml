@@ -1,0 +1,6 @@
+[package]
+name = "taking-maximum-energy-from-the-mystic-dungeon"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
