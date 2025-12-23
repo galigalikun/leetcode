@@ -1,0 +1,6 @@
+[package]
+name = "smallest-missing-non-negative-integer-after-operations"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
