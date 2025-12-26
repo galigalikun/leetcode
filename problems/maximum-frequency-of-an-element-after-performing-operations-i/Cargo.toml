@@ -1,0 +1,6 @@
+[package]
+name = "maximum-frequency-of-an-element-after-performing-operations-i"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
