@@ -17,7 +17,14 @@ impl Solution {
         // [1, 0, 0, 0] -> [1, 0] [0] [0] -> true
         // [1, 0, 1, 0] -> [1, 0] [1, 0] -> false
         // [0, 1, 1, 0] -> [0] [1, 1] [0] -> true
-
-        return false;
+        for i in (0..bits.len()-1).rev() {
+            if bits[i] == 1 {
+                return false;
+            }
+            if bits[i] == 0 {
+                break;
+            }
+        }
+        return true;
     }
 }
