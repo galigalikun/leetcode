@@ -1,0 +1,6 @@
+[package]
+name = "find-all-people-with-secret"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
