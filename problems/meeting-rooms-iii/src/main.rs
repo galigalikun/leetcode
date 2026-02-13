@@ -1,6 +1,7 @@
 fn main() {
     assert_eq!(Solution::most_booked(2, vec![vec![0,10],vec![1,5],vec![2,7],vec![3,4]]), 0);
     assert_eq!(Solution::most_booked(3, vec![vec![1,20],vec![2,10],vec![3,5],vec![4,9],vec![6,8]]), 1);
+    assert_eq!(Solution::most_booked(3, vec![vec![18,19],vec![3,12],vec![17,19],vec![2,13],vec![7,10]]), 0);
 }
 
 struct Solution;
