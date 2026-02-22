@@ -113,9 +113,31 @@ impl TreeNode {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
+    fn depth(node: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        if let Some(node) = node {
+            return 1 + std::cmp::max(
+                Self::depth(node.borrow().left.clone()),
+                Self::depth(node.borrow().right.clone()),
+            );
+        }
+
+        return 0;
+    }
     pub fn subtree_with_all_deepest(
         root: Option<Rc<RefCell<TreeNode>>>,
     ) -> Option<Rc<RefCell<TreeNode>>> {
-        return None;
+        let mut root = root;
+        while let Some(node) = root.clone() {
+            let left_depth = Self::depth(node.borrow().left.clone());
+            let right_depth = Self::depth(node.borrow().right.clone());
+            if left_depth == right_depth {
+                return root;
+            } else if left_depth > right_depth {
+                root = node.borrow().left.clone();
+            } else {
+                root = node.borrow().right.clone();
+            }
+        }
+        return root;
     }
 }
