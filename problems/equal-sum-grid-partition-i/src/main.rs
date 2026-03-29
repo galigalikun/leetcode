@@ -1,10 +1,27 @@
 fn main() {
     assert_eq!(
-        Solution::can_partition_grid(vec![[1,4],[2,3]].iter().map(|&x| x.to_vec()).collect()),
+        Solution::can_partition_grid(vec![[1, 4], [2, 3]].iter().map(|&x| x.to_vec()).collect()),
         true
     );
     assert_eq!(
-        Solution::can_partition_grid(vec![[1,3],[2,4]].iter().map(|&x| x.to_vec()).collect()),
+        Solution::can_partition_grid(vec![[1, 3], [2, 4]].iter().map(|&x| x.to_vec()).collect()),
+        false
+    );
+    assert_eq!(
+        Solution::can_partition_grid(
+            vec![[
+                [88815, 75184, 58058, 38864, 87921],
+                [97879, 72561, 30833, 11376, 11509],
+                [59407, 20659, 8972, 7527, 45639],
+                [74290, 33652, 45742, 34852, 37622],
+                [6582, 37220, 5854, 79095, 71801],
+                [82868, 19595, 5356, 381, 60132],
+                [48089, 85386, 87274, 51062, 39949]
+            ]]
+            .iter()
+            .map(|&x| x.to_vec())
+            .collect()
+        ),
         false
     );
 }
