@@ -2,31 +2,27 @@ struct Fancy {
     data: Vec<i32>,
 }
 
-
-/** 
+/**
  * `&self` means the method takes an immutable reference.
  * If you need a mutable reference, change it to `&mut self` instead.
  */
 impl Fancy {
-
     fn new() -> Self {
-        Fancy { 
-            data: Vec::new(),
-         }
+        Fancy { data: Vec::new() }
     }
-    
+
     fn append(&mut self, val: i32) {
         self.data.push(val);
     }
-    
+
     fn add_all(&mut self, inc: i32) {
-        self.data.iter().for_each(|x| x + inc);
+        self.data.iter_mut().for_each(|x| *x += inc);
     }
-    
+
     fn mult_all(&mut self, m: i32) {
-        self.data.iter().for_each(|x| x * m);
+        self.data.iter_mut().for_each(|x| *x *= m);
     }
-    
+
     fn get_index(&self, idx: i32) -> i32 {
         self.data.get(idx as usize).unwrap_or(&0).clone()
     }
