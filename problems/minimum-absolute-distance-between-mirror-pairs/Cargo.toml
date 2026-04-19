@@ -1,0 +1,6 @@
+[package]
+name = "minimum-absolute-distance-between-mirror-pairs"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
