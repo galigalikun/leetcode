@@ -33,70 +33,95 @@ fn main() {
 
 struct Solution {}
 
-use std::collections::LinkedList;
-#[derive(Debug)]
-struct Node {
-    val:String,
-    depth:i32,
-    prev:Option<Box<Node>>,
-}
+use std::collections::{BTreeSet, HashMap, HashSet};
+
 impl Solution {
     pub fn find_ladders(
         begin_word: String,
         end_word: String,
         word_list: Vec<String>,
     ) -> Vec<Vec<String>> {
-        let mut result:Vec<Vec<String>> = vec![];
-        if word_list.iter().find(|&s| s == &end_word) == None{
-            return result;
+        let mut dictionary: HashSet<String> = word_list.into_iter().collect();
+        if !dictionary.contains(&end_word) {
+            return vec![];
         }
+        dictionary.insert(begin_word.clone());
 
-        let mut queue = LinkedList::new();
-        queue.push_back(Node{
-            val: begin_word,
-            depth: 0,
-            prev:None
-        });
+        let mut parents: HashMap<String, Vec<String>> = HashMap::new();
+        let mut visited: HashSet<String> = HashSet::from([begin_word.clone()]);
+        let mut current_level = vec![begin_word.clone()];
+        let mut found = false;
 
-        let mut min_len = std::i32::MIN;
-        while let Some(top) = queue.pop_front() {
-            if result.len() > 0 && top.depth > min_len {
-                return result;
-            }
-            let mut arr = top.val.chars().collect::<Vec<_>>();
-            let mut i = 0;
-            for c in top.val.chars() {
-                println!("debug {}", c);
-                for a in (b'a'..=b'z').map(|c| c as char).rev() {
-                    if c == a {
-                        continue;
-                    }
-                    arr[i] = a;
+        while !current_level.is_empty() && !found {
+            let mut next_level: BTreeSet<String> = BTreeSet::new();
+            let mut next_seen: HashSet<String> = HashSet::new();
 
-                    if arr.iter().collect::<String>() == end_word {
-                        let mut work = vec![end_word.clone()];
-                        let mut p = Some(Box::new(top));
-                        loop {
-                            if let Some(t) = p {
-                                work.push(t.val);
-                                p = t.prev;
-                            } else {
-                                break;
-                            }
+            for word in &current_level {
+                let mut chars: Vec<char> = word.chars().collect();
+                for i in 0..chars.len() {
+                    let original = chars[i];
+                    for b in b'a'..=b'z' {
+                        let candidate_char = b as char;
+                        if candidate_char == original {
+                            continue;
                         }
-                        result.push(work.iter().rev().map(|&x| x).collect::<Vec<_>>());
-                        if top.depth <= min_len {
-                            min_len = top.depth;
-                        } else {
-                            return result;
+                        chars[i] = candidate_char;
+                        let candidate: String = chars.iter().collect();
+
+                        if !dictionary.contains(&candidate) || visited.contains(&candidate) {
+                            continue;
+                        }
+
+                        parents
+                            .entry(candidate.clone())
+                            .or_default()
+                            .push(word.clone());
+
+                        if candidate == end_word {
+                            found = true;
+                        }
+                        if next_seen.insert(candidate.clone()) {
+                            next_level.insert(candidate);
                         }
                     }
-                    println!("alphabet {}", arr.iter().collect::<String>());
+                    chars[i] = original;
                 }
-                i += 1;
             }
+
+            visited.extend(next_seen);
+            current_level = next_level.into_iter().collect();
         }
 
-        return result;
+        if !found {
+            return vec![];
+        }
+
+        let mut result = vec![];
+        let mut path = vec![end_word.clone()];
+        Self::build_paths(&end_word, &begin_word, &parents, &mut path, &mut result);
+        result
+    }
+
+    fn build_paths(
+        current: &str,
+        begin_word: &str,
+        parents: &HashMap<String, Vec<String>>,
+        path: &mut Vec<String>,
+        result: &mut Vec<Vec<String>>,
+    ) {
+        if current == begin_word {
+            let mut built = path.clone();
+            built.reverse();
+            result.push(built);
+            return;
+        }
+
+        if let Some(prev_words) = parents.get(current) {
+            for prev in prev_words {
+                path.push(prev.clone());
+                Self::build_paths(prev, begin_word, parents, path, result);
+                path.pop();
+            }
+        }
     }
 }
