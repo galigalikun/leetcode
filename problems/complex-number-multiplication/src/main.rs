@@ -12,23 +12,15 @@ fn main() {
 struct Solution {}
 impl Solution {
     fn parser(num: String) -> (i32, i32) {
-        let mut real = 0;
-        let mut imaginaryi = 0;
-        for n in num.chars() {
-            match n {
-                'i' => {
-                    println!("imaginaryi");
-                }
-                '+' | '-' => {
-                    println!("+ or -");
-                }
-                _ => {
-                    println!("number");
-                }
-            }
-        }
+        let (real_str, imag_with_i) = num
+            .split_once('+')
+            .expect("invalid complex number format");
+        let imag_str = imag_with_i.trim_end_matches('i');
 
-        return (real, imaginaryi);
+        let real = real_str.parse::<i32>().expect("invalid real part");
+        let imaginary = imag_str.parse::<i32>().expect("invalid imaginary part");
+
+        return (real, imaginary);
     }
     pub fn complex_number_multiply(num1: String, num2: String) -> String {
         let c1 = Solution::parser(num1);
