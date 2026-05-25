@@ -1,48 +1,66 @@
 fn main() {
-    assert_eq!(Solution::outer_trees(vec![vec![1,1],vec![2,2],vec![2,0],vec![2,4],vec![3,3],vec![4,2]]), vec![[1,1],[2,0],[3,3],[2,4],[4,2]]);
-    assert_eq!(Solution::outer_trees(vec![vec![1,2],vec![2,2],vec![4,2]]), vec![[4,2],[2,2],[1,2]]);
+    let mut got1 = Solution::outer_trees(vec![
+        vec![1, 1],
+        vec![2, 2],
+        vec![2, 0],
+        vec![2, 4],
+        vec![3, 3],
+        vec![4, 2],
+    ]);
+    let mut want1 = vec![vec![1, 1], vec![2, 0], vec![3, 3], vec![2, 4], vec![4, 2]];
+    got1.sort();
+    want1.sort();
+    assert_eq!(got1, want1);
+
+    let mut got2 = Solution::outer_trees(vec![vec![1, 2], vec![2, 2], vec![4, 2]]);
+    let mut want2 = vec![vec![4, 2], vec![2, 2], vec![1, 2]];
+    got2.sort();
+    want2.sort();
+    assert_eq!(got2, want2);
 }
 
-// https://ttzztt.gitbooks.io/lc/content/jingchiai/erect-the-fence.html
-struct Solution{}
-use std::cmp::Ordering;
+use std::collections::BTreeSet;
+
+struct Solution {}
+
 impl Solution {
-    fn helper(p: &Vec<i32>, q: &Vec<i32>, r: &Vec<i32>) -> i32 {
-        return (q[1]-p[1]) * (r[0]-q[0])-(q[0]-p[0])*(r[1]-q[1])
+    fn cross(p: &[i32], q: &[i32], r: &[i32]) -> i32 {
+        (q[0] - p[0]) * (r[1] - p[1]) - (q[1] - p[1]) * (r[0] - p[0])
     }
+
     pub fn outer_trees(trees: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
         if trees.len() <= 3 {
             return trees;
         }
-        /*
-            /// assert_eq!(5.cmp(&10), Ordering::Less);
-    /// assert_eq!(10.cmp(&5), Ordering::Greater);
-    /// assert_eq!(5.cmp(&5), Ordering::Equal);
-        */
+
         let mut points = trees;
-        points.sort_by(|a, b| if a[0] < b[0] || (a[0] == b[0] && a[1] < b[1]) {
-            Ordering::Less
-        } else {
-            Ordering::Greater
-        });
+        points.sort();
 
-        println!("debug {:?}", points);
+        let mut lower: Vec<Vec<i32>> = Vec::new();
+        for p in &points {
+            while lower.len() >= 2
+                && Solution::cross(&lower[lower.len() - 2], &lower[lower.len() - 1], p) < 0
+            {
+                lower.pop();
+            }
+            lower.push(p.clone());
+        }
 
-        let mut ans = vec![];
-        for i in 0..points.len() {
-            while ans.len() >= 2 && Solution::helper(&ans[ans.len()-2], &ans[ans.len()-1], &points[i]) < 0 {
-                ans.pop();
+        let mut upper: Vec<Vec<i32>> = Vec::new();
+        for p in points.iter().rev() {
+            while upper.len() >= 2
+                && Solution::cross(&upper[upper.len() - 2], &upper[upper.len() - 1], p) < 0
+            {
+                upper.pop();
             }
-            ans.push(points[i].clone());
+            upper.push(p.clone());
         }
-        ans.pop();
-        for i in (0..points.len()).rev() {
-            while ans.len() >= 2 && Solution::helper(&ans[ans.len()-2], &ans[ans.len()-1], &points[i]) < 0 {
-                ans.pop();
-            }
-            ans.push(points[i].clone());
+
+        let mut uniq: BTreeSet<(i32, i32)> = BTreeSet::new();
+        for p in lower.into_iter().chain(upper.into_iter()) {
+            uniq.insert((p[0], p[1]));
         }
-        ans.pop();
-        return ans;
+
+        uniq.into_iter().map(|(x, y)| vec![x, y]).collect()
     }
 }
