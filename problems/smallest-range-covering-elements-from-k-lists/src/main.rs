@@ -1,45 +1,68 @@
-use std::collections::BinaryHeap;
-
 fn main() {
-    assert_eq!(Solution::smallest_range(vec![vec![4,10,15,24,26],vec![0,9,12,20],vec![5,18,22,30]]), vec![20,24]);
-    assert_eq!(Solution::smallest_range(vec![vec![1,2,3],vec![1,2,3],vec![1,2,3]]), vec![1,1]);
+    assert_eq!(
+        Solution::smallest_range(vec![
+            vec![4, 10, 15, 24, 26],
+            vec![0, 9, 12, 20],
+            vec![5, 18, 22, 30]
+        ]),
+        vec![20, 24]
+    );
+    assert_eq!(
+        Solution::smallest_range(vec![vec![1, 2, 3], vec![1, 2, 3], vec![1, 2, 3]]),
+        vec![1, 1]
+    );
 }
 
-// https://dreamume.medium.com/leetcode-632-smallest-range-covering-elements-from-k-lists-aaeaf56a9425
-struct Solution{}
+
+
+struct Solution {}
+use std::cmp::Reverse;
+use std::collections::BinaryHeap;
 impl Solution {
     pub fn smallest_range(nums: Vec<Vec<i32>>) -> Vec<i32> {
-        let mut pq = BinaryHeap::new();
-        let mut res = vec![0; 2];
-        for n in nums {
-            pq.push(n.clone());
-            res[1] = std::cmp::max(res[1], n[0]);
+        if nums.is_empty() || nums.iter().any(Vec::is_empty) {
+            return vec![];
         }
-        res[0] = *pq.peek().unwrap().first().unwrap();
-        let mut current = res.clone();
 
-        let func = |pq:&mut BinaryHeap<Vec<i32>>| {
-            let mut its = pq.peek_mut().unwrap();
-            *its = vec![its[0]+1, its[1]];
+        // Min-heap by current value: (value, list_index, element_index)
+        let mut min_heap: BinaryHeap<Reverse<(i32, usize, usize)>> = BinaryHeap::new();
+        let mut current_max = i32::MIN;
 
-            vec![its[0]+1, its[1]]
-        };
+        for (list_index, list) in nums.iter().enumerate() {
+            let value = list[0];
+            min_heap.push(Reverse((value, list_index, 0)));
+            if value > current_max {
+                current_max = value;
+            }
+        }
 
-        let mut i = 0;
-        while !pq.is_empty() {
-            let its = func(&mut pq);
-            pq.pop();
-            if its[0] == its[1] {
+        let mut best_left = 0;
+        let mut best_right = i32::MAX;
+
+        // Keep one representative from every list in the heap.
+        while min_heap.len() == nums.len() {
+            let Reverse((min_value, list_index, element_index)) = min_heap.pop().unwrap();
+
+            // Compare by width first, then by smaller start.
+            if (current_max - min_value) < (best_right - best_left)
+                || ((current_max - min_value) == (best_right - best_left) && min_value < best_left)
+            {
+                best_left = min_value;
+                best_right = current_max;
+            }
+
+            let next_index = element_index + 1;
+            if next_index >= nums[list_index].len() {
                 break;
             }
-            current[1] = std::cmp::max(current[1], its[0]);
-            pq.push(its);
-            current[0] = pq.peek().unwrap()[0];
-            if current[1] - current[0] < res[1] - res[0] {
-                res = current.clone();
+
+            let next_value = nums[list_index][next_index];
+            min_heap.push(Reverse((next_value, list_index, next_index)));
+            if next_value > current_max {
+                current_max = next_value;
             }
-            i += 1;
         }
-        return res;
+
+        vec![best_left, best_right]
     }
 }
