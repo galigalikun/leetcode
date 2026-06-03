@@ -7,65 +7,85 @@ fn main() {
 // https://ttzztt.gitbooks.io/lc/content/cut-off-trees-for-golf-event.html
 struct Solution{}
 impl Solution {
-    fn helper(forest: Vec<Vec<i32>>, sx:usize, sy:usize, dx:usize, dy:usize) -> i32 {
-        let dir = vec![(-1, 0), (1, 0), (0, -1), (0, 1)];
-        let m =  forest.len();
-        let n = forest[0].len();
-        let mut visited = vec![vec![false; n]; m];
-        let mut queue = vec![(sx, sy)];
-        let mut steps = 0;
-        while !queue.is_empty() {
-            println!("debug {:?}", queue);
-            let mut cur_nodes = queue.len();
-            while cur_nodes > 0 {
-                let node = queue[0];
-                queue.pop();
-                let cx = node.0;
-                let cy = node.1;
-                if cx == dx && cy == dy {
-                    return steps;
-                }
-
-                for i in 0..4 {
-                    let x = cx as i32 + dir[i].0;
-                    let y = cy as i32 + dir[i].1;
-                    if x < 0 || x == n as i32 || y < 0 || y == m as i32 || forest[y as usize][x as usize] == 0 || visited[y as usize][x as usize] {
-                        continue;
-                    }
-                    visited[x as usize][y as usize] = true;
-                    queue.push((x as usize, y as usize));
-                }
-                cur_nodes -= 1;
-            }
-            steps += 1;
+    fn shortest_path(forest: &[Vec<i32>], start_row: usize, start_col: usize, target_row: usize, target_col: usize) -> i32 {
+        if start_row == target_row && start_col == target_col {
+            return 0;
         }
 
-        return -1;
+        use std::collections::VecDeque;
+
+        let directions = [(-1_i32, 0_i32), (1, 0), (0, -1), (0, 1)];
+        let row_count = forest.len();
+        let col_count = forest[0].len();
+
+        let mut visited = vec![vec![false; col_count]; row_count];
+        visited[start_row][start_col] = true;
+
+        let mut queue = VecDeque::new();
+        queue.push_back((start_row, start_col, 0_i32));
+
+        while let Some((row, col, dist)) = queue.pop_front() {
+            for (dr, dc) in directions {
+                let next_row = row as i32 + dr;
+                let next_col = col as i32 + dc;
+
+                if next_row < 0
+                    || next_row >= row_count as i32
+                    || next_col < 0
+                    || next_col >= col_count as i32
+                {
+                    continue;
+                }
+
+                let nr = next_row as usize;
+                let nc = next_col as usize;
+
+                if visited[nr][nc] || forest[nr][nc] == 0 {
+                    continue;
+                }
+
+                if nr == target_row && nc == target_col {
+                    return dist + 1;
+                }
+
+                visited[nr][nc] = true;
+                queue.push_back((nr, nc, dist + 1));
+            }
+        }
+
+        -1
     }
+
     pub fn cut_off_tree(forest: Vec<Vec<i32>>) -> i32 {
-        let mut trees = vec![];
-        for x in 0..forest.len() {
-            for y in 0..forest[x].len() {
-                trees.push((forest[x][y], x, y));
+        if forest.is_empty() || forest[0].is_empty() {
+            return 0;
+        }
+
+        let mut trees = Vec::new();
+        for row in 0..forest.len() {
+            for col in 0..forest[row].len() {
+                if forest[row][col] > 1 {
+                    trees.push((forest[row][col], row, col));
+                }
             }
         }
-        trees.sort_by(|a, b| a.0.cmp(&b.0));
+        trees.sort_by_key(|tree| tree.0);
 
-        let mut sx = 0;
-        let mut sy = 0;
+        let mut current_row = 0;
+        let mut current_col = 0;
         let mut total_steps = 0;
-        for i in 0..trees.len() {
-            let dx = trees[i].1;
-            let dy = trees[i].2;
 
-            let incr_steps = Solution::helper(forest.clone(), sx, sy, dx, dy);
-            if incr_steps == -1 {
+        for (_, target_row, target_col) in trees {
+            let steps = Solution::shortest_path(&forest, current_row, current_col, target_row, target_col);
+            if steps == -1 {
                 return -1;
             }
-            total_steps += incr_steps;
-            sx = dx;
-            sy = dy;
+
+            total_steps += steps;
+            current_row = target_row;
+            current_col = target_col;
         }
-        return total_steps;
+
+        total_steps
     }
 }
