@@ -1,17 +1,29 @@
 fn main() {
-    assert_eq!(Solution::find_redundant_connection(vec![vec![1, 2], vec![1, 3], vec![2, 3]]), vec![2, 3]);
-    assert_eq!(Solution::find_redundant_connection(vec![vec![1, 2], vec![2, 3], vec![3, 4], vec![1, 4], vec![1, 5]]), vec![1, 4]);
+    assert_eq!(
+        Solution::find_redundant_connection(vec![vec![1, 2], vec![1, 3], vec![2, 3]]),
+        vec![2, 3]
+    );
+    assert_eq!(
+        Solution::find_redundant_connection(vec![
+            vec![1, 2],
+            vec![2, 3],
+            vec![3, 4],
+            vec![1, 4],
+            vec![1, 5]
+        ]),
+        vec![1, 4]
+    );
 }
 
-struct Solution{}
+struct Solution {}
 impl Solution {
-    fn find(v:usize, parent: &mut Vec<usize>) -> usize {
+    fn find(v: usize, parent: &mut Vec<usize>) -> usize {
         if v != parent[v] {
             parent[v] = Self::find(parent[v], parent);
         }
         return parent[v];
     }
-    fn dfs(u:usize, v:usize, rank: &mut Vec<i32>, parent: &mut Vec<usize>) -> bool {
+    fn union(u: usize, v: usize, rank: &mut Vec<i32>, parent: &mut Vec<usize>) -> bool {
         let up = Solution::find(u, parent);
         let vp = Solution::find(v, parent);
         if up == vp {
@@ -34,10 +46,37 @@ impl Solution {
         }
         for edge in edges.clone() {
             let (u, v) = (edge[0] as usize, edge[1] as usize);
-            if Solution::dfs(u-1, v-1, &mut rank, &mut parent) {
+            if !Solution::union(u - 1, v - 1, &mut rank, &mut parent) {
                 return edge;
             }
         }
         return vec![];
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::Solution;
+
+    #[test]
+    fn returns_last_edge_that_closes_cycle() {
+        assert_eq!(
+            Solution::find_redundant_connection(vec![vec![1, 2], vec![1, 3], vec![2, 3]]),
+            vec![2, 3]
+        );
+    }
+
+    #[test]
+    fn returns_edge_from_later_cycle_when_present() {
+        assert_eq!(
+            Solution::find_redundant_connection(vec![
+                vec![1, 2],
+                vec![2, 3],
+                vec![3, 4],
+                vec![1, 4],
+                vec![1, 5]
+            ]),
+            vec![1, 4]
+        );
     }
 }
