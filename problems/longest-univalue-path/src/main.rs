@@ -33,7 +33,7 @@ fn main() {
                 })))
             })))
         })))),
-        2
+        3
     );
 
     assert_eq!(
@@ -88,35 +88,46 @@ impl TreeNode {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn dfs(root:Option<Rc<RefCell<TreeNode>>>, res:&mut i32) -> i32 {
-        if let Some(node) = root {
-            let node = node.borrow();
-            let left = if let Some(left_node) = node.left.as_ref() {
-                if left_node.borrow().val == node.val {
-                    Self::dfs(node.left.clone(), res) + 1
+    fn dfs(root: Option<Rc<RefCell<TreeNode>>>, res: &mut i32) -> i32 {
+        if let Some(node_rc) = root {
+            let (node_val, left_child, right_child) = {
+                let node = node_rc.borrow();
+                (node.val, node.left.clone(), node.right.clone())
+            };
+
+            let left_depth = Self::dfs(left_child.clone(), res);
+            let right_depth = Self::dfs(right_child.clone(), res);
+
+            let left_arrow = if let Some(left) = left_child {
+                if left.borrow().val == node_val {
+                    left_depth + 1
                 } else {
-                    Self::dfs(node.left.clone(), res)
+                    0
                 }
             } else {
                 0
             };
-            let right = if let Some(right_node) = node.right.as_ref() {
-                if right_node.borrow().val == node.val {
-                    Self::dfs(node.right.clone(), res) + 1
+
+            let right_arrow = if let Some(right) = right_child {
+                if right.borrow().val == node_val {
+                    right_depth + 1
                 } else {
-                    Self::dfs(node.right.clone(), res)
+                    0
                 }
             } else {
                 0
             };
-            *res = std::cmp::max(*res, left + right);
-            std::cmp::max(left, right)
+
+            *res = std::cmp::max(*res, left_arrow + right_arrow);
+            std::cmp::max(left_arrow, right_arrow)
         } else {
             0
         }
     }
+
     pub fn longest_univalue_path(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
         let mut res = 0;
-        return Solution::dfs(root, &mut res);
+        Solution::dfs(root, &mut res);
+        res
     }
 }
