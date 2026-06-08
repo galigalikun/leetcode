@@ -12,31 +12,30 @@ fn main() {
 struct Solution {}
 impl Solution {
     pub fn falling_squares(positions: Vec<Vec<i32>>) -> Vec<i32> {
-        let mut max_height = 0;
-        let mut max_area = 0;
-        let mut heights = vec![0; positions.len()];
-        let mut areas = vec![0; positions.len()];
-        let mut result = vec![0; positions.len()];
+        let mut heights = vec![0i32; positions.len()];
+        let mut result = vec![0i32; positions.len()];
+        let mut global_max = 0;
+
         for (i, position) in positions.iter().enumerate() {
-            let x = position[0];
-            let y = position[1];
-            let mut height = heights[i];
-            let mut area = areas[i];
+            let left = position[0];
+            let size = position[1];
+            let right = left + size;
+            let mut base = 0;
+
             for j in 0..i {
-                let other_x = positions[j][0];
-                let other_y = positions[j][1];
-                if x >= other_x && x <= other_x + other_y {
-                    height = std::cmp::max(height, heights[j]);
-                    area = std::cmp::max(area, areas[j]);
+                let other_left = positions[j][0];
+                let other_right = other_left + positions[j][1];
+                // Overlap requires strictly intersecting intervals (touching edges don't count)
+                if left < other_right && right > other_left {
+                    base = base.max(heights[j]);
                 }
             }
-            heights[i] = height + y;
-            areas[i] = std::cmp::max(area, height + y);
-            max_height = std::cmp::max(max_height, heights[i]);
-            max_area = std::cmp::max(max_area, areas[i]);
-            result[i] = max_area;
+
+            heights[i] = base + size;
+            global_max = global_max.max(heights[i]);
+            result[i] = global_max;
         }
-        println!("debug {:?}", result);
-        return result;
+
+        result
     }
 }
