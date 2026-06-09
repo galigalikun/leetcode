@@ -198,29 +198,23 @@ impl Solution {
         root: Option<Rc<RefCell<TreeNode>>>,
         val: i32,
     ) -> Option<Rc<RefCell<TreeNode>>> {
-        let mut root = root;
-        let node = TreeNode::new(val);
-        if root.is_none() {
-            return Some(Rc::new(RefCell::new(node)));
-        }
-        let mut cur = root.as_ref().unwrap().borrow_mut();
-        while cur.val != val {
-            if val < cur.val {
-                if cur.left.is_none() {
-                    cur.left = Some(Rc::new(RefCell::new(node)));
-                    break;
+        match root {
+            None => Some(Rc::new(RefCell::new(TreeNode::new(val)))),
+            Some(node) => {
+                let node_val = node.borrow().val;
+
+                if val < node_val {
+                    let left = node.borrow_mut().left.take();
+                    let inserted_left = Solution::insert_into_bst(left, val);
+                    node.borrow_mut().left = inserted_left;
                 } else {
-                    cur = cur.left.as_ref().unwrap().borrow_mut();
+                    let right = node.borrow_mut().right.take();
+                    let inserted_right = Solution::insert_into_bst(right, val);
+                    node.borrow_mut().right = inserted_right;
                 }
-            } else {
-                if cur.right.is_none() {
-                    cur.right = Some(Rc::new(RefCell::new(node)));
-                    break;
-                } else {
-                    cur = cur.right.as_ref().unwrap().borrow_mut();
-                }
+
+                Some(node)
             }
         }
-        return root;
     }
 }
