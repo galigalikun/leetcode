@@ -5,14 +5,21 @@ fn main() {
 struct Solution {}
 impl Solution {
     pub fn max_profit(prices: Vec<i32>, fee: i32) -> i32 {
-        let mut buy = 0;
-        let mut sell = 0;
-        let mut hold = 0;
-        for i in 0..prices.len() {
-            buy = std::cmp::max(buy, hold - prices[i]);
-            hold = std::cmp::max(hold, sell + prices[i] - fee);
-            sell = std::cmp::max(sell, buy + prices[i]);
+        if prices.is_empty() {
+            return 0;
         }
-        return sell;
+
+        // `cash`: max profit when not holding stock after current day.
+        // `hold`: max profit when holding stock after current day.
+        let mut cash = 0;
+        let mut hold = -prices[0];
+
+        for &price in prices.iter().skip(1) {
+            let prev_cash = cash;
+            cash = std::cmp::max(cash, hold + price - fee);
+            hold = std::cmp::max(hold, prev_cash - price);
+        }
+
+        cash
     }
 }
