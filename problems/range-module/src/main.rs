@@ -1,87 +1,90 @@
+use std::collections::BTreeMap;
+
 struct RangeModule {
-    ranges: Vec<(i32, i32)>,
+    // start -> end for disjoint, sorted half-open intervals [start, end)
+    ranges: BTreeMap<i32, i32>,
 }
 
-
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl RangeModule {
-
     fn new() -> Self {
-        RangeModule {
-            ranges: Vec::new(),
+        Self {
+            ranges: BTreeMap::new(),
         }
     }
 
-    fn add_range(&self, left: i32, right: i32) {
-        let mut ranges = self.ranges.clone();
-        let mut i = 0;
-        while i < ranges.len() {
-            let (l, r) = ranges[i];
-            if l > right {
-                break;
-            }
-            if left <= l && right >= r {
-                ranges.remove(i);
-            } else if left <= l && right < r {
-                ranges[i].1 = right;
-                break;
-            } else if left > l && right >= r {
-                ranges[i].0 = left;
-                break;
-            } else if left > l && right < r {
-                ranges.insert(i, (left, right));
-                break;
-            }
-            i += 1;
+    fn add_range(&mut self, left: i32, right: i32) {
+        if left >= right {
+            return;
         }
+
+        let mut merged_left = left;
+        let mut merged_right = right;
+
+        if let Some((&start, &end)) = self.ranges.range(..=left).next_back() {
+            if end >= left {
+                merged_left = start.min(merged_left);
+                merged_right = end.max(merged_right);
+                self.ranges.remove(&start);
+            }
+        }
+
+        let overlapping_starts: Vec<i32> = self
+            .ranges
+            .range(merged_left..=merged_right)
+            .map(|(&start, _)| start)
+            .collect();
+
+        for start in overlapping_starts {
+            if let Some(end) = self.ranges.remove(&start) {
+                merged_right = merged_right.max(end);
+            }
+        }
+
+        self.ranges.insert(merged_left, merged_right);
     }
 
     fn query_range(&self, left: i32, right: i32) -> bool {
-        let mut ranges = self.ranges.clone();
-        let mut i = 0;
-        while i < ranges.len() {
-            let (l, r) = ranges[i];
-            if l > right {
-                break;
-            }
-            if left <= l && right >= r {
-                return true;
-            } else if left <= l && right < r {
-                return false;
-            } else if left > l && right >= r {
-                ranges[i].1 = right;
-                break;
-            } else if left > l && right < r {
-                ranges.insert(i, (left, right));
-                break;
-            }
-            i += 1;
+        if left >= right {
+            return true;
         }
-        return false;
+
+        if let Some((_, &end)) = self.ranges.range(..=left).next_back() {
+            return end >= right;
+        }
+        false
     }
 
-    fn remove_range(&self, left: i32, right: i32) {
-        let mut ranges = self.ranges.clone();
-        let mut i = 0;
-        while i < ranges.len() {
-            let (l, r) = ranges[i];
-            if l > right {
+    fn remove_range(&mut self, left: i32, right: i32) {
+        if left >= right {
+            return;
+        }
+
+        if let Some((&start, &end)) = self.ranges.range(..left).next_back() {
+            if end > left {
+                if end > right {
+                    self.ranges.insert(start, left);
+                    self.ranges.insert(right, end);
+                    return;
+                }
+                self.ranges.insert(start, left);
+            }
+        }
+
+        let overlapping_starts: Vec<i32> = self
+            .ranges
+            .range(left..right)
+            .map(|(&start, _)| start)
+            .collect();
+
+        for start in overlapping_starts {
+            let Some(end) = self.ranges.remove(&start) else {
+                continue;
+            };
+
+            if end > right {
+                self.ranges.insert(right, end);
                 break;
             }
-            if left <= l && right >= r {
-                ranges.remove(i);
-            } else if left <= l && right < r {
-                ranges[i].1 = left - 1;
-            } else if left > l && right >= r {
-                ranges[i].0 = right + 1;
-            } else if left > l && right < r {
-                ranges.insert(i, (left, right));
-                break;
-            }
-            i += 1;
         }
     }
 }
@@ -94,10 +97,43 @@ impl RangeModule {
  * obj.remove_range(left, right);
  */
 fn main() {
-    let obj = RangeModule::new();
+    let mut obj = RangeModule::new();
     obj.add_range(10, 20);
     obj.remove_range(14, 16);
     assert_eq!(obj.query_range(10, 14), true);
     assert_eq!(obj.query_range(13, 15), false);
     assert_eq!(obj.query_range(16, 17), true);
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn sample_case() {
+        let mut rm = RangeModule::new();
+        rm.add_range(10, 20);
+        rm.remove_range(14, 16);
+        assert!(rm.query_range(10, 14));
+        assert!(!rm.query_range(13, 15));
+        assert!(rm.query_range(16, 17));
+    }
+
+    #[test]
+    fn merges_touching_intervals() {
+        let mut rm = RangeModule::new();
+        rm.add_range(1, 2);
+        rm.add_range(2, 5);
+        assert!(rm.query_range(1, 5));
+    }
+
+    #[test]
+    fn remove_splits_interval() {
+        let mut rm = RangeModule::new();
+        rm.add_range(1, 10);
+        rm.remove_range(3, 7);
+        assert!(rm.query_range(1, 3));
+        assert!(!rm.query_range(3, 7));
+        assert!(rm.query_range(7, 10));
+    }
 }
