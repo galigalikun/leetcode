@@ -9,21 +9,32 @@ impl Solution {
     pub fn smallest_distance_pair(nums: Vec<i32>, k: i32) -> i32 {
         let mut nums = nums;
         nums.sort();
-        let mut i = 0;
-        let mut j = nums.len() - 1;
-        let mut min = std::i32::MAX;
-        while i < j {
-            let sum = nums[i] + nums[j];
-            if sum == k {
-                min = std::cmp::min(min, nums[j] - nums[i]);
-                i += 1;
-                j -= 1;
-            } else if sum < k {
-                i += 1;
+        let mut low = 0;
+        let mut high = nums[nums.len() - 1] - nums[0];
+
+        while low < high {
+            let mid = low + (high - low) / 2;
+            if Self::count_pairs_with_distance_at_most(&nums, mid) >= k as i64 {
+                high = mid;
             } else {
-                j -= 1;
+                low = mid + 1;
             }
         }
-        return if min == std::i32::MAX { 0 } else { min };
+
+        low
+    }
+
+    fn count_pairs_with_distance_at_most(nums: &[i32], max_dist: i32) -> i64 {
+        let mut count = 0_i64;
+        let mut left = 0_usize;
+
+        for right in 0..nums.len() {
+            while nums[right] - nums[left] > max_dist {
+                left += 1;
+            }
+            count += (right - left) as i64;
+        }
+
+        count
     }
 }
