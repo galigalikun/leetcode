@@ -6,47 +6,44 @@ fn main() {
 struct Solution{}
 impl Solution {
     pub fn remove_comments(source: Vec<String>) -> Vec<String> {
-        let mut result = vec![];
-        let mut in_comment = false;
-        let mut in_string = false;
-        let mut in_line = false;
-        let mut line = String::new();
-        for s in source {
-            for c in s.chars() {
-                println!("debug {} {} {} {}", in_comment, in_string, in_line, c);
-                if in_comment {
-                    if c == '*' && s.chars().nth(1) == Some('/') {
-                        in_comment = false;
-                    }
-                } else if in_string {
-                    if c == '"' {
-                        in_string = false;
-                    }
-                } else if in_line {
-                    if c == '\n' {
-                        in_line = false;
-                    }
-                } else {
-                    if c == '/' {
-                        if s.chars().nth(1) == Some('/') {
-                            in_line = true;
-                        } else if s.chars().nth(1) == Some('*') {
-                            in_comment = true;
-                        } else {
-                            line.push(c);
-                        }
-                    } else if c == '"' {
-                        in_string = true;
+        let mut result = Vec::new();
+        let mut in_block_comment = false;
+        let mut current_line = String::new();
+
+        for line in source {
+            let bytes = line.as_bytes();
+            let mut i = 0;
+
+            while i < bytes.len() {
+                if in_block_comment {
+                    if i + 1 < bytes.len() && bytes[i] == b'*' && bytes[i + 1] == b'/' {
+                        in_block_comment = false;
+                        i += 2;
                     } else {
-                        line.push(c);
+                        i += 1;
                     }
+                    continue;
                 }
+
+                if i + 1 < bytes.len() && bytes[i] == b'/' && bytes[i + 1] == b'/' {
+                    break;
+                }
+
+                if i + 1 < bytes.len() && bytes[i] == b'/' && bytes[i + 1] == b'*' {
+                    in_block_comment = true;
+                    i += 2;
+                    continue;
+                }
+
+                current_line.push(bytes[i] as char);
+                i += 1;
             }
-            if !in_comment && !in_string && !in_line {
-                result.push(line);
-                line = String::new();
+
+            if !in_block_comment && !current_line.is_empty() {
+                result.push(std::mem::take(&mut current_line));
             }
         }
-        return result;
+
+        result
     }
 }
