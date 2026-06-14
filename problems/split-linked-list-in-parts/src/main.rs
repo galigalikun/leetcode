@@ -102,30 +102,45 @@ impl ListNode {
 }
 impl Solution {
     pub fn split_list_to_parts(head: Option<Box<ListNode>>, k: i32) -> Vec<Option<Box<ListNode>>> {
-        let mut head = head;
+        let k = k as usize;
+
         let mut len = 0;
-        let mut cur = &mut head;
-        while let Some(node) = cur {
+        let mut node = head.as_ref();
+        while let Some(n) = node {
             len += 1;
-            cur = &mut node.next;
+            node = n.next.as_ref();
         }
-        let mut res = vec![None; k as usize];
-        let mut cur = &mut head;
-        let mut i = 0;
-        while let Some(node) = cur {
-            let mut next = &mut node.next;
-            res[i as usize] = Some(node);
-            i += 1;
-            if i == k {
-                i = 0;
+
+        let base_size = len / k;
+        let extra = len % k;
+
+        let mut result = Vec::with_capacity(k);
+        let mut current = head;
+
+        for i in 0..k {
+            let part_size = base_size + usize::from(i < extra);
+
+            if part_size == 0 {
+                result.push(None);
+                continue;
             }
-            cur = next;
+
+            let mut part_head = current.take();
+            let mut tail = part_head.as_mut();
+
+            for _ in 1..part_size {
+                if let Some(node) = tail {
+                    tail = node.next.as_mut();
+                }
+            }
+
+            if let Some(node) = tail {
+                current = node.next.take();
+            }
+
+            result.push(part_head);
         }
-        // for i in 0..k as usize {
-        //     if res[i as usize].is_none() {
-        //         res[i as usize] = None;
-        //     }
-        // }
-        return res;
+
+        result
     }
 }
