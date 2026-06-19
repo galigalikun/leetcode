@@ -1,5 +1,6 @@
 struct MyCalendarTwo {
-    calendar: Vec<(i32, i32)>,
+    booked: Vec<(i32, i32)>,
+    overlaps: Vec<(i32, i32)>,
 }
 
 
@@ -11,23 +12,27 @@ impl MyCalendarTwo {
 
     fn new() -> Self {
         MyCalendarTwo {
-            calendar: Vec::new(),
+            booked: Vec::new(),
+            overlaps: Vec::new(),
         }
     }
 
     fn book(&mut self, start: i32, end: i32) -> bool {
-        let mut i = 0;
-        while i < self.calendar.len() {
-            if self.calendar[i].0 >= end {
-                break;
-            }
-            if self.calendar[i].1 >= start {
+        for &(overlap_start, overlap_end) in &self.overlaps {
+            if start < overlap_end && end > overlap_start {
                 return false;
             }
-            i += 1;
         }
-        self.calendar.push((start, end));
-        return true;
+
+        for &(booked_start, booked_end) in &self.booked {
+            if start < booked_end && end > booked_start {
+                self.overlaps
+                    .push((start.max(booked_start), end.min(booked_end)));
+            }
+        }
+
+        self.booked.push((start, end));
+        true
     }
 }
 
