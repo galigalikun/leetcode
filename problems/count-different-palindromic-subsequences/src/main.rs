@@ -6,24 +6,63 @@ fn main() {
 struct Solution{}
 impl Solution {
     pub fn count_palindromic_subsequences(s: String) -> i32 {
-        let mut dp: Vec<Vec<i128>> = vec![vec![0; s.len()]; s.len()];
-        for i in 0..s.len() {
-            dp[i][i] = 1;
+        const MOD: i64 = 1_000_000_007;
+        let chars = s.as_bytes();
+        let n = chars.len();
+
+        if n == 0 {
+            return 0;
         }
-        for i in 0..s.len() {
-            for j in 0..i {
-                if s.chars().nth(i) == s.chars().nth(j) {
-                    if i - j < 2 {
-                        dp[j][i] = 2;
-                    } else {
-                        dp[j][i] = dp[j + 1][i - 1] * 2 + dp[j][i - 1];
+
+        let mut dp = vec![vec![0_i64; n]; n];
+        for (i, row) in dp.iter_mut().enumerate() {
+            row[i] = 1;
+        }
+
+        for len in 2..=n {
+            for i in 0..=n - len {
+                let j = i + len - 1;
+
+                if chars[i] == chars[j] {
+                    let mut left = i + 1;
+                    let mut right = j.saturating_sub(1);
+
+                    while left <= right && chars[left] != chars[i] {
+                        left += 1;
                     }
+                    while left <= right && chars[right] != chars[i] {
+                        right = right.saturating_sub(1);
+                    }
+
+                    let middle = if i < j.saturating_sub(1) {
+                        dp[i + 1][j - 1]
+                    } else {
+                        0
+                    };
+
+                    dp[i][j] = if left > right {
+                        (middle * 2 + 2) % MOD
+                    } else if left == right {
+                        (middle * 2 + 1) % MOD
+                    } else {
+                        let inner = if left < right.saturating_sub(1) {
+                            dp[left + 1][right - 1]
+                        } else {
+                            0
+                        };
+                        (middle * 2 - inner) % MOD
+                    };
                 } else {
-                    dp[j][i] = dp[j][i - 1] + dp[j + 1][i];
+                    let val = dp[i + 1][j] + dp[i][j - 1] - dp[i + 1][j - 1];
+                    dp[i][j] = val % MOD;
+                }
+
+                if dp[i][j] < 0 {
+                    dp[i][j] += MOD;
                 }
             }
         }
-        println!("{:?}", dp[0][s.len() - 1]%1000000007);
-        return (dp[0][s.len() - 1] % 1000000007) as i32;
+
+        dp[0][n - 1] as i32
     }
 }
