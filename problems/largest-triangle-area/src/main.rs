@@ -22,14 +22,28 @@ fn main() {
 struct Solution {}
 impl Solution {
     pub fn largest_triangle_area(points: Vec<Vec<i32>>) -> f64 {
-        let mut x = (0, std::i32::MAX);
-        let mut y = (0, std::i32::MAX);
-        for point in points {
-            x.0 = std::cmp::max(x.0, point[0]);
-            x.1 = std::cmp::min(x.1, point[0]);
-            y.0 = std::cmp::max(y.0, point[1]);
-            y.1 = std::cmp::min(y.1, point[1]);
+        let n = points.len();
+        let mut max_area = 0.0_f64;
+
+        for i in 0..n {
+            for j in (i + 1)..n {
+                for k in (j + 1)..n {
+                    let ax = points[i][0] as f64;
+                    let ay = points[i][1] as f64;
+                    let bx = points[j][0] as f64;
+                    let by = points[j][1] as f64;
+                    let cx = points[k][0] as f64;
+                    let cy = points[k][1] as f64;
+
+                    let twice_area = ((bx - ax) * (cy - ay) - (by - ay) * (cx - ax)).abs();
+                    let area = twice_area * 0.5;
+                    if area > max_area {
+                        max_area = area;
+                    }
+                }
+            }
         }
-        return ((x.0 - x.1) * (y.0 - y.1)) as f64 * 0.5;
+
+        max_area
     }
 }
