@@ -162,19 +162,24 @@ impl TreeNode {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn helper(root: &mut Option<Rc<RefCell<TreeNode>>>) {
-        if let Some(r) = root {
-            if r.borrow().val == 0 && r.borrow().left == None && r.borrow().right == None {
-                // r = None;
-                return;
+    fn helper(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+        let Some(node) = root else {
+            return None;
+        };
+
+        {
+            let mut node_ref = node.borrow_mut();
+            node_ref.left = Solution::helper(node_ref.left.take());
+            node_ref.right = Solution::helper(node_ref.right.take());
+
+            if node_ref.val == 0 && node_ref.left.is_none() && node_ref.right.is_none() {
+                return None;
             }
-            Solution::helper(&mut r.borrow_mut().left.clone());
-            Solution::helper(&mut r.borrow_mut().right.clone());
         }
+
+        Some(node)
     }
     pub fn prune_tree(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
-        let mut ans = root;
-        Solution::helper(&mut ans);
-        return ans;
+        Solution::helper(root)
     }
 }
