@@ -1,3 +1,5 @@
+use std::collections::HashSet;
+
 fn main() {
     assert_eq!(
         Solution::num_components(
@@ -53,6 +55,21 @@ impl ListNode {
 }
 impl Solution {
     pub fn num_components(head: Option<Box<ListNode>>, nums: Vec<i32>) -> i32 {
-        return -1;
+        let values: HashSet<i32> = nums.into_iter().collect();
+        let mut components = 0;
+        let mut in_component = false;
+        let mut current = head.as_ref();
+
+        while let Some(node) = current {
+            let contains = values.contains(&node.val);
+            if contains && !in_component {
+                components += 1;
+            }
+
+            in_component = contains;
+            current = node.next.as_ref();
+        }
+
+        components
     }
 }
