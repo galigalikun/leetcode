@@ -1,11 +1,29 @@
+use std::collections::HashSet;
+
 fn main() {
-    assert_eq!(Solution::minimum_length_encoding(vec!["time".to_string(), "me".to_string(), "bell".to_string()]), 10);
+    assert_eq!(
+        Solution::minimum_length_encoding(vec![
+            "time".to_string(),
+            "me".to_string(),
+            "bell".to_string()
+        ]),
+        10
+    );
     assert_eq!(Solution::minimum_length_encoding(vec!["t".to_string()]), 2);
 }
 
-struct Solution{}
+struct Solution {}
 impl Solution {
     pub fn minimum_length_encoding(words: Vec<String>) -> i32 {
-        return -1;
+        let mut remaining: HashSet<String> = words.into_iter().collect();
+        let unique_words: Vec<String> = remaining.iter().cloned().collect();
+
+        for word in unique_words {
+            for (idx, _) in word.char_indices().skip(1) {
+                remaining.remove(&word[idx..]);
+            }
+        }
+
+        remaining.iter().map(|word| word.len() + 1).sum::<usize>() as i32
     }
 }
