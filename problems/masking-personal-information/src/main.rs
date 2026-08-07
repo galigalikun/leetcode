@@ -13,21 +13,24 @@ fn main() {
 struct Solution {}
 impl Solution {
     pub fn mask_pii(s: String) -> String {
-        let mut ans = String::new();
-        let mut a = false;
-        let mut prev = None;
-        for c in s.chars() {
-            if c == '@' {
-                a = true;
-                ans = format!("{}{}{}", ans, "*".repeat(5), prev.unwrap());
+        if s.contains('@') {
+            let lower = s.to_ascii_lowercase();
+            let (name, domain) = lower
+                .split_once('@')
+                .expect("email input must contain @");
+            let first = name.chars().next().expect("email name must not be empty");
+            let last = name.chars().last().expect("email name must not be empty");
+            format!("{first}*****{last}@{domain}")
+        } else {
+            let digits: String = s.chars().filter(|c| c.is_ascii_digit()).collect();
+            let local = &digits[digits.len() - 4..];
+            let country_len = digits.len() - 10;
+
+            if country_len == 0 {
+                format!("***-***-{local}")
+            } else {
+                format!("+{}-***-***-{local}", "*".repeat(country_len))
             }
-            if a {
-                ans = format!("{}{}", ans, c.to_ascii_lowercase());
-            } else if prev == None {
-                ans = format!("{}{}", ans, c.to_ascii_lowercase());
-            }
-            prev = Some(c.to_ascii_lowercase());
         }
-        return ans;
     }
 }
