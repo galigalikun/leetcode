@@ -20,6 +20,40 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn loud_and_rich(richer: Vec<Vec<i32>>, quiet: Vec<i32>) -> Vec<i32> {
-        return vec![];
+        let n = quiet.len();
+        let mut graph = vec![Vec::new(); n];
+
+        for relation in richer {
+            let richer_person = relation[0] as usize;
+            let poorer_person = relation[1] as usize;
+            graph[poorer_person].push(richer_person);
+        }
+
+        let mut memo = vec![None; n];
+        for person in 0..n {
+            Self::dfs(person, &graph, &quiet, &mut memo);
+        }
+
+        memo
+            .into_iter()
+            .map(|best| best.unwrap_or(0) as i32)
+            .collect()
+    }
+
+    fn dfs(person: usize, graph: &[Vec<usize>], quiet: &[i32], memo: &mut [Option<usize>]) -> usize {
+        if let Some(answer) = memo[person] {
+            return answer;
+        }
+
+        let mut best = person;
+        for &richer_person in &graph[person] {
+            let candidate = Self::dfs(richer_person, graph, quiet, memo);
+            if quiet[candidate] < quiet[best] {
+                best = candidate;
+            }
+        }
+
+        memo[person] = Some(best);
+        best
     }
 }
