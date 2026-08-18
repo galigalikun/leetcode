@@ -6,6 +6,24 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn matrix_score(grid: Vec<Vec<i32>>) -> i32 {
-        return 0;
+        let row_count = grid.len();
+        let col_count = grid[0].len();
+
+        let mut score = 0_i32;
+        for col in 0..col_count {
+            let ones = grid
+                .iter()
+                .filter(|row| {
+                    let row_flipped = row[0] == 0;
+                    let value = if row_flipped { 1 - row[col] } else { row[col] };
+                    value == 1
+                })
+                .count();
+
+            let max_ones = ones.max(row_count - ones) as i32;
+            score += max_ones * (1_i32 << (col_count - 1 - col));
+        }
+
+        score
     }
 }
