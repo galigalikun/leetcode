@@ -1,3 +1,5 @@
+use std::collections::VecDeque;
+
 fn main() {
     assert_eq!(
         Solution::advantage_count(vec![2, 7, 11, 15], vec![1, 10, 4, 11]),
@@ -12,12 +14,29 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn advantage_count(nums1: Vec<i32>, nums2: Vec<i32>) -> Vec<i32> {
-        let mut ans = vec![];
-        for i in 0..nums1.len() {
-            if nums1[i] > nums2[i] {
-                ans.push(nums1[i]);
-            }
+        if nums1.is_empty() {
+            return Vec::new();
         }
-        return ans;
+
+        let mut sorted_nums1 = nums1;
+        sorted_nums1.sort_unstable();
+        let mut candidates: VecDeque<i32> = VecDeque::from(sorted_nums1);
+
+        let mut indexed_nums2: Vec<(usize, i32)> = nums2.into_iter().enumerate().collect();
+        indexed_nums2.sort_unstable_by(|a, b| b.1.cmp(&a.1));
+
+        let mut ans = vec![0; indexed_nums2.len()];
+        for (index, value) in indexed_nums2 {
+            let largest = *candidates.back().expect("candidates must not be empty");
+            ans[index] = if largest > value {
+                candidates.pop_back().expect("candidates must not be empty")
+            } else {
+                candidates
+                    .pop_front()
+                    .expect("candidates must not be empty")
+            };
+        }
+
+        ans
     }
 }
