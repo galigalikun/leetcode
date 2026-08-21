@@ -7,6 +7,24 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn min_eating_speed(piles: Vec<i32>, h: i32) -> i32 {
-        return 0;
+        let mut left = 1;
+        let mut right = piles.iter().copied().max().unwrap_or(1);
+
+        while left < right {
+            let mid = left + (right - left) / 2;
+            let hours = piles
+                .iter()
+                .map(|&pile| (pile + mid - 1) / mid)
+                .map(i64::from)
+                .sum::<i64>();
+
+            if hours <= i64::from(h) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+
+        left
     }
 }
