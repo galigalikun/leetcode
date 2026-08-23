@@ -6,7 +6,21 @@ fn main() {
 
 struct Solution;
 impl Solution {
-    pub fn num_rescue_boats(people: Vec<i32>, limit: i32) -> i32 {
-        return 0;
+    pub fn num_rescue_boats(mut people: Vec<i32>, limit: i32) -> i32 {
+        people.sort_unstable();
+
+        let mut left = 0usize;
+        let mut right = people.len();
+        let mut boats = 0;
+
+        while left < right {
+            right -= 1;
+            if people[left] + people[right] <= limit {
+                left += 1;
+            }
+            boats += 1;
+        }
+
+        boats
     }
 }
