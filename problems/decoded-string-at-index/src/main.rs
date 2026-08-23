@@ -7,14 +7,29 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn decode_at_index(s: String, k: i32) -> String {
-        let mut pref = String::new();
-        for c in s.chars() {
-            if c.is_numeric() {
-                pref = pref.clone().repeat(c.to_digit(10).unwrap() as usize);
+        let mut decoded_len: u64 = 0;
+        for ch in s.chars() {
+            if ch.is_ascii_digit() {
+                decoded_len *= ch.to_digit(10).unwrap() as u64;
             } else {
-                pref = format!("{}{}", pref, c);
+                decoded_len += 1;
             }
         }
-        return pref.chars().nth(k as usize - 1).unwrap().to_string();
+
+        let mut kth: u64 = k as u64;
+        for ch in s.chars().rev() {
+            kth %= decoded_len;
+            if kth == 0 && ch.is_ascii_alphabetic() {
+                return ch.to_string();
+            }
+
+            if ch.is_ascii_digit() {
+                decoded_len /= ch.to_digit(10).unwrap() as u64;
+            } else {
+                decoded_len -= 1;
+            }
+        }
+
+        String::new()
     }
 }
