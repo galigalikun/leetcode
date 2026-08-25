@@ -43,6 +43,37 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn spiral_matrix_iii(rows: i32, cols: i32, r_start: i32, c_start: i32) -> Vec<Vec<i32>> {
-        return vec![];
+        let total = (rows * cols) as usize;
+        let mut answer = Vec::with_capacity(total);
+
+        let mut row = r_start;
+        let mut col = c_start;
+        if row >= 0 && row < rows && col >= 0 && col < cols {
+            answer.push(vec![row, col]);
+        }
+
+        let directions = [(0, 1), (1, 0), (0, -1), (-1, 0)];
+        let mut step_len = 1;
+        let mut dir_idx = 0usize;
+
+        while answer.len() < total {
+            for _ in 0..2 {
+                let (dr, dc) = directions[dir_idx % 4];
+                for _ in 0..step_len {
+                    row += dr;
+                    col += dc;
+                    if row >= 0 && row < rows && col >= 0 && col < cols {
+                        answer.push(vec![row, col]);
+                        if answer.len() == total {
+                            return answer;
+                        }
+                    }
+                }
+                dir_idx += 1;
+            }
+            step_len += 1;
+        }
+
+        answer
     }
 }
