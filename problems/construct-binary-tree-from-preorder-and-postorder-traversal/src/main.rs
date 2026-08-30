@@ -68,6 +68,26 @@ impl Solution {
         preorder: Vec<i32>,
         postorder: Vec<i32>,
     ) -> Option<Rc<RefCell<TreeNode>>> {
-        return None;
+        Self::build(&preorder, &postorder)
+    }
+
+    fn build(pre: &[i32], post: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
+        let (&root_val, rest) = pre.split_first()?;
+        let post_body = &post[..post.len() - 1];
+        let (left, right) = match rest.first() {
+            None => (None, None),
+            Some(&left_val) => {
+                let left_len = post_body.iter().position(|&v| v == left_val)? + 1;
+                (
+                    Self::build(&rest[..left_len], &post_body[..left_len]),
+                    Self::build(&rest[left_len..], &post_body[left_len..]),
+                )
+            }
+        };
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: root_val,
+            left,
+            right,
+        })))
     }
 }
