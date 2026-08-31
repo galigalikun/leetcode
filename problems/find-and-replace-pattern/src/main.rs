@@ -6,6 +6,20 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn find_and_replace_pattern(words: Vec<String>, pattern: String) -> Vec<String> {
-        return vec![];
+        fn normalize(s: &str) -> Vec<usize> {
+            let mut first_seen = std::collections::HashMap::new();
+            s.chars()
+                .map(|c| {
+                    let next = first_seen.len();
+                    *first_seen.entry(c).or_insert(next)
+                })
+                .collect()
+        }
+
+        let target = normalize(&pattern);
+        words
+            .into_iter()
+            .filter(|w| normalize(w) == target)
+            .collect()
     }
 }
