@@ -26,6 +26,28 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn num_special_equiv_groups(words: Vec<String>) -> i32 {
-        return 0;
+        use std::collections::HashSet;
+
+        let mut groups = HashSet::new();
+
+        for word in words {
+            let mut even = Vec::new();
+            let mut odd = Vec::new();
+
+            for (i, ch) in word.chars().enumerate() {
+                if i % 2 == 0 {
+                    even.push(ch);
+                } else {
+                    odd.push(ch);
+                }
+            }
+
+            even.sort_unstable();
+            odd.sort_unstable();
+
+            groups.insert((even, odd));
+        }
+
+        groups.len() as i32
     }
 }
