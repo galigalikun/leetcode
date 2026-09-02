@@ -188,9 +188,46 @@ impl TreeNode {
     }
 }
 use std::cell::RefCell;
+use std::collections::HashMap;
 use std::rc::Rc;
 impl Solution {
     pub fn all_possible_fbt(n: i32) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
-        return vec![];
+        let mut memo: HashMap<i32, Vec<Option<Rc<RefCell<TreeNode>>>>> = HashMap::new();
+        Self::build_trees(n, &mut memo)
+    }
+
+    fn build_trees(
+        n: i32,
+        memo: &mut HashMap<i32, Vec<Option<Rc<RefCell<TreeNode>>>>>,
+    ) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
+        if n % 2 == 0 || n <= 0 {
+            return vec![];
+        }
+        if n == 1 {
+            return vec![Some(Rc::new(RefCell::new(TreeNode::new(0))))];
+        }
+        if let Some(cached) = memo.get(&n) {
+            return cached.clone();
+        }
+
+        let mut trees = Vec::new();
+        for left_nodes in (1..n).step_by(2) {
+            let right_nodes = n - 1 - left_nodes;
+            let left_trees = Self::build_trees(left_nodes, memo);
+            let right_trees = Self::build_trees(right_nodes, memo);
+
+            for left_tree in &left_trees {
+                for right_tree in &right_trees {
+                    trees.push(Some(Rc::new(RefCell::new(TreeNode {
+                        val: 0,
+                        left: left_tree.clone(),
+                        right: right_tree.clone(),
+                    }))));
+                }
+            }
+        }
+
+        memo.insert(n, trees.clone());
+        trees
     }
 }
