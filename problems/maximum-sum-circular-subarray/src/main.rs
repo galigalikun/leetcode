@@ -7,13 +7,28 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn max_subarray_sum_circular(nums: Vec<i32>) -> i32 {
-        let mut ans = std::i32::MIN;
-        for i in 0..nums.len() {
-            ans = std::cmp::max(ans, nums[i]);
-            for n in i+1..nums.len() {
-                ans = std::cmp::max(ans, nums[i] + nums[(i + 1) % n]);
-            }
+        let mut total_sum = 0;
+
+        let mut current_max = 0;
+        let mut max_sum = i32::MIN;
+
+        let mut current_min = 0;
+        let mut min_sum = i32::MAX;
+
+        for num in nums {
+            total_sum += num;
+
+            current_max = (current_max + num).max(num);
+            max_sum = max_sum.max(current_max);
+
+            current_min = (current_min + num).min(num);
+            min_sum = min_sum.min(current_min);
         }
-        return ans;
+
+        if max_sum < 0 {
+            max_sum
+        } else {
+            max_sum.max(total_sum - min_sum)
+        }
     }
 }
