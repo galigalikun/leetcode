@@ -1,4 +1,8 @@
-use std::{cell::RefCell, rc::Rc};
+use std::{
+    cell::RefCell,
+    collections::VecDeque,
+    rc::Rc,
+};
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
@@ -19,67 +23,64 @@ impl TreeNode {
     }
 }
 struct CBTInserter {
-    root: Vec<i32>,
+    root: Option<Rc<RefCell<TreeNode>>>,
+    candidates: VecDeque<Rc<RefCell<TreeNode>>>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl CBTInserter {
     fn new(root: Option<Rc<RefCell<TreeNode>>>) -> Self {
-        let mut v = vec![];
-        CBTInserter::dp(&mut v, root);
-        CBTInserter { root: v }
-    }
+        let mut candidates = VecDeque::new();
+        let mut queue = VecDeque::new();
 
-    fn dp(v: &mut Vec<i32>, root: Option<Rc<RefCell<TreeNode>>>) {
-        if let Some(r) = root {
-            v.push(r.borrow().val);
-            CBTInserter::dp(v, r.borrow().left.clone());
-            CBTInserter::dp(v, r.borrow().right.clone());
+        if let Some(node) = root.clone() {
+            queue.push_back(node);
         }
+
+        while let Some(node) = queue.pop_front() {
+            let left = node.borrow().left.clone();
+            let right = node.borrow().right.clone();
+
+            if left.is_none() || right.is_none() {
+                candidates.push_back(node.clone());
+            }
+
+            if let Some(left_node) = left {
+                queue.push_back(left_node);
+            }
+
+            if let Some(right_node) = right {
+                queue.push_back(right_node);
+            }
+        }
+
+        Self { root, candidates }
     }
 
     fn insert(&mut self, val: i32) -> i32 {
-        self.root.push(val);
-        return (self.root.len() as f64).sqrt() as i32;
+        let new_node = Rc::new(RefCell::new(TreeNode::new(val)));
+        let parent = self
+            .candidates
+            .front()
+            .cloned()
+            .expect("root must exist in CBTInserter");
+        let parent_val = parent.borrow().val;
+
+        let has_left = parent.borrow().left.is_some();
+        if !has_left {
+            parent.borrow_mut().left = Some(new_node.clone());
+        } else {
+            parent.borrow_mut().right = Some(new_node.clone());
+            self.candidates.pop_front();
+        }
+
+        self.candidates.push_back(new_node);
+        parent_val
     }
 
-    fn get_root(&mut self) -> Option<Rc<RefCell<TreeNode>>> {
-        let mut a = None;
-        if let Some(v) = self.root.last() {
-            a = Some(Rc::new(RefCell::new(TreeNode {
-                val: *v,
-                left: None,
-                right: None,
-            })))
-        }
-        for i in (1..self.root.len()).step_by(2).rev() {
-            a = Some(Rc::new(RefCell::new(TreeNode {
-                val: 0,
-                left: Some(Rc::new(RefCell::new(TreeNode {
-                    val: self.root[i],
-                    left: None,
-                    right: None,
-                }))),
-                right: Some(Rc::new(RefCell::new(TreeNode {
-                    val: self.root[i-1],
-                    left: None,
-                    right: None,
-                }))),
-            })));
-        }
-        return a;
+    fn get_root(&self) -> Option<Rc<RefCell<TreeNode>>> {
+        self.root.clone()
     }
 }
-
-/**
- * Your CBTInserter object will be instantiated and called as such:
- * let obj = CBTInserter::new(root);
- * let ret_1: i32 = obj.insert(val);
- * let ret_2: Option<Rc<RefCell<TreeNode>>> = obj.get_root();
- */
 fn main() {
     let mut obj = CBTInserter::new(Some(Rc::new(RefCell::new(TreeNode {
         val: 1,
