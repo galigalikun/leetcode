@@ -6,9 +6,23 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn is_long_pressed_name(name: String, typed: String) -> bool {
-        if name == typed {
-            return true;
+        let name_bytes = name.as_bytes();
+        let typed_bytes = typed.as_bytes();
+
+        let mut i = 0;
+        let mut j = 0;
+
+        while j < typed_bytes.len() {
+            if i < name_bytes.len() && name_bytes[i] == typed_bytes[j] {
+                i += 1;
+                j += 1;
+            } else if j > 0 && typed_bytes[j] == typed_bytes[j - 1] {
+                j += 1;
+            } else {
+                return false;
+            }
         }
-        return false;
+
+        i == name_bytes.len()
     }
 }
