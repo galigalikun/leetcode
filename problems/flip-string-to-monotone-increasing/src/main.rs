@@ -7,6 +7,17 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn min_flips_mono_incr(s: String) -> i32 {
-        return 0;
+        let mut ones = 0;
+        let mut flips = 0;
+
+        for ch in s.bytes() {
+            if ch == b'1' {
+                ones += 1;
+            } else {
+                flips = (flips + 1).min(ones);
+            }
+        }
+
+        flips
     }
 }
