@@ -6,6 +6,23 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn min_falling_path_sum(matrix: Vec<Vec<i32>>) -> i32 {
-        return 0;
+        let n = matrix.len();
+        let mut dp = matrix[0].clone();
+
+        for row in matrix.iter().skip(1) {
+            let next: Vec<i32> = (0..n)
+                .map(|col| {
+                    let left = if col > 0 { dp[col - 1] } else { i32::MAX };
+                    let up = dp[col];
+                    let right = if col + 1 < n { dp[col + 1] } else { i32::MAX };
+
+                    row[col] + left.min(up).min(right)
+                })
+                .collect();
+
+            dp = next;
+        }
+
+        dp.into_iter().min().unwrap_or(0)
     }
 }
