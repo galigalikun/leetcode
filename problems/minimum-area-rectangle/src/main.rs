@@ -27,28 +27,73 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn min_area_rect(points: Vec<Vec<i32>>) -> i32 {
-        let mut x_map = HashMap::new();
-        let mut y_map = HashMap::new();
-        let mut x_ans = std::i32::MAX;
-        let mut y_ans = std::i32::MAX;
+        let mut points_by_x: HashMap<i32, Vec<i32>> = HashMap::new();
         for point in points {
-            for (x, y_vec) in x_map.iter() {
-                if point[0] == *x {
-                    for y in y_vec {
-                        y_ans = std::cmp::min(y_ans, y - point[1]);
-                    }
-                }
-            }
-            for (y, x_vec) in y_map.iter() {
-                if point[1] == *y {
-                    for x in x_vec {
-                        x_ans = std::cmp::min(x_ans, x - point[0]);
-                    }
-                }
-            }
-            (*x_map.entry(point[0]).or_insert(vec![point[1]])).push(point[1]);
-            (*y_map.entry(point[1]).or_insert(vec![point[0]])).push(point[0]);
+            points_by_x.entry(point[0]).or_default().push(point[1]);
         }
-        return x_ans * y_ans;
+
+        let mut columns: Vec<(i32, Vec<i32>)> = points_by_x.into_iter().collect();
+        columns.sort_unstable_by_key(|(x, _)| *x);
+
+        let mut last_x_for_y_pair: HashMap<(i32, i32), i32> = HashMap::new();
+        let mut min_area = i32::MAX;
+
+        for (x, mut ys) in columns {
+            ys.sort_unstable();
+            ys.dedup();
+
+            for i in 0..ys.len() {
+                for j in i + 1..ys.len() {
+                    let pair = (ys[i], ys[j]);
+                    if let Some(prev_x) = last_x_for_y_pair.get(&pair) {
+                        let area = (x - prev_x) * (ys[j] - ys[i]);
+                        min_area = min_area.min(area);
+                    }
+                    last_x_for_y_pair.insert(pair, x);
+                }
+            }
+        }
+
+        if min_area == i32::MAX {
+            0
+        } else {
+            min_area
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::Solution;
+
+    #[test]
+    fn finds_min_area_rectangle() {
+        let points = vec![
+            vec![1, 1],
+            vec![1, 3],
+            vec![3, 1],
+            vec![3, 3],
+            vec![2, 2],
+        ];
+        assert_eq!(Solution::min_area_rect(points), 4);
+    }
+
+    #[test]
+    fn finds_smaller_rectangle_when_multiple_exist() {
+        let points = vec![
+            vec![1, 1],
+            vec![1, 3],
+            vec![3, 1],
+            vec![3, 3],
+            vec![4, 1],
+            vec![4, 3],
+        ];
+        assert_eq!(Solution::min_area_rect(points), 2);
+    }
+
+    #[test]
+    fn returns_zero_when_no_rectangle_exists() {
+        let points = vec![vec![1, 1], vec![2, 2], vec![3, 3]];
+        assert_eq!(Solution::min_area_rect(points), 0);
     }
 }
