@@ -1,18 +1,32 @@
 fn main() {
-    assert_eq!(Solution::validate_stack_sequences(vec![1,2,3,4,5], vec![4,5,3,2,1]), true);
-    assert_eq!(Solution::validate_stack_sequences(vec![1,2,3,4,5], vec![4,3,5,1,2]), false);
+    assert!(Solution::validate_stack_sequences(
+        vec![1, 2, 3, 4, 5],
+        vec![4, 5, 3, 2, 1]
+    ));
+    assert!(!Solution::validate_stack_sequences(
+        vec![1, 2, 3, 4, 5],
+        vec![4, 3, 5, 1, 2]
+    ));
 }
 
 struct Solution;
 impl Solution {
     pub fn validate_stack_sequences(pushed: Vec<i32>, popped: Vec<i32>) -> bool {
-        let mut t1 = vec![];
-        for p in pushed {
-            t1.push(p);
+        let mut stack = Vec::with_capacity(pushed.len());
+        let mut pop_index = 0;
+
+        for value in pushed {
+            stack.push(value);
+
+            while let Some(&top) = stack.last() {
+                if pop_index >= popped.len() || top != popped[pop_index] {
+                    break;
+                }
+                stack.pop();
+                pop_index += 1;
+            }
         }
-        // for p in popped {
-        //     if t1.pop()
-        // }
-        return false;
+
+        pop_index == popped.len()
     }
 }
