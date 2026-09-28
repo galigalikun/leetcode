@@ -111,16 +111,28 @@ impl Solution {
         root1: Option<Rc<RefCell<TreeNode>>>,
         root2: Option<Rc<RefCell<TreeNode>>>,
     ) -> bool {
-        if let Some(r1) = root1 {
-            if let Some(r2) = root2 {
-                if r1.borrow().val != r2.borrow().val {
+        match (root1, root2) {
+            (None, None) => true,
+            (Some(_), None) | (None, Some(_)) => false,
+            (Some(n1), Some(n2)) => {
+                let b1 = n1.borrow();
+                let b2 = n2.borrow();
+
+                if b1.val != b2.val {
                     return false;
                 }
-                return Solution::flip_equiv(r1.borrow().left.clone(), r2.borrow().right.clone());
-            } else {
-                return false;
+
+                let left1 = b1.left.clone();
+                let right1 = b1.right.clone();
+                let left2 = b2.left.clone();
+                let right2 = b2.right.clone();
+
+                let no_flip =
+                    Solution::flip_equiv(left1.clone(), left2.clone()) && Solution::flip_equiv(right1.clone(), right2.clone());
+                let flip = Solution::flip_equiv(left1, right2) && Solution::flip_equiv(right1, left2);
+
+                no_flip || flip
             }
         }
-        return true;
     }
 }
