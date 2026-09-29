@@ -7,6 +7,35 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn is_alien_sorted(words: Vec<String>, order: String) -> bool {
-        return false;       
+        let mut rank = [0usize; 26];
+        for (idx, ch) in order.bytes().enumerate() {
+            rank[(ch - b'a') as usize] = idx;
+        }
+
+        for pair in words.windows(2) {
+            let left = pair[0].as_bytes();
+            let right = pair[1].as_bytes();
+            let mut differs = false;
+
+            for (&l, &r) in left.iter().zip(right.iter()) {
+                let l_rank = rank[(l - b'a') as usize];
+                let r_rank = rank[(r - b'a') as usize];
+
+                if l_rank < r_rank {
+                    differs = true;
+                    break;
+                }
+
+                if l_rank > r_rank {
+                    return false;
+                }
+            }
+
+            if !differs && left.len() > right.len() {
+                return false;
+            }
+        }
+
+        true
     }
 }
