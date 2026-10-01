@@ -78,13 +78,28 @@ impl TreeNode {
     }
 }
 use std::cell::RefCell;
+use std::collections::VecDeque;
 use std::rc::Rc;
 impl Solution {
     pub fn is_complete_tree(root: Option<Rc<RefCell<TreeNode>>>) -> bool {
-        if let Some(r) = root {
-            Self::is_complete_tree(r.borrow().left.clone());
-            Self::is_complete_tree(r.borrow().right.clone());
+        let mut queue = VecDeque::new();
+        queue.push_back(root);
+        let mut seen_none = false;
+
+        while let Some(node_opt) = queue.pop_front() {
+            if let Some(node_rc) = node_opt {
+                if seen_none {
+                    return false;
+                }
+
+                let node = node_rc.borrow();
+                queue.push_back(node.left.clone());
+                queue.push_back(node.right.clone());
+            } else {
+                seen_none = true;
+            }
         }
-        return false;
+
+        true
     }
 }
