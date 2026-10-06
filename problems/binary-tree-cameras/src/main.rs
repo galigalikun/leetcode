@@ -69,6 +69,34 @@ use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
     pub fn min_camera_cover(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        return 0;
+        let mut cameras = 0;
+
+        fn dfs(node: &Option<Rc<RefCell<TreeNode>>>, cameras: &mut i32) -> i32 {
+            if node.is_none() {
+                return 0;
+            }
+
+            let node_ref = node.as_ref().unwrap();
+            let left = dfs(&node_ref.borrow().left, cameras);
+            let right = dfs(&node_ref.borrow().right, cameras);
+
+            if left == 2 || right == 2 {
+                *cameras += 1;
+                return 1;
+            }
+
+            if left == 1 || right == 1 {
+                return 0;
+            }
+
+            2
+        }
+
+        let root_state = dfs(&root, &mut cameras);
+        if root_state == 2 {
+            cameras += 1;
+        }
+
+        cameras
     }
 }
