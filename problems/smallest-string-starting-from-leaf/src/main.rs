@@ -109,29 +109,32 @@ use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
     pub fn smallest_from_leaf(root: Option<Rc<RefCell<TreeNode>>>) -> String {
-        let mut result = "".to_string();
-        let mut stack = vec![];
-        let mut current = root;
-        while current.is_some() || !stack.is_empty() {
-            while let Some(node) = current {
-                stack.push(node.clone());
-                current = node.borrow().left.clone();
-            }
-            let node = stack.last().unwrap().clone();
-            if node.borrow().right.is_none() {
-                let mut temp = "".to_string();
-                for node in stack.iter().rev() {
-                    temp.push((node.borrow().val + 'a' as i32) as u8 as char);
+        fn dfs(node: &Option<Rc<RefCell<TreeNode>>>) -> String {
+            match node {
+                None => String::new(),
+                Some(current) => {
+                    let ch = (b'a' + current.borrow().val as u8) as char;
+                    let left = dfs(&current.borrow().left);
+                    let right = dfs(&current.borrow().right);
+
+                    if left.is_empty() && right.is_empty() {
+                        return ch.to_string();
+                    }
+
+                    let mut best = left;
+                    if !right.is_empty() && (best.is_empty() || right < best) {
+                        best = right;
+                    }
+
+                    if best.is_empty() {
+                        ch.to_string()
+                    } else {
+                        format!("{}{}", best, ch)
+                    }
                 }
-                if result.is_empty() || temp < result {
-                    result = temp;
-                }
-                stack.pop();
-                current = None;
-            } else {
-                current = node.borrow().right.clone();
             }
         }
-        result
+
+        dfs(&root)
     }
 }
