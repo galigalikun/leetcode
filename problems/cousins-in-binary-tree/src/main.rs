@@ -48,7 +48,7 @@ fn main() {
                 }))),
             }))),
             4,
-            3
+            5
         ),
         true
     );
@@ -102,38 +102,45 @@ use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
     pub fn is_cousins(root: Option<Rc<RefCell<TreeNode>>>, x: i32, y: i32) -> bool {
-        let mut root = root;
-        let mut x = x;
-        let mut y = y;
         let mut x_parent = None;
         let mut y_parent = None;
-        let mut x_depth = 0;
-        let mut y_depth = 0;
-        let mut depth = 0;
-        let mut queue = vec![];
+        let mut x_depth = -1;
+        let mut y_depth = -1;
+        let mut queue = std::collections::VecDeque::new();
+
         if let Some(root) = root {
-            queue.push((root, None, depth));
+            queue.push_back((root, None, 0));
         }
-        while !queue.is_empty() {
-            let (node, parent, depth) = queue.remove(0);
-            if node.borrow().val == x {
+
+        while let Some((node, parent, depth)) = queue.pop_front() {
+            let value = node.borrow().val;
+
+            if value == x {
                 x_parent = parent;
                 x_depth = depth;
             }
-            if node.borrow().val == y {
-                y_parent = parent.clone();
+            if value == y {
+                y_parent = parent;
                 y_depth = depth;
             }
-            if let Some(left) = node.borrow().left.clone() {
-                queue.push((left, Some(node), depth + 1));
+
+            if x_depth != -1 && y_depth != -1 {
+                break;
             }
-            if let Some(right) = node.borrow().right.clone() {
-                queue.push((right, Some(node), depth + 1));
+
+            let left = node.borrow().left.clone();
+            if let Some(left) = left {
+                let parent_value = Some(value);
+                queue.push_back((left, parent_value, depth + 1));
+            }
+
+            let right = node.borrow().right.clone();
+            if let Some(right) = right {
+                let parent_value = Some(value);
+                queue.push_back((right, parent_value, depth + 1));
             }
         }
-        if x_depth == y_depth && x_parent != y_parent {
-            return true;
-        }
-        return false;
+
+        x_depth == y_depth && x_parent != y_parent
     }
 }
