@@ -111,12 +111,12 @@ fn main() {
             val: 5,
             left: Some(Rc::new(RefCell::new(TreeNode {
                 val: 2,
-                left: None,
-                right: Some(Rc::new(RefCell::new(TreeNode {
+                left: Some(Rc::new(RefCell::new(TreeNode {
                     val: 1,
                     left: None,
                     right: None,
                 }))),
+                right: None,
             }))),
             right: Some(Rc::new(RefCell::new(TreeNode {
                 val: 4,
@@ -157,17 +157,19 @@ impl Solution {
         root: Option<Rc<RefCell<TreeNode>>>,
         val: i32,
     ) -> Option<Rc<RefCell<TreeNode>>> {
-        if let Some(root) = root {
-            let mut root = root.borrow_mut();
-            if root.val < val {
+        if let Some(node) = root {
+            if val > node.borrow().val {
                 let mut new_root = TreeNode::new(val);
-                new_root.left = Some(Rc::new(RefCell::new(root)));
+                new_root.left = Some(node);
                 return Some(Rc::new(RefCell::new(new_root)));
-            } else {
-                root.right = Self::insert_into_max_tree(root.right.take(), val);
             }
-            return Some(Rc::new(RefCell::new(root)));
+
+            let right = node.borrow_mut().right.take();
+            let inserted = Self::insert_into_max_tree(right, val);
+            node.borrow_mut().right = inserted;
+            return Some(node);
         }
-        return None;
+
+        Some(Rc::new(RefCell::new(TreeNode::new(val))))
     }
 }
