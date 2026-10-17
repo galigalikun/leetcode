@@ -1,7 +1,13 @@
 fn main() {
-    assert_eq!(Solution::largest_sum_after_k_negations(vec![4,2,3], 1), 5);
-    assert_eq!(Solution::largest_sum_after_k_negations(vec![3,-1,0,2], 3), 6);
-    assert_eq!(Solution::largest_sum_after_k_negations(vec![2,-3,-1,5,-4], 2), 13);
+    assert_eq!(Solution::largest_sum_after_k_negations(vec![4, 2, 3], 1), 5);
+    assert_eq!(
+        Solution::largest_sum_after_k_negations(vec![3, -1, 0, 2], 3),
+        6
+    );
+    assert_eq!(
+        Solution::largest_sum_after_k_negations(vec![2, -3, -1, 5, -4], 2),
+        13
+    );
 }
 
 struct Solution;
@@ -16,7 +22,17 @@ impl Solution {
             i += 1;
             k -= 1;
         }
-        println!("debug {:?}", nums);
-        return 0;
+
+        if k % 2 == 1 {
+            let min_abs_index = nums
+                .iter()
+                .enumerate()
+                .min_by_key(|(_, value)| value.abs())
+                .map(|(idx, _)| idx)
+                .unwrap();
+            nums[min_abs_index] = -nums[min_abs_index];
+        }
+
+        nums.iter().sum()
     }
 }
