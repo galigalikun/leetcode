@@ -6,27 +6,25 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn clumsy(n: i32) -> i32 {
-        let mut result = 0;
-        let mut n = n;
-        let mut sign = 1;
-        while n > 0 {
-            let mut temp = n;
-            n -= 1;
-            if n > 0 {
-                temp *= n;
-                n -= 1;
+        let mut stack = vec![n];
+        let mut op = 0;
+
+        for x in (1..n).rev() {
+            match op % 4 {
+                0 => {
+                    let top = stack.pop().unwrap();
+                    stack.push(top * x);
+                }
+                1 => {
+                    let top = stack.pop().unwrap();
+                    stack.push(top / x);
+                }
+                2 => stack.push(x),
+                _ => stack.push(-x),
             }
-            if n > 0 {
-                temp /= n;
-                n -= 1;
-            }
-            if n > 0 {
-                temp += n;
-                n -= 1;
-            }
-            result += sign * temp;
-            sign = -1;
+            op += 1;
         }
-        return result;
+
+        stack.into_iter().sum()
     }
 }
