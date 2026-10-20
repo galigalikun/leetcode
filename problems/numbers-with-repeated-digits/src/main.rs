@@ -14,6 +14,7 @@ impl Solution {
         return result;
     }
     pub fn num_dup_digits_at_most_n(n: i32) -> i32 {
+        let total = n;
         let mut n = n;
         let mut digits = Vec::new();
         while n > 0 {
@@ -41,6 +42,6 @@ impl Solution {
                 result += 1;
             }
         }
-        return (n - result) as i32;
+        return total - result;
     }
 }
