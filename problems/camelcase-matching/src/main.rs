@@ -42,32 +42,30 @@ fn main() {
 
 struct Solution;
 impl Solution {
-    fn is_match(query: String, pattern: String) -> bool {
-        let mut query_chars = query.chars();
-        let mut pattern_chars = pattern.chars();
-        loop {
-            let query_char = query_chars.next();
-            let pattern_char = pattern_chars.next();
-            if query_char.is_none() {
-                return pattern_char.is_none();
+    fn is_match(query: &str, pattern: &str) -> bool {
+        let query_bytes = query.as_bytes();
+        let pattern_bytes = pattern.as_bytes();
+        let mut i = 0;
+        let mut j = 0;
+
+        while i < query_bytes.len() {
+            if j < pattern_bytes.len() && query_bytes[i] == pattern_bytes[j] {
+                i += 1;
+                j += 1;
+            } else if query_bytes[i].is_ascii_lowercase() {
+                i += 1;
+            } else {
+                return false;
             }
-            if pattern_char.is_none() {
-                return query_char.unwrap().is_lowercase();
-            }
-            if query_char.unwrap() == pattern_char.unwrap() {
-                continue;
-            }
-            if query_char.unwrap().is_lowercase() {
-                continue;
-            }
-            return false;
         }
+
+        j == pattern_bytes.len()
     }
     pub fn camel_match(queries: Vec<String>, pattern: String) -> Vec<bool> {
         let mut result = vec![];
         for query in queries {
-            result.push(Solution::is_match(query, pattern.clone()));
+            result.push(Solution::is_match(&query, &pattern));
         }
-        return result;
+        result
     }
 }
