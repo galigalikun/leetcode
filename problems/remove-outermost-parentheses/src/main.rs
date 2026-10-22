@@ -7,21 +7,23 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn remove_outer_parentheses(s: String) -> String {
-        let mut ss = s.clone();
-        let mut stack = Vec::new();
-        let mut start = 0;
-        for (i, c) in s.chars().enumerate() {
+        let mut depth = 0;
+        let mut result = String::with_capacity(s.len());
+
+        for c in s.chars() {
             if c == '(' {
-                stack.push(c);
+                if depth > 0 {
+                    result.push(c);
+                }
+                depth += 1;
             } else {
-                stack.pop();
-            }
-            if stack.is_empty() {
-                ss.replace_range(start..=start, "");
-                ss.replace_range(i - 1..=i - 1, "");
-                start = i;
+                depth -= 1;
+                if depth > 0 {
+                    result.push(c);
+                }
             }
         }
-        return s;
+
+        result
     }
 }
