@@ -84,21 +84,26 @@ impl TreeNode {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn dfs(root: Option<Rc<RefCell<TreeNode>>>, max_: &mut i32) -> (i32, i32) {
-        if let Some(node) = root {
-            let node = node.borrow();
-            let (left_min, left_max) = Self::dfs(node.left.clone(), max_);
-            let (right_min, right_max) = Self::dfs(node.right.clone(), max_);
-            let min = left_min.min(right_min);
-            let max = left_max.max(right_max);
-            *max_ = (*max_).max((node.val - min).abs());
-            return (min.min(node.val), max.max(node.val));
-        }
-        return (i32::MAX, i32::MIN);
+    fn dfs(root: Option<Rc<RefCell<TreeNode>>>, min_on_path: i32, max_on_path: i32) -> i32 {
+        let Some(node) = root else {
+            return max_on_path - min_on_path;
+        };
+
+        let node = node.borrow();
+        let next_min = min_on_path.min(node.val);
+        let next_max = max_on_path.max(node.val);
+
+        let left = Self::dfs(node.left.clone(), next_min, next_max);
+        let right = Self::dfs(node.right.clone(), next_min, next_max);
+        left.max(right)
     }
+
     pub fn max_ancestor_diff(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
-        let mut max = 0;
-        Self::dfs(root, &mut max);
-        return max;
+        let Some(node) = root.clone() else {
+            return 0;
+        };
+
+        let value = node.borrow().val;
+        Self::dfs(root, value, value)
     }
 }
