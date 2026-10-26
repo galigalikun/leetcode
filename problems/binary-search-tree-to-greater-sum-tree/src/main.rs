@@ -121,6 +121,24 @@ use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
     pub fn bst_to_gst(root: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
-        return None;
+        fn traverse(node: Option<Rc<RefCell<TreeNode>>>, sum: &mut i32) {
+            if let Some(current) = node {
+                let right = current.borrow().right.clone();
+                traverse(right, sum);
+
+                {
+                    let mut node_ref = current.borrow_mut();
+                    *sum += node_ref.val;
+                    node_ref.val = *sum;
+                }
+
+                let left = current.borrow().left.clone();
+                traverse(left, sum);
+            }
+        }
+
+        let mut sum = 0;
+        traverse(root.clone(), &mut sum);
+        root
     }
 }
