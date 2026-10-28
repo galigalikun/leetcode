@@ -1,36 +1,40 @@
 fn main() {
-    assert_eq!(Solution::max_satisfied(vec![1,0,1,2,1,1,7,5], vec![0,1,0,1,0,1,0,1], 3), 16);
+    assert_eq!(Solution::max_satisfied(vec![1, 0, 1, 2, 1, 1, 7, 5], vec![0, 1, 0, 1, 0, 1, 0, 1], 3), 16);
     assert_eq!(Solution::max_satisfied(vec![1], vec![0], 1), 1);
+    assert_eq!(Solution::max_satisfied(vec![4, 10, 10], vec![1, 1, 0], 2), 24);
+    assert_eq!(Solution::max_satisfied(vec![1, 3], vec![0, 0], 1), 4);
 }
 
 struct Solution;
 impl Solution {
     pub fn max_satisfied(customers: Vec<i32>, grumpy: Vec<i32>, minutes: i32) -> i32 {
-        let mut max = 0;
-        let mut sum = 0;
-        let mut sum_grumpy = 0;
-        let mut sum_grumpy_max = 0;
-        let mut sum_grumpy_max_index = 0;
-        let mut sum_grumpy_max_index_end = 0;
-        let mut sum_grumpy_max_index_end_max = 0;
-        for i in 0..customers.len() {
-            sum += customers[i];
-            sum_grumpy += customers[i] * grumpy[i];
-            if i >= minutes as usize {
-                sum_grumpy -= customers[i - minutes as usize] * grumpy[i - minutes as usize];
-            }
-            if sum_grumpy > sum_grumpy_max {
-                sum_grumpy_max = sum_grumpy;
-                sum_grumpy_max_index = i;
-            }
-            if sum_grumpy_max_index_end_max < sum_grumpy_max + sum - sum_grumpy {
-                sum_grumpy_max_index_end_max = sum_grumpy_max + sum - sum_grumpy;
-                sum_grumpy_max_index_end = i;
+        let window = minutes as usize;
+        let n = customers.len();
+        let mut base = 0;
+        for i in 0..n {
+            if grumpy[i] == 0 {
+                base += customers[i];
             }
         }
-        if sum_grumpy_max_index_end_max > sum_grumpy_max {
-            return sum_grumpy_max_index_end_max;
+
+        let mut window_gain = 0;
+        for i in 0..n.min(window) {
+            if grumpy[i] == 1 {
+                window_gain += customers[i];
+            }
         }
-        return 0;
+
+        let mut best_gain = window_gain;
+        for i in window..n {
+            if grumpy[i - window] == 1 {
+                window_gain -= customers[i - window];
+            }
+            if grumpy[i] == 1 {
+                window_gain += customers[i];
+            }
+            best_gain = best_gain.max(window_gain);
+        }
+
+        base + best_gain
     }
 }
