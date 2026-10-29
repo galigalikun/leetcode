@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 fn main() {
     assert_eq!(
         Solution::rearrange_barcodes(vec![1, 1, 1, 2, 2, 2]),
@@ -12,20 +14,27 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn rearrange_barcodes(barcodes: Vec<i32>) -> Vec<i32> {
-        let mut barcodes = barcodes;
-        barcodes.sort();
-        let mut result = vec![];
-        let mut i = 0;
-        let mut j = barcodes.len() / 2;
-        while i < barcodes.len() / 2 {
-            result.push(barcodes[j]);
-            result.push(barcodes[i]);
-            i += 1;
-            j += 1;
+        let mut counts = HashMap::new();
+        for &barcode in &barcodes {
+            *counts.entry(barcode).or_insert(0) += 1;
         }
-        if barcodes.len() % 2 == 1 {
-            result.push(barcodes[j]);
+
+        let mut items: Vec<(i32, i32)> = counts.into_iter().collect();
+        items.sort_by(|a, b| b.1.cmp(&a.1).then(b.0.cmp(&a.0)));
+
+        let mut result = vec![0; barcodes.len()];
+        let mut index = 0;
+
+        for (barcode, count) in items {
+            for _ in 0..count {
+                result[index] = barcode;
+                index += 2;
+                if index >= result.len() {
+                    index = 1;
+                }
+            }
         }
-        return result;
+
+        result
     }
 }
