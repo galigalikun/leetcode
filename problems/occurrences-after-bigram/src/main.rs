@@ -15,24 +15,28 @@ fn main() {
         ),
         vec!["we", "rock"]
     );
+    assert_eq!(
+        Solution::find_ocurrences(
+            "a a a a".to_string(),
+            "a".to_string(),
+            "a".to_string()
+        ),
+        vec!["a", "a"]
+    );
 }
 
 struct Solution;
 impl Solution {
     pub fn find_ocurrences(text: String, first: String, second: String) -> Vec<String> {
-        let mut result = vec![];
-        let mut words = text.split_whitespace();
-        let mut first_word = words.next();
-        let mut second_word = words.next();
-        while let (Some(f), Some(s)) = (first_word, second_word) {
-            if f == first && s == second {
-                if let Some(t) = words.next() {
-                    result.push(t.to_string());
-                }
+        let words: Vec<&str> = text.split_whitespace().collect();
+        let mut result = Vec::new();
+
+        for window in words.windows(3) {
+            if window[0] == first && window[1] == second {
+                result.push(window[2].to_string());
             }
-            first_word = second_word;
-            second_word = words.next();
         }
-        return result;
+
+        result
     }
 }
