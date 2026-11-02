@@ -88,13 +88,52 @@ fn main() {
                 left: None,
                 right: Some(Rc::new(RefCell::new(TreeNode {
                     val: 7,
-                    left: Some(Rc::new(RefCell::new(TreeNode {
+                    left: None,
+                    right: Some(Rc::new(RefCell::new(TreeNode {
                         val: 14,
+                        left: None,
+                        right: None
+                    })))
+                })))
+            })))
+        })))
+    );
+    assert_eq!(
+        Solution::sufficient_subset(
+            Some(Rc::new(RefCell::new(TreeNode {
+                val: 1,
+                left: Some(Rc::new(RefCell::new(TreeNode {
+                    val: 2,
+                    left: Some(Rc::new(RefCell::new(TreeNode {
+                        val: -5,
                         left: None,
                         right: None
                     }))),
                     right: None
-                })))
+                }))),
+                right: Some(Rc::new(RefCell::new(TreeNode {
+                    val: -3,
+                    left: Some(Rc::new(RefCell::new(TreeNode {
+                        val: 4,
+                        left: None,
+                        right: None
+                    }))),
+                    right: None
+                }))),
+            }))),
+            -1
+        ),
+        Some(Rc::new(RefCell::new(TreeNode {
+            val: 1,
+            left: None,
+            right: Some(Rc::new(RefCell::new(TreeNode {
+                val: -3,
+                left: Some(Rc::new(RefCell::new(TreeNode {
+                    val: 4,
+                    left: None,
+                    right: None
+                }))),
+                right: None
             })))
         })))
     );
@@ -126,6 +165,40 @@ impl Solution {
         root: Option<Rc<RefCell<TreeNode>>>,
         limit: i32,
     ) -> Option<Rc<RefCell<TreeNode>>> {
-        return None;
+        fn prune(
+            node: Option<Rc<RefCell<TreeNode>>>,
+            path_sum: i32,
+            limit: i32,
+        ) -> Option<Rc<RefCell<TreeNode>>> {
+            let node = node?;
+
+            let (val, left, right) = {
+                let mut current = node.borrow_mut();
+                (current.val, current.left.take(), current.right.take())
+            };
+            let had_child = left.is_some() || right.is_some();
+
+            let next_sum = path_sum + val;
+            let left = prune(left, next_sum, limit);
+            let right = prune(right, next_sum, limit);
+
+            {
+                let mut current = node.borrow_mut();
+                current.left = left;
+                current.right = right;
+
+                if !had_child && next_sum < limit {
+                    return None;
+                }
+
+                if had_child && current.left.is_none() && current.right.is_none() {
+                    return None;
+                }
+            }
+
+            Some(node)
+        }
+
+        prune(root, 0, limit)
     }
 }
