@@ -32,40 +32,63 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn sample_stats(count: Vec<i32>) -> Vec<f64> {
-        let mut min = 256;
-        let mut max = 0;
-        let mut sum = 0;
-        let mut mode = 0;
-        let mut mode_count = 0;
-        let mut median = 0;
-        let mut count_sum = 0;
+        let mut min = 0usize;
+        let mut max = 0usize;
+        let mut sum = 0i64;
+        let mut total = 0i64;
+        let mut mode = 0usize;
+        let mut mode_count = 0i32;
+        let mut seen = false;
+
         for i in 0..count.len() {
-            if count[i] > 0 {
-                min = std::cmp::min(min, i);
-                max = std::cmp::max(max, i);
-                sum += i as i32 * count[i];
-                count_sum += count[i];
-                if count[i] > mode_count {
-                    mode_count = count[i];
-                    mode = i;
-                }
+            if count[i] == 0 {
+                continue;
+            }
+            if !seen {
+                min = i;
+                seen = true;
+            }
+            max = i;
+            sum += i as i64 * count[i] as i64;
+            total += count[i] as i64;
+            if count[i] > mode_count {
+                mode_count = count[i];
+                mode = i;
             }
         }
-        let mut median_sum = 0;
+
+        let left_pos = (total + 1) / 2;
+        let right_pos = (total + 2) / 2;
+        let mut prefix = 0i64;
+        let mut left_median = 0usize;
+        let mut right_median = 0usize;
+        let mut found_left = false;
+
         for i in 0..count.len() {
-            if count[i] > 0 {
-                median_sum += count[i];
-                if median_sum >= count_sum / 2 {
-                    median = i;
-                }
+            if count[i] == 0 {
+                continue;
+            }
+            prefix += count[i] as i64;
+            if !found_left && prefix >= left_pos {
+                left_median = i;
+                found_left = true;
+            }
+            if prefix >= right_pos {
+                right_median = i;
+                break;
             }
         }
-        return vec![
-            min as f64,
-            max as f64,
-            sum as f64 / count_sum as f64,
-            median as f64,
-            mode as f64,
-        ];
+
+        fn round5(x: f64) -> f64 {
+            (x * 100_000.0).round() / 100_000.0
+        }
+
+        vec![
+            round5(min as f64),
+            round5(max as f64),
+            round5(sum as f64 / total as f64),
+            round5((left_median as f64 + right_median as f64) / 2.0),
+            round5(mode as f64),
+        ]
     }
 }
