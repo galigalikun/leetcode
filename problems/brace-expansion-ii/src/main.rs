@@ -1,121 +1,132 @@
+use std::collections::HashSet;
+
 fn main() {
+    // Test case 1
     assert_eq!(
         Solution::brace_expansion_ii("{a,b}{c,{d,e}}".to_string()),
         vec!["ac", "ad", "ae", "bc", "bd", "be"]
     );
+    
+    // Test case 2
     assert_eq!(
         Solution::brace_expansion_ii("{{a,z},a{b,c},{ab,z}}".to_string()),
         vec!["a", "ab", "ac", "z"]
     );
+    
+    // Test case 3: Simple single letter
+    assert_eq!(
+        Solution::brace_expansion_ii("a".to_string()),
+        vec!["a"]
+    );
+    
+    // Test case 4: Simple braces
+    assert_eq!(
+        Solution::brace_expansion_ii("{a}".to_string()),
+        vec!["a"]
+    );
+    
+    // Test case 5: Simple union
+    assert_eq!(
+        Solution::brace_expansion_ii("{a,b,c}".to_string()),
+        vec!["a", "b", "c"]
+    );
+    
+    println!("All tests passed!");
 }
 
 struct Solution;
+
 impl Solution {
     pub fn brace_expansion_ii(expression: String) -> Vec<String> {
-        let mut stack = vec![];
-        let mut cur = vec![];
-        let mut cur_set = vec![];
-        let mut cur_str = String::new();
-        let mut is_str = false;
-        let mut is_set = false;
-        let mut is_set_str = false;
-        for s in expression.split("{") {
-            for t in s.split("}") {
-                if t.is_empty() {
-                    continue;
-                }
-                if is_str {
-                    cur_str.push_str(t);
-                    is_str = false;
-                } else if is_set_str {
-                    cur_set.push(t.to_string());
-                    is_set_str = false;
-                } else if is_set {
-                    if t.contains(",") {
-                        for u in t.split(",") {
-                            cur_set.push(u.to_string());
-                        }
-                    } else {
-                        cur_set.push(t.to_string());
-                    }
-                    is_set = false;
-                } else {
-                    if t.contains(",") {
-                        for u in t.split(",") {
-                            cur.push(u.to_string());
-                        }
-                    } else {
-                        cur.push(t.to_string());
-                    }
+        let chars: Vec<char> = expression.chars().collect();
+        let (result, _) = Self::parse_sequence(&chars, 0, false);
+        let mut sorted: Vec<String> = result.into_iter().collect();
+        sorted.sort();
+        sorted
+    }
+
+    // Parse a sequence of concatenated expressions
+    // is_union_context: true if we're inside a union (should stop at commas and braces)
+    fn parse_sequence(chars: &[char], start: usize, is_union_context: bool) -> (HashSet<String>, usize) {
+        let mut pos = start;
+        let mut result: HashSet<String> = HashSet::from([String::new()]);
+
+        while pos < chars.len() {
+            if is_union_context && (chars[pos] == ',' || chars[pos] == '}') {
+                break;
+            }
+            if chars[pos] == '}' {
+                break;
+            }
+
+            let (next_set, next_pos) = Self::parse_term(chars, pos);
+            let mut new_result = HashSet::new();
+            for r in &result {
+                for n in &next_set {
+                    new_result.insert(format!("{}{}", r, n));
                 }
             }
-            if s.contains(",") {
-                is_set = true;
+            result = new_result;
+            pos = next_pos;
+        }
+
+        (result, pos)
+    }
+
+    // Parse a single term (either a letter sequence or a union in braces)
+    fn parse_term(chars: &[char], start: usize) -> (HashSet<String>, usize) {
+        if start >= chars.len() {
+            return (HashSet::new(), start);
+        }
+
+        if chars[start] == '{' {
+            Self::parse_union(chars, start + 1)
+        } else {
+            Self::parse_letters(chars, start)
+        }
+    }
+
+    // Parse a union (comma-separated sequences within braces)
+    fn parse_union(chars: &[char], start: usize) -> (HashSet<String>, usize) {
+        let mut pos = start;
+        let mut result = HashSet::new();
+
+        loop {
+            // Inside a union, parse sequences that stop at commas or closing braces
+            let (seq_result, next_pos) = Self::parse_sequence(chars, pos, true);
+            for item in seq_result {
+                result.insert(item);
+            }
+            pos = next_pos;
+
+            if pos >= chars.len() {
+                break;
+            }
+
+            if chars[pos] == ',' {
+                pos += 1;
+            } else if chars[pos] == '}' {
+                pos += 1;
+                break;
             } else {
-                is_str = true;
+                break;
             }
         }
-        if !cur_str.is_empty() {
-            cur.push(cur_str);
+
+        (result, pos)
+    }
+
+    // Parse a sequence of lowercase letters
+    fn parse_letters(chars: &[char], start: usize) -> (HashSet<String>, usize) {
+        let mut pos = start;
+        let mut word = String::new();
+
+        while pos < chars.len() && chars[pos].is_ascii_lowercase() {
+            word.push(chars[pos]);
+            pos += 1;
         }
-        if !cur_set.is_empty() {
-            cur.push(cur_set.join(""));
-        }
-        for s in cur {
-            if s.contains(",") {
-                stack.push(Solution::brace_expansion_ii(s));
-            } else {
-                stack.push(vec![s]);
-            }
-        }
-        if stack.len() == 1 {
-            return stack.pop().unwrap();
-        }
-        let mut res = vec![];
-        let mut cur = vec![];
-        while !stack.is_empty() {
-            let mut s = stack.pop().unwrap();
-            if s.len() == 1 {
-                cur.push(s.pop().unwrap());
-            } else {
-                let mut tmp = vec![];
-                while !s.is_empty() {
-                    let t = s.pop().unwrap();
-                    if t.contains(",") {
-                        tmp.push(t);
-                    } else {
-                        if cur.is_empty() {
-                            cur.push(t);
-                        } else {
-                            let mut cur_tmp = vec![];
-                            while !cur.is_empty() {
-                                let mut u = cur.pop().unwrap();
-                                u.push_str(&t);
-                                cur_tmp.push(u);
-                            }
-                            cur = cur_tmp;
-                        }
-                    }
-                }
-                if !cur.is_empty() {
-                    while !cur.is_empty() {
-                        let u = cur.pop().unwrap();
-                        while !tmp.is_empty() {
-                            let mut v = tmp.pop().unwrap();
-                            v.push_str(&u);
-                            cur.push(v);
-                        }
-                    }
-                } else {
-                    cur = tmp;
-                }
-            }
-        }
-        while !cur.is_empty() {
-            res.push(cur.pop().unwrap());
-        }
-        res.sort();
-        res.dedup();
-        return res;
+
+        (HashSet::from([word]), pos)
     }
 }
+
