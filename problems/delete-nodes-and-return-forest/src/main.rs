@@ -116,42 +116,35 @@ impl TreeNode {
     }
 }
 use std::cell::RefCell;
+use std::collections::HashSet;
 use std::rc::Rc;
 impl Solution {
     fn del_nodes_sub(
-        root: &mut Option<Rc<RefCell<TreeNode>>>,
-        to_delete: &mut Vec<i32>,
+        root: Option<Rc<RefCell<TreeNode>>>,
+        to_delete: &HashSet<i32>,
         result: &mut Vec<Option<Rc<RefCell<TreeNode>>>>,
-    ) {
-        if root.is_none() {
-            return;
+        is_root: bool,
+    ) -> Option<Rc<RefCell<TreeNode>>> {
+        let node_rc = root?;
+
+        let mut node = node_rc.borrow_mut();
+        let deleted = to_delete.contains(&node.val);
+
+        if is_root && !deleted {
+            result.push(Some(node_rc.clone()));
         }
-        let mut root = root.as_mut().unwrap().borrow_mut();
-        if to_delete.len() == 0 {
-            return;
-        }
-        if root.left.is_some() {
-            let mut left = root.left.take();
-            Solution::del_nodes_sub(&mut left, to_delete, result);
-            root.left = left;
-        }
-        if root.right.is_some() {
-            let mut right = root.right.take();
-            Solution::del_nodes_sub(&mut right, to_delete, result);
-            root.right = right;
-        }
-        if to_delete.len() == 0 {
-            return;
-        }
-        if to_delete[to_delete.len() - 1] == root.val {
-            to_delete.pop();
-            if root.left.is_some() {
-                result.push(root.left.take());
-            }
-            if root.right.is_some() {
-                result.push(root.right.take());
-            }
-            *root = TreeNode::new(0);
+
+        let left = node.left.take();
+        let right = node.right.take();
+        node.left = Solution::del_nodes_sub(left, to_delete, result, deleted);
+        node.right = Solution::del_nodes_sub(right, to_delete, result, deleted);
+
+        drop(node);
+
+        if deleted {
+            None
+        } else {
+            Some(node_rc)
         }
     }
     pub fn del_nodes(
@@ -159,14 +152,8 @@ impl Solution {
         to_delete: Vec<i32>,
     ) -> Vec<Option<Rc<RefCell<TreeNode>>>> {
         let mut result = vec![];
-        let mut to_delete = to_delete;
-        to_delete.sort();
-        let mut to_delete = to_delete.iter().rev().map(|x| *x).collect::<Vec<i32>>();
-        let mut root = root;
-        Solution::del_nodes_sub(&mut root, &mut to_delete, &mut result);
-        if root.is_some() {
-            result.push(root);
-        }
-        return result;
+        let delete_set: HashSet<i32> = to_delete.into_iter().collect();
+        Solution::del_nodes_sub(root, &delete_set, &mut result, true);
+        result
     }
 }
