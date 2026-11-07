@@ -5,7 +5,7 @@ fn main() {
     );
     assert_eq!(
         Solution::max_depth_after_split("()(())()".to_string()),
-        vec![0, 0, 0, 1, 1, 0, 1, 1]
+        vec![0, 0, 0, 1, 1, 0, 0, 0]
     );
 }
 
@@ -16,11 +16,11 @@ impl Solution {
         let mut result = vec![];
         for c in seq.chars() {
             if c == '(' {
+                result.push(depth % 2);
                 depth += 1;
-                result.push(depth % 2);
             } else {
-                result.push(depth % 2);
                 depth -= 1;
+                result.push(depth % 2);
             }
         }
         return result;
