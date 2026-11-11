@@ -1,3 +1,5 @@
+use std::collections::HashMap;
+
 fn main() {
     assert_eq!(
         Solution::smallest_sufficient_team(
@@ -43,30 +45,78 @@ fn main() {
         ),
         vec![1, 2]
     );
+    assert_eq!(
+        Solution::smallest_sufficient_team(
+            vec!["a".to_string(), "b".to_string()],
+            vec![
+                vec!["a".to_string()],
+                vec!["b".to_string()],
+                vec!["a".to_string(), "b".to_string()]
+            ]
+        ),
+        vec![2]
+    );
+    assert_eq!(
+        Solution::smallest_sufficient_team(
+            vec![],
+            vec![vec!["a".to_string()]]
+        ),
+        vec![]
+    );
 }
 
 struct Solution;
 impl Solution {
     pub fn smallest_sufficient_team(req_skills: Vec<String>, people: Vec<Vec<String>>) -> Vec<i32> {
-        let mut skills = vec![0; 1 << req_skills.len()];
-        let mut parents = vec![vec![]; 1 << req_skills.len()];
-        for (i, p) in people.iter().enumerate() {
-            let mut skill = 0;
-            for s in p {
-                skill |= 1 << req_skills.iter().position(|x| x == s).unwrap();
+        if req_skills.is_empty() {
+            return Vec::new();
+        }
+
+        let skill_to_bit: HashMap<&str, usize> = req_skills
+            .iter()
+            .enumerate()
+            .map(|(index, skill)| (skill.as_str(), index))
+            .collect();
+
+        let total_masks = 1usize << req_skills.len();
+        let mut person_masks = vec![0usize; people.len()];
+        for (index, person) in people.iter().enumerate() {
+            let mut mask = 0usize;
+            for skill in person {
+                if let Some(&bit) = skill_to_bit.get(skill.as_str()) {
+                    mask |= 1usize << bit;
+                }
             }
-            for j in 0..skills.len() {
-                let next = j | skill;
-                if skills[next] == 0 || skills[next] > skills[j] + 1 {
-                    skills[next] = skills[j] + 1;
-                    parents[next] = parents[j].clone();
-                    parents[next].push(i);
+            person_masks[index] = mask;
+        }
+
+        let mut dp: Vec<Option<Vec<usize>>> = vec![None; total_masks];
+        dp[0] = Some(Vec::new());
+
+        for person_index in 0..people.len() {
+            let person_mask = person_masks[person_index];
+            if person_mask == 0 {
+                continue;
+            }
+
+            for mask in 0..total_masks {
+                if let Some(team) = &dp[mask] {
+                    let next_mask = mask | person_mask;
+                    let mut candidate = team.clone();
+                    candidate.push(person_index);
+                    match &dp[next_mask] {
+                        Some(existing) if existing.len() <= candidate.len() => {}
+                        _ => dp[next_mask] = Some(candidate),
+                    }
                 }
             }
         }
-        return parents[skills.len() - 1]
-            .iter()
-            .map(|x| *x as i32)
-            .collect();
+
+        dp[total_masks - 1]
+            .clone()
+            .unwrap_or_default()
+            .into_iter()
+            .map(|index| index as i32)
+            .collect()
     }
 }
