@@ -1,97 +1,10 @@
-fn main() {
-    assert_eq!(
-        Solution::lca_deepest_leaves(Some(Rc::new(RefCell::new(TreeNode {
-            val: 3,
-            left: Some(Rc::new(RefCell::new(TreeNode {
-                val: 5,
-                left: Some(Rc::new(RefCell::new(TreeNode {
-                    val: 6,
-                    left: None,
-                    right: None
-                }))),
-                right: Some(Rc::new(RefCell::new(TreeNode {
-                    val: 2,
-                    left: Some(Rc::new(RefCell::new(TreeNode {
-                        val: 7,
-                        left: None,
-                        right: None
-                    }))),
-                    right: Some(Rc::new(RefCell::new(TreeNode {
-                        val: 4,
-                        left: None,
-                        right: None
-                    })))
-                })))
-            }))),
-            right: Some(Rc::new(RefCell::new(TreeNode {
-                val: 1,
-                left: Some(Rc::new(RefCell::new(TreeNode {
-                    val: 0,
-                    left: None,
-                    right: None
-                }))),
-                right: Some(Rc::new(RefCell::new(TreeNode {
-                    val: 8,
-                    left: None,
-                    right: None
-                })))
-            })))
-        })))),
-        Some(Rc::new(RefCell::new(TreeNode {
-            val: 2,
-            left: Some(Rc::new(RefCell::new(TreeNode {
-                val: 7,
-                left: None,
-                right: None
-            }))),
-            right: Some(Rc::new(RefCell::new(TreeNode {
-                val: 4,
-                left: None,
-                right: None
-            })))
-        })))
-    );
+use std::cell::RefCell;
+use std::rc::Rc;
 
-    assert_eq!(
-        Solution::lca_deepest_leaves(Some(Rc::new(RefCell::new(TreeNode {
-            val: 1,
-            left: None,
-            right: None
-        })))),
-        Some(Rc::new(RefCell::new(TreeNode {
-            val: 1,
-            left: None,
-            right: None
-        })))
-    );
+fn main() {}
 
-    assert_eq!(
-        Solution::lca_deepest_leaves(Some(Rc::new(RefCell::new(TreeNode {
-            val: 0,
-            left: Some(Rc::new(RefCell::new(TreeNode {
-                val: 1,
-                left: None,
-                right: Some(Rc::new(RefCell::new(TreeNode {
-                    val: 2,
-                    left: None,
-                    right: None
-                })))
-            }))),
-            right: Some(Rc::new(RefCell::new(TreeNode {
-                val: 3,
-                left: None,
-                right: None
-            })))
-        })))),
-        Some(Rc::new(RefCell::new(TreeNode {
-            val: 2,
-            left: None,
-            right: None
-        })))
-    );
-}
+struct Solution;
 
-struct Solution {}
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
@@ -110,77 +23,89 @@ impl TreeNode {
         }
     }
 }
-use std::cell::RefCell;
-use std::rc::Rc;
+
+fn node(val: i32, left: Option<Rc<RefCell<TreeNode>>>, right: Option<Rc<RefCell<TreeNode>>>) -> Option<Rc<RefCell<TreeNode>>> {
+    Some(Rc::new(RefCell::new(TreeNode { val, left, right })))
+}
+
 impl Solution {
     pub fn lca_deepest_leaves(
         root: Option<Rc<RefCell<TreeNode>>>,
     ) -> Option<Rc<RefCell<TreeNode>>> {
-        let mut max_depth = 0;
-        let mut max_depth_node = None;
-        fn find_max_depth(
-            node: Option<Rc<RefCell<TreeNode>>>,
-            depth: i32,
-            max_depth: &mut i32,
-            max_depth_node: &mut Option<Rc<RefCell<TreeNode>>>,
-        ) {
-            if let Some(n) = node {
-                if depth > *max_depth {
-                    *max_depth = depth;
-                    *max_depth_node = Some(n.clone());
-                }
-                find_max_depth(
-                    n.borrow().left.clone(),
-                    depth + 1,
-                    max_depth,
-                    max_depth_node,
-                );
-                find_max_depth(
-                    n.borrow().right.clone(),
-                    depth + 1,
-                    max_depth,
-                    max_depth_node,
-                );
+        fn deepest(node: Option<&Rc<RefCell<TreeNode>>>) -> (i32, Option<Rc<RefCell<TreeNode>>>) {
+            let Some(current) = node else {
+                return (-1, None);
+            };
+
+            let left = deepest(current.borrow().left.as_ref());
+            let right = deepest(current.borrow().right.as_ref());
+
+            match left.0.cmp(&right.0) {
+                std::cmp::Ordering::Greater => (left.0 + 1, left.1),
+                std::cmp::Ordering::Less => (right.0 + 1, right.1),
+                std::cmp::Ordering::Equal => (left.0 + 1, Some(Rc::clone(current))),
             }
         }
-        find_max_depth(root.clone(), 0, &mut max_depth, &mut max_depth_node);
-        let mut result = None;
-        fn find_lca(
-            node: Option<Rc<RefCell<TreeNode>>>,
-            depth: i32,
-            max_depth: i32,
-            max_depth_node: Option<Rc<RefCell<TreeNode>>>,
-            result: &mut Option<Rc<RefCell<TreeNode>>>,
-        ) -> i32 {
-            if let Some(n) = node {
-                let left_depth = find_lca(
-                    n.borrow().left.clone(),
-                    depth + 1,
-                    max_depth,
-                    max_depth_node.clone(),
-                    result,
-                );
-                let right_depth = find_lca(
-                    n.borrow().right.clone(),
-                    depth + 1,
-                    max_depth,
-                    max_depth_node.clone(),
-                    result,
-                );
-                if left_depth == max_depth && right_depth == max_depth {
-                    *result = Some(n.clone());
-                }
-                return std::cmp::max(left_depth, right_depth);
-            }
-            return depth;
-        }
-        find_lca(
-            root.clone(),
-            0,
-            max_depth,
-            max_depth_node.clone(),
-            &mut result,
+
+        deepest(root.as_ref()).1
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn example_1() {
+        let root = node(
+            3,
+            node(
+                5,
+                node(6, None, None),
+                node(
+                    2,
+                    node(7, None, None),
+                    node(4, None, None),
+                ),
+            ),
+            node(
+                1,
+                node(0, None, None),
+                node(8, None, None),
+            ),
         );
-        return result;
+
+        let expected = node(
+            2,
+            node(7, None, None),
+            node(4, None, None),
+        );
+
+        assert_eq!(Solution::lca_deepest_leaves(root), expected);
+    }
+
+    #[test]
+    fn single_node() {
+        let root = node(1, None, None);
+        let expected = node(1, None, None);
+
+        assert_eq!(Solution::lca_deepest_leaves(root), expected);
+    }
+
+    #[test]
+    fn deepest_leaf_is_only_leaf_in_its_subtree() {
+        let root = node(
+            0,
+            node(
+                1,
+                None,
+                node(2, None, None),
+            ),
+            node(3, None, None),
+        );
+
+        let expected = node(2, None, None);
+
+        assert_eq!(Solution::lca_deepest_leaves(root), expected);
     }
 }
