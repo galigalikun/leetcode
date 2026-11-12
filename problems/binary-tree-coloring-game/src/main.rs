@@ -96,40 +96,44 @@ impl TreeNode {
 use std::cell::RefCell;
 use std::rc::Rc;
 impl Solution {
-    fn find_x_node(
+    fn count_nodes(root: Option<Rc<RefCell<TreeNode>>>) -> i32 {
+        if let Some(node) = root {
+            return 1 + Solution::count_nodes(node.borrow().left.clone())
+                + Solution::count_nodes(node.borrow().right.clone());
+        }
+        0
+    }
+
+    fn find_node_and_count_subtrees(
         root: Option<Rc<RefCell<TreeNode>>>,
         x: i32,
-        x_node: &mut Option<Rc<RefCell<TreeNode>>>,
-    ) {
+    ) -> Option<(i32, i32)> {
         if let Some(node) = root {
-            if node.borrow().val == x {
-                *x_node = Some(node.clone());
-            } else {
-                Solution::find_x_node(node.borrow().left.clone(), x, x_node);
-                Solution::find_x_node(node.borrow().right.clone(), x, x_node);
+            let node_ref = node.borrow();
+            if node_ref.val == x {
+                let left_count = Solution::count_nodes(node_ref.left.clone());
+                let right_count = Solution::count_nodes(node_ref.right.clone());
+                return Some((left_count, right_count));
+            }
+
+            if let Some(result) = Solution::find_node_and_count_subtrees(node_ref.left.clone(), x) {
+                return Some(result);
+            }
+
+            if let Some(result) = Solution::find_node_and_count_subtrees(node_ref.right.clone(), x) {
+                return Some(result);
             }
         }
+        None
     }
-    fn count_nodes(root: Option<Rc<RefCell<TreeNode>>>, left: &mut i32, right: &mut i32) -> i32 {
-        if let Some(node) = root {
-            let left_count = Solution::count_nodes(node.borrow().left.clone(), left, right);
-            let right_count = Solution::count_nodes(node.borrow().right.clone(), left, right);
-            if left_count > right_count {
-                *left += left_count + 1;
-            } else {
-                *right += right_count + 1;
-            }
-            return left_count + right_count + 1;
-        }
-        return 0;
-    }
+
     pub fn btree_game_winning_move(root: Option<Rc<RefCell<TreeNode>>>, n: i32, x: i32) -> bool {
-        let mut left = 0;
-        let mut right = 0;
-        let mut x_node = None;
-        Solution::find_x_node(root.clone(), x, &mut x_node);
-        Solution::count_nodes(x_node.clone(), &mut left, &mut right);
-        let parent = n - left - right - 1;
-        return parent > left + right || left > parent + right || right > parent + left;
+        if let Some((left_count, right_count)) = Solution::find_node_and_count_subtrees(root, x) {
+            let parent_count = n - left_count - right_count - 1;
+            return left_count > parent_count + right_count
+                || right_count > left_count + parent_count
+                || parent_count > left_count + right_count;
+        }
+        false
     }
 }
