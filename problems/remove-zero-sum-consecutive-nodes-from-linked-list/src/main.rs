@@ -79,31 +79,49 @@ impl ListNode {
 }
 impl Solution {
     pub fn remove_zero_sum_sublists(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-        let mut head = head;
-        let mut dummy = Some(Box::new(ListNode::new(0)));
-        let mut dummy_ref = dummy.as_mut();
-        dummy_ref.unwrap().next = head;
-        let mut sum = 0;
-        let mut map = std::collections::HashMap::new();
-        while let Some(node) = dummy_ref.unwrap().next.take() {
-            sum += node.val;
-            if let Some(n) = map.get(&sum) {
-                dummy_ref = n.next.as_mut();
-                sum = sum - node.val;
-                while let Some(node) = dummy_ref.unwrap().next.take() {
-                    sum += node.val;
-                    if sum == 0 {
-                        dummy_ref.unwrap().next = node.next;
-                        break;
-                    }
-                    dummy_ref = dummy_ref.unwrap().next.as_mut();
+        // Convert list to vector for easier manipulation
+        let mut nodes = Vec::new();
+        let mut current = head;
+        
+        while let Some(mut node) = current {
+            current = node.next.take();
+            nodes.push(node.val);
+        }
+        
+        // Keep removing zero-sum sequences until none exist
+        loop {
+            let mut sum = 0;
+            let mut prev_sums = std::collections::HashMap::new();
+            prev_sums.insert(0, -1i32);
+            
+            let mut removed = false;
+            for i in 0..nodes.len() {
+                sum += nodes[i];
+                
+                if prev_sums.contains_key(&sum) {
+                    // Found a zero-sum sequence
+                    let start = (*prev_sums.get(&sum).unwrap() + 1) as usize;
+                    nodes.drain(start..=i);
+                    removed = true;
+                    break;
                 }
-            } else {
-                map.insert(sum, dummy_ref.unwrap());
-                dummy_ref.unwrap().next = Some(node);
-                dummy_ref = dummy_ref.unwrap().next.as_mut();
+                
+                prev_sums.insert(sum, i as i32);
+            }
+            
+            if !removed {
+                break;
             }
         }
-        return dummy.unwrap().next;
+        
+        // Convert vector back to linked list
+        let mut result = None;
+        for &val in nodes.iter().rev() {
+            let mut node = Box::new(ListNode::new(val));
+            node.next = result;
+            result = Some(node);
+        }
+        
+        result
     }
 }
