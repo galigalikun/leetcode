@@ -1,86 +1,109 @@
+use std::cmp::Reverse;
+use std::collections::BinaryHeap;
+
 struct DinnerPlates {
-    capacity: i32,
+    capacity: usize,
     stacks: Vec<Vec<i32>>,
-    left: i32,
-    right: i32,
+    non_full: BinaryHeap<Reverse<usize>>,
 }
 
-/**
- * `&self` means the method takes an immutable reference.
- * If you need a mutable reference, change it to `&mut self` instead.
- */
 impl DinnerPlates {
     fn new(capacity: i32) -> Self {
-        DinnerPlates {
-            capacity: capacity,
-            stacks: vec![],
-            left: 0,
-            right: 0,
+        Self {
+            capacity: capacity as usize,
+            stacks: Vec::new(),
+            non_full: BinaryHeap::new(),
+        }
+    }
+
+    fn trim_right_empty(&mut self) {
+        while self.stacks.last().is_some_and(|stack| stack.is_empty()) {
+            self.stacks.pop();
         }
     }
 
     fn push(&mut self, val: i32) {
-        let mut index = self.left;
-        while index < self.stacks.len() as i32
-            && self.stacks[index as usize].len() == self.capacity as usize
-        {
-            index += 1;
+        while let Some(&Reverse(index)) = self.non_full.peek() {
+            if index >= self.stacks.len() || self.stacks[index].len() == self.capacity {
+                self.non_full.pop();
+            } else {
+                break;
+            }
         }
-        if index == self.stacks.len() as i32 {
-            self.stacks.push(vec![]);
+
+        if let Some(Reverse(index)) = self.non_full.pop() {
+            self.stacks[index].push(val);
+            if self.stacks[index].len() < self.capacity {
+                self.non_full.push(Reverse(index));
+            }
+            return;
         }
-        self.stacks[index as usize].push(val);
-        self.left = index;
-        self.right = self.right.max(index + 1);
+
+        self.stacks.push(vec![val]);
+        let index = self.stacks.len() - 1;
+        if self.stacks[index].len() < self.capacity {
+            self.non_full.push(Reverse(index));
+        }
     }
 
     fn pop(&mut self) -> i32 {
-        let mut index = self.right;
-        while index >= 0 && self.stacks[index as usize].len() == 0 {
-            index -= 1;
-        }
-        if index < 0 {
+        self.trim_right_empty();
+        let Some(last_index) = self.stacks.len().checked_sub(1) else {
             return -1;
+        };
+
+        let value = self.stacks[last_index]
+            .pop()
+            .expect("last stack is non-empty after trimming");
+        if self.stacks[last_index].len() + 1 == self.capacity {
+            self.non_full.push(Reverse(last_index));
         }
-        let val = self.stacks[index as usize].pop().unwrap_or(-1);
-        self.left = self.left.min(index);
-        self.right = index;
-        return val;
+        self.trim_right_empty();
+        value
     }
 
     fn pop_at_stack(&mut self, index: i32) -> i32 {
-        if index >= self.stacks.len() as i32 || self.stacks[index as usize].len() == 0 {
+        let index = index as usize;
+        if index >= self.stacks.len() || self.stacks[index].is_empty() {
             return -1;
         }
-        let val = self.stacks[index as usize].pop().unwrap_or(-1);
-        self.left = self.left.min(index);
-        self.right = self.right.max(index + 1);
-        return val;
+
+        let value = self.stacks[index]
+            .pop()
+            .expect("checked non-empty stack before pop");
+        if self.stacks[index].len() + 1 == self.capacity {
+            self.non_full.push(Reverse(index));
+        }
+        if index + 1 == self.stacks.len() {
+            self.trim_right_empty();
+        }
+        value
     }
 }
 
-/**
- * Your DinnerPlates object will be instantiated and called as such:
- * let obj = DinnerPlates::new(capacity);
- * obj.push(val);
- * let ret_2: i32 = obj.pop();
- * let ret_3: i32 = obj.pop_at_stack(index);
- */
-fn main() {
-    let mut obj = DinnerPlates::new(2);
-    obj.push(1);
-    obj.push(2);
-    obj.push(3);
-    obj.push(4);
-    obj.push(5);
-    assert_eq!(4, obj.pop_at_stack(0));
-    obj.push(20);
-    obj.push(21);
-    assert_eq!(20, obj.pop_at_stack(0));
-    assert_eq!(21, obj.pop_at_stack(2));
-    assert_eq!(5, obj.pop());
-    assert_eq!(4, obj.pop());
-    assert_eq!(3, obj.pop());
-    assert_eq!(1, obj.pop());
-    assert_eq!(-1, obj.pop());
+fn main() {}
+
+#[cfg(test)]
+mod tests {
+    use super::DinnerPlates;
+
+    #[test]
+    fn leetcode_example() {
+        let mut obj = DinnerPlates::new(2);
+        obj.push(1);
+        obj.push(2);
+        obj.push(3);
+        obj.push(4);
+        obj.push(5);
+        assert_eq!(2, obj.pop_at_stack(0));
+        obj.push(20);
+        obj.push(21);
+        assert_eq!(20, obj.pop_at_stack(0));
+        assert_eq!(21, obj.pop_at_stack(2));
+        assert_eq!(5, obj.pop());
+        assert_eq!(4, obj.pop());
+        assert_eq!(3, obj.pop());
+        assert_eq!(1, obj.pop());
+        assert_eq!(-1, obj.pop());
+    }
 }
