@@ -7,38 +7,35 @@ fn main() {
 struct Solution;
 impl Solution {
     pub fn maximum_sum(arr: Vec<i32>) -> i32 {
-        let mut max = arr[0];
-        let mut max_ending_here = arr[0];
-        let mut max_so_far = arr[0];
-        let mut skip = false;
-        for i in 1..arr.len() {
-            if arr[i] < 0 {
-                if skip {
-                    max_ending_here = arr[i];
-                    max_so_far = arr[i];
-                    skip = false;
-                } else {
-                    max_ending_here = std::cmp::max(max_ending_here + arr[i], arr[i]);
-                    max_so_far = std::cmp::max(max_so_far, max_ending_here);
-                }
-            } else {
-                if skip {
-                    max_ending_here = std::cmp::max(max_ending_here + arr[i], arr[i]);
-                    max_so_far = std::cmp::max(max_so_far, max_ending_here);
-                } else {
-                    max_ending_here = std::cmp::max(max_ending_here + arr[i], arr[i]);
-                    max_so_far = std::cmp::max(max_so_far, max_ending_here);
-                    skip = true;
-                }
+        let n = arr.len();
+        
+        // no_del[i] = max sum ending at i with no deletion
+        // one_del[i] = max sum ending at i with exactly one deletion
+        let mut no_del = arr[0];
+        let mut one_del: Option<i32> = None;
+        let mut result = arr[0];
+        
+        for i in 1..n {
+            // Update one_del first (needs old no_del)
+            let new_one_del = match one_del {
+                None => Some(no_del),
+                Some(val) => Some(std::cmp::max(no_del, val + arr[i])),
+            };
+            
+            // Update no_del
+            // Option 1: start new subarray from current element
+            // Option 2: extend no_del with current element
+            no_del = std::cmp::max(arr[i], no_del + arr[i]);
+            
+            one_del = new_one_del;
+            
+            // Update result
+            result = std::cmp::max(result, no_del);
+            if let Some(val) = one_del {
+                result = std::cmp::max(result, val);
             }
-            max = std::cmp::max(max, arr[i]);
         }
-        if max < 0 {
-            return max;
-        }
-        if max_so_far > 0 {
-            return max_so_far;
-        }
-        return max;
+        
+        result
     }
 }
